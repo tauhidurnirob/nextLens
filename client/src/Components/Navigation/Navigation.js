@@ -2,12 +2,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import { Box, ButtonGroup, Container, Grid } from "@material-ui/core";
+import { Box, ButtonGroup, Container, Grid, Badge } from "@material-ui/core";
 import clsx from "clsx";
 import MobileNavigation from "./MobileNavigation";
 import { useMediaQuery } from "react-responsive";
 import Link from "next/link";
 import { Text } from "../../Re_components";
+import SearchIcon from "@material-ui/icons/Search";
+import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
     background: "white !important",
     padding: "5px 0px",
   },
+  icon: {
+    display: "flex",
+    cursor: "pointer",
+  },
 }));
 
 const Navigation = () => {
@@ -43,6 +50,22 @@ const Navigation = () => {
   });
   const classes = useStyles();
 
+  const icons = (
+    <>
+      <Box mr={2}>
+        <SearchIcon />
+      </Box>
+      <Box mr={2}>
+        <AccountCircleOutlinedIcon />
+      </Box>
+      <Box mr={2}>
+        <Badge badgeContent={4} color="secondary">
+          <ShoppingCartOutlinedIcon />
+        </Badge>
+      </Box>
+    </>
+  );
+
   return (
     <Box component="div" className={clsx(classes.root)}>
       <AppBar position="fixed" className={clsx(classes.appBar)}>
@@ -50,9 +73,12 @@ const Navigation = () => {
           <Toolbar>
             <Grid container justify="space-between" alignItems="center">
               {isDesktopOrLaptop && <MobileNavigation />}
-              <Grid item>
-                <Text variant="h4">NextLens</Text>
-              </Grid>
+              {!isDesktopOrLaptop && (
+                <Grid item>
+                  <Text variant="h5">NextLens</Text>
+                </Grid>
+              )}
+
               <Grid item>
                 <ButtonGroup
                   color="inherit"
@@ -69,7 +95,9 @@ const Navigation = () => {
                   ))}
                 </ButtonGroup>
               </Grid>
-              <Grid>Shakib</Grid>
+              <Grid item className={clsx(classes.icon)}>
+                {icons}
+              </Grid>
             </Grid>
           </Toolbar>
         </Container>
