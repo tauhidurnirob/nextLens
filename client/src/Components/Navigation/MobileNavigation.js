@@ -59,10 +59,10 @@ export default function MobileNavigation() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List className={clsx(classes.list)}>
-        {route.map((item, index) => (
-          <Link href={item.to} key={index}>
+        {router.map((item, index) => (
+          <Link href={item.route} key={index}>
             <ListItem button className={clsx(classes.linkButtonHover)}>
-              <ListItemText primary={item.name} />
+              <ListItemText primary={item.routeName} />
             </ListItem>
           </Link>
         ))}
@@ -96,10 +96,11 @@ export default function MobileNavigation() {
   );
 }
 
-const route = [
-  { name: "Host your Home", to: "/" },
-  { name: "Host your experience", to: "/" },
-  { name: "Help", to: "/" },
-  { name: "Login", to: "/" },
-  { name: "Sign up", to: "/" },
+const router = [
+  { routeName: "Home", route: "/home" },
+  { routeName: "Eyeglasses", route: "/home" },
+  { routeName: "sunglasses", route: "/home" },
+  { routeName: "blue light block glass", route: "/home" },
+  { routeName: "Blog", route: "/home" },
+  { routeName: "Contact", route: "/home" },
 ];
