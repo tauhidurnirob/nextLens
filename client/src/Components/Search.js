@@ -5,26 +5,25 @@ import {
   InputLabel,
   FormControl,
   OutlinedInput,
+  InputAdornment,
+  IconButton,
 } from "@material-ui/core";
 import clsx from "clsx";
 import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   form: {
     width: "100%",
-    marginTop: "20px",
+    margin: "10px 0",
   },
 }));
 
-const Search = () => {
+const Search = ({ setIsSearch }) => {
   const classes = useStyles();
 
   return (
     <Container maxWidth="lg">
-      <FormControl
-        className={clsx(classes.margin, classes.textField)}
-        variant="filled"
-      >
+      <FormControl className={clsx(classes.form)} variant="filled">
         <InputLabel htmlFor="filled-adornment-password">Search...</InputLabel>
         <OutlinedInput
           id="filled-adornment-search"
@@ -32,7 +31,7 @@ const Search = () => {
             <InputAdornment position="end">
               <IconButton
                 aria-label="Search visibility"
-                //   onClick={handleClickShowPassword}
+                onClick={() => setIsSearch(false)}
                 edge="end"
               >
                 <CancelOutlinedIcon />

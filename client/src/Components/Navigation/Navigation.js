@@ -12,6 +12,7 @@ import { Text } from "../../Re_components";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import Search from "../Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,7 +57,7 @@ const Navigation = () => {
 
   const icons = (
     <>
-      <Box mr={2}>
+      <Box mr={2} onClick={() => setIsSearch(true)}>
         <SearchIcon />
       </Box>
       <Box mr={2}>
@@ -74,36 +75,40 @@ const Navigation = () => {
     <Box component="div" className={clsx(classes.root)}>
       <AppBar position="fixed" className={clsx(classes.appBar)}>
         <Container maxWidth={false} className={clsx(classes.container)}>
-          <Toolbar>
-            <Grid container justify="space-between" alignItems="center">
-              {isDesktopOrLaptop && <MobileNavigation />}
-              {!isDesktopOrLaptop && (
-                <Grid item>
-                  <Text variant="h5">NextLens</Text>
-                </Grid>
-              )}
+          {isSearch ? (
+            <Search setIsSearch={setIsSearch} />
+          ) : (
+            <Toolbar>
+              <Grid container justify="space-between" alignItems="center">
+                {isDesktopOrLaptop && <MobileNavigation />}
+                {!isDesktopOrLaptop && (
+                  <Grid item>
+                    <Text variant="h5">NextLens</Text>
+                  </Grid>
+                )}
 
-              <Grid item>
-                <ButtonGroup
-                  color="inherit"
-                  className={clsx(classes.linkButton)}
-                >
-                  {router.map((item, index) => (
-                    <Box mr={2} key={index}>
-                      <Link href={item.route}>
-                        <Button className={clsx(classes.linkButtonHover)}>
-                          {item.routeName}
-                        </Button>
-                      </Link>
-                    </Box>
-                  ))}
-                </ButtonGroup>
+                <Grid item>
+                  <ButtonGroup
+                    color="inherit"
+                    className={clsx(classes.linkButton)}
+                  >
+                    {router.map((item, index) => (
+                      <Box mr={2} key={index}>
+                        <Link href={item.route}>
+                          <Button className={clsx(classes.linkButtonHover)}>
+                            {item.routeName}
+                          </Button>
+                        </Link>
+                      </Box>
+                    ))}
+                  </ButtonGroup>
+                </Grid>
+                <Grid item className={clsx(classes.icon)}>
+                  {icons}
+                </Grid>
               </Grid>
-              <Grid item className={clsx(classes.icon)}>
-                {icons}
-              </Grid>
-            </Grid>
-          </Toolbar>
+            </Toolbar>
+          )}
         </Container>
       </AppBar>
     </Box>
