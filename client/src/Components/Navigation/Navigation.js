@@ -85,9 +85,9 @@ const Navigation = () => {
 
 const router = [
   { routeName: "Home", route: "/home" },
-  { routeName: "About us", route: "/home" },
-  { routeName: "Accomodation", route: "/home" },
-  { routeName: "Gallery", route: "/home" },
+  { routeName: "Eyeglasses", route: "/home" },
+  { routeName: "sunglasses", route: "/home" },
+  { routeName: "blue light block glass", route: "/home" },
   { routeName: "Blog", route: "/home" },
   { routeName: "Contact", route: "/home" },
 ];
