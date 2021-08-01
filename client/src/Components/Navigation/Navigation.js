@@ -2,17 +2,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import {
-  Box,
-  ButtonGroup,
-  Container,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Box, ButtonGroup, Container, Grid } from "@material-ui/core";
 import clsx from "clsx";
 import MobileNavigation from "./MobileNavigation";
 import { useMediaQuery } from "react-responsive";
 import Link from "next/link";
+import { Text } from "../../Re_components";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,7 +51,10 @@ const Navigation = () => {
             <Grid container justify="space-between" alignItems="center">
               {isDesktopOrLaptop && <MobileNavigation />}
               <Grid item>
-                <Typography variant="h4"> NextLens </Typography>
+                <Text variant="h4" textColor="white">
+                  {" "}
+                  NextLens{" "}
+                </Text>
               </Grid>
               <Grid item>
                 <ButtonGroup
