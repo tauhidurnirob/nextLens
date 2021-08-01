@@ -2,10 +2,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import { Box, ButtonGroup, Container, Grid } from "@material-ui/core";
+import {
+  Box,
+  ButtonGroup,
+  Container,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 import clsx from "clsx";
 import MobileNavigation from "./MobileNavigation";
-import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
 import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,21 +43,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navigation = () => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(max-width: 992px)",
+  });
   const classes = useStyles();
 
   return (
     <Box component="div" className={clsx(classes.root)}>
       <AppBar position="fixed" className={clsx(classes.appBar)}>
-        <Container maxWidth="md" className={clsx(classes.container)}>
+        <Container maxWidth={false} className={clsx(classes.container)}>
           <Toolbar>
             <Grid container justify="space-between" alignItems="center">
+              {isDesktopOrLaptop && <MobileNavigation />}
               <Grid item>
-                {/* <Image
-                  src="/image/Logo.png"
-                  alt="Picture of Logo"
-                  width={128}
-                  height={24}
-                /> */}
+                <Typography variant="h4"> NextLens </Typography>
               </Grid>
               <Grid item>
                 <ButtonGroup
@@ -68,8 +73,8 @@ const Navigation = () => {
                     </Box>
                   ))}
                 </ButtonGroup>
-                <MobileNavigation />
               </Grid>
+              <Grid>Shakib</Grid>
             </Grid>
           </Toolbar>
         </Container>

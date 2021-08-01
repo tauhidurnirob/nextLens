@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   list: {
-    width: 250,
+    width: 350,
   },
   fullList: {
     width: "auto",
@@ -72,7 +72,7 @@ export default function MobileNavigation() {
 
   return (
     <Box component="div">
-      {["right"].map((anchor) => (
+      {["left"].map((anchor) => (
         <Fragment key={anchor}>
           <IconButton
             edge="end"
@@ -84,7 +84,7 @@ export default function MobileNavigation() {
             <MenuIcon />
           </IconButton>
           <Drawer
-            anchor="right"
+            anchor="left"
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
           >
