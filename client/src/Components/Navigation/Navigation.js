@@ -51,10 +51,7 @@ const Navigation = () => {
             <Grid container justify="space-between" alignItems="center">
               {isDesktopOrLaptop && <MobileNavigation />}
               <Grid item>
-                <Text variant="h4" textColor="white">
-                  {" "}
-                  NextLens{" "}
-                </Text>
+                <Text variant="h4">NextLens</Text>
               </Grid>
               <Grid item>
                 <ButtonGroup

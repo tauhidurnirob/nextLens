@@ -3,12 +3,7 @@ import React from "react";
 import colors from "../config/colors";
 
 const Text = ({ children, textColor, ...otherProps }) => {
-  console.log(colors[textColor]);
-  return (
-    <Typography {...otherProps} style={{ color: colors[textColor] }}>
-      {children}
-    </Typography>
-  );
+  return <Typography {...otherProps}>{children}</Typography>;
 };
 
 export default Text;
