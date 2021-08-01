@@ -6,7 +6,6 @@ import img3 from "../assets/c3.png";
 import Carousel from "./Carousel";
 import Slider from "react-slick";
 
-
 const Banner = () => {
   const settings = {
     dots: true,
@@ -14,6 +13,7 @@ const Banner = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
   };
 
   return (
@@ -21,9 +21,9 @@ const Banner = () => {
       isBanner
       slider={
         <Slider {...settings}>
-          <Image src={img1} />
-          <Image src={img2} />
-          <Image src={img3} />
+          {images.map((item) => (
+            <Image src={item.image} />
+          ))}
         </Slider>
       }
     />
@@ -31,3 +31,5 @@ const Banner = () => {
 };
 
 export default Banner;
+
+const images = [{ image: img1 }, { image: img2 }, { image: img3 }];

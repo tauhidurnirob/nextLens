@@ -15,8 +15,9 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import Search from "../Search";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+  toolbar: {
+    width: "95%",
+    margin: "0 auto",
   },
 
   linkButton: {
@@ -72,13 +73,13 @@ const Navigation = () => {
   );
 
   return (
-    <Box component="div" className={clsx(classes.root)}>
+    <Box component="div">
       <AppBar position="fixed" className={clsx(classes.appBar)}>
         <Container maxWidth={false} className={clsx(classes.container)}>
           {isSearch ? (
             <Search setIsSearch={setIsSearch} />
           ) : (
-            <Toolbar>
+            <Toolbar className={clsx(classes.toolbar)}>
               <Grid container justify="space-between" alignItems="center">
                 {isDesktopOrLaptop && <MobileNavigation />}
                 {!isDesktopOrLaptop && (
