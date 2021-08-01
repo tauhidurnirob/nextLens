@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -45,9 +46,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navigation = () => {
+  const [isSearch, setIsSearch] = useState(false);
+
   const isDesktopOrLaptop = useMediaQuery({
     query: "(max-width: 992px)",
   });
+
   const classes = useStyles();
 
   const icons = (
