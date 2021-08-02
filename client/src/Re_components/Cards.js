@@ -37,6 +37,7 @@ const Cards = ({
   image = "/images/c1.png",
   height = 345,
   width = 345,
+  ...otherProps
 }) => {
   const classes = useStyles();
 
@@ -44,20 +45,9 @@ const Cards = ({
     <Box component="div" className={clsx(classes.root)}>
       <Box component="div" className={clsx(classes.box)}>
         <CardActionArea>
-          <Image
-            // className={clsx(classes.media)}
-            src={image}
-            alt={title}
-            height={height}
-            width={width}
-          />
+          <Image src={image} alt={title} height={height} width={width} />
           <CardContent className={clsx(classes.cardContent)}>
-            <Text
-              gutterBottom
-              variant="h5"
-              component="h2"
-              style={{ color: "#fff", fontSize: 20 }}
-            >
+            <Text {...otherProps} gutterBottom variant="h5" component="h2">
               {title}
             </Text>
           </CardContent>
