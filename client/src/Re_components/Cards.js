@@ -77,24 +77,25 @@ const Cards = ({
               </Text>
             </CardContent>
           )}
-          {isProduct && (
-            <CardContent
-              className={clsx({
-                [classes.productContent]: isProduct,
-              })}
-            >
-              <Link href={`/product-details/${id}`}>
-                <IconButton size="medium" color="secondary">
-                  <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
-                </IconButton>
-              </Link>
-
-              <IconButton size="medium" color="secondary">
-                <ShoppingBasketOutlinedIcon style={{ fontSize: 30 }} />
-              </IconButton>
-            </CardContent>
-          )}
         </CardActionArea>
+        {isProduct && (
+          <Box
+            component="div"
+            className={clsx({
+              [classes.productContent]: isProduct,
+            })}
+          >
+            <Link href={`/product-details/${id}`}>
+              <IconButton size="medium" color="secondary">
+                <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
+              </IconButton>
+            </Link>
+
+            <IconButton size="medium" color="secondary">
+              <ShoppingBasketOutlinedIcon style={{ fontSize: 30 }} />
+            </IconButton>
+          </Box>
+        )}
       </Box>
     </Box>
   );
