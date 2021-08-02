@@ -3,6 +3,7 @@ import { Container, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -12,12 +13,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Carousel = ({ slider, isBanner }) => {
+const Carousel = ({ slider, isBanner, ...otherProps }) => {
   const classes = useStyles();
 
   return isBanner ? (
     <Container maxWidth={false} className={clsx(classes.container)}>
-      {slider}
+      <Slider {...otherProps}>{slider}</Slider>
     </Container>
   ) : null;
 };

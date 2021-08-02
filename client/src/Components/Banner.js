@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import Image from "next/image";
 
 import { Carousel } from "../Re_components";
-import Slider from "react-slick";
 
 const Banner = () => {
   const settings = {
@@ -17,20 +16,12 @@ const Banner = () => {
   return (
     <Carousel
       isBanner
-      slider={
-        <Slider {...settings}>
-          {images.map((item, index) => (
-            <Fragment key={index}>
-              <Image
-                src={item.image}
-                alt={item.image}
-                height={400}
-                width={400}
-              />
-            </Fragment>
-          ))}
-        </Slider>
-      }
+      {...settings}
+      slider={images.map((item, index) => (
+        <Fragment key={index}>
+          <Image src={item.image} alt={item.image} height={400} width={400} />
+        </Fragment>
+      ))}
     />
   );
 };
