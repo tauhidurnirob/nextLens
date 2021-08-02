@@ -12,6 +12,12 @@ const useStyles = makeStyles({
   },
   media: {
     height: 140,
+    position: "relative",
+  },
+  cardContent: {
+    position: "absolute",
+    top: 10,
+    right: 10,
   },
 });
 
@@ -25,8 +31,10 @@ const Cards = ({ col }) => {
           className={clsx(classes.media)}
           src="/images/c1.png"
           alt="images"
+          height={345}
+          width={345}
         />
-        <CardContent>
+        <CardContent className={clsx(classes.cardContent)}>
           <Text gutterBottom variant="h5" component="h2">
             Lizard
           </Text>
