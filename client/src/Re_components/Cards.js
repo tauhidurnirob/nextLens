@@ -52,6 +52,7 @@ const useStyles = makeStyles({
 const Cards = ({
   title,
   image = "/images/c1.png",
+  id,
   height = 345,
   width = 345,
   isCategory,
@@ -82,7 +83,7 @@ const Cards = ({
                 [classes.productContent]: isProduct,
               })}
             >
-              <Link href="/product-details">
+              <Link href={`/product-details/${id}`}>
                 <IconButton size="medium" color="secondary">
                   <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
                 </IconButton>

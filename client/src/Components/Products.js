@@ -10,9 +10,10 @@ const Products = () => {
       {products.map((item, index) => (
         <Grid container md={4} justifyContent="center">
           <Cards
-            key={index}
+            key={item.id}
             title={item.title}
             image={item.image}
+            id={item.id}
             isProduct
             width={500}
             height={500}
