@@ -9,14 +9,14 @@ const ProductId = ({ data }) => {
 
 export default ProductId;
 
+export async function getStaticProps({ params }) {
+  const data = products.find((item) => item.id.toString() === params.id);
+  return { props: { data }, revalidate: 1 };
+}
+
 export async function getStaticPaths() {
   const paths = products.map((item) => ({
     params: { id: item.id.toString() },
   }));
   return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params }) {
-  const data = products.find((item) => item.id.toString() === params.id);
-  return { props: { data }, revalidate: 1 };
 }
