@@ -4,6 +4,7 @@ import { CardActionArea, CardContent, Box } from "@material-ui/core";
 import clsx from "clsx";
 import Text from "./Text";
 import Image from "next/image";
+import colors from "../../config/colors";
 
 const useStyles = makeStyles({
   root: {
@@ -20,7 +21,8 @@ const useStyles = makeStyles({
     top: 10,
     right: 10,
     padding: "5px 15px",
-    backgroundColor: "red",
+    backgroundColor: colors.black,
+    borderRadius: "5px",
   },
 });
 
@@ -43,7 +45,12 @@ const Cards = ({
           width={width}
         />
         <CardContent className={clsx(classes.cardContent)}>
-          <Text gutterBottom variant="h5" component="h2">
+          <Text
+            gutterBottom
+            variant="h5"
+            component="h2"
+            style={{ color: "#fff" }}
+          >
             {title}
           </Text>
         </CardContent>
