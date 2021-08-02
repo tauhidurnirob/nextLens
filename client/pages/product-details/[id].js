@@ -1,33 +1,22 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
-import { Cards } from "./../Re_components";
-import products from " ../../../fakeData/products";
-// import { useRouter } from "next/router";
 
-const ProductDetails = () => {
-  // const router = useRouter();
-  // console.log(router);
-  return (
-    <Grid container direction="row">
-      <Grid container md={6} justifyContent="center">
-        <Cards
-          key={index}
-          title={data.title}
-          image={data.image}
-          isProduct
-          width={500}
-          height={500}
-        />
-      </Grid>
-    </Grid>
-  );
+import products from "../../fakeData/products";
+import ProductDetails from "./ProductDetail";
+
+const ProductId = ({ data }) => {
+  return <ProductDetails data={data} />;
 };
 
-export default ProductDetails;
+export default ProductId;
 
 export async function getStaticPaths() {
   const paths = products.map((item) => ({
-    params: { id: item.id },
+    params: { id: item.id.toString() },
   }));
-  return { paths, fallback: true };
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const data = products.find((item) => item.id.toString() === params.id);
+  return { props: { data }, revalidate: 1 };
 }
