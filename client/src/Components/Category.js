@@ -18,8 +18,8 @@ const Category = () => {
             key={index}
             title={item.title}
             image={item.image}
-            width={600}
-            height={600}
+            width={500}
+            height={500}
           />
         </Grid>
       ))}
