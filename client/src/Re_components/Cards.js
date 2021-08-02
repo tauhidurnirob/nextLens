@@ -24,7 +24,12 @@ const useStyles = makeStyles({
   },
 });
 
-const Cards = ({ title, image, height = 345, width = 345 }) => {
+const Cards = ({
+  title,
+  image = "/images/c1.png",
+  height = 345,
+  width = 345,
+}) => {
   const classes = useStyles();
 
   return (
@@ -32,8 +37,8 @@ const Cards = ({ title, image, height = 345, width = 345 }) => {
       <CardActionArea>
         <Image
           className={clsx(classes.media)}
-          src="/images/c1.png"
-          alt="images"
+          src={image}
+          alt={title}
           height={height}
           width={width}
         />
