@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
 import Image from "next/image";
-import img1 from "../assets/c1.png";
-import img2 from "../assets/c2.png";
-import img3 from "../assets/c3.png";
+
 import { Carousel } from "../Re_components";
 import Slider from "react-slick";
 
@@ -23,7 +21,12 @@ const Banner = () => {
         <Slider {...settings}>
           {images.map((item, index) => (
             <Fragment key={index}>
-              <Image src={item.image} />
+              <Image
+                src={item.image}
+                alt={item.image}
+                height={400}
+                width={400}
+              />
             </Fragment>
           ))}
         </Slider>
@@ -34,4 +37,8 @@ const Banner = () => {
 
 export default Banner;
 
-const images = [{ image: img1 }, { image: img2 }, { image: img3 }];
+const images = [
+  { image: "/images/c1.png" },
+  { image: "/images/c2.png" },
+  { image: "/images/c3.png" },
+];
