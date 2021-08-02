@@ -39,10 +39,11 @@ const useStyles = makeStyles({
   },
   productContent: {
     position: "absolute",
-    left: 0,
-    right: 0,
-    margin: "0 auto",
-    backgroundColor: colors.white,
+    top: "50%",
+    left: "50%",
+    backgroundColor: "rgb(255,255,255,0.7)",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "25px",
   },
 });
 
@@ -80,10 +81,10 @@ const Cards = ({
               })}
             >
               <IconButton size="medium" color="secondary">
-                <VisibilityOutlinedIcon style={{ fontSize: "25px" }} />
+                <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
               </IconButton>
               <IconButton size="medium" color="secondary">
-                <ShoppingBasketOutlinedIcon />
+                <ShoppingBasketOutlinedIcon style={{ fontSize: 30 }} />
               </IconButton>
             </CardContent>
           )}
