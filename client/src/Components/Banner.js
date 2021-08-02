@@ -3,7 +3,7 @@ import Image from "next/image";
 import img1 from "../assets/c1.png";
 import img2 from "../assets/c2.png";
 import img3 from "../assets/c3.png";
-import Carousel from "./Carousel";
+import { Carousel } from "../Re_components";
 import Slider from "react-slick";
 
 const Banner = () => {
