@@ -5,7 +5,6 @@ import {
   CardContent,
   Box,
   IconButton,
-  Grid,
 } from "@material-ui/core";
 import clsx from "clsx";
 import Text from "./Text";
@@ -40,8 +39,10 @@ const useStyles = makeStyles({
   },
   productContent: {
     position: "absolute",
-    top: 10,
-    right: 10,
+    left: 0,
+    right: 0,
+    margin: "0 auto",
+    backgroundColor: colors.white,
   },
 });
 
@@ -78,10 +79,10 @@ const Cards = ({
                 [classes.productContent]: isProduct,
               })}
             >
-              <IconButton>
-                <VisibilityOutlinedIcon />
+              <IconButton size="medium" color="secondary">
+                <VisibilityOutlinedIcon style={{ fontSize: "25px" }} />
               </IconButton>
-              <IconButton>
+              <IconButton size="medium" color="secondary">
                 <ShoppingBasketOutlinedIcon />
               </IconButton>
             </CardContent>
