@@ -6,8 +6,9 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    width: "95%",
-    margin: "0 auto",
+    maxWidth: "1440px",
+    width: "100%",
+    padding: "0 10px",
   },
 }));
 

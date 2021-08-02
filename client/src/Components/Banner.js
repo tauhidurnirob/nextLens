@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Image from "next/image";
 import img1 from "../assets/c1.png";
 import img2 from "../assets/c2.png";
@@ -21,8 +21,10 @@ const Banner = () => {
       isBanner
       slider={
         <Slider {...settings}>
-          {images.map((item) => (
-            <Image src={item.image} />
+          {images.map((item, index) => (
+            <Fragment key={index}>
+              <Image src={item.image} />
+            </Fragment>
           ))}
         </Slider>
       }

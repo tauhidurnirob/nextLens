@@ -80,7 +80,11 @@ const Navigation = () => {
             <Search setIsSearch={setIsSearch} />
           ) : (
             <Toolbar className={clsx(classes.toolbar)}>
-              <Grid container justify="space-between" alignItems="center">
+              <Grid
+                container
+                justifyContent="space-between"
+                alignItems="center"
+              >
                 {isDesktopOrLaptop && <MobileNavigation />}
                 {!isDesktopOrLaptop && (
                   <Grid item>
