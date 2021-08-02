@@ -43,7 +43,8 @@ const useStyles = makeStyles({
     left: "50%",
     backgroundColor: "rgb(255,255,255,0.7)",
     transform: "translate(-50%, -50%)",
-    borderRadius: "25px",
+    borderRadius: "15px",
+    padding: "5px ",
   },
 });
 
