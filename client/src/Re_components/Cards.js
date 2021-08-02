@@ -1,10 +1,18 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { CardActionArea, CardContent, Box } from "@material-ui/core";
+import {
+  CardActionArea,
+  CardContent,
+  Box,
+  IconButton,
+  Grid,
+} from "@material-ui/core";
 import clsx from "clsx";
 import Text from "./Text";
 import Image from "next/image";
 import colors from "../../config/colors";
+import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
+import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
 
 const useStyles = makeStyles({
   root: {
@@ -22,13 +30,18 @@ const useStyles = makeStyles({
     position: "relative",
     borderRadius: "5px",
   },
-  cardContent: {
+  categoryContent: {
     position: "absolute",
     top: 10,
     right: 10,
     padding: "5px 15px",
     backgroundColor: colors.black,
     borderRadius: "5px",
+  },
+  productContent: {
+    position: "absolute",
+    top: 10,
+    right: 10,
   },
 });
 
@@ -38,6 +51,7 @@ const Cards = ({
   height = 345,
   width = 345,
   isCategory,
+  isProduct,
   ...otherProps
 }) => {
   const classes = useStyles();
@@ -47,13 +61,31 @@ const Cards = ({
       <Box component="div" className={clsx(classes.box)}>
         <CardActionArea>
           <Image src={image} alt={title} height={height} width={width} />
-          <CardContent className={clsx({ [classes.cardContent]: isCategory })}>
-            {isCategory && (
+          {isCategory && (
+            <CardContent
+              className={clsx({
+                [classes.categoryContent]: isCategory,
+              })}
+            >
               <Text {...otherProps} gutterBottom variant="h5" component="h2">
                 {title}
               </Text>
-            )}
-          </CardContent>
+            </CardContent>
+          )}
+          {isProduct && (
+            <CardContent
+              className={clsx({
+                [classes.productContent]: isProduct,
+              })}
+            >
+              <IconButton>
+                <VisibilityOutlinedIcon />
+              </IconButton>
+              <IconButton>
+                <ShoppingBasketOutlinedIcon />
+              </IconButton>
+            </CardContent>
+          )}
         </CardActionArea>
       </Box>
     </Box>

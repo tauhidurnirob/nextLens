@@ -1,19 +1,41 @@
 import React from "react";
-import { Container, makeStyles, Grid } from "@material-ui/core";
+import { makeStyles, Grid } from "@material-ui/core";
 import clsx from "clsx";
+import { Cards } from "./../Re_components";
 
 const useStyles = makeStyles((theme) => ({
-  container: {},
+  textColor: { color: "#fff", fontSize: 20 },
 }));
 
 const Products = () => {
   const classes = useStyles();
 
   return (
-    <Container className={clsx(classes.container)}>
-      <Grid></Grid>
-    </Container>
+    <Grid container direction="row">
+      {categories.map((item, index) => (
+        <Grid container md={4} justifyContent="center">
+          <Cards
+            key={index}
+            title={item.title}
+            image={item.image}
+            isProduct
+            width={500}
+            height={500}
+            className={clsx(classes.textColor)}
+          />
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
 export default Products;
+
+const categories = [
+  { image: "/images/sun1.png" },
+  { image: "/images/sun2.png" },
+  { image: "/images/sun3.png" },
+  { image: "/images/sun1.png" },
+  { image: "/images/sun2.png" },
+  { image: "/images/sun3.png" },
+];
