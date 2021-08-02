@@ -2,13 +2,12 @@ import React from "react";
 import { makeStyles, Grid } from "@material-ui/core";
 import clsx from "clsx";
 import { Cards } from "./../Re_components";
-import categories from "../../fakeData/categories";
 
 const useStyles = makeStyles((theme) => ({
   textColor: { color: "#fff", fontSize: 20 },
 }));
 
-const Category = () => {
+const ProductDetails = () => {
   const classes = useStyles();
 
   return (
@@ -19,7 +18,7 @@ const Category = () => {
             key={index}
             title={item.title}
             image={item.image}
-            isCategory
+            isProduct
             width={500}
             height={500}
             className={clsx(classes.textColor)}
@@ -30,4 +29,13 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default ProductDetails;
+
+const categories = [
+  { image: "/images/sun1.png" },
+  { image: "/images/sun2.png" },
+  { image: "/images/sun3.png" },
+  { image: "/images/sun1.png" },
+  { image: "/images/sun2.png" },
+  { image: "/images/sun3.png" },
+];
