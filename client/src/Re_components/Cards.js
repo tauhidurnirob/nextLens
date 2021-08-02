@@ -37,6 +37,7 @@ const Cards = ({
   image = "/images/c1.png",
   height = 345,
   width = 345,
+  isCategory,
   ...otherProps
 }) => {
   const classes = useStyles();
@@ -46,10 +47,12 @@ const Cards = ({
       <Box component="div" className={clsx(classes.box)}>
         <CardActionArea>
           <Image src={image} alt={title} height={height} width={width} />
-          <CardContent className={clsx(classes.cardContent)}>
-            <Text {...otherProps} gutterBottom variant="h5" component="h2">
-              {title}
-            </Text>
+          <CardContent className={clsx({ [classes.cardContent]: isCategory })}>
+            {isCategory && (
+              <Text {...otherProps} gutterBottom variant="h5" component="h2">
+                {title}
+              </Text>
+            )}
           </CardContent>
         </CardActionArea>
       </Box>

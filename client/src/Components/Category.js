@@ -18,6 +18,7 @@ const Category = () => {
             key={index}
             title={item.title}
             image={item.image}
+            isCategory
             width={500}
             height={500}
             className={clsx(classes.textColor)}
