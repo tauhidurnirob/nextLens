@@ -12,6 +12,7 @@ import Image from "next/image";
 import colors from "../../config/colors";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
+import Link from "next/link";
 
 const useStyles = makeStyles({
   root: {
@@ -81,9 +82,12 @@ const Cards = ({
                 [classes.productContent]: isProduct,
               })}
             >
-              <IconButton size="medium" color="secondary">
-                <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
-              </IconButton>
+              <Link href="/product-details">
+                <IconButton size="medium" color="secondary">
+                  <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
+                </IconButton>
+              </Link>
+
               <IconButton size="medium" color="secondary">
                 <ShoppingBasketOutlinedIcon style={{ fontSize: 30 }} />
               </IconButton>

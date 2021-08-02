@@ -1,16 +1,10 @@
 import React from "react";
-import { makeStyles, Grid } from "@material-ui/core";
-import clsx from "clsx";
+import { Grid } from "@material-ui/core";
+
 import { Cards } from "./../Re_components";
 import products from "../../fakeData/products";
 
-const useStyles = makeStyles((theme) => ({
-  textColor: { color: "#fff", fontSize: 20 },
-}));
-
 const Products = () => {
-  const classes = useStyles();
-
   return (
     <Grid container direction="row">
       {products.map((item, index) => (
@@ -22,7 +16,6 @@ const Products = () => {
             isProduct
             width={500}
             height={500}
-            className={clsx(classes.textColor)}
           />
         </Grid>
       ))}
