@@ -8,12 +8,14 @@ import colors from "../../config/colors";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
-    margin: "20px 20px",
-    background: "transparent",
+    margin: "20px 10px",
+    position: "relative",
+    overflow: "hidden",
+  },
+  box: {
     transition: "transform .5s",
     "&:hover": {
-      transform: "scale(1.1)",
+      transform: "scale(1.05)",
     },
   },
   media: {
@@ -40,25 +42,27 @@ const Cards = ({
 
   return (
     <Box component="div" className={clsx(classes.root)}>
-      <CardActionArea>
-        <Image
-          className={clsx(classes.media)}
-          src={image}
-          alt={title}
-          height={height}
-          width={width}
-        />
-        <CardContent className={clsx(classes.cardContent)}>
-          <Text
-            gutterBottom
-            variant="h5"
-            component="h2"
-            style={{ color: "#fff" }}
-          >
-            {title}
-          </Text>
-        </CardContent>
-      </CardActionArea>
+      <Box component="div" className={clsx(classes.box)}>
+        <CardActionArea>
+          <Image
+            // className={clsx(classes.media)}
+            src={image}
+            alt={title}
+            height={height}
+            width={width}
+          />
+          <CardContent className={clsx(classes.cardContent)}>
+            <Text
+              gutterBottom
+              variant="h5"
+              component="h2"
+              style={{ color: "#fff", fontSize: 20 }}
+            >
+              {title}
+            </Text>
+          </CardContent>
+        </CardActionArea>
+      </Box>
     </Box>
   );
 };

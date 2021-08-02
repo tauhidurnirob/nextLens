@@ -1,13 +1,13 @@
 import React from "react";
 import Banner from "./Banner";
 import Layout from "./Layout";
-import { Cards } from "./../Re_components";
+import Category from "./Category";
 
 const Home = () => {
   return (
     <Layout title="Home">
       <Banner />
-      <Cards />
+      <Category />
     </Layout>
   );
 };
