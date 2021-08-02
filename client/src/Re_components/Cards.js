@@ -11,6 +11,10 @@ const useStyles = makeStyles({
     maxWidth: 345,
     margin: "20px 20px",
     background: "transparent",
+    transition: "transform .5s",
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
   },
   media: {
     position: "relative",
