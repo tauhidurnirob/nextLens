@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     padding: `${theme.spacing(8)}px 0 10px 0`,
     overflow: "hidden",
     width: "100%",
+    cursor: "pointer",
   },
 }));
 
