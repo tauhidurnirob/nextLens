@@ -16,16 +16,14 @@ const useStyles = makeStyles({
     position: "relative",
     overflow: "hidden",
   },
-  image: {
-    transition: "all 600ms ease-in-out",
+  effect: {
+    transition: "all 400ms ease-in-out;",
+    borderRadius: "5px",
     "&:hover": {
-      transform: "scale(1.05)",
+      transform: "scale(1.1)",
     },
   },
-  media: {
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
+
   categoryContent: {
     position: "absolute",
     top: 10,
@@ -57,7 +55,10 @@ const Cards = ({
 
   return (
     <Box component="div" className={clsx(classes.root)}>
-      <Box component="div" className={clsx({ [styles.img]: isCategory })}>
+      <Box
+        component="div"
+        className={clsx(classes.effect, { [styles.img]: isCategory })}
+      >
         <Image
           src={item.image}
           alt={item.title}
