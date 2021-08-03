@@ -1,23 +1,29 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
-import { Heading, Cards, Carousel } from "../Re_components";
-import eyeOffer from "../../fakeData/eyeOffer";
+import { Carousel, Heading, Cards } from "../../Re_components";
+import eyeShape from "../../../fakeData/eyeShape";
 
 const useStyles = makeStyles(() => ({
   heading: { padding: "20px 0 5px 0", fontSize: 25, fontWeight: "bold" },
 }));
 
-const EyeOffers = () => {
+const EconomyEyeGlasses = () => {
   const classes = useStyles();
 
   const settings = {
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-    autoplay: false,
+    autoplay: true,
+    arrows: true,
+    nextArrow: <ArrowBackIcon />,
+    prevArrow: <ArrowForwardIcon />,
+
     responsive: [
       {
         breakpoint: 1024,
@@ -49,16 +55,16 @@ const EyeOffers = () => {
   return (
     <>
       <Heading className={clsx(classes.heading)} isDivider>
-        EYEGLASSES OFFERS
+        EYEGLASSES SHAPE
       </Heading>
       <Carousel
         {...settings}
-        slider={eyeOffer
-          .map((item) => <Cards item={item} width={300} height={200} />)
-          .slice(0, 4)}
+        slider={eyeShape.map((item) => (
+          <Cards item={item} width={400} height={400} />
+        ))}
       />
     </>
   );
 };
 
-export default EyeOffers;
+export default EconomyEyeGlasses;

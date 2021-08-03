@@ -2,9 +2,9 @@ import React from "react";
 import Banner from "./Banner";
 import Layout from "./Layout";
 import Category from "./Category";
-import EconomyEyeGlasses from "./EconomyEyeGlasses";
-import EyeglassesShape from "./EyeglassesShape";
-import EyeOffers from "./EyeOffers";
+import EconomyEyeGlasses from "./EyeCom/EconomyEyeGlasses";
+import EyeglassesShape from "./EyeCom/EyeglassesShape";
+import EyeOffers from "./EyeCom/EyeOffers";
 
 const Home = () => {
   return (
