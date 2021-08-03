@@ -35,7 +35,7 @@ const Category = () => {
   return (
     <Grid container direction="row">
       {categories.map((item) => (
-        <Grid key={item.id} container md={4} justifyContent="center">
+        <Grid item key={item.id} container md={4} justifyContent="center">
           <Cards
             item={item}
             isCategory

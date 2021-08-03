@@ -8,7 +8,7 @@ const Products = () => {
   return (
     <Grid container direction="row">
       {products.map((item) => (
-        <Grid key={item.id} container md={4} justifyContent="center">
+        <Grid item key={item.id} container md={4} justifyContent="center">
           <Cards item={item} isProduct width={500} height={500} />
         </Grid>
       ))}
