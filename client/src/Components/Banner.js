@@ -5,7 +5,6 @@ import { Carousel } from "../Re_components";
 
 const Banner = () => {
   const settings = {
-    dots: true,
     infinite: true,
     fade: true,
     speed: 500,
