@@ -7,7 +7,7 @@ import Slider from "react-slick";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    padding: `${theme.spacing(8)}px 0`,
+    padding: `${theme.spacing(8)}px 0 10px 0`,
     overflow: "hidden",
     width: "100%",
   },
