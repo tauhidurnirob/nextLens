@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "1440px",
     width: "100%",
     padding: "0 10px",
+    margin: "0 auto",
   },
 }));
 

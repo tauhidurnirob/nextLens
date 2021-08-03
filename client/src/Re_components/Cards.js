@@ -50,9 +50,7 @@ const useStyles = makeStyles({
 });
 
 const Cards = ({
-  title,
-  image = "/images/c1.png",
-  id,
+  item,
   height = 345,
   width = 345,
   isCategory,
@@ -65,7 +63,12 @@ const Cards = ({
     <Box component="div" className={clsx(classes.root)}>
       <Box component="div" className={clsx(classes.box)}>
         <CardActionArea>
-          <Image src={image} alt={title} height={height} width={width} />
+          <Image
+            src={item.image}
+            alt={item.title}
+            height={height}
+            width={width}
+          />
           {isCategory && (
             <CardContent
               className={clsx({
@@ -73,7 +76,7 @@ const Cards = ({
               })}
             >
               <Text {...otherProps} gutterBottom variant="h5" component="h2">
-                {title}
+                {item.title}
               </Text>
             </CardContent>
           )}
@@ -85,7 +88,7 @@ const Cards = ({
               [classes.productContent]: isProduct,
             })}
           >
-            <Link href={`/product-details/${id}`}>
+            <Link href={`/product-details/${item.id}`}>
               <IconButton size="medium" color="secondary">
                 <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
               </IconButton>

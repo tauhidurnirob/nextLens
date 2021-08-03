@@ -13,12 +13,10 @@ const Category = () => {
 
   return (
     <Grid container direction="row">
-      {categories.map((item, index) => (
-        <Grid container md={4} justifyContent="center">
+      {categories.map((item) => (
+        <Grid key={item.id} container md={4} justifyContent="center">
           <Cards
-            key={index}
-            title={item.title}
-            image={item.image}
+            item={item}
             isCategory
             width={500}
             height={500}
