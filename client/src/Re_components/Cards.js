@@ -2,13 +2,13 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { CardContent, Box, IconButton } from "@material-ui/core";
 import clsx from "clsx";
-import Text from "./Text";
 import Image from "next/image";
 import colors from "../../config/colors";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
 import Link from "next/link";
 import styles from "../../styles/imageHover.module.scss";
+import Button from "./AppButton";
 
 const useStyles = makeStyles({
   root: {
@@ -18,10 +18,10 @@ const useStyles = makeStyles({
   },
   categoryContent: {
     position: "absolute",
-    top: 10,
-    right: 10,
+    bottom: -20,
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     padding: "5px 15px",
-    backgroundColor: colors.black,
     borderRadius: "5px",
   },
   productContent: {
@@ -66,9 +66,7 @@ const Cards = ({
             [classes.categoryContent]: isCategory,
           })}
         >
-          <Text {...otherProps} gutterBottom variant="h5" component="h2">
-            {item.title}
-          </Text>
+          <Button {...otherProps}>{item.title}</Button>
         </CardContent>
       )}
       {isProduct && (
