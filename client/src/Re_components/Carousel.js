@@ -20,18 +20,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Carousel = ({ slider, isBanner = false, ...otherProps }) => {
+const Carousel = ({ slider, isBanner, ...otherProps }) => {
   const classes = useStyles();
 
-  return isBanner ? (
+  return (
     <Container maxWidth={false} className={clsx(classes.isBannerContainer)}>
-      <Slider {...otherProps} className={clsx(styles.banner)}>
+      <Slider {...otherProps} className={clsx({ [styles.banner]: isBanner })}>
         {slider}
       </Slider>
-    </Container>
-  ) : (
-    <Container maxWidth={false} className={clsx(classes.container)}>
-      <Slider {...otherProps}>{slider}</Slider>
     </Container>
   );
 };
