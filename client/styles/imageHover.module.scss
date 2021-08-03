@@ -1,5 +1,16 @@
-.img {
+.imgParent {
   cursor: pointer;
+  img {
+    transition: all 600ms ease-in-out;
+  }
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.img {
   &:hover {
     &:after {
       opacity: 0;
