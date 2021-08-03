@@ -2,14 +2,16 @@ import React from "react";
 import Banner from "./Banner";
 import Layout from "./Layout";
 import Category from "./Category";
-import EyeGlasses from "./EyeGlasses";
+import EconomyEyeGlasses from "./EconomyEyeGlasses";
+import EyeglassesShape from "./EyeglassesShape";
 
 const Home = () => {
   return (
     <Layout title="Home">
       <Banner />
       <Category />
-      <EyeGlasses />
+      <EyeglassesShape />
+      <EconomyEyeGlasses />
     </Layout>
   );
 };

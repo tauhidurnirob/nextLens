@@ -1,18 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  CardActionArea,
-  CardContent,
-  Box,
-  IconButton,
-} from "@material-ui/core";
+import { CardContent, Box, IconButton } from "@material-ui/core";
 import clsx from "clsx";
-import Text from "./Text";
 import Image from "next/image";
-import colors from "../../config/colors";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
 import Link from "next/link";
+import styles from "../../styles/imageHover.module.scss";
+import Button from "./AppButton";
 
 const useStyles = makeStyles({
   root: {
@@ -20,22 +15,12 @@ const useStyles = makeStyles({
     position: "relative",
     overflow: "hidden",
   },
-  box: {
-    transition: "transform .5s",
-    "&:hover": {
-      transform: "scale(1.05)",
-    },
-  },
-  media: {
-    position: "relative",
-    borderRadius: "5px",
-  },
   categoryContent: {
     position: "absolute",
-    top: 10,
-    right: 10,
+    bottom: -20,
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     padding: "5px 15px",
-    backgroundColor: colors.black,
     borderRadius: "5px",
   },
   productContent: {
@@ -50,9 +35,7 @@ const useStyles = makeStyles({
 });
 
 const Cards = ({
-  title,
-  image = "/images/c1.png",
-  id,
+  item,
   height = 345,
   width = 345,
   isCategory,
@@ -63,40 +46,46 @@ const Cards = ({
 
   return (
     <Box component="div" className={clsx(classes.root)}>
-      <Box component="div" className={clsx(classes.box)}>
-        <CardActionArea>
-          <Image src={image} alt={title} height={height} width={width} />
-          {isCategory && (
-            <CardContent
-              className={clsx({
-                [classes.categoryContent]: isCategory,
-              })}
-            >
-              <Text {...otherProps} gutterBottom variant="h5" component="h2">
-                {title}
-              </Text>
-            </CardContent>
-          )}
-        </CardActionArea>
-        {isProduct && (
-          <Box
-            component="div"
-            className={clsx({
-              [classes.productContent]: isProduct,
-            })}
-          >
-            <Link href={`/product-details/${id}`}>
-              <IconButton size="medium" color="secondary">
-                <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
-              </IconButton>
-            </Link>
-
-            <IconButton size="medium" color="secondary">
-              <ShoppingBasketOutlinedIcon style={{ fontSize: 30 }} />
-            </IconButton>
-          </Box>
-        )}
+      <Box
+        component="div"
+        className={clsx(styles.imgParent, {
+          [styles.img]: isCategory,
+        })}
+      >
+        <Image
+          src={item.image}
+          alt={item.title}
+          height={height}
+          width={width}
+        />
       </Box>
+      {isCategory && (
+        <CardContent
+          className={clsx({
+            [classes.categoryContent]: isCategory,
+          })}
+        >
+          <Button {...otherProps}>{item.title}</Button>
+        </CardContent>
+      )}
+      {isProduct && (
+        <Box
+          component="div"
+          className={clsx({
+            [classes.productContent]: isProduct,
+          })}
+        >
+          <Link href={`/product-details/${item.id}`}>
+            <IconButton size="medium" color="secondary">
+              <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
+            </IconButton>
+          </Link>
+
+          <IconButton size="medium" color="secondary">
+            <ShoppingBasketOutlinedIcon style={{ fontSize: 30 }} />
+          </IconButton>
+        </Box>
+      )}
     </Box>
   );
 };

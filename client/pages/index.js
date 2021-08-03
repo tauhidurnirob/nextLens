@@ -1,6 +1,7 @@
 import React from "react";
-import Navigation from "../src/Components/Navigation/Navigation";
 import { makeStyles, Box } from "@material-ui/core";
+
+import Navigation from "../src/Components/Navigation/Navigation";
 import { default as MainHome } from "../src/Components/Home";
 import clsx from "clsx";
 
@@ -9,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "1440px",
     width: "100%",
     padding: "0 10px",
+    margin: "0 auto",
   },
 }));
 

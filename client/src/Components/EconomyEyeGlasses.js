@@ -1,14 +1,15 @@
 import React from "react";
-import { Container, makeStyles, Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
-import { Heading } from "./../Re_components";
+
+import { Heading } from "../Re_components";
 import Products from "./Products";
 
 const useStyles = makeStyles(() => ({
-  heading: { padding: "20px", fontSize: 25, fontWeight: "bold" },
+  heading: { padding: "20px 0 5px 0", fontSize: 25, fontWeight: "bold" },
 }));
 
-const EyeGlasses = () => {
+const EconomyEyeGlasses = () => {
   const classes = useStyles();
 
   return (
@@ -21,4 +22,4 @@ const EyeGlasses = () => {
   );
 };
 
-export default EyeGlasses;
+export default EconomyEyeGlasses;

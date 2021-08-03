@@ -7,17 +7,9 @@ import products from "../../fakeData/products";
 const Products = () => {
   return (
     <Grid container direction="row">
-      {products.map((item, index) => (
-        <Grid container md={4} justifyContent="center">
-          <Cards
-            key={item.id}
-            title={item.title}
-            image={item.image}
-            id={item.id}
-            isProduct
-            width={500}
-            height={500}
-          />
+      {products.map((item) => (
+        <Grid item key={item.id} container md={4} justifyContent="center">
+          <Cards item={item} isProduct width={500} height={500} />
         </Grid>
       ))}
     </Grid>
