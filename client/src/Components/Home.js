@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import Category from "./Category";
 import EconomyEyeGlasses from "./EconomyEyeGlasses";
 import EyeglassesShape from "./EyeglassesShape";
+import EyeOffers from "./EyeOffers";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner />
       <Category />
       <EyeglassesShape />
+      <EyeOffers />
       <EconomyEyeGlasses />
     </Layout>
   );

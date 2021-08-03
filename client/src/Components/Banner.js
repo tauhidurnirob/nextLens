@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import Image from "next/image";
 import { Grid, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
+import { useMediaQuery } from "react-responsive";
 
 import { Carousel } from "../Re_components";
 
@@ -21,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Banner = () => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 992px)",
+  });
   const classes = useStyles();
 
   const settings = {
@@ -34,9 +38,11 @@ const Banner = () => {
 
   return (
     <Grid container direction="row" className={clsx(classes.container)}>
-      <Grid item container md={4} lg={4} className={clsx(classes.virtual)}>
-        <Image src="/images/virtual.png" height={400} width={400} />
-      </Grid>
+      {isDesktopOrLaptop && (
+        <Grid item container md={4} lg={4} className={clsx(classes.virtual)}>
+          <Image src="/images/virtual.png" height={400} width={400} />
+        </Grid>
+      )}
       <Grid item container md={8} lg={8}>
         <Carousel
           isBanner
