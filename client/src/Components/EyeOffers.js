@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 
 import { Heading, Cards, Carousel } from "../Re_components";
-import eyeShape from "../../fakeData/eyeShape";
+import eyeOffer from "../../fakeData/eyeOffer";
 
 const useStyles = makeStyles(() => ({
   heading: { padding: "20px 0 5px 0", fontSize: 25, fontWeight: "bold" },
@@ -18,6 +18,32 @@ const EyeOffers = () => {
     slidesToShow: 4,
     slidesToScroll: 4,
     autoplay: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -27,9 +53,9 @@ const EyeOffers = () => {
       </Heading>
       <Carousel
         {...settings}
-        slider={eyeShape.map((item) => (
-          <Cards item={item} width={300} height={300} />
-        ))}
+        slider={eyeOffer
+          .map((item) => <Cards item={item} width={300} height={200} />)
+          .slice(0, 4)}
       />
     </>
   );
