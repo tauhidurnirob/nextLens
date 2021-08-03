@@ -6,7 +6,7 @@ import { Heading } from "../Re_components";
 import Products from "./Products";
 
 const useStyles = makeStyles(() => ({
-  heading: { padding: "20px", fontSize: 25, fontWeight: "bold" },
+  heading: { padding: "20px 0 5px 0", fontSize: 25, fontWeight: "bold" },
 }));
 
 const EconomyEyeGlasses = () => {

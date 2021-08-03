@@ -1,25 +1,29 @@
 import React from "react";
-import { makeStyles, Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
-import Image from "next/image";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
-import { Carousel, Heading } from "../Re_components";
+import { Carousel, Heading, Cards } from "../Re_components";
 import eyeShape from "../../fakeData/eyeShape";
 
 const useStyles = makeStyles(() => ({
-  heading: { padding: "20px", fontSize: 25, fontWeight: "bold" },
+  heading: { padding: "20px 0 5px 0", fontSize: 25, fontWeight: "bold" },
 }));
 
 const EconomyEyeGlasses = () => {
   const classes = useStyles();
 
   const settings = {
-    dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-    initialSlide: 0,
+    autoplay: true,
+    arrows: true,
+    nextArrow: <ArrowBackIcon />,
+    prevArrow: <ArrowForwardIcon />,
+
     responsive: [
       {
         breakpoint: 1024,
@@ -56,9 +60,7 @@ const EconomyEyeGlasses = () => {
       <Carousel
         {...settings}
         slider={eyeShape.map((item) => (
-          <Grid item container md={4} lg={4} key={item.id}>
-            <Image src={item.image} alt={item.image} height={500} width={500} />
-          </Grid>
+          <Cards item={item} isBanner width={500} height={500} />
         ))}
       />
     </>

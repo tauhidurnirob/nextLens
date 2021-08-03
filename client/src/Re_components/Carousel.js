@@ -4,6 +4,7 @@ import clsx from "clsx";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import styles from "../../styles/image.module.scss";
 
 const useStyles = makeStyles((theme) => ({
   isBannerContainer: {
@@ -24,7 +25,9 @@ const Carousel = ({ slider, isBanner = false, ...otherProps }) => {
 
   return isBanner ? (
     <Container maxWidth={false} className={clsx(classes.isBannerContainer)}>
-      <Slider {...otherProps}>{slider}</Slider>
+      <Slider {...otherProps} className={clsx(styles.banner)}>
+        {slider}
+      </Slider>
     </Container>
   ) : (
     <Container maxWidth={false} className={clsx(classes.container)}>
