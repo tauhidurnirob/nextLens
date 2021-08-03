@@ -16,13 +16,6 @@ const useStyles = makeStyles({
     position: "relative",
     overflow: "hidden",
   },
-  effect: {
-    transition: "all 400ms ease-in-out;",
-    "&:hover": {
-      transform: "scale(1.1)",
-    },
-    borderRadius: "5px",
-  },
   categoryContent: {
     position: "absolute",
     top: 10,
