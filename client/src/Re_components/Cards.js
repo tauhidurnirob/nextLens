@@ -57,6 +57,15 @@ const useStyles = makeStyles({
       color: colors.white,
     },
   },
+  font: {
+    color: colors.black,
+    cursor: "pointer",
+    transition: "0.3s",
+    fontWeight: "500",
+    "&:hover": {
+      color: colors.sky,
+    },
+  },
 });
 
 const Cards = ({
@@ -69,6 +78,13 @@ const Cards = ({
   ...otherProps
 }) => {
   const classes = useStyles();
+
+  const shouldBeCapital = (char) => {
+    const character = char
+      .split(" ")
+      .map((letter) => letter.charAt(0).toUpperCase() + letter.slice(1));
+    return character;
+  };
 
   return (
     <Box component="div" className={clsx(classes.root)}>
@@ -142,10 +158,12 @@ const Cards = ({
       {isProduct && (
         <>
           <Grid container direction="column">
-            <Text style={{ fontWeight: "bold" }} color="secondary">
-              shakib
+            <Text className={clsx(classes.font)}>
+              {shouldBeCapital(item.title).join(" ")}
             </Text>
-            <Text>$100</Text>
+            <Text>
+              <Box fontWeight="fontWeightBold">${item.price}</Box>
+            </Text>
           </Grid>
         </>
       )}
