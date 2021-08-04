@@ -1,13 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { CardContent, Box, IconButton } from "@material-ui/core";
+import { CardContent, Box, IconButton, Grid } from "@material-ui/core";
 import clsx from "clsx";
 import Image from "next/image";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
-import ShoppingBasketOutlinedIcon from "@material-ui/icons/ShoppingBasketOutlined";
 import Link from "next/link";
+
 import styles from "../../styles/imageHover.module.scss";
 import Button from "./AppButton";
+import Text from "./Text";
 
 const useStyles = makeStyles({
   root: {
@@ -25,12 +26,8 @@ const useStyles = makeStyles({
   },
   productContent: {
     position: "absolute",
-    top: "50%",
-    left: "50%",
-    backgroundColor: "rgb(255,255,255,0.7)",
-    transform: "translate(-50%, -50%)",
-    borderRadius: "15px",
-    padding: "5px",
+    top: 0,
+    left: 0,
   },
 });
 
@@ -73,22 +70,26 @@ const Cards = ({
         </CardContent>
       )}
       {isProduct && (
-        <Box
-          component="div"
-          className={clsx({
-            [classes.productContent]: isProduct,
-          })}
-        >
-          <Link href={`/product-details/${item.id}`}>
-            <IconButton size="medium" color="secondary">
-              <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
-            </IconButton>
-          </Link>
-
-          <IconButton size="medium" color="secondary">
-            <ShoppingBasketOutlinedIcon style={{ fontSize: 30 }} />
-          </IconButton>
-        </Box>
+        <>
+          <Box
+            component="div"
+            className={clsx({
+              [classes.productContent]: isProduct,
+            })}
+          >
+            <Link href={`/product-details/${item.id}`}>
+              <IconButton size="medium" color="secondary">
+                <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
+              </IconButton>
+            </Link>
+          </Box>
+          <Grid container direction="column">
+            <Text style={{ fontWeight: "bold" }} color="secondary">
+              shakib
+            </Text>
+            <Text>$100</Text>
+          </Grid>
+        </>
       )}
     </Box>
   );
