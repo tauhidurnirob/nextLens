@@ -16,7 +16,7 @@ import HistoryOutlinedIcon from "@material-ui/icons/HistoryOutlined";
 import HttpsOutlinedIcon from "@material-ui/icons/HttpsOutlined";
 
 const useStyles = makeStyles((theme) => ({
-  container: { padding: `${theme.spacing(8)}px 0 10px 0` },
+  container: { padding: `${theme.spacing(4)}px 0 10px 0` },
   root: {
     maxWidth: 345,
   },
