@@ -26,8 +26,9 @@ const useStyles = makeStyles({
   },
   productContent: {
     position: "absolute",
-    top: 0,
-    left: 0,
+    top: 5,
+    left: 5,
+    zIndex: 1,
   },
 });
 
@@ -48,6 +49,7 @@ const Cards = ({
         component="div"
         className={clsx({
           [styles.img]: isCategory,
+          [styles.imgHover]: isCategory,
           [styles.imgHover]: isHover,
         })}
       >
@@ -60,6 +62,7 @@ const Cards = ({
           width={width}
         />
       </Box>
+
       {isCategory && (
         <CardContent
           className={clsx({
@@ -71,17 +74,24 @@ const Cards = ({
       )}
       {isProduct && (
         <>
-          <Box
-            component="div"
-            className={clsx({
-              [classes.productContent]: isProduct,
-            })}
-          >
-            <Link href={`/product-details/${item.id}`}>
-              <IconButton size="medium" color="secondary">
-                <VisibilityOutlinedIcon style={{ fontSize: 30 }} />
-              </IconButton>
-            </Link>
+          <Box component="div" className={clsx(styles.productArea)}>
+            <Box component="div" className={clsx(styles.productOverlay)} />
+            <Image src="/images/kids.png" height={500} width={500} />
+
+            <Box
+              component="div"
+              className={clsx({
+                [classes.productContent]: isProduct,
+              })}
+            >
+              <Link href={`/product-details/${item.id}`}>
+                <a>
+                  <IconButton size="medium" color="primary">
+                    <VisibilityOutlinedIcon style={{ fontSize: 25 }} />
+                  </IconButton>
+                </a>
+              </Link>
+            </Box>
           </Box>
           <Grid container direction="column">
             <Text style={{ fontWeight: "bold" }} color="secondary">
