@@ -114,10 +114,8 @@ const Cards = ({
       ) : (
         <Box
           component="div"
-          className={clsx({
+          className={clsx(styles.imgHover, {
             [styles.img]: isCategory,
-            [styles.imgHover]: isCategory,
-            [styles.imgHover]: isHover,
           })}
         >
           <Image
