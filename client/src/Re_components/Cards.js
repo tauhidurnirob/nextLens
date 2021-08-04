@@ -10,8 +10,9 @@ import styles from "../../styles/imageHover.module.scss";
 import Button from "./AppButton";
 import Text from "./Text";
 import colors from "../../config/colors";
+import { ShouldBeCapital } from "../../utils/utils";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: "20px 10px",
     position: "relative",
@@ -68,7 +69,7 @@ const useStyles = makeStyles({
       color: colors.sky,
     },
   },
-});
+}));
 
 const Cards = ({
   item,
@@ -80,13 +81,6 @@ const Cards = ({
   ...otherProps
 }) => {
   const classes = useStyles();
-
-  const shouldBeCapital = (char) => {
-    const character = char
-      .split(" ")
-      .map((letter) => letter.charAt(0).toUpperCase() + letter.slice(1));
-    return character;
-  };
 
   return (
     <Box component="div" className={clsx(classes.root)}>
@@ -161,7 +155,7 @@ const Cards = ({
         <>
           <Grid container direction="column">
             <Text className={clsx(classes.font)}>
-              {shouldBeCapital(item.title).join(" ")}
+              {ShouldBeCapital(item.title).join(" ")}
             </Text>
             <Text>
               <Box fontWeight={500}>${item.price}</Box>
