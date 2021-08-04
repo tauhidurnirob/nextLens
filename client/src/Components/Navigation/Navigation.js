@@ -103,7 +103,7 @@ const Navigation = () => {
                       <Box mr={2} key={index}>
                         <Link href={item.route}>
                           <Button className={clsx(classes.linkButtonHover)}>
-                            {item.routeName}
+                            {item.routeName.toUpperCase()}
                           </Button>
                         </Link>
                       </Box>
