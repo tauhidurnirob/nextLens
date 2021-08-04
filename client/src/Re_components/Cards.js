@@ -36,6 +36,7 @@ const useStyles = makeStyles({
 
 const Cards = ({
   item,
+  isHover,
   height = 345,
   width = 345,
   isCategory,
@@ -48,12 +49,15 @@ const Cards = ({
     <Box component="div" className={clsx(classes.root)}>
       <Box
         component="div"
-        className={clsx(styles.imgParent, {
+        className={clsx({
           [styles.img]: isCategory,
+          [styles.imgHover]: isHover,
         })}
       >
         <Image
+          blurDataURL
           src={item.image}
+          // loader={() => "/images/imageLoader.svg"}
           alt={item.title}
           height={height}
           width={width}
