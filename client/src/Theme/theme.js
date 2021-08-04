@@ -60,6 +60,10 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: font,
+    color: black,
+    button: {
+      textTransform: "none",
+    },
   },
   breakpoints: {
     values: {
