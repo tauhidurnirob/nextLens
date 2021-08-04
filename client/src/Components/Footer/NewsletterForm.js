@@ -20,7 +20,6 @@ const useStyles = makeStyles(() => ({
     background: colors.black,
     minWidth: "150px",
     letterSpacing: "2px",
-    borderRadius: "35px",
     borderColor: "2px solid #222",
     fontSize: "14px",
     fontWeight: "bold",

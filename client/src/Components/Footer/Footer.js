@@ -4,9 +4,13 @@ import clsx from "clsx";
 
 import Contact from "./Contact";
 import Newsletter from "./Newsletter";
+import CopyRight from "./CopyRight";
 
 const useStyles = makeStyles((theme) => ({
-  container: { padding: `${theme.spacing(4)}px 0 10px 0`, overflow: "hidden" },
+  container: {
+    padding: `${theme.spacing(4)}px 0 10px 0`,
+    overflow: "hidden",
+  },
 }));
 
 const Footer = () => {
@@ -20,6 +24,7 @@ const Footer = () => {
           <Contact />
         </Grid>
       </Container>
+      <CopyRight />
     </footer>
   );
 };
