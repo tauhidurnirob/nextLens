@@ -39,6 +39,7 @@ const Category = () => {
           <Cards
             item={item}
             isCategory
+            isHover
             width={500}
             height={500}
             className={clsx(classes.btn)}

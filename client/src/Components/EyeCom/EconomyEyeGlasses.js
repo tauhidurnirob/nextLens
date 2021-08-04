@@ -15,7 +15,7 @@ const EconomyEyeGlasses = () => {
   return (
     <>
       <Heading className={clsx(classes.heading)} isDivider>
-        EYEGLASSES
+        EYEGLASSES EYEGLASSES
       </Heading>
       <Products />
     </>

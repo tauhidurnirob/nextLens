@@ -5,6 +5,7 @@ import Category from "./Category";
 import EconomyEyeGlasses from "./EyeCom/EconomyEyeGlasses";
 import EyeglassesShape from "./EyeCom/EyeglassesShape";
 import EyeOffers from "./EyeCom/EyeOffers";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <EyeglassesShape />
       <EyeOffers />
       <EconomyEyeGlasses />
+      <Footer />
     </Layout>
   );
 };

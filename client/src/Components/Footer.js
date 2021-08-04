@@ -1,0 +1,98 @@
+import React from "react";
+import { Container, makeStyles, Grid, Box } from "@material-ui/core";
+import clsx from "clsx";
+import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
+import MailOutlineOutlinedIcon from "@material-ui/icons/MailOutlineOutlined";
+import CallOutlinedIcon from "@material-ui/icons/CallOutlined";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+
+import { Text } from "./../Re_components";
+import colors from "../../config/colors";
+
+const useStyles = makeStyles((theme) => ({
+  container: { padding: `${theme.spacing(4)}px 0 10px 0` },
+  text: { display: "flex", fontWeight: "500", fontSize: "16px" },
+  box: { display: "flex", fontWeight: "bold" },
+  icon: {
+    transition: ".5s",
+    cursor: "pointer",
+    "&:hover": {
+      color: colors.sky,
+    },
+  },
+}));
+
+const Footer = () => {
+  const classes = useStyles();
+
+  return (
+    <footer>
+      <Container className={clsx(classes.container)}>
+        <Grid container direction="row">
+          <Grid item container md={6}></Grid>
+          <Grid item container md={6}>
+            <Grid container direction="column">
+              <Text gutterBottom variant="h6">
+                <Box fontWeight="fontWeightBold">Contacts</Box>
+              </Text>
+              <Text
+                gutterBottom
+                variant="subtitle1"
+                className={clsx(classes.text)}
+              >
+                <Box mr={1}>
+                  <RoomOutlinedIcon />
+                </Box>
+                44/8,1st Floor, West Panthopath,North Dhanmondhi,Dhaka-1205
+              </Text>
+              <Text
+                gutterBottom
+                variant="subtitle1"
+                className={clsx(classes.text)}
+              >
+                <Box mr={1}>
+                  <MailOutlineOutlinedIcon />
+                </Box>
+                info@dukpion.com
+              </Text>
+              <Text
+                gutterBottom
+                variant="subtitle1"
+                className={clsx(classes.text)}
+              >
+                <Box mr={1}>
+                  <CallOutlinedIcon />
+                </Box>
+                +88 01872777452
+              </Text>
+              <Box component="div" className={clsx(classes.box)}>
+                <Box mr={4}>
+                  <FacebookIcon
+                    className={clsx(classes.icon)}
+                    style={{ fontSize: 30 }}
+                  />
+                </Box>
+                <Box mr={4}>
+                  <InstagramIcon
+                    className={clsx(classes.icon)}
+                    style={{ fontSize: 30 }}
+                  />
+                </Box>
+                <Box mr={4}>
+                  <YouTubeIcon
+                    className={clsx(classes.icon)}
+                    style={{ fontSize: 30 }}
+                  />
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
+    </footer>
+  );
+};
+
+export default Footer;
