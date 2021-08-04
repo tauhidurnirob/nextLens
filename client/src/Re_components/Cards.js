@@ -62,6 +62,8 @@ const useStyles = makeStyles({
     cursor: "pointer",
     transition: "0.3s",
     fontWeight: "500",
+    letterSpacing: "1px",
+    fontSize: "14px",
     "&:hover": {
       color: colors.sky,
     },
@@ -162,7 +164,7 @@ const Cards = ({
               {shouldBeCapital(item.title).join(" ")}
             </Text>
             <Text>
-              <Box fontWeight="fontWeightBold">${item.price}</Box>
+              <Box fontWeight={500}>${item.price}</Box>
             </Text>
           </Grid>
         </>

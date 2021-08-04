@@ -17,6 +17,9 @@ const warningDark = "rgba(253, 200, 69, .7)";
 const borderWidth = 3;
 const borderColor = "rgba(0, 0, 0, 0.13)";
 
+// Font family
+const font = "'Poppins', sans-serif";
+
 // breakpoints
 const xl = 1920;
 const lg = 1280;
@@ -55,7 +58,9 @@ const theme = createTheme({
     },
     spacing,
   },
-
+  typography: {
+    fontFamily: font,
+  },
   breakpoints: {
     values: {
       xl,
