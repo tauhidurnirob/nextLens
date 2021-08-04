@@ -1,5 +1,5 @@
 import React from "react";
-import {  makeStyles, Grid, Box } from "@material-ui/core";
+import { makeStyles, Grid, Box } from "@material-ui/core";
 import clsx from "clsx";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
 import MailOutlineOutlinedIcon from "@material-ui/icons/MailOutlineOutlined";
@@ -12,7 +12,6 @@ import { Text } from "../../Re_components";
 import colors from "../../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
-  container: { padding: `${theme.spacing(4)}px 0 10px 0` },
   text: { display: "flex", fontWeight: "500", fontSize: "16px" },
   box: { display: "flex", fontWeight: "bold" },
   icon: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Footer = () => {
+const Contact = () => {
   const classes = useStyles();
 
   return (
@@ -76,4 +75,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Contact;
