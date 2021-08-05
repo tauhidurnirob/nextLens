@@ -6,6 +6,7 @@ const products = [
     price: 200,
     ability: "In stock",
     Sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -21,6 +22,7 @@ const products = [
     price: 300,
     ability: "Stock Out",
     Sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -36,6 +38,7 @@ const products = [
     price: 400,
     ability: "In stock",
     Sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -51,6 +54,7 @@ const products = [
     price: 500,
     ability: "Stock Out",
     Sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -66,6 +70,7 @@ const products = [
     price: 600,
     ability: "In stock",
     Sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -81,6 +86,7 @@ const products = [
     price: 700,
     ability: "Stock Out",
     Sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
