@@ -7,7 +7,7 @@ import { Layout, CategoryBanner } from "../../src/Re_components";
 const ProductDetails = ({ data }) => {
   return (
     <Layout title="Product Details">
-      <CategoryBanner />
+      <CategoryBanner title={data.title} />
       <Grid container direction="row">
         <Grid item container md={6} justifyContent="center">
           <Image src={data.image} alt={data.title} width={500} height={500} />

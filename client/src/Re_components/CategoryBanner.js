@@ -4,18 +4,18 @@ import { Parallax } from "react-scroll-parallax";
 
 import Text from "./Text";
 import styles from "../../styles/categoryBanner.module.scss";
+import { ShouldBeCapital } from "../../utils/utils";
 
 const useStyles = makeStyles(() => ({
   title: {
     color: "#fff",
     fontSize: "40px",
     fontWeight: "700",
-    textTransform: "uppercase",
     letterSpacing: "5px",
   },
 }));
 
-const Banner = () => {
+const CategoryBanner = ({ title }) => {
   const classes = useStyles();
   return (
     <Grid
@@ -27,11 +27,11 @@ const Banner = () => {
     >
       <Parallax x={[-40, 20]} tagOuter="figure">
         <Text align="center" variant="h2" className={clsx(classes.title)}>
-          <Box fontWeight="fontWeightBold">Relax Your Mind</Box>
+          <Box fontWeight="fontWeightBold">{ShouldBeCapital(title)}</Box>
         </Text>
       </Parallax>
     </Grid>
   );
 };
 
-export default Banner;
+export default CategoryBanner;

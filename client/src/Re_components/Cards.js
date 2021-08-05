@@ -156,7 +156,7 @@ const Cards = ({
         <>
           <Grid container direction="column">
             <Text className={clsx(classes.font)}>
-              {ShouldBeCapital(item.title).join(" ")}
+              {ShouldBeCapital(item.title)}
             </Text>
             <Text>
               <Box fontWeight={500}>${item.price}</Box>
