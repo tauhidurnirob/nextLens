@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, makeStyles, Grid, Box } from "@material-ui/core";
 import clsx from "clsx";
+
 import { Text, Heading } from "./../../src/Re_components";
 import colors from "../../config/colors";
 import RatingComponent from "../../src/Components/RatingComponent";
