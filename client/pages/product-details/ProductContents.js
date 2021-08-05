@@ -16,7 +16,13 @@ import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
   form: {
-    marginTop: "10px",
+    margin: "10px 0 20px 0",
+  },
+  available: {
+    color: "green",
+  },
+  availableNot: {
+    color: "red",
   },
   font: {
     color: colors.black,
@@ -33,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProductContents = ({ data }) => {
-  console.log(data);
   const classes = useStyles();
 
   return (
@@ -65,6 +70,25 @@ const ProductContents = ({ data }) => {
             ))}
           </Select>
         </FormControl>
+        <Text gutterBottom>
+          Availability:
+          <Box
+            component="span"
+            ml={1}
+            className={clsx({
+              [classes.available]: data.ability === "In stock",
+              [classes.availableNot]: data.ability === "Stock Out",
+            })}
+          >
+            {data.ability}
+          </Box>
+        </Text>
+        <Text gutterBottom>
+          SKU:
+          <Box component="span" ml={1}>
+            {data.Sku}
+          </Box>
+        </Text>
       </Grid>
     </Grid>
   );
