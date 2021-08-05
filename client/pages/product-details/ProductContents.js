@@ -1,11 +1,23 @@
 import React from "react";
-import { Container, makeStyles, Grid, Box } from "@material-ui/core";
+import {
+  Container,
+  makeStyles,
+  Grid,
+  Box,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@material-ui/core";
 import clsx from "clsx";
 
 import { Text } from "./../../src/Re_components";
 import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
+  form: {
+    marginTop: "10px",
+  },
   font: {
     color: colors.black,
     cursor: "pointer",
@@ -21,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProductContents = ({ data }) => {
+  console.log(data);
   const classes = useStyles();
 
   return (
@@ -35,6 +48,23 @@ const ProductContents = ({ data }) => {
         <Text gutterBottom color="textSecondary">
           As low as ৳{data.price}
         </Text>
+        <FormControl variant="outlined" className={clsx(classes.form)}>
+          <InputLabel id="demo-simple-select-outlined-label">Lists</InputLabel>
+          <Select
+            labelId="demo-simple-select-outlined-label"
+            id="demo-simple-select-outlined"
+            label="Age"
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            {data.listType.map((item, index) => (
+              <MenuItem key={index} value={index + 1}>
+                {item.list}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </Grid>
     </Grid>
   );

@@ -47,7 +47,7 @@ const products = [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
       { list: "Standard Lens + ৳300" },
-      { list: "Premium Standard Lens + ৳500" },
+      { list: "Premium Standard Lens + ৳700" },
       { list: "Blue Light Block Glass + ৳500" },
     ],
   },
