@@ -159,7 +159,7 @@ const Cards = ({
               {ShouldBeCapital(item.title)}
             </Text>
             <Text>
-              <Box fontWeight={500}>${item.price}</Box>
+              <Box fontWeight={500}>৳{item.price}</Box>
             </Text>
           </Grid>
         </>
