@@ -6,7 +6,6 @@ import EconomyEyeGlasses from "./EyeCom/EconomyEyeGlasses";
 import EyeglassesShape from "./EyeCom/EyeglassesShape";
 import EyeOffers from "./EyeCom/EyeOffers";
 import Support from "./Support";
-import Footer from "./Footer/Footer";
 
 const Home = () => {
   return (
@@ -17,7 +16,6 @@ const Home = () => {
       <EyeOffers />
       <EconomyEyeGlasses />
       <Support />
-      <Footer />
     </Layout>
   );
 };
