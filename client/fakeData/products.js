@@ -7,6 +7,16 @@ const products = [
     ability: "In stock",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    details: {
+      modelNumber: "DKE04461",
+      size: "54-16-141 mm",
+      frameMaterial: "High quality Metal & Fiber",
+      frameLensMaterial: "Polycarbonate",
+      frameAttribution: "High Quality, Flexible & Durable",
+      usage: "Eyeglasses Frame or Prescription Optical Frame",
+      lensFunction:
+        "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
+    },
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -23,6 +33,16 @@ const products = [
     ability: "Stock Out",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    details: {
+      modelNumber: "DKE04461",
+      size: "54-16-141 mm",
+      frameMaterial: "High quality Metal & Fiber",
+      frameLensMaterial: "Polycarbonate",
+      frameAttribution: "High Quality, Flexible & Durable",
+      usage: "Eyeglasses Frame or Prescription Optical Frame",
+      lensFunction:
+        "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
+    },
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -39,6 +59,16 @@ const products = [
     ability: "In stock",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    details: {
+      modelNumber: "DKE04461",
+      size: "54-16-141 mm",
+      frameMaterial: "High quality Metal & Fiber",
+      frameLensMaterial: "Polycarbonate",
+      frameAttribution: "High Quality, Flexible & Durable",
+      usage: "Eyeglasses Frame or Prescription Optical Frame",
+      lensFunction:
+        "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
+    },
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -55,6 +85,16 @@ const products = [
     ability: "Stock Out",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    details: {
+      modelNumber: "DKE04461",
+      size: "54-16-141 mm",
+      frameMaterial: "High quality Metal & Fiber",
+      frameLensMaterial: "Polycarbonate",
+      frameAttribution: "High Quality, Flexible & Durable",
+      usage: "Eyeglasses Frame or Prescription Optical Frame",
+      lensFunction:
+        "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
+    },
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -71,6 +111,16 @@ const products = [
     ability: "In stock",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    details: {
+      modelNumber: "DKE04461",
+      size: "54-16-141 mm",
+      frameMaterial: "High quality Metal & Fiber",
+      frameLensMaterial: "Polycarbonate",
+      frameAttribution: "High Quality, Flexible & Durable",
+      usage: "Eyeglasses Frame or Prescription Optical Frame",
+      lensFunction:
+        "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
+    },
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
@@ -87,6 +137,16 @@ const products = [
     ability: "Stock Out",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    details: {
+      modelNumber: "DKE04461",
+      size: "54-16-141 mm",
+      frameMaterial: "High quality Metal & Fiber",
+      frameLensMaterial: "Polycarbonate",
+      frameAttribution: "High Quality, Flexible & Durable",
+      usage: "Eyeglasses Frame or Prescription Optical Frame",
+      lensFunction:
+        "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
+    },
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + ৳200" },
