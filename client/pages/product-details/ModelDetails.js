@@ -9,7 +9,7 @@ import RatingComponent from "../../src/Components/RatingComponent";
 const useStyles = makeStyles((theme) => ({
   container: { margin: `${theme.spacing(3)}px 0px` },
   box: { color: colors.font },
-  heading: { padding: "20px 0 20px 0", fontSize: 25, fontWeight: "bold" },
+  heading: { padding: "20px 0 5px 0", fontSize: 25, fontWeight: "bold" },
 }));
 
 const ModelDetails = ({ data }) => {
