@@ -16,12 +16,12 @@ import { Text } from "../../Re_components";
 import Search from "../Search";
 
 const useStyles = makeStyles((theme) => ({
-  // toolbar: {
-  //   maxWidth: "1440px",
-  //   width: "100%",
-  //   padding: "0 10px",
-  //   margin: "0 auto",
-  // },
+  toolbar: {
+    maxWidth: "1440px",
+    width: "100%",
+    padding: "0 10px",
+    margin: "0 auto",
+  },
 
   linkButton: {
     [theme.breakpoints.down("sm")]: {
