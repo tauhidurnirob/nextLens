@@ -1,7 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { ParallaxProvider } from "react-scroll-parallax";
 
 import theme from "../src/Theme/theme";
 import "../styles/globals.scss";
@@ -21,9 +20,7 @@ export default function MyApp({ Component, pageProps }) {
       <Navigation />
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <ParallaxProvider>
-          <Component {...pageProps} />
-        </ParallaxProvider>
+        <Component {...pageProps} />
       </ThemeProvider>
       <Footer />
     </>

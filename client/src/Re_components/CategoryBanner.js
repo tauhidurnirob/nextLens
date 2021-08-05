@@ -1,6 +1,6 @@
+import React, { useLayoutEffect } from "react";
 import { makeStyles, Box, Grid } from "@material-ui/core";
 import clsx from "clsx";
-import { Parallax } from "react-scroll-parallax";
 
 import Text from "./Text";
 import styles from "../../styles/categoryBanner.module.scss";
@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
 
 const CategoryBanner = ({ title }) => {
   const classes = useStyles();
+
   return (
     <Grid
       container
@@ -25,11 +26,9 @@ const CategoryBanner = ({ title }) => {
       alignItems="center"
       direction="column"
     >
-      <Parallax x={[-40, 20]} tagOuter="figure">
-        <Text align="center" variant="h2" className={clsx(classes.title)}>
-          <Box fontWeight="fontWeightBold">{ShouldBeCapital(title)}</Box>
-        </Text>
-      </Parallax>
+      <Text align="center" variant="h2" className={clsx(classes.title)}>
+        <Box fontWeight="fontWeightBold">{ShouldBeCapital(title)}</Box>
+      </Text>
     </Grid>
   );
 };
