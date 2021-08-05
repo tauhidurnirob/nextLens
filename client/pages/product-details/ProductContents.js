@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   availableNot: {
     color: "red",
   },
+  box: { color: colors.font },
   font: {
     color: colors.black,
     cursor: "pointer",
@@ -84,8 +85,14 @@ const ProductContents = ({ data }) => {
           </Box>
         </Text>
         <Text gutterBottom>
+          Delivery:
+          <Box component="span" ml={1} className={clsx(classes.box)}>
+            {data.sizeGuide}
+          </Box>
+        </Text>
+        <Text gutterBottom>
           SKU:
-          <Box component="span" ml={1}>
+          <Box component="span" ml={1} className={clsx(classes.box)}>
             {data.Sku}
           </Box>
         </Text>
