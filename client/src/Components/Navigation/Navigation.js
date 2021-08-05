@@ -5,13 +5,14 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import { Box, ButtonGroup, Container, Grid, Badge } from "@material-ui/core";
 import clsx from "clsx";
-import MobileNavigation from "./MobileNavigation";
-import { useMediaQuery } from "react-responsive";
 import Link from "next/link";
-import { Text } from "../../Re_components";
+import { useMediaQuery } from "react-responsive";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+
+import MobileNavigation from "./MobileNavigation";
+import { Text } from "../../Re_components";
 import Search from "../Search";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,14 +62,14 @@ const Navigation = () => {
   const icons = (
     <>
       <Box mr={2} onClick={() => setIsSearch(true)}>
-        <SearchIcon />
+        <SearchIcon style={{ color: "black" }} />
       </Box>
       <Box mr={2}>
-        <AccountCircleOutlinedIcon />
+        <AccountCircleOutlinedIcon style={{ color: "black" }} />
       </Box>
       <Box mr={2}>
-        <Badge badgeContent={4} color="secondary">
-          <ShoppingCartOutlinedIcon />
+        <Badge badgeContent={4} color="primary">
+          <ShoppingCartOutlinedIcon style={{ color: "black" }} />
         </Badge>
       </Box>
     </>
@@ -90,7 +91,14 @@ const Navigation = () => {
                 {isDesktopOrLaptop && <MobileNavigation />}
                 {!isDesktopOrLaptop && (
                   <Grid item>
-                    <Text variant="h5">NextLens</Text>
+                    <Link href="/">
+                      <Text
+                        variant="h5"
+                        style={{ color: "black", cursor: "pointer" }}
+                      >
+                        NextLens
+                      </Text>
+                    </Link>
                   </Grid>
                 )}
 
