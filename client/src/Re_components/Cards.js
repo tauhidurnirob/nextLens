@@ -101,8 +101,10 @@ const Cards = ({
           >
             <Link href={`/product-details/${item.id}`}>
               <a>
-                <IconButton size="medium" color="primary">
-                  <VisibilityOutlinedIcon style={{ fontSize: 25 }} />
+                <IconButton size="medium" style={{ color: colors.white }}>
+                  <VisibilityOutlinedIcon
+                    style={{ fontSize: 25, color: colors.white }}
+                  />
                 </IconButton>
               </a>
             </Link>
