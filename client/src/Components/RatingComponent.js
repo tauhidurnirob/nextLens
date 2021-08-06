@@ -77,7 +77,7 @@ const RatingComponent = () => {
       </Box>
       <Grid container direction="column">
         <FormControl className={clsx(classes.form)} variant="filled">
-          <TextField id="outlined-Name" label="Full Name" variant="outlined" />
+          <TextField id="outlined-Name" label="Name" variant="outlined" />
         </FormControl>
         <FormControl className={clsx(classes.form)} variant="filled">
           <TextField id="outlined-Email" label="Email" variant="outlined" />
