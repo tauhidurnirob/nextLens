@@ -53,10 +53,6 @@ const useStyles = makeStyles((theme) => ({
       background: colors.black,
       color: colors.white,
     },
-    "&:focus": {
-      background: colors.black,
-      color: colors.white,
-    },
   },
   font: {
     color: colors.black,

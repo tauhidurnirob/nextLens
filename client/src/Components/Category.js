@@ -22,10 +22,6 @@ const useStyles = makeStyles(() => ({
       background: colors.sky,
       color: colors.white,
     },
-    "&:focus": {
-      background: colors.sky,
-      color: colors.white,
-    },
   },
 }));
 

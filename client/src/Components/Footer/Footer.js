@@ -8,8 +8,11 @@ import CopyRight from "./CopyRight";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    padding: `${theme.spacing(4)}px 0 10px 0`,
     overflow: "hidden",
+    maxWidth: "1440px",
+    width: "100%",
+    padding: `${theme.spacing(4)}px 20px`,
+    margin: "0 auto",
   },
 }));
 
