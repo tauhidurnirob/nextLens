@@ -28,7 +28,7 @@ const ModelDetails = ({ data }) => {
                 Model Number:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data.details.modelNumber}
+                {data?.details.modelNumber}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -36,7 +36,7 @@ const ModelDetails = ({ data }) => {
                 Size:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data.details.size}
+                {data?.details.size}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -44,7 +44,7 @@ const ModelDetails = ({ data }) => {
                 Frame Material:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data.details.frameMaterial}
+                {data?.details.frameMaterial}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -52,7 +52,7 @@ const ModelDetails = ({ data }) => {
                 Frame Lens Material:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data.details.frameLensMaterial}
+                {data?.details.frameLensMaterial}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -60,7 +60,7 @@ const ModelDetails = ({ data }) => {
                 Frame Attribution:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data.details.frameAttribution}
+                {data?.details.frameAttribution}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -68,7 +68,7 @@ const ModelDetails = ({ data }) => {
                 Usages:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data.details.usage}
+                {data?.details.usage}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -76,7 +76,7 @@ const ModelDetails = ({ data }) => {
                 Lens Function:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data.details.lensFunction}
+                {data?.details.lensFunction}
               </Box>
             </Text>
           </Grid>
