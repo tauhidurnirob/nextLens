@@ -23,19 +23,15 @@ const useStyles = makeStyles((theme) => ({
     height: "40px",
     width: "60px",
     margin: 0,
-    border: 0,
-    background: "0 0",
     color: colors.black,
-    outline: 0,
-    padding: "0",
     fontSize: "16px",
-    textAlign: "center",
+    fontWeight: "bold",
   },
   control: {
     height: "60px",
-    border: `1px solid ${colors.black}`,
+    border: `2px solid ${colors.black}`,
     padding: "10px",
-    borderRadius: "10px",
+    borderRadius: "30px",
   },
 }));
 
