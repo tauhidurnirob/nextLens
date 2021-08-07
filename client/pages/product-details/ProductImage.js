@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import Image from "next/image";
 
-import { Carousel } from "../../src/Re_components";
+import { Carousel, Cards } from "../../src/Re_components";
 
 const ProductImage = ({ data }) => {
   const settings = {
@@ -22,7 +22,7 @@ const ProductImage = ({ data }) => {
           slider={data.detailsImage?.map((item, index) => (
             <Image
               key={index}
-              src={data.image}
+              src={item.image}
               alt={data.title}
               width={500}
               height={500}

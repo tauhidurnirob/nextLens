@@ -12,7 +12,7 @@ const ProductViewDetails = ({ data }) => {
   const classes = useStyles();
 
   return (
-    <Container maxWidth={false} className={clsx(classes.container)}>
+    <Container maxWidth={false}>
       <Grid container direction="row" spacing={2}>
         <ProductImage data={data} />
         <ProductContents data={data} />

@@ -10,7 +10,7 @@ const products = [
     detailsImage: [
       { image: "/images/sun1.png" },
       { image: "/images/sun1.png" },
-      { image: "/images/sun1.png" },
+      { image: "/images/kids.png" },
     ],
     details: {
       modelNumber: "DKE04461",
