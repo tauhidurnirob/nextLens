@@ -18,7 +18,9 @@ const ProductSubHeader = ({ data }) => {
   return (
     <Container maxWidth={false} className={clsx(classes.container)}>
       <Grid container justifyContent="flex-start">
-        <Grid item>Home > {data.title}</Grid>
+        <Grid item>
+          Home {`>`} {data?.title}
+        </Grid>
       </Grid>
     </Container>
   );
