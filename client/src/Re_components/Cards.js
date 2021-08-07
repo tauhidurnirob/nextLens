@@ -86,9 +86,9 @@ const Cards = ({
           <Box component="div" className={clsx(styles.productOverlay)} />
           <Image
             blurDataURL
-            src={item.image}
+            src={item?.image}
             // loader={() => "/images/imageLoader.svg"}
-            alt={item.title}
+            alt={item?.title}
             height={height}
             width={width}
           />
@@ -99,7 +99,7 @@ const Cards = ({
               [classes.productView]: isProduct,
             })}
           >
-            <Link href={`/product-details/${item.id}`}>
+            <Link href={`/product-details/${item?.id}`}>
               <a>
                 <IconButton size="medium" style={{ color: colors.white }}>
                   <VisibilityOutlinedIcon
@@ -115,7 +115,7 @@ const Cards = ({
               [classes.productAddToCart]: isProduct,
             })}
           >
-            <Link href={`/product-details/${item.id}`}>
+            <Link href={`/product-details/${item?.id}`}>
               <a>
                 <Button className={clsx(classes.btn)}>Add To Cart</Button>
               </a>
@@ -132,9 +132,9 @@ const Cards = ({
         >
           <Image
             blurDataURL
-            src={item.image}
+            src={item?.image}
             // loader={() => "/images/imageLoader.svg"}
-            alt={item.title}
+            alt={item?.title}
             height={height}
             width={width}
           />
@@ -147,17 +147,17 @@ const Cards = ({
             [classes.categoryContent]: isCategory,
           })}
         >
-          <Button {...otherProps}>{item.title}</Button>
+          <Button {...otherProps}>{item?.title}</Button>
         </CardContent>
       )}
       {isProduct && (
         <>
           <Grid container direction="column">
             <Text className={clsx(classes.font)}>
-              {ShouldBeCapital(item.title)}
+              {ShouldBeCapital(item?.title)}
             </Text>
             <Text>
-              <Box fontWeight={500}>৳{item.price}</Box>
+              <Box fontWeight={500}>৳{item?.price}</Box>
             </Text>
           </Grid>
         </>
