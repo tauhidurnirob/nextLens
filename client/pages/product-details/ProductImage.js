@@ -14,7 +14,7 @@ const ProductImage = ({ data }) => {
   };
   return (
     <Grid item container md={5}>
-      {data.detailsImage?.length === 0 ? (
+      {data?.detailsImage.length === 0 ? (
         <Image src={data?.image} alt={data.title} width={500} height={500} />
       ) : (
         <Carousel
