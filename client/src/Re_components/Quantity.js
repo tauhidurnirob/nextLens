@@ -33,6 +33,23 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px",
     borderRadius: "30px",
   },
+  addToCart: {
+    transition: "all 300ms ease-in-out",
+    boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+    padding: "10px 20px",
+    background: colors.black,
+    color: colors.white,
+    width: "200px",
+    fontSize: "20px",
+    fontWeight: "bold",
+    marginLeft: "20px",
+    borderRadius: "30px",
+    "&:hover": {
+      boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+      background: colors.sky,
+      color: colors.white,
+    },
+  },
 }));
 
 const Quantity = ({ items }) => {
@@ -40,7 +57,12 @@ const Quantity = ({ items }) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <Grid container alignItems="center" className={clsx(classes.container)}>
+    <Grid
+      container
+      direction="row"
+      alignItems="center"
+      className={clsx(classes.container)}
+    >
       <Box component="div" className={clsx(classes.control)}>
         <Button
           onClick={() => setQuantity(quantity - 1)}
@@ -73,6 +95,8 @@ const Quantity = ({ items }) => {
           <AddIcon fontSize="small" />
         </Button>
       </Box>
+      <Button className={clsx(classes.addToCart)}>Add To Cart</Button>
+
       {/* {stock <= quantity && (
         <Alert severity="error" variant="outlined" className="mt-2">
           You reached the maximum available stock {stock}
