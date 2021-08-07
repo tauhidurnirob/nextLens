@@ -14,16 +14,16 @@ const ProductImage = ({ data }) => {
   };
   return (
     <Grid item container md={5}>
-      {data.detailsImage?.length === 0 ? (
-        <Image src={data.image} alt={data.title} width={500} height={500} />
+      {data?.detailsImage.length === 0 ? (
+        <Image src={data?.image} alt={data.title} width={500} height={500} />
       ) : (
         <Carousel
           {...settings}
-          slider={data.detailsImage?.map((item, index) => (
+          slider={data?.detailsImage.map((item, index) => (
             <Grid key={index} item container>
               <Image
-                src={item.image}
-                alt={data.title}
+                src={item?.image}
+                alt={data?.title}
                 width={500}
                 height={500}
               />
