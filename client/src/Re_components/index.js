@@ -5,3 +5,4 @@ export { default as Heading } from "./Heading";
 export { default as Button } from "./AppButton";
 export { default as Layout } from "./Layout";
 export { default as CategoryBanner } from "./CategoryBanner";
+export { default as Quantity } from "./Quantity";

@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 
-import { Text } from "./../../src/Re_components";
+import { Text, Quantity } from "./../../src/Re_components";
 import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
@@ -71,6 +71,7 @@ const ProductContents = ({ data }) => {
             ))}
           </Select>
         </FormControl>
+        <Quantity />
         <Text gutterBottom>
           Availability:
           <Box
