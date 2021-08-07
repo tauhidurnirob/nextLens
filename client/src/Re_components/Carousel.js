@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
   container: {
-    padding: `${theme.spacing(4)}px 0 10px 0`,
     overflow: "hidden",
     cursor: "pointer",
   },

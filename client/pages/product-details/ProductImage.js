@@ -20,13 +20,14 @@ const ProductImage = ({ data }) => {
         <Carousel
           {...settings}
           slider={data.detailsImage?.map((item, index) => (
-            <Image
-              key={index}
-              src={item.image}
-              alt={data.title}
-              width={500}
-              height={500}
-            />
+            <Grid key={index} item container>
+              <Image
+                src={item.image}
+                alt={data.title}
+                width={500}
+                height={500}
+              />
+            </Grid>
           ))}
         />
       )}
