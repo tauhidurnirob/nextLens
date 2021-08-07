@@ -50,13 +50,13 @@ const ProductContents = ({ data }) => {
     <Grid item container md={7}>
       <Grid container direction="column">
         <Text gutterBottom variant="h4">
-          <Box fontWeight="fontWeightBold">{data.title}</Box>
+          <Box fontWeight="fontWeightBold">{data?.title}</Box>
         </Text>
         <Text gutterBottom color="textSecondary" className={clsx(classes.font)}>
           Be the first to review this product
         </Text>
         <Text gutterBottom color="textSecondary" variant="h6">
-          As low as ৳{data.price}
+          As low as ৳{data?.price}
         </Text>
         <FormControl variant="outlined" className={clsx(classes.form)}>
           <InputLabel id="list">List</InputLabel>
@@ -64,7 +64,7 @@ const ProductContents = ({ data }) => {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            {data.listType.map((item, index) => (
+            {data?.listType.map((item, index) => (
               <MenuItem key={index} value={index + 1}>
                 {item.list}
               </MenuItem>
@@ -78,23 +78,23 @@ const ProductContents = ({ data }) => {
             component="span"
             ml={1}
             className={clsx({
-              [classes.available]: data.ability === "In stock",
-              [classes.availableNot]: data.ability === "Stock Out",
+              [classes.available]: data?.ability === "In stock",
+              [classes.availableNot]: data?.ability === "Stock Out",
             })}
           >
-            {data.ability}
+            {data?.ability}
           </Box>
         </Text>
         <Text gutterBottom variant="h6">
           Delivery:
           <Box component="span" ml={1} className={clsx(classes.box)}>
-            {data.sizeGuide}
+            {data?.sizeGuide}
           </Box>
         </Text>
         <Text gutterBottom variant="h6">
           SKU:
           <Box component="span" ml={1} className={clsx(classes.box)}>
-            {data.Sku}
+            {data?.Sku}
           </Box>
         </Text>
       </Grid>
