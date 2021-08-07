@@ -55,8 +55,8 @@ const EconomyEyeGlasses = () => {
 
       <Carousel
         {...settings}
-        slider={eyeShape.map((item) => (
-          <Cards isHover item={item} width={400} height={400} />
+        slider={eyeShape.map((item, index) => (
+          <Cards key={index} isHover item={item} width={400} height={400} />
         ))}
       />
     </>
