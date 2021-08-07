@@ -7,6 +7,11 @@ const products = [
     ability: "In stock",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    detailsImage: [
+      { image: "/images/sun1.png" },
+      { image: "/images/sun1.png" },
+      { image: "/images/kids.png" },
+    ],
     details: {
       modelNumber: "DKE04461",
       size: "54-16-141 mm",
@@ -33,6 +38,11 @@ const products = [
     ability: "Stock Out",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    detailsImage: [
+      { image: "/images/sun1.png" },
+      { image: "/images/sun1.png" },
+      { image: "/images/sun1.png" },
+    ],
     details: {
       modelNumber: "DKE04461",
       size: "54-16-141 mm",
@@ -59,6 +69,11 @@ const products = [
     ability: "In stock",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    detailsImage: [
+      { image: "/images/sun1.png" },
+      { image: "/images/sun1.png" },
+      { image: "/images/sun1.png" },
+    ],
     details: {
       modelNumber: "DKE04461",
       size: "54-16-141 mm",
@@ -85,6 +100,11 @@ const products = [
     ability: "Stock Out",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    detailsImage: [
+      { image: "/images/sun1.png" },
+      { image: "/images/sun1.png" },
+      { image: "/images/sun1.png" },
+    ],
     details: {
       modelNumber: "DKE04461",
       size: "54-16-141 mm",
@@ -111,6 +131,7 @@ const products = [
     ability: "In stock",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    detailsImage: [],
     details: {
       modelNumber: "DKE04461",
       size: "54-16-141 mm",
@@ -137,6 +158,7 @@ const products = [
     ability: "Stock Out",
     Sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    detailsImage: [],
     details: {
       modelNumber: "DKE04461",
       size: "54-16-141 mm",

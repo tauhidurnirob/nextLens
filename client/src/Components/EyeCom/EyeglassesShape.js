@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 import { Carousel, Heading, Cards } from "../../Re_components";
 import eyeShape from "../../../fakeData/eyeShape";
@@ -20,9 +18,6 @@ const EconomyEyeGlasses = () => {
     slidesToShow: 4,
     slidesToScroll: 4,
     autoplay: true,
-    arrows: true,
-    nextArrow: <ArrowBackIcon />,
-    prevArrow: <ArrowForwardIcon />,
 
     responsive: [
       {
@@ -57,10 +52,11 @@ const EconomyEyeGlasses = () => {
       <Heading className={clsx(classes.heading)} isDivider>
         EYEGLASSES SHAPE
       </Heading>
+
       <Carousel
         {...settings}
-        slider={eyeShape.map((item) => (
-          <Cards isHover item={item} width={400} height={400} />
+        slider={eyeShape.map((item, index) => (
+          <Cards key={index} isHover item={item} width={400} height={400} />
         ))}
       />
     </>
