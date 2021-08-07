@@ -11,12 +11,13 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 
-import { Text } from "./../../src/Re_components";
+import { Text, Quantity } from "./../../src/Re_components";
 import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
   form: {
     margin: "10px 0 20px 0",
+    fontSize: "20px",
   },
   available: {
     color: "green",
@@ -31,11 +32,14 @@ const useStyles = makeStyles((theme) => ({
     transition: "0.3s",
     fontWeight: "500",
     letterSpacing: "1px",
-    fontSize: "16px",
+    fontSize: "20px",
     padding: "4px 0",
     "&:hover": {
       color: colors.sky,
     },
+  },
+  "@global": {
+    fontSize: "20px",
   },
 }));
 
@@ -43,24 +47,20 @@ const ProductContents = ({ data }) => {
   const classes = useStyles();
 
   return (
-    <Grid item container md={8}>
+    <Grid item container md={7}>
       <Grid container direction="column">
-        <Text gutterBottom variant="h6">
+        <Text gutterBottom variant="h4">
           <Box fontWeight="fontWeightBold">{data.title}</Box>
         </Text>
         <Text gutterBottom color="textSecondary" className={clsx(classes.font)}>
           Be the first to review this product
         </Text>
-        <Text gutterBottom color="textSecondary">
+        <Text gutterBottom color="textSecondary" variant="h6">
           As low as ৳{data.price}
         </Text>
         <FormControl variant="outlined" className={clsx(classes.form)}>
-          <InputLabel id="demo-simple-select-outlined-label">Lists</InputLabel>
-          <Select
-            labelId="demo-simple-select-outlined-label"
-            id="demo-simple-select-outlined"
-            label="Age"
-          >
+          <InputLabel id="list">List</InputLabel>
+          <Select labelId="list" id="list" label="List">
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
@@ -71,7 +71,8 @@ const ProductContents = ({ data }) => {
             ))}
           </Select>
         </FormControl>
-        <Text gutterBottom>
+        <Quantity />
+        <Text gutterBottom variant="h6">
           Availability:
           <Box
             component="span"
@@ -84,13 +85,13 @@ const ProductContents = ({ data }) => {
             {data.ability}
           </Box>
         </Text>
-        <Text gutterBottom>
+        <Text gutterBottom variant="h6">
           Delivery:
           <Box component="span" ml={1} className={clsx(classes.box)}>
             {data.sizeGuide}
           </Box>
         </Text>
-        <Text gutterBottom>
+        <Text gutterBottom variant="h6">
           SKU:
           <Box component="span" ml={1} className={clsx(classes.box)}>
             {data.Sku}
