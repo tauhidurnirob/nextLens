@@ -55,7 +55,7 @@ const FrameShare = ({ title }) => {
 export default FrameShare;
 
 const frames = [
-  { id: 1, name: "ROUND" },
-  { id: 2, name: "RETROSQUARE" },
-  { id: 3, name: "CLUBMASTER" },
+  { id: 1, name: "HALF FRAME" },
+  { id: 2, name: "FULL FRAME" },
+  { id: 3, name: "RIMLESS" },
 ];
