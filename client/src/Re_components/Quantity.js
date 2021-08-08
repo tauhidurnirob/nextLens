@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     height: "40px",
-    width: "30px",
+    width: "15px",
     margin: 0,
     color: colors.black,
     fontSize: "16px",
@@ -36,13 +36,13 @@ const useStyles = makeStyles((theme) => ({
   addToCart: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
-    padding: "10px 20px",
+    padding: "15px 30px",
     background: colors.black,
     color: colors.white,
     fontSize: "16px",
     fontWeight: "bold",
     marginLeft: "20px",
-    borderRadius: "30px",
+    borderRadius: "50px",
     "&:hover": {
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.sky,
