@@ -4,7 +4,6 @@ import {
   Divider,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   ListSubheader,
   Box,
@@ -12,12 +11,6 @@ import {
 } from "@material-ui/core";
 import Link from "next/link";
 import clsx from "clsx";
-import EmojiPeopleOutlinedIcon from "@material-ui/icons/EmojiPeopleOutlined";
-import PregnantWomanOutlinedIcon from "@material-ui/icons/PregnantWomanOutlined";
-import ChildCareOutlinedIcon from "@material-ui/icons/ChildCareOutlined";
-
-import DraftsIcon from "@material-ui/icons/Drafts";
-import SendIcon from "@material-ui/icons/Send";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ListItems = () => {
+const FrameShare = ({ title }) => {
   const classes = useStyles();
 
   return (
@@ -41,16 +34,15 @@ const ListItems = () => {
         aria-labelledby="nested-list-subheader"
         subheader={
           <ListSubheader component="div" id="nested-list-subheader">
-            <Box fontWeight="fontWeightBold">Gender</Box>
+            <Box fontWeight="fontWeightBold">{title}</Box>
             <Divider />
           </ListSubheader>
         }
         className={clsx(classes.root)}
       >
-        {genders.map((item) => (
+        {frames.map((item) => (
           <Link href="/" key={item.id}>
             <ListItem button>
-              <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.name} />
             </ListItem>
           </Link>
@@ -60,10 +52,10 @@ const ListItems = () => {
   );
 };
 
-export default ListItems;
+export default FrameShare;
 
-const genders = [
-  { id: 1, name: "Man", icon: <EmojiPeopleOutlinedIcon /> },
-  { id: 2, name: "Woman", icon: <PregnantWomanOutlinedIcon /> },
-  { id: 3, name: "Kids", icon: <ChildCareOutlinedIcon /> },
+const frames = [
+  { id: 1, name: "ROUND" },
+  { id: 2, name: "RETROSQUARE" },
+  { id: 3, name: "CLUBMASTER" },
 ];

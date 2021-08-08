@@ -10,7 +10,7 @@ import {
 import clsx from "clsx";
 
 import Text from "./Text";
-import Gender from "../Components/Gender";
+import { Gender, FrameShare, FrameStyles } from "../Components/Menus";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +51,9 @@ const CategoryBar = ({ title }) => {
         </AccordionSummary>
         <AccordionDetails>
           <Grid container direction="row">
-            <Gender />
+            <Gender title="GENDER" />
+            <FrameShare title="FRAME SHARE" />
+            <FrameStyles title="FRAME STYLES" />
           </Grid>
         </AccordionDetails>
       </Accordion>
