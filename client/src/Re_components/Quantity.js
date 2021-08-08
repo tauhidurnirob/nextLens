@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   addToCart: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
-    padding: "15px 30px",
+    padding: "15px 50px",
     background: colors.black,
     color: colors.white,
     fontSize: "16px",
