@@ -9,6 +9,7 @@ import {
 import clsx from "clsx";
 
 import Text from "./Text";
+import ListItems from "./ListItems";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,7 @@ const CategoryBar = ({ title }) => {
         handleShow(true);
       } else handleShow(false);
     });
+    return;
   }, [null]);
 
   return (
@@ -47,10 +49,7 @@ const CategoryBar = ({ title }) => {
           </Text>
         </AccordionSummary>
         <AccordionDetails>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Text>
+          <ListItems />
         </AccordionDetails>
       </Accordion>
     </Box>
