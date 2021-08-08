@@ -6,3 +6,4 @@ export { default as Button } from "./AppButton";
 export { default as Layout } from "./Layout";
 export { default as CategoryBanner } from "./CategoryBanner";
 export { default as Quantity } from "./Quantity";
+export { default as CategoryBar } from "./CategoryBar";
