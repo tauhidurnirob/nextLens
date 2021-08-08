@@ -13,9 +13,9 @@ const ProductImage = ({ data }) => {
     autoplay: true,
   };
   return (
-    <Grid item container md={5}>
+    <Grid item container md={5} justifyContent="flex-end">
       {data?.detailsImage.length === 0 ? (
-        <Image src={data?.image} alt={data?.title} width={500} height={500} />
+        <Image src={data?.image} alt={data?.title} width={450} height={450} />
       ) : (
         <Carousel
           {...settings}
