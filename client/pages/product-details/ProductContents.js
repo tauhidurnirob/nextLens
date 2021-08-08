@@ -52,7 +52,7 @@ const ProductContents = ({ data }) => {
         <Text gutterBottom color="textSecondary" className={clsx(classes.font)}>
           Be the first to review this product
         </Text>
-        <Text gutterBottom color="textSecondary">
+        <Text gutterBottom color="textSecondary" variant="subtitle1">
           As low as ৳{data?.price}
         </Text>
         <FormControl variant="outlined" className={clsx(classes.form)}>
@@ -71,7 +71,7 @@ const ProductContents = ({ data }) => {
         {/*  */}
         <Quantity />
         {/*  */}
-        <Text gutterBottom>
+        <Text gutterBottom variant="subtitle1">
           Availability:
           <Box
             component="span"
@@ -84,13 +84,13 @@ const ProductContents = ({ data }) => {
             {data?.ability}
           </Box>
         </Text>
-        <Text gutterBottom>
+        <Text gutterBottom variant="subtitle1">
           Delivery:
           <Box component="span" ml={1} className={clsx(classes.box)}>
             {data?.sizeGuide}
           </Box>
         </Text>
-        <Text gutterBottom>
+        <Text gutterBottom variant="subtitle1">
           SKU:
           <Box component="span" ml={1} className={clsx(classes.box)}>
             {data?.Sku}
