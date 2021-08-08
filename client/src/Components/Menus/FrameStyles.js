@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FrameShare = ({ title }) => {
+const FrameStyles = ({ title }) => {
   const classes = useStyles();
 
   return (
@@ -43,7 +43,7 @@ const FrameShare = ({ title }) => {
         {frames.map((item) => (
           <Link href="/" key={item.id}>
             <ListItem button>
-              <ListItemText primary={item.name} />
+              <ListItemText primary={<Box fontWeight={600}>{item.name}</Box>} />
             </ListItem>
           </Link>
         ))}
@@ -52,7 +52,7 @@ const FrameShare = ({ title }) => {
   );
 };
 
-export default FrameShare;
+export default FrameStyles;
 
 const frames = [
   { id: 1, name: "HALF FRAME" },

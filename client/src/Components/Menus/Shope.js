@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FrameShare = ({ title }) => {
+const Shope = ({ title }) => {
   const classes = useStyles();
 
   return (
@@ -52,13 +52,9 @@ const FrameShare = ({ title }) => {
   );
 };
 
-export default FrameShare;
+export default Shope;
 
 const frames = [
-  { id: 1, name: "ROUND" },
-  { id: 2, name: "RETROSQUARE" },
-  { id: 3, name: "CLUBMASTER" },
-  { id: 4, name: "OVAL" },
-  { id: 5, name: "RECTANGLE" },
-  { id: 6, name: "PILOT" },
+  { id: 1, name: "ECONOMY EYEGLASSES" },
+  { id: 2, name: "PREMIUM EYEGLASSES" },
 ];

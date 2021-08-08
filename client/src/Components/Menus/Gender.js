@@ -48,7 +48,7 @@ const Gender = ({ title }) => {
           <Link href="/" key={item.id}>
             <ListItem button>
               <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.name} />
+              <ListItemText primary={<Box fontWeight={600}>{item.name}</Box>} />
             </ListItem>
           </Link>
         ))}
