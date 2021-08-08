@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     height: "40px",
-    width: "60px",
+    width: "30px",
     margin: 0,
     color: colors.black,
     fontSize: "16px",
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     height: "60px",
     border: `2px solid ${colors.black}`,
     padding: "10px",
-    borderRadius: "30px",
+    borderRadius: "50px",
   },
   addToCart: {
     transition: "all 300ms ease-in-out",
@@ -39,8 +39,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px 20px",
     background: colors.black,
     color: colors.white,
-    width: "200px",
-    fontSize: "20px",
+    fontSize: "16px",
     fontWeight: "bold",
     marginLeft: "20px",
     borderRadius: "30px",
