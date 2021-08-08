@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const CategoryBanner = ({ data }) => {
+const CategoryBanner = ({ data, title }) => {
   const classes = useStyles();
 
   return (
@@ -27,7 +27,9 @@ const CategoryBanner = ({ data }) => {
       direction="column"
     >
       <Text align="center" variant="h2" className={clsx(classes.title)}>
-        <Box fontWeight="fontWeightBold">{ShouldBeCapital(data?.title)}</Box>
+        <Box fontWeight="fontWeightBold">
+          {data && ShouldBeCapital(data?.title)} {title && title}
+        </Box>
       </Text>
     </Grid>
   );
