@@ -32,14 +32,11 @@ const useStyles = makeStyles((theme) => ({
     transition: "0.3s",
     fontWeight: "500",
     letterSpacing: "1px",
-    fontSize: "20px",
+    fontSize: "16px",
     padding: "4px 0",
     "&:hover": {
       color: colors.sky,
     },
-  },
-  "@global": {
-    fontSize: "20px",
   },
 }));
 
@@ -49,13 +46,13 @@ const ProductContents = ({ data }) => {
   return (
     <Grid item container md={7}>
       <Grid container direction="column">
-        <Text gutterBottom variant="h4">
+        <Text gutterBottom variant="h5">
           <Box fontWeight="fontWeightBold">{data?.title}</Box>
         </Text>
         <Text gutterBottom color="textSecondary" className={clsx(classes.font)}>
           Be the first to review this product
         </Text>
-        <Text gutterBottom color="textSecondary" variant="h6">
+        <Text gutterBottom color="textSecondary" variant="subtitle1">
           As low as ৳{data?.price}
         </Text>
         <FormControl variant="outlined" className={clsx(classes.form)}>
@@ -71,8 +68,10 @@ const ProductContents = ({ data }) => {
             ))}
           </Select>
         </FormControl>
+        {/*  */}
         <Quantity />
-        <Text gutterBottom variant="h6">
+        {/*  */}
+        <Text gutterBottom variant="subtitle1">
           Availability:
           <Box
             component="span"
@@ -85,13 +84,13 @@ const ProductContents = ({ data }) => {
             {data?.ability}
           </Box>
         </Text>
-        <Text gutterBottom variant="h6">
+        <Text gutterBottom variant="subtitle1">
           Delivery:
           <Box component="span" ml={1} className={clsx(classes.box)}>
             {data?.sizeGuide}
           </Box>
         </Text>
-        <Text gutterBottom variant="h6">
+        <Text gutterBottom variant="subtitle1">
           SKU:
           <Box component="span" ml={1} className={clsx(classes.box)}>
             {data?.Sku}

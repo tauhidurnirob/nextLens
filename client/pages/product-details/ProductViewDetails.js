@@ -1,18 +1,11 @@
 import React from "react";
-import { Container, makeStyles, Grid } from "@material-ui/core";
-import clsx from "clsx";
+import { Container, Grid } from "@material-ui/core";
 import ProductImage from "./ProductImage";
 import ProductContents from "./ProductContents";
 
-const useStyles = makeStyles((theme) => ({
-  container: {},
-}));
-
 const ProductViewDetails = ({ data }) => {
-  const classes = useStyles();
-
   return (
-    <Container maxWidth={false}>
+    <Container maxWidth="lg">
       <Grid container direction="row" spacing={2}>
         <ProductImage data={data} />
         <ProductContents data={data} />

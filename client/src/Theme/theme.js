@@ -14,7 +14,7 @@ const warningMain = "rgba(253, 200, 69, .5)";
 const warningDark = "rgba(253, 200, 69, .7)";
 
 // border
-const borderWidth = 3;
+const borderWidth = 2;
 const borderColor = "rgba(0, 0, 0, 0.13)";
 
 // Font family
