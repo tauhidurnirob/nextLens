@@ -5,11 +5,12 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Grid,
 } from "@material-ui/core";
 import clsx from "clsx";
 
 import Text from "./Text";
-import ListItems from "./ListItems";
+import Gender from "../Components/Gender";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,7 +50,9 @@ const CategoryBar = ({ title }) => {
           </Text>
         </AccordionSummary>
         <AccordionDetails>
-          <ListItems />
+          <Grid container direction="row">
+            <Gender />
+          </Grid>
         </AccordionDetails>
       </Accordion>
     </Box>
