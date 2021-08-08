@@ -115,11 +115,7 @@ const Cards = ({
               [classes.productAddToCart]: isProduct,
             })}
           >
-            <Link href={`/product-details/${item?.id}`}>
-              <a>
-                <Button className={clsx(classes.btn)}>Add To Cart</Button>
-              </a>
-            </Link>
+            <Button className={clsx(classes.btn)}>Add To Cart</Button>
           </Box>
         </Box>
       ) : (
