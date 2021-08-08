@@ -24,8 +24,8 @@ const ProductImage = ({ data }) => {
               <Image
                 src={item?.image}
                 alt={data?.title}
-                width={500}
-                height={500}
+                width={450}
+                height={450}
               />
             </Grid>
           ))}
