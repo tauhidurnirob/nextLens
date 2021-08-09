@@ -11,14 +11,7 @@ import {
 } from "../../src/redux/slices/productSlice";
 import colors from "../../config/colors";
 
-const useStyles = makeStyles((theme) => ({
-  productAddToCart: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    zIndex: 1,
-  },
+const useStyles = makeStyles(() => ({
   btn: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
@@ -36,37 +29,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddToCartButton = ({ isProduct, item }) => {
+const AddToCartButton = ({ item }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
   const { cart } = useSelector(cartList);
   const inCart = cart?.find((items) => items.id === item.id);
 
-  return (
-    <Box
-      component="div"
-      className={clsx({
-        [classes.productAddToCart]: isProduct,
-      })}
+  return !inCart ? (
+    <Button
+      className={clsx(classes.btn)}
+      onClick={() => dispatch(addCart(item))}
     >
-      {!inCart ? (
-        <Button
-          className={clsx(classes.btn)}
-          onClick={() => dispatch(addCart(item))}
-        >
-          Add To Cart
-        </Button>
-      ) : (
-        <IconButton
-          variant="contained"
-          className={clsx(classes.btn)}
-          onClick={() => dispatch(removeCart(item.id))}
-        >
-          <DeleteIcon />
-        </IconButton>
-      )}
-    </Box>
+      Add To Cart
+    </Button>
+  ) : (
+    <IconButton
+      variant="contained"
+      className={clsx(classes.btn)}
+      onClick={() => dispatch(removeCart(item.id))}
+    >
+      <DeleteIcon />
+    </IconButton>
   );
 };
 

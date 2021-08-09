@@ -19,6 +19,13 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     overflow: "hidden",
   },
+  productAddToCart: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: 1,
+  },
   categoryContent: {
     position: "absolute",
     bottom: -20,
@@ -33,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     left: 5,
     zIndex: 1,
   },
-
   font: {
     color: colors.black,
     cursor: "pointer",
@@ -88,7 +94,14 @@ const Cards = ({
               </a>
             </Link>
           </Box>
-          <AddToCartButton item={item} isProduct={isProduct} />
+          <Box
+            component="div"
+            className={clsx({
+              [classes.productAddToCart]: isProduct,
+            })}
+          >
+            <AddToCartButton item={item} />
+          </Box>
         </Box>
       ) : (
         <Box
