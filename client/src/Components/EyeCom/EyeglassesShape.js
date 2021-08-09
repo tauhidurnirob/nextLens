@@ -1,9 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
-import { useDispatch } from "react-redux";
 
-import { addProducts } from "../../../src/redux/slices/productSlice";
 import { Carousel, Heading, Cards } from "../../Re_components";
 import eyeShape from "../../../fakeData/eyeShape";
 
@@ -12,7 +10,6 @@ const useStyles = makeStyles(() => ({
 }));
 
 const EconomyEyeGlasses = () => {
-  const dispatch = useDispatch();
   const classes = useStyles();
 
   const settings = {
@@ -59,14 +56,7 @@ const EconomyEyeGlasses = () => {
       <Carousel
         {...settings}
         slider={eyeShape.map((item, index) => (
-          <Cards
-            key={index}
-            isHover
-            item={item}
-            width={400}
-            height={400}
-            onClick={() => dispatch(addProducts(item))}
-          />
+          <Cards key={index} isHover item={item} width={400} height={400} />
         ))}
       />
     </>
