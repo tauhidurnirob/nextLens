@@ -46,15 +46,13 @@ const AddToCartButton = ({ item }) => {
       </Button>
     </a>
   ) : (
-    <a>
-      <IconButton
-        variant="contained"
-        className={clsx(classes.btn)}
-        onClick={() => dispatch(removeCart(item.id))}
-      >
-        <DeleteIcon />
-      </IconButton>
-    </a>
+    <IconButton
+      variant="contained"
+      className={clsx(classes.btn)}
+      onClick={() => dispatch(removeCart(item.id))}
+    >
+      <DeleteIcon />
+    </IconButton>
   );
 };
 
