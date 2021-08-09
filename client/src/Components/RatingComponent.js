@@ -89,7 +89,7 @@ const RatingComponent = () => {
             variant="outlined"
             multiline
             rows={4}
-            rowsMax={8}
+            maxRows={8}
           />
         </FormControl>
         <Button className={clsx(classes.btn)}>Submit</Button>
