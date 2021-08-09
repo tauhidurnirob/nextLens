@@ -12,6 +12,7 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import clsx from "clsx";
 
 import colors from "../../config/colors";
+import AddToCartButton from "./AddToCartButton";
 
 const useStyles = makeStyles((theme) => ({
   container: { margin: `${theme.spacing(1)}px 0 ${theme.spacing(2)}px 0` },
@@ -87,20 +88,13 @@ const Quantity = ({ items }) => {
           color="secondary"
           type="submit"
           size="small"
-          // disabled={stock === quantity}
           onClick={() => setQuantity(quantity + 1)}
           className={clsx(classes.btn)}
         >
           <AddIcon fontSize="small" />
         </Button>
       </Box>
-      <Button className={clsx(classes.addToCart)}>Add To Cart</Button>
-
-      {/* {stock <= quantity && (
-        <Alert severity="error" variant="outlined" className="mt-2">
-          You reached the maximum available stock {stock}
-        </Alert>
-      )} */}
+      <AddToCartButton item={items} className={clsx(classes.addToCart)} />
     </Grid>
   );
 };

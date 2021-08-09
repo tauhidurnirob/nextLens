@@ -69,7 +69,7 @@ const ProductContents = ({ data }) => {
           </Select>
         </FormControl>
         {/*  */}
-        <Quantity />
+        <Quantity items={data} />
         {/*  */}
         <Text gutterBottom variant="subtitle1">
           Availability:

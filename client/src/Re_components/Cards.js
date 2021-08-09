@@ -5,24 +5,26 @@ import clsx from "clsx";
 import Image from "next/image";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
 
-import {
-  addCart,
-  cartList,
-  removeCart,
-} from "../../src/redux/slices/productSlice";
 import styles from "../../styles/imageHover.module.scss";
 import Button from "./AppButton";
 import Text from "./Text";
 import colors from "../../config/colors";
 import { ShouldBeCapital } from "../../utils/utils";
+import AddToCartButton from "./AddToCartButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: "20px 10px",
     position: "relative",
     overflow: "hidden",
+  },
+  productAddToCart: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: 1,
   },
   categoryContent: {
     position: "absolute",
@@ -36,13 +38,6 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top: 5,
     left: 5,
-    zIndex: 1,
-  },
-  productAddToCart: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
     zIndex: 1,
   },
   btn: {
@@ -83,12 +78,7 @@ const Cards = ({
   isProduct,
   ...otherProps
 }) => {
-  const dispatch = useDispatch();
   const classes = useStyles();
-
-  const { cart } = useSelector(cartList);
-  const inCart = cart?.find((items) => items.id === item.id);
-
   return (
     <Box component="div" className={clsx(classes.root)}>
       {isProduct ? (
@@ -125,21 +115,7 @@ const Cards = ({
               [classes.productAddToCart]: isProduct,
             })}
           >
-            {!inCart ? (
-              <Button
-                className={clsx(classes.btn)}
-                onClick={() => dispatch(addCart(item))}
-              >
-                Add To Cart
-              </Button>
-            ) : (
-              <Button
-                className={clsx(classes.btn)}
-                onClick={() => dispatch(removeCart(item.id))}
-              >
-                Remove
-              </Button>
-            )}
+            <AddToCartButton item={item} className={clsx(classes.btn)} />
           </Box>
         </Box>
       ) : (
