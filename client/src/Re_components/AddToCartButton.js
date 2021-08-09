@@ -37,20 +37,24 @@ const AddToCartButton = ({ item }) => {
   const inCart = cart?.find((items) => items.id === item.id);
 
   return !inCart ? (
-    <Button
-      className={clsx(classes.btn)}
-      onClick={() => dispatch(addCart(item))}
-    >
-      Add To Cart
-    </Button>
+    <a>
+      <Button
+        className={clsx(classes.btn)}
+        onClick={() => dispatch(addCart(item))}
+      >
+        Add To Cart
+      </Button>
+    </a>
   ) : (
-    <IconButton
-      variant="contained"
-      className={clsx(classes.btn)}
-      onClick={() => dispatch(removeCart(item.id))}
-    >
-      <DeleteIcon />
-    </IconButton>
+    <a>
+      <IconButton
+        variant="contained"
+        className={clsx(classes.btn)}
+        onClick={() => dispatch(removeCart(item.id))}
+      >
+        <DeleteIcon />
+      </IconButton>
+    </a>
   );
 };
 
