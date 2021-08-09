@@ -18,15 +18,13 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <Provider store={store}>
       <Navigation />
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
+        <Component {...pageProps} />
       </ThemeProvider>
       <Footer />
-    </>
+    </Provider>
   );
 }

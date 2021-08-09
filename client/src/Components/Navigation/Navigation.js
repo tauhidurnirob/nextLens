@@ -10,6 +10,8 @@ import { useMediaQuery } from "react-responsive";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { useSelector } from "react-redux";
+import { cartList } from "../../redux/slices/productSlice";
 
 import MobileNavigation from "./MobileNavigation";
 import { Text } from "../../Re_components";
@@ -52,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Navigation = () => {
   const [isSearch, setIsSearch] = useState(false);
+  const { cart } = useSelector(cartList);
 
   const isDesktopOrLaptop = useMediaQuery({
     query: "(max-width: 992px)",
@@ -68,7 +71,7 @@ const Navigation = () => {
         <AccountCircleOutlinedIcon style={{ color: "black" }} />
       </Box>
       <Box mr={2}>
-        <Badge badgeContent={4} color="primary">
+        <Badge badgeContent={cart.length || "0"} color="primary">
           <ShoppingCartOutlinedIcon style={{ color: "black" }} />
         </Badge>
       </Box>
