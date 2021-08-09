@@ -52,7 +52,9 @@ const EyeOffers = () => {
       <Carousel
         {...settings}
         slider={eyeOffer
-          .map((item) => <Cards isHover item={item} width={300} height={200} />)
+          .map((item) => (
+            <Cards isHover key={item.id} item={item} width={300} height={200} />
+          ))
           .slice(0, 4)}
       />
     </>

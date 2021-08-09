@@ -1,7 +1,7 @@
 import React from "react";
 
-import products from "../../fakeData/products";
 import ProductDetails from "./ProductDetail";
+import products from "../../fakeData/products";
 
 const ProductId = ({ data }) => {
   return <ProductDetails data={data} />;

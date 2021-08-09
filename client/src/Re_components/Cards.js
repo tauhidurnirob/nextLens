@@ -5,7 +5,13 @@ import clsx from "clsx";
 import Image from "next/image";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
 
+import {
+  addCart,
+  cartList,
+  removeCart,
+} from "../../src/redux/slices/productSlice";
 import styles from "../../styles/imageHover.module.scss";
 import Button from "./AppButton";
 import Text from "./Text";
@@ -77,7 +83,11 @@ const Cards = ({
   isProduct,
   ...otherProps
 }) => {
+  const dispatch = useDispatch();
   const classes = useStyles();
+
+  const { cart } = useSelector(cartList);
+  const inCart = cart?.find((items) => items.id === item.id);
 
   return (
     <Box component="div" className={clsx(classes.root)}>
@@ -115,7 +125,21 @@ const Cards = ({
               [classes.productAddToCart]: isProduct,
             })}
           >
-            <Button className={clsx(classes.btn)}>Add To Cart</Button>
+            {!inCart ? (
+              <Button
+                className={clsx(classes.btn)}
+                onClick={() => dispatch(addCart(item))}
+              >
+                Add To Cart
+              </Button>
+            ) : (
+              <Button
+                className={clsx(classes.btn)}
+                onClick={() => dispatch(removeCart(item.id))}
+              >
+                Remove
+              </Button>
+            )}
           </Box>
         </Box>
       ) : (
