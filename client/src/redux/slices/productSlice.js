@@ -1,19 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
+import products from "../../../fakeData/products";
 
 const productSlice = createSlice({
   name: "product",
   initialState: {
-    allProducts: [],
+    Product: products,
+    productById: {},
   },
   reducers: {
-    products(state, action) {
-      console.log(action.payload);
-      state.allProducts = action.payload;
+    allProducts(state, action) {
+      state.productById = action.payload;
     },
   },
 });
 
-export const { products } = productSlice.actions;
+export const { allProducts } = productSlice.actions;
 
 export default productSlice.reducer;
 

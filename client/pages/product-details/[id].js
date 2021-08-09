@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import ProductDetails from "./ProductDetail";
 import products from "../../fakeData/products";
-import { default as Product } from "../../src/redux/slices/productSlice";
+import { allProducts, productList } from "../../src/redux/slices/productSlice";
 
 const ProductId = ({ data }) => {
   const dispatch = useDispatch();
-
-  dispatch(Product(data));
+  dispatch(allProducts(data));
 
   return <ProductDetails data={data} />;
 };
