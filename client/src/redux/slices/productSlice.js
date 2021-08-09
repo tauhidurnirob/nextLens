@@ -12,10 +12,8 @@ const productSlice = createSlice({
       if (!inCart) state.cart.push(action.payload);
     },
     removeCart(state, action) {
-      const { id } = action.payload;
-      // state.cart.filter((item) => item.id === id);
       state.cart.splice(
-        state.cart.findIndex((item) => item.id === id),
+        state.cart.findIndex((item) => item.id === action.payload),
         1
       );
     },
