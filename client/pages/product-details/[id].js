@@ -1,14 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 import ProductDetails from "./ProductDetail";
 import products from "../../fakeData/products";
-import { allProducts, productList } from "../../src/redux/slices/productSlice";
 
 const ProductId = ({ data }) => {
-  const dispatch = useDispatch();
-  dispatch(allProducts(data));
-
   return <ProductDetails data={data} />;
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
+import { useDispatch } from "react-redux";
 
 import { Carousel, Heading, Cards } from "../../Re_components";
 import eyeShape from "../../../fakeData/eyeShape";
@@ -10,6 +11,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const EconomyEyeGlasses = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
 
   const settings = {

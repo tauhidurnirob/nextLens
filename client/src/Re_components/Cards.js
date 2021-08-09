@@ -5,7 +5,9 @@ import clsx from "clsx";
 import Image from "next/image";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
 
+import { addProducts } from "../../src/redux/slices/productSlice";
 import styles from "../../styles/imageHover.module.scss";
 import Button from "./AppButton";
 import Text from "./Text";
@@ -77,6 +79,7 @@ const Cards = ({
   isProduct,
   ...otherProps
 }) => {
+  const dispatch = useDispatch();
   const classes = useStyles();
 
   return (
@@ -115,7 +118,12 @@ const Cards = ({
               [classes.productAddToCart]: isProduct,
             })}
           >
-            <Button className={clsx(classes.btn)}>Add To Cart</Button>
+            <Button
+              className={clsx(classes.btn)}
+              onClick={() => dispatch(addProducts(item))}
+            >
+              Add To Cart
+            </Button>
           </Box>
         </Box>
       ) : (
