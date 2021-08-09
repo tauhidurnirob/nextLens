@@ -40,6 +40,21 @@ const useStyles = makeStyles((theme) => ({
     left: 5,
     zIndex: 1,
   },
+  btn: {
+    transition: "all 300ms ease-in-out",
+    boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+    padding: "10px 20px",
+    background: colors.white,
+    maxWidth: "220px",
+    fontSize: "14px",
+    fontWeight: "bold",
+    borderRadius: "60px",
+    "&:hover": {
+      boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+      background: colors.black,
+      color: colors.white,
+    },
+  },
   font: {
     color: colors.black,
     cursor: "pointer",
@@ -100,7 +115,7 @@ const Cards = ({
               [classes.productAddToCart]: isProduct,
             })}
           >
-              <AddToCartButton item={item} />
+            <AddToCartButton item={item} className={clsx(classes.btn)} />
           </Box>
         </Box>
       ) : (
