@@ -5,8 +5,6 @@ import ProductDetails from "./ProductDetail";
 import products from "../../fakeData/products";
 
 const ProductId = ({ data }) => {
-  const { query } = useRouter();
-  console.log(query);
   return <ProductDetails data={data} />;
 };
 

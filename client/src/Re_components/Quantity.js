@@ -10,7 +10,9 @@ import {
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import clsx from "clsx";
+import { useDispatch, useSelector } from "react-redux";
 
+import { cartList, removeCart } from "../../src/redux/slices/productSlice";
 import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
@@ -55,6 +57,11 @@ const Quantity = ({ items }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(1);
 
+  const dispatch = useDispatch();
+
+  const { cart } = useSelector(cartList);
+  const inCart = cart?.find((items) => items.id === item.id);
+
   return (
     <Grid
       container
@@ -87,7 +94,6 @@ const Quantity = ({ items }) => {
           color="secondary"
           type="submit"
           size="small"
-          // disabled={stock === quantity}
           onClick={() => setQuantity(quantity + 1)}
           className={clsx(classes.btn)}
         >
@@ -95,12 +101,6 @@ const Quantity = ({ items }) => {
         </Button>
       </Box>
       <Button className={clsx(classes.addToCart)}>Add To Cart</Button>
-
-      {/* {stock <= quantity && (
-        <Alert severity="error" variant="outlined" className="mt-2">
-          You reached the maximum available stock {stock}
-        </Alert>
-      )} */}
     </Grid>
   );
 };

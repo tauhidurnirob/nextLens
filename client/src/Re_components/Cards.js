@@ -5,18 +5,13 @@ import clsx from "clsx";
 import Image from "next/image";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
 
-import {
-  addCart,
-  cartList,
-  removeCart,
-} from "../../src/redux/slices/productSlice";
 import styles from "../../styles/imageHover.module.scss";
 import Button from "./AppButton";
 import Text from "./Text";
 import colors from "../../config/colors";
 import { ShouldBeCapital } from "../../utils/utils";
+import AddToCartButton from "./AddToCartButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,28 +33,7 @@ const useStyles = makeStyles((theme) => ({
     left: 5,
     zIndex: 1,
   },
-  productAddToCart: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    zIndex: 1,
-  },
-  btn: {
-    transition: "all 300ms ease-in-out",
-    boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
-    padding: "10px 20px",
-    background: colors.white,
-    maxWidth: "220px",
-    fontSize: "14px",
-    fontWeight: "bold",
-    borderRadius: "60px",
-    "&:hover": {
-      boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
-      background: colors.black,
-      color: colors.white,
-    },
-  },
+
   font: {
     color: colors.black,
     cursor: "pointer",
@@ -83,12 +57,7 @@ const Cards = ({
   isProduct,
   ...otherProps
 }) => {
-  const dispatch = useDispatch();
   const classes = useStyles();
-
-  const { cart } = useSelector(cartList);
-  const inCart = cart?.find((items) => items.id === item.id);
-
   return (
     <Box component="div" className={clsx(classes.root)}>
       {isProduct ? (
@@ -119,28 +88,7 @@ const Cards = ({
               </a>
             </Link>
           </Box>
-          <Box
-            component="div"
-            className={clsx({
-              [classes.productAddToCart]: isProduct,
-            })}
-          >
-            {!inCart ? (
-              <Button
-                className={clsx(classes.btn)}
-                onClick={() => dispatch(addCart(item))}
-              >
-                Add To Cart
-              </Button>
-            ) : (
-              <Button
-                className={clsx(classes.btn)}
-                onClick={() => dispatch(removeCart(item.id))}
-              >
-                Remove
-              </Button>
-            )}
-          </Box>
+          <AddToCartButton item={item} isProduct={isProduct} />
         </Box>
       ) : (
         <Box
