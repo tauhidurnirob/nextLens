@@ -100,7 +100,9 @@ const Cards = ({
               [classes.productAddToCart]: isProduct,
             })}
           >
-            <AddToCartButton item={item} />
+            <a>
+              <AddToCartButton item={item} />
+            </a>
           </Box>
         </Box>
       ) : (
