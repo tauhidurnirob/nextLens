@@ -6,18 +6,25 @@ const productSlice = createSlice({
     cart: [],
   },
   reducers: {
-    addProducts(state, action) {
+    addCart(state, action) {
       const { id } = action.payload;
       const inCart = state.cart.find((item) => item.id === id);
       if (!inCart) state.cart.push(action.payload);
     },
+    removeCart(state, action) {
+      const { id } = action.payload;
+      state.cart.splice(
+        state.cart.findIndex((remove) => remove.id === id),
+        1
+      );
+    },
   },
 });
 
-export const { addProducts } = productSlice.actions;
+export const { addCart, removeCart } = productSlice.actions;
 
 export default productSlice.reducer;
 
 // Selector
 
-export const productList = (state) => state.entities.products;
+export const cartList = (state) => state.entities.product;
