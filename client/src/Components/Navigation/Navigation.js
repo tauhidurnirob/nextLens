@@ -55,6 +55,9 @@ const useStyles = makeStyles((theme) => ({
 const Navigation = () => {
   const [isSearch, setIsSearch] = useState(false);
   const { cart } = useSelector(cartList);
+  const totalQuantity = cart
+    .map((item) => item.quantity)
+    .reduce((total, qty) => total + qty, 0);
 
   const isDesktopOrLaptop = useMediaQuery({
     query: "(max-width: 992px)",
@@ -72,7 +75,7 @@ const Navigation = () => {
       </Box>
       <Link href="/cart">
         <Box mr={2}>
-          <Badge badgeContent={cart.length || "0"} color="primary">
+          <Badge badgeContent={totalQuantity || "0"} color="primary">
             <ShoppingCartOutlinedIcon style={{ color: "black" }} />
           </Badge>
         </Box>
