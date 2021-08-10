@@ -13,7 +13,7 @@ import clsx from "clsx";
 import { Text, Quantity } from "./../../src/Re_components";
 import colors from "../../config/colors";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   form: {
     margin: "10px 0 20px 0",
     fontSize: "20px",
