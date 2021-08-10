@@ -1,6 +1,5 @@
 import React from "react";
 import { IconButton, Button } from "@material-ui/core";
-import clsx from "clsx";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useDispatch, useSelector } from "react-redux";
 
