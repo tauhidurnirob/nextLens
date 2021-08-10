@@ -7,7 +7,7 @@ import colors from "../../config/colors";
 import RatingComponent from "../../src/Components/RatingComponent";
 
 const useStyles = makeStyles((theme) => ({
-  container: { margin: `${theme.spacing(3)}px 0px` },
+  container: { margin: `${theme.spacing(3)}px auto` },
   box: { color: colors.font },
   heading: { padding: "20px 0 5px 0", fontSize: 25, fontWeight: "bold" },
 }));
@@ -20,7 +20,7 @@ const ModelDetails = ({ data }) => {
       <Heading className={clsx(classes.heading)} isDivider>
         Model Details
       </Heading>
-      <Container maxWidth={false} className={clsx(classes.container)}>
+      <Container maxWidth="lg" className={clsx(classes.container)}>
         <Grid container direction="row" spacing={2}>
           <Grid item md={5}>
             <Text gutterBottom variant="subtitle1">
