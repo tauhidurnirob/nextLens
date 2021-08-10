@@ -8,6 +8,7 @@ const productSlice = createSlice({
   reducers: {
     addCart(state, action) {
       const { id, quantity } = action.payload;
+      console.log(action.payload);
       const inCart = state.cart.find((item) => item.id === id);
       if (inCart) {
         const quantityIndex = state.cart.findIndex((item) => item.id === id);
@@ -26,6 +27,7 @@ const productSlice = createSlice({
       );
     },
     qty(state, action) {
+      console.log(action.payload);
       const { id, quantity, totalPrice } = action.payload;
       const inCart = state.cart.find((item) => item.id === id);
       if (inCart) {
