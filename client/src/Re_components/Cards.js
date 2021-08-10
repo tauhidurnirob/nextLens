@@ -55,6 +55,19 @@ const useStyles = makeStyles((theme) => ({
       color: colors.white,
     },
   },
+  removeBtn: {
+    transition: "all 300ms ease-in-out",
+    boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+    padding: "15px",
+    background: colors.white,
+    fontSize: "14px",
+    fontWeight: "bold",
+    "&:hover": {
+      boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+      background: colors.black,
+      color: colors.white,
+    },
+  },
   font: {
     color: colors.black,
     cursor: "pointer",
@@ -115,7 +128,10 @@ const Cards = ({
               [classes.productAddToCart]: isProduct,
             })}
           >
-            <AddToCartButton item={item} className={clsx(classes.btn)} />
+            <AddToCartButton
+              item={item}
+              className={clsx(classes.btn, classes.removeBtn)}
+            />
           </Box>
         </Box>
       ) : (
