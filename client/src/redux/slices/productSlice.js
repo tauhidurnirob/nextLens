@@ -30,8 +30,9 @@ const productSlice = createSlice({
       const inCart = state.cart.find((item) => item.id === id);
       if (inCart) {
         const quantityIndex = state.cart.findIndex((item) => item.id === id);
+
         state.cart[quantityIndex].quantity = quantity;
-        state.cart[quantityIndex].totalPrice = quantity * totalPrice;
+        state.cart[quantityIndex].totalPrice = totalPrice;
       }
     },
   },
