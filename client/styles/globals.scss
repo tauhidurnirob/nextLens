@@ -44,3 +44,13 @@ input[type="number"] {
   font-size: 30px !important;
   color: #2c343c !important;
 }
+
+.slick-dots {
+  ul {
+    bottom: 0 !important;
+  }
+  li {
+    width: none !important;
+    height: none !important;
+  }
+}

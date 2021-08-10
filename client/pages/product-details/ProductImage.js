@@ -2,15 +2,23 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import Image from "next/image";
 
-import { Carousel, Cards } from "../../src/Re_components";
+import { Carousel } from "../../src/Re_components";
 
 const ProductImage = ({ data }) => {
   const settings = {
+    customPaging: function (i) {
+      return (
+        <img src={data?.detailsImage[i].image} width="70px" height="70px" />
+      );
+    },
+    dots: true,
+    dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    arrows: false,
   };
   return (
     <Grid item container md={5} justifyContent="center">
@@ -20,14 +28,13 @@ const ProductImage = ({ data }) => {
         <Carousel
           {...settings}
           slider={data?.detailsImage.map((item, index) => (
-            <Grid key={index} item container>
-              <Image
-                src={item?.image}
-                alt={data?.title}
-                width={450}
-                height={400}
-              />
-            </Grid>
+            <Image
+              key={index}
+              src={item?.image}
+              alt={data?.title}
+              width={450}
+              height={400}
+            />
           ))}
         />
       )}

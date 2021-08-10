@@ -70,11 +70,13 @@ const Navigation = () => {
       <Box mr={2}>
         <AccountCircleOutlinedIcon style={{ color: "black" }} />
       </Box>
-      <Box mr={2}>
-        <Badge badgeContent={cart.length || "0"} color="primary">
-          <ShoppingCartOutlinedIcon style={{ color: "black" }} />
-        </Badge>
-      </Box>
+      <Link href="/cart">
+        <Box mr={2}>
+          <Badge badgeContent={cart.length || "0"} color="primary">
+            <ShoppingCartOutlinedIcon style={{ color: "black" }} />
+          </Badge>
+        </Box>
+      </Link>
     </>
   );
 
