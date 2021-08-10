@@ -2,19 +2,21 @@ import React from "react";
 import { Container, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 
-import { Heading } from "./../../src/Re_components";
+import { Heading, Text } from "./../../src/Re_components";
 
 const useStyles = makeStyles((theme) => ({
-  container: { padding: `${theme.spacing(6)}px auto` },
+  container: { padding: "84px 0 0 0 " },
 }));
 
-const ModelDetails = ({ data }) => {
+const ModelDetails = ({}) => {
   const classes = useStyles();
 
   return (
-    <Heading className={clsx(classes.heading)} isDivider>
-      Cart
-    </Heading>
+    <Container maxWidth="lg" className={clsx(classes.container)}>
+      <Heading className={clsx(classes.heading)} isDivider>
+        <Text variant="h4">Cart</Text>
+      </Heading>
+    </Container>
   );
 };
 
