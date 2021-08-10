@@ -9,7 +9,12 @@ const productSlice = createSlice({
     addCart(state, action) {
       const { id } = action.payload;
       const inCart = state.cart.find((item) => item.id === id);
-      if (!inCart) state.cart.push(action.payload);
+      if (!inCart)
+        state.cart.push({
+          ...action.payload,
+          quantity: 1,
+          totalPrice: action.payload.price,
+        });
     },
     removeCart(state, action) {
       state.cart.splice(
