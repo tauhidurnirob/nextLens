@@ -14,7 +14,7 @@ import Image from "next/image";
 import colors from "../../config/colors";
 
 import clsx from "clsx";
-import { AddToCartButton } from "../../src/Re_components";
+import { AddToCartButton, Quantity } from "../../src/Re_components";
 
 const useStyles = makeStyles({
   table: {
@@ -76,7 +76,9 @@ const CartTable = ({ cartProduct }) => {
               <TableCell align="center">
                 <Box fontWeight="fontWeightBold">৳{item.price}</Box>
               </TableCell>
-              <TableCell align="center"></TableCell>
+              <TableCell align="center">
+                <Quantity items={item} isCartTable />
+              </TableCell>
               <TableCell align="center">
                 <Box style={{ color: colors.sky }} fontWeight="fontWeightBold">
                   ৳{item.price}

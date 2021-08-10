@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Quantity = ({ items }) => {
+const Quantity = ({ items, isCartTable }) => {
   const classes = useStyles();
   const [quantity, setQuantity] = useState(1);
 
@@ -94,7 +94,9 @@ const Quantity = ({ items }) => {
           <AddIcon fontSize="small" />
         </Button>
       </Box>
-      <AddToCartButton item={items} className={clsx(classes.addToCart)} />
+      {!isCartTable && (
+        <AddToCartButton item={items} className={clsx(classes.addToCart)} />
+      )}
     </Grid>
   );
 };
