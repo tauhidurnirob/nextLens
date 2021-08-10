@@ -72,7 +72,9 @@ const CartTable = ({ cartProduct }) => {
                   width={100}
                 />
               </TableCell>
-              <TableCell align="center">{item.title}</TableCell>
+              <TableCell align="center">
+                <Box fontWeight={500}>{item.title}</Box>
+              </TableCell>
               <TableCell align="center">
                 <Box fontWeight="fontWeightBold">৳{item.price}</Box>
               </TableCell>

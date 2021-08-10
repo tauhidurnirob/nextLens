@@ -32,7 +32,7 @@ const CartDetails = () => {
       ) : (
         <>
           <Heading className={clsx(classes.heading)}>
-            <Text variant="h4">You haven't any cart product</Text>
+            <Text variant="h4">You haven't any cart products</Text>
           </Heading>
           <Grid container justifyContent="center">
             <Button
