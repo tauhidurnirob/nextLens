@@ -53,6 +53,21 @@ const useStyles = makeStyles((theme) => ({
       color: colors.white,
     },
   },
+  removeBtn: {
+    transition: "all 300ms ease-in-out",
+    boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+    padding: "15px",
+    background: colors.black,
+    color: colors.white,
+    fontSize: "16px",
+    fontWeight: "bold",
+    marginLeft: "20px",
+    "&:hover": {
+      boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+      background: colors.sky,
+      color: colors.white,
+    },
+  },
 }));
 
 const Quantity = ({ items, isCartTable }) => {
@@ -113,7 +128,10 @@ const Quantity = ({ items, isCartTable }) => {
         </Button>
       </Box>
       {!isCartTable && (
-        <AddToCartButton item={items} className={clsx(classes.addToCart)} />
+        <AddToCartButton
+          item={items}
+          className={clsx(classes.addToCart, classes.removeBtn)}
+        />
       )}
     </Grid>
   );

@@ -13,6 +13,7 @@ import {
 import Image from "next/image";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 import colors from "../../config/colors";
 import { AddToCartButton, Quantity } from "../../src/Re_components";
@@ -36,6 +37,18 @@ const useStyles = makeStyles({
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.sky,
       color: colors.white,
+    },
+  },
+  font: {
+    color: colors.black,
+    cursor: "pointer",
+    transition: "0.3s",
+    fontWeight: "500",
+    letterSpacing: "1px",
+    fontSize: "16px",
+    padding: "4px 0",
+    "&:hover": {
+      color: colors.sky,
     },
   },
 });
@@ -76,7 +89,11 @@ const CartTable = () => {
                 />
               </TableCell>
               <TableCell align="center">
-                <Box fontWeight={500}>{item.title}</Box>
+                <Link href={`/product-details/${item?.id}`}>
+                  <Box fontWeight={500} className={clsx(classes.font)}>
+                    {item.title}
+                  </Box>
+                </Link>
               </TableCell>
               <TableCell align="center">
                 <Box fontWeight="fontWeightBold">৳{item.price}</Box>
