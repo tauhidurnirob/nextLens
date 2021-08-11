@@ -9,11 +9,12 @@ const productSlice = createSlice({
   },
   reducers: {
     increment(state, { payload }) {
+      console.log(payload);
       const { id, quantity, totalPrice } = payload;
       const inCart = state.cart.find((item) => item.id === id);
 
       if (inCart) {
-        state.totalQuantity++;
+        // state.totalQuantity++;
         inCart.quantity = quantity;
         inCart.totalPrice = totalPrice;
       }
@@ -21,9 +22,8 @@ const productSlice = createSlice({
     decrement(state, { payload }) {
       const { id, quantity, totalPrice } = payload;
       const inCart = state.cart.find((item) => item.id === id);
-
       if (inCart) {
-        state.totalQuantity--;
+        // state.totalQuantity--;
         inCart.quantity = quantity;
         inCart.totalPrice = totalPrice;
       }
