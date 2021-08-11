@@ -71,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Quantity = ({ items, isCartTable }) => {
+  console.log(items);
   const classes = useStyles();
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
