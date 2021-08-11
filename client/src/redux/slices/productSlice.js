@@ -15,9 +15,12 @@ const productSlice = createSlice({
       state.number -= 1;
     },
     addCart(state, action) {
-      const { id, price } = action.payload;
+      const { id, quantity, price } = action.payload;
       const inCart = state.cart.find((item) => item.id === id);
-      if (!inCart) {
+      if (inCart) {
+        const quantityIndex = state.cart.findIndex((item) => item.id === id);
+        state.cart[quantityIndex].quantity = quantity;
+      } else {
         state.cart.push({
           ...action.payload,
           quantity: 1,
@@ -36,7 +39,7 @@ const productSlice = createSlice({
       const inCart = state.cart.find((item) => item.id === id);
       const quantityIndex = state.cart.findIndex((item) => item.id === id);
       if (inCart) {
-        state.cart[quantityIndex].quantity = quantity * state.number;
+        state.cart[quantityIndex].quantity = quantity;
         state.cart[quantityIndex].totalPrice = totalPrice * state.number;
       }
     },
