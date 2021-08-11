@@ -73,19 +73,51 @@ const useStyles = makeStyles((theme) => ({
 const Quantity = ({ items, isCartTable }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { cart, totalQuantity } = useSelector(cartList);
-
+  const { totalQuantity } = useSelector(cartList);
   const [count, setCount] = useState(1);
 
-  useEffect(() => {
+  const handleIncrement = () => {
     dispatch(
-      qty({
-        id: items?.id,
+      increment({
+        id: items.id,
         quantity: count,
-        totalPrice: items?.price * count,
+        totalPrice: items.price * count,
       })
     );
-  }, [dispatch, count]);
+  };
+  const handleDecrement = () => {
+    dispatch(
+      decrement({
+        id: items.id,
+        quantity: count,
+        totalPrice: items.price * count,
+      })
+    );
+  };
+
+  const handleIncrementCount = () => {
+    setCount(count + 1);
+  };
+  const handleDecrementCount = () => {
+    setCount(count - 1);
+  };
+
+  // useEffect(() => {
+  //   dispatch(
+  //     qty({
+  //       id: items?.id,
+  //       quantity: totalQuantity,
+  //       totalPrice: items?.price * totalQuantity,
+  //     })
+  //   );
+  //   // dispatch(
+  //   //   qty({
+  //   //     id: items.id,
+  //   //     quantity: count,
+  //   //     totalPrice: items.price * count,
+  //   //   })
+  //   // );
+  // }, [dispatch, totalQuantity]);
 
   return (
     <Grid
@@ -96,11 +128,15 @@ const Quantity = ({ items, isCartTable }) => {
     >
       <Box component="div" className={clsx(classes.control)}>
         <Button
-          // onClick={() => dispatch(decrement(items.id))}
-          onClick={() => setCount(count - 1)}
+          onClick={() => {
+            handleDecrement();
+            handleDecrementCount();
+          }}
+          // onClick={() => setCount(count - 1)}
           color="secondary"
           type="submit"
           size="small"
+          // disabled={totalQuantity === 1}
           disabled={count === 1}
           className={clsx(classes.btn)}
         >
@@ -109,6 +145,7 @@ const Quantity = ({ items, isCartTable }) => {
         <FormControl variant="outlined">
           <Input
             value={Math.abs(count)}
+            // value={Math.abs(totalQuantity)}
             className={clsx(classes.input)}
             type="number"
             inputProps={{ min: "1" }}
@@ -119,9 +156,12 @@ const Quantity = ({ items, isCartTable }) => {
           color="secondary"
           type="submit"
           size="small"
-          // onClick={() => dispatch(increment(items.id))}
-          onClick={() => setCount(count + 1)}
-          className={clsx(classes.btn)}
+          onClick={() => {
+            handleIncrement();
+            handleIncrementCount();
+          }}
+          // onClick={() => setCount(count + 1)}
+          // className={clsx(classes.btn)}
         >
           <AddIcon fontSize="small" />
         </Button>
