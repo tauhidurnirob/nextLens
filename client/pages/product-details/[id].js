@@ -1,11 +1,11 @@
 import React from "react";
-import { useRouter } from "next/router";
 
 import ProductDetails from "./ProductDetail";
 import products from "../../fakeData/products";
 
 const ProductId = ({ data }) => {
-  return <ProductDetails data={data} />;
+  const mainData = { ...data, quantity: 1, totalPrice: data?.price };
+  return <ProductDetails data={mainData} />;
 };
 
 export default ProductId;

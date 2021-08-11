@@ -27,7 +27,7 @@ const CartDetails = () => {
           <Heading isDivider>
             <Text variant="h4">Cart</Text>
           </Heading>
-          <CartTable cartProduct={cart} />
+          <CartTable />
         </>
       ) : (
         <>

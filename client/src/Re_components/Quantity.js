@@ -10,11 +10,12 @@ import {
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import clsx from "clsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import colors from "../../config/colors";
 import AddToCartButton from "./AddToCartButton";
 import { qty } from "../redux/slices/productSlice";
+import { cartList } from "./../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: { margin: `${theme.spacing(1)}px 0 ${theme.spacing(2)}px 0` },
@@ -59,11 +60,16 @@ const Quantity = ({ items, isCartTable }) => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
+  const { cart } = useSelector(cartList);
+  const inCart = cart?.find((i) => i.id === items.id);
+
+  console.log(inCart);
+
   useEffect(() => {
     dispatch(
-      qty({ id: items.id, quantity: count, totalPrice: items.price * count })
+      qty({ id: items?.id, quantity: count, totalPrice: items?.price * count })
     );
-  }, [dispatch, count]);
+  }, [dispatch, count, items]);
 
   return (
     <Grid

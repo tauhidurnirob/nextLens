@@ -11,10 +11,12 @@ import {
   Box,
 } from "@material-ui/core";
 import Image from "next/image";
-import colors from "../../config/colors";
-
 import clsx from "clsx";
+import { useSelector } from "react-redux";
+
+import colors from "../../config/colors";
 import { AddToCartButton, Quantity } from "../../src/Re_components";
+import { cartList } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
   table: {
@@ -38,8 +40,10 @@ const useStyles = makeStyles({
   },
 });
 
-const CartTable = ({ cartProduct }) => {
+const CartTable = () => {
   const classes = useStyles();
+
+  const { cart } = useSelector(cartList);
 
   return (
     <TableContainer component={Paper} className={clsx(classes.tableContainer)}>
@@ -55,7 +59,7 @@ const CartTable = ({ cartProduct }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {cartProduct.map((item) => (
+          {cart.map((item) => (
             <TableRow key={item.id}>
               <TableCell component="th" scope="row">
                 <AddToCartButton
