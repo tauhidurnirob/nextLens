@@ -8,52 +8,53 @@ const productSlice = createSlice({
     totalQuantity: 1,
   },
   reducers: {
-    increment(state, action) {
-      const inCart = state.cart.find((item) => item.id === action.payload);
+    increment(state, { payload }) {
+      const { id, quantity, totalPrice } = payload;
+      const inCart = state.cart.find((item) => item.id === id);
+
       if (inCart) {
-        const quantityIndex = state.cart.findIndex(
-          (item) => item.id === action.payload
-        );
-        state.cart[quantityIndex].quantity = state.totalQuantity += 1;
+        state.totalQuantity++;
+        inCart.quantity = quantity;
+        inCart.totalPrice = totalPrice;
       }
     },
-    decrement(state, action) {
-      const inCart = state.cart.find((item) => item.id === action.payload);
+    decrement(state, { payload }) {
+      const { id, quantity, totalPrice } = payload;
+      const inCart = state.cart.find((item) => item.id === id);
+
       if (inCart) {
-        const quantityIndex = state.cart.findIndex(
-          (item) => item.id === action.payload
-        );
-        state.cart[quantityIndex].quantity = state.totalQuantity -= 1;
+        state.totalQuantity--;
+        inCart.quantity = quantity;
+        inCart.totalPrice = totalPrice;
       }
     },
-    addCart(state, action) {
-      const { id, price } = action.payload;
+    addCart(state, { payload }) {
+      const { id } = payload;
       const inCart = state.cart.find((item) => item.id === id);
       if (!inCart) {
         state.cart.push({
-          ...action.payload,
-          quantity: state.totalQuantity,
-          totalPrice: price,
+          ...payload,
+          quantity: 1,
         });
       }
     },
-    removeCart(state, action) {
+    removeCart(state, { payload }) {
       state.cart.splice(
-        state.cart.findIndex((item) => item.id === action.payload),
+        state.cart.findIndex((item) => item.id === payload),
         1
       );
     },
-    qty(state, action) {
-      const { id, quantity, totalPrice } = action.payload;
+    qty(state, { payload }) {
+      const { id, quantity, totalPrice } = payload;
       const inCart = state.cart.find((item) => item.id === id);
+
       if (inCart) {
-        const quantityIndex = state.cart.findIndex((item) => item.id === id);
-        state.cart[quantityIndex].quantity = quantity;
-        state.cart[quantityIndex].totalPrice = totalPrice;
+        inCart.quantity = quantity;
+        inCart.totalPrice = totalPrice;
       }
     },
-    findById(state, action) {
-      state.productById = action.payload;
+    findById(state, { payload }) {
+      state.productById = payload;
     },
   },
 });
