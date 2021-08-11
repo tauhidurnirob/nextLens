@@ -76,14 +76,17 @@ const Quantity = ({ items, isCartTable }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // dispatch(
+    //   qty({
+    //     id: items?.id,
+    //     quantity: count,
+    //     totalPrice: items?.price * count,
+    //   })
+    // );
     dispatch(
-      qty({
-        id: items?.id,
-        quantity: count,
-        totalPrice: items?.price * count,
-      })
+      qty({ ...items, quantity: count, totalPrice: items.price * count })
     );
-  }, [dispatch, items, count]);
+  }, [dispatch, count]);
 
   return (
     <Grid
