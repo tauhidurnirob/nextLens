@@ -73,17 +73,17 @@ const useStyles = makeStyles((theme) => ({
 const Quantity = ({ items, isCartTable }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { number } = useSelector(cartList);
+  const { totalQuantity } = useSelector(cartList);
 
   useEffect(() => {
     dispatch(
       qty({
         id: items?.id,
-        quantity: number,
+        quantity: totalQuantity,
         totalPrice: items?.price,
       })
     );
-  }, [dispatch, number]);
+  }, [dispatch, totalQuantity]);
 
   return (
     <Grid
@@ -94,18 +94,18 @@ const Quantity = ({ items, isCartTable }) => {
     >
       <Box component="div" className={clsx(classes.control)}>
         <Button
-          onClick={() => dispatch(decrement())}
+          onClick={() => dispatch(decrement(items.id))}
           color="secondary"
           type="submit"
           size="small"
-          disabled={number === 1}
+          disabled={totalQuantity === 1}
           className={clsx(classes.btn)}
         >
           <RemoveIcon fontSize="small" />
         </Button>
         <FormControl variant="outlined">
           <Input
-            value={Math.abs(number)}
+            value={Math.abs(totalQuantity)}
             className={clsx(classes.input)}
             type="number"
             inputProps={{ min: "1" }}
@@ -116,7 +116,7 @@ const Quantity = ({ items, isCartTable }) => {
           color="secondary"
           type="submit"
           size="small"
-          onClick={() => dispatch(increment())}
+          onClick={() => dispatch(increment(items.id))}
           className={clsx(classes.btn)}
         >
           <AddIcon fontSize="small" />

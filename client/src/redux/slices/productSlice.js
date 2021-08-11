@@ -5,25 +5,34 @@ const productSlice = createSlice({
   initialState: {
     cart: [],
     productById: [],
-    number: 1,
+    totalQuantity: 1,
   },
   reducers: {
-    increment(state) {
-      state.number += 1;
+    increment(state, action) {
+      const inCart = state.cart.find((item) => item.id === action.payload);
+      if (inCart) {
+        const quantityIndex = state.cart.findIndex(
+          (item) => item.id === action.payload
+        );
+        state.cart[quantityIndex].quantity = state.totalQuantity += 1;
+      }
     },
-    decrement(state) {
-      state.number -= 1;
+    decrement(state, action) {
+      const inCart = state.cart.find((item) => item.id === action.payload);
+      if (inCart) {
+        const quantityIndex = state.cart.findIndex(
+          (item) => item.id === action.payload
+        );
+        state.cart[quantityIndex].quantity = state.totalQuantity -= 1;
+      }
     },
     addCart(state, action) {
-      const { id, quantity, price } = action.payload;
+      const { id, price } = action.payload;
       const inCart = state.cart.find((item) => item.id === id);
-      if (inCart) {
-        const quantityIndex = state.cart.findIndex((item) => item.id === id);
-        state.cart[quantityIndex].quantity = quantity;
-      } else {
+      if (!inCart) {
         state.cart.push({
           ...action.payload,
-          quantity: 1,
+          quantity: state.totalQuantity,
           totalPrice: price,
         });
       }
@@ -40,7 +49,7 @@ const productSlice = createSlice({
       if (inCart) {
         const quantityIndex = state.cart.findIndex((item) => item.id === id);
         state.cart[quantityIndex].quantity = quantity;
-        state.cart[quantityIndex].totalPrice = totalPrice * state.number;
+        state.cart[quantityIndex].totalPrice = totalPrice * state.totalQuantity;
       }
     },
     findById(state, action) {
