@@ -75,18 +75,14 @@ const Quantity = ({ items, isCartTable }) => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
-  const { cart } = useSelector(cartList);
-  const inCart = cart?.find((i) => i.id === items.id);
-
   useEffect(() => {
-    if (inCart)
-      dispatch(
-        qty({
-          id: items?.id,
-          quantity: count,
-          totalPrice: items?.price * count,
-        })
-      );
+    dispatch(
+      qty({
+        id: items?.id,
+        quantity: count,
+        totalPrice: items?.price * count,
+      })
+    );
   }, [dispatch, count, items]);
 
   return (

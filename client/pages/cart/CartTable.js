@@ -103,7 +103,7 @@ const CartTable = () => {
               </TableCell>
               <TableCell align="center">
                 <Box style={{ color: colors.sky }} fontWeight="fontWeightBold">
-                  ৳{item.totalPrice}
+                  ৳{item?.totalPrice}
                 </Box>
               </TableCell>
             </TableRow>

@@ -28,6 +28,7 @@ const productSlice = createSlice({
     },
     qty(state, action) {
       const { id, quantity, totalPrice } = action.payload;
+      console.log(action.payload);
       const inCart = state.cart.find((item) => item.id === id);
       if (inCart) {
         const quantityIndex = state.cart.findIndex((item) => item.id === id);

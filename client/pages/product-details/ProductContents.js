@@ -33,7 +33,7 @@ const useStyles = makeStyles(() => ({
     transition: "0.3s",
     fontWeight: "500",
     letterSpacing: "1px",
-    fontSize: "16px",
+    fontSize: "12px",
     padding: "4px 0",
     "&:hover": {
       color: colors.sky,
