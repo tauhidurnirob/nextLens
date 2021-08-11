@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 
 import colors from "../../config/colors";
-import { AddToCartButton, Quantity } from "../../src/Re_components";
+import { AddToCartButton, Quantity, Text } from "../../src/Re_components";
 import { cartList } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
@@ -47,6 +47,9 @@ const useStyles = makeStyles({
     letterSpacing: "1px",
     fontSize: "16px",
     padding: "4px 0",
+    textOverflow: "ellipsis",
+    width: "250px",
+    overflow: "hidden",
     "&:hover": {
       color: colors.sky,
     },
@@ -90,9 +93,11 @@ const CartTable = () => {
               </TableCell>
               <TableCell align="center">
                 <Link href={`/product-details/${item?.id}`}>
-                  <Box fontWeight={500} className={clsx(classes.font)}>
-                    {item.title}
-                  </Box>
+                  <Text noWrap variant="subtitle2">
+                    <Box fontWeight={500} className={clsx(classes.font)}>
+                      {item.title}
+                    </Box>
+                  </Text>
                 </Link>
               </TableCell>
               <TableCell align="center">

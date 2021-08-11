@@ -83,7 +83,7 @@ const Quantity = ({ items, isCartTable }) => {
         totalPrice: items?.price * count,
       })
     );
-  }, [dispatch, count, items]);
+  }, [dispatch, items, count]);
 
   return (
     <Grid
