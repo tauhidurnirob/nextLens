@@ -11,7 +11,7 @@ const ProductId = ({ data }) => {
 
   dispatch(findById(mainData));
 
-  return <ProductDetails data={mainData} />;
+  return <ProductDetails />;
 };
 
 export default ProductId;
