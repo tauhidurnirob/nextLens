@@ -72,17 +72,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Quantity = ({ items, isCartTable }) => {
   const classes = useStyles();
-  const [count, setCount] = useState(1);
   const dispatch = useDispatch();
-
   const { number } = useSelector(cartList);
 
   useEffect(() => {
     dispatch(
       qty({
-        id: items?.id,
-        quantity: number,
-        totalPrice: items?.price * number,
+        id: items?.id, quantity : items?.quantity, totalPrice : items?.price
       })
     );
   }, [dispatch, number]);
@@ -107,9 +103,7 @@ const Quantity = ({ items, isCartTable }) => {
         </Button>
         <FormControl variant="outlined">
           <Input
-            // value={Math.abs(count)}
             value={Math.abs(number)}
-            // onChange={(e) => setCount(e.target.value)}
             className={clsx(classes.input)}
             type="number"
             inputProps={{ min: "1" }}
