@@ -9,9 +9,11 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import clsx from "clsx";
+import { useSelector } from "react-redux";
 
 import { Text, Quantity } from "./../../src/Re_components";
 import colors from "../../config/colors";
+import { cartList } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles(() => ({
   form: {
@@ -39,20 +41,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const ProductContents = ({ data }) => {
+const ProductContents = () => {
   const classes = useStyles();
+
+  const { productById } = useSelector(cartList);
 
   return (
     <Grid item container md={7}>
       <Grid container direction="column">
         <Text gutterBottom variant="h5">
-          <Box fontWeight="fontWeightBold">{data?.title}</Box>
+          <Box fontWeight="fontWeightBold">{productById?.title}</Box>
         </Text>
         <Text gutterBottom color="textSecondary" className={clsx(classes.font)}>
           Be the first to review this product
         </Text>
         <Text gutterBottom color="textSecondary" variant="subtitle1">
-          As low as ৳{data?.price}
+          As low as ৳{productById?.price}
         </Text>
         <FormControl variant="outlined" className={clsx(classes.form)}>
           <InputLabel id="list">List</InputLabel>
@@ -60,7 +64,7 @@ const ProductContents = ({ data }) => {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            {data?.listType.map((item, index) => (
+            {productById?.listType.map((item, index) => (
               <MenuItem key={index} value={index + 1}>
                 {item.list}
               </MenuItem>
@@ -68,7 +72,7 @@ const ProductContents = ({ data }) => {
           </Select>
         </FormControl>
         {/*  */}
-        <Quantity items={data} />
+        <Quantity items={productById} />
         {/*  */}
         <Text gutterBottom variant="subtitle1">
           Availability:
@@ -76,23 +80,23 @@ const ProductContents = ({ data }) => {
             component="span"
             ml={1}
             className={clsx({
-              [classes.available]: data?.ability === "In stock",
-              [classes.availableNot]: data?.ability === "Stock Out",
+              [classes.available]: productById?.ability === "In stock",
+              [classes.availableNot]: productById?.ability === "Stock Out",
             })}
           >
-            {data?.ability}
+            {productById?.ability}
           </Box>
         </Text>
         <Text gutterBottom variant="subtitle1">
           Delivery:
           <Box component="span" ml={1} className={clsx(classes.box)}>
-            {data?.sizeGuide}
+            {productById?.sizeGuide}
           </Box>
         </Text>
         <Text gutterBottom variant="subtitle1">
           SKU:
           <Box component="span" ml={1} className={clsx(classes.box)}>
-            {data?.Sku}
+            {productById?.Sku}
           </Box>
         </Text>
       </Grid>

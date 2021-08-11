@@ -1,10 +1,16 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import ProductDetails from "./ProductDetail";
 import products from "../../fakeData/products";
+import { findById } from "../../src/redux/slices/productSlice";
 
 const ProductId = ({ data }) => {
+  const dispatch = useDispatch();
   const mainData = { ...data, quantity: 1, totalPrice: data?.price };
+
+  dispatch(findById(mainData));
+
   return <ProductDetails data={mainData} />;
 };
 

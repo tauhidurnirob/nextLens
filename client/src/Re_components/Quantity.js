@@ -59,8 +59,6 @@ const Quantity = ({ items, isCartTable }) => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
-  console.log(items);
-
   useEffect(() => {
     dispatch(
       qty({ id: items?.id, quantity: count, totalPrice: items?.price * count })
