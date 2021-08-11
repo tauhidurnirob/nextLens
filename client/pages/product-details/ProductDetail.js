@@ -5,13 +5,13 @@ import ProductSubHeader from "./ProductSubHeader";
 import ProductViewDetails from "./ProductViewDetails";
 import ModelDetails from "./ModelDetails";
 
-const ProductDetails = ({ data }) => {
+const ProductDetails = () => {
   return (
     <Layout title="Product Details">
-      <CategoryBanner data={data} />
-      <ProductSubHeader data={data} />
-      <ProductViewDetails data={data} />
-      <ModelDetails data={data} />
+      <CategoryBanner />
+      <ProductSubHeader />
+      <ProductViewDetails />
+      <ModelDetails />
     </Layout>
   );
 };

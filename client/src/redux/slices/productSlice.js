@@ -4,18 +4,36 @@ const productSlice = createSlice({
   name: "product",
   initialState: {
     cart: [],
+    productById: [],
+    totalQuantity: 1,
   },
   reducers: {
-    addCart(state, action) {
-      const { id, quantity } = action.payload;
-      const inCart = state.cart.find((item) => item.id === id);
+    increment(state, action) {
+      const inCart = state.cart.find((item) => item.id === action.payload);
       if (inCart) {
-        const quantityIndex = state.cart.findIndex((item) => item.id === id);
-        state.cart[quantityIndex].quantity = quantity;
-      } else {
+        const quantityIndex = state.cart.findIndex(
+          (item) => item.id === action.payload
+        );
+        state.cart[quantityIndex].quantity = state.totalQuantity += 1;
+      }
+    },
+    decrement(state, action) {
+      const inCart = state.cart.find((item) => item.id === action.payload);
+      if (inCart) {
+        const quantityIndex = state.cart.findIndex(
+          (item) => item.id === action.payload
+        );
+        state.cart[quantityIndex].quantity = state.totalQuantity -= 1;
+      }
+    },
+    addCart(state, action) {
+      const { id, price } = action.payload;
+      const inCart = state.cart.find((item) => item.id === id);
+      if (!inCart) {
         state.cart.push({
           ...action.payload,
-          quantity: 1,
+          quantity: state.totalQuantity,
+          totalPrice: price,
         });
       }
     },
@@ -30,15 +48,18 @@ const productSlice = createSlice({
       const inCart = state.cart.find((item) => item.id === id);
       if (inCart) {
         const quantityIndex = state.cart.findIndex((item) => item.id === id);
-
         state.cart[quantityIndex].quantity = quantity;
         state.cart[quantityIndex].totalPrice = totalPrice;
       }
     },
+    findById(state, action) {
+      state.productById = action.payload;
+    },
   },
 });
 
-export const { addCart, removeCart, qty } = productSlice.actions;
+export const { addCart, removeCart, qty, findById, increment, decrement } =
+  productSlice.actions;
 
 export default productSlice.reducer;
 

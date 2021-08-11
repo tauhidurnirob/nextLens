@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, makeStyles, Grid } from "@material-ui/core";
 import clsx from "clsx";
+import { useSelector } from "react-redux";
 
 import colors from "../../config/colors";
+import { cartList } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -12,14 +14,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductSubHeader = ({ data }) => {
+const ProductSubHeader = () => {
   const classes = useStyles();
+  const { productById } = useSelector(cartList);
 
   return (
     <Container maxWidth={false} className={clsx(classes.container)}>
       <Grid container justifyContent="flex-start">
         <Grid item>
-          Home {`>`} {data?.title}
+          Home {`>`} {productById?.title}
         </Grid>
       </Grid>
     </Container>

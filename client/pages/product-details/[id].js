@@ -1,11 +1,17 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
 
 import ProductDetails from "./ProductDetail";
 import products from "../../fakeData/products";
+import { findById } from "../../src/redux/slices/productSlice";
 
 const ProductId = ({ data }) => {
-  return <ProductDetails data={data} />;
+  const dispatch = useDispatch();
+  // const mainData = { ...data, quantity: 1, totalPrice: data?.price };
+
+  dispatch(findById(data));
+
+  return <ProductDetails />;
 };
 
 export default ProductId;

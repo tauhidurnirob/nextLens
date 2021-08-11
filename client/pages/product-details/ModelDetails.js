@@ -5,6 +5,8 @@ import clsx from "clsx";
 import { Text, Heading } from "./../../src/Re_components";
 import colors from "../../config/colors";
 import RatingComponent from "../../src/Components/RatingComponent";
+import { cartList } from "./../../src/redux/slices/productSlice";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   container: { margin: `${theme.spacing(3)}px auto` },
@@ -12,8 +14,10 @@ const useStyles = makeStyles((theme) => ({
   heading: { padding: "20px 0 5px 0", fontSize: 25, fontWeight: "bold" },
 }));
 
-const ModelDetails = ({ data }) => {
+const ModelDetails = () => {
   const classes = useStyles();
+
+  const { productById } = useSelector(cartList);
 
   return (
     <>
@@ -28,7 +32,7 @@ const ModelDetails = ({ data }) => {
                 Model Number:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data?.details.modelNumber}
+                {productById?.details.modelNumber}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -36,7 +40,7 @@ const ModelDetails = ({ data }) => {
                 Size:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data?.details.size}
+                {productById?.details.size}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -44,7 +48,7 @@ const ModelDetails = ({ data }) => {
                 Frame Material:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data?.details.frameMaterial}
+                {productById?.details.frameMaterial}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -52,7 +56,7 @@ const ModelDetails = ({ data }) => {
                 Frame Lens Material:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data?.details.frameLensMaterial}
+                {productById?.details.frameLensMaterial}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -60,7 +64,7 @@ const ModelDetails = ({ data }) => {
                 Frame Attribution:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data?.details.frameAttribution}
+                {productById?.details.frameAttribution}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -68,7 +72,7 @@ const ModelDetails = ({ data }) => {
                 Usages:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data?.details.usage}
+                {productById?.details.usage}
               </Box>
             </Text>
             <Text gutterBottom variant="subtitle1">
@@ -76,7 +80,7 @@ const ModelDetails = ({ data }) => {
                 Lens Function:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {data?.details.lensFunction}
+                {productById?.details.lensFunction}
               </Box>
             </Text>
           </Grid>

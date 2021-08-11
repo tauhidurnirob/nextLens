@@ -3,12 +3,12 @@ import { Container, Grid } from "@material-ui/core";
 import ProductImage from "./ProductImage";
 import ProductContents from "./ProductContents";
 
-const ProductViewDetails = ({ data }) => {
+const ProductViewDetails = () => {
   return (
     <Container maxWidth="lg">
       <Grid container direction="row" spacing={2}>
-        <ProductImage data={data} />
-        <ProductContents data={data} />
+        <ProductImage />
+        <ProductContents />
       </Grid>
     </Container>
   );

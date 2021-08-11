@@ -3,12 +3,20 @@ import { Grid } from "@material-ui/core";
 import Image from "next/image";
 
 import { Carousel } from "../../src/Re_components";
+import { cartList } from "./../../src/redux/slices/productSlice";
+import { useSelector } from "react-redux";
 
-const ProductImage = ({ data }) => {
+const ProductImage = () => {
+  const { productById } = useSelector(cartList);
+
   const settings = {
     customPaging: function (i) {
       return (
-        <img src={data?.detailsImage[i].image} width="70px" height="70px" />
+        <img
+          src={productById?.detailsImage[i].image}
+          width="70px"
+          height="70px"
+        />
       );
     },
     dots: true,
@@ -22,16 +30,21 @@ const ProductImage = ({ data }) => {
   };
   return (
     <Grid item container md={5} justifyContent="center">
-      {data?.detailsImage.length === 0 ? (
-        <Image src={data?.image} alt={data?.title} width={450} height={400} />
+      {productById?.detailsImage.length === 0 ? (
+        <Image
+          src={productById?.image}
+          alt={productById?.title}
+          width={450}
+          height={400}
+        />
       ) : (
         <Carousel
           {...settings}
-          slider={data?.detailsImage.map((item, index) => (
+          slider={productById?.detailsImage.map((item, index) => (
             <Image
               key={index}
               src={item?.image}
-              alt={data?.title}
+              alt={productById?.title}
               width={450}
               height={400}
             />

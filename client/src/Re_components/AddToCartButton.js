@@ -13,7 +13,7 @@ const AddToCartButton = ({ item, ...otherProps }) => {
   const dispatch = useDispatch();
 
   const { cart } = useSelector(cartList);
-  const inCart = cart?.find((items) => items.id === item.id);
+  const inCart = cart?.find((items) => items.id === item?.id);
 
   return !inCart ? (
     <a>
