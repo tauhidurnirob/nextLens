@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import colors from "../../config/colors";
 import AddToCartButton from "./AddToCartButton";
 import { qty } from "../redux/slices/productSlice";
-import { cartList } from "./../redux/slices/productSlice";
+import { cartList, increment, decrement } from "./../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: { margin: `${theme.spacing(1)}px 0 ${theme.spacing(2)}px 0` },
@@ -75,18 +75,17 @@ const Quantity = ({ items, isCartTable }) => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
+  const { number } = useSelector(cartList);
+
   useEffect(() => {
-    // dispatch(
-    //   qty({
-    //     id: items?.id,
-    //     quantity: count,
-    //     totalPrice: items?.price * count,
-    //   })
-    // );
     dispatch(
-      qty({ ...items, quantity: count, totalPrice: items.price * count })
+      qty({
+        id: items?.id,
+        quantity: number,
+        totalPrice: items?.price * number,
+      })
     );
-  }, [dispatch, count]);
+  }, [dispatch, number]);
 
   return (
     <Grid
@@ -97,19 +96,20 @@ const Quantity = ({ items, isCartTable }) => {
     >
       <Box component="div" className={clsx(classes.control)}>
         <Button
-          onClick={() => setCount(count - 1)}
+          onClick={() => dispatch(decrement())}
           color="secondary"
           type="submit"
           size="small"
-          disabled={count === 1}
+          disabled={number === 1}
           className={clsx(classes.btn)}
         >
           <RemoveIcon fontSize="small" />
         </Button>
         <FormControl variant="outlined">
           <Input
-            value={Math.abs(count)}
-            onChange={(e) => setCount(e.target.value)}
+            // value={Math.abs(count)}
+            value={Math.abs(number)}
+            // onChange={(e) => setCount(e.target.value)}
             className={clsx(classes.input)}
             type="number"
             inputProps={{ min: "1" }}
@@ -120,7 +120,7 @@ const Quantity = ({ items, isCartTable }) => {
           color="secondary"
           type="submit"
           size="small"
-          onClick={() => setCount(count + 1)}
+          onClick={() => dispatch(increment())}
           className={clsx(classes.btn)}
         >
           <AddIcon fontSize="small" />
