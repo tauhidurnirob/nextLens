@@ -2,8 +2,6 @@ import React from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Provider } from "react-redux";
-import "nprogress/nprogress.css";
-import dynamic from "next/dynamic";
 
 import theme from "../src/Theme/theme";
 import GlobalStyles from "../src/Theme/globalStyles";
@@ -11,13 +9,6 @@ import "../styles/globals.scss";
 import Navigation from "./../src/Components/Navigation/Navigation";
 import Footer from "./../src/Components/Footer/Footer";
 import store from "../src/redux/store";
-
-const TopProgressBar = dynamic(
-  () => {
-    return import("../src/Components/TopProgressBar");
-  },
-  { ssr: false }
-);
 
 export default function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
@@ -28,15 +19,14 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
         <Navigation />
-        <TopProgressBar />
         <CssBaseline />
         <GlobalStyles />
         <Component {...pageProps} />
         <Footer />
-      </Provider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </Provider>
   );
 }
