@@ -11,6 +11,11 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: `${theme.spacing(4)}px 0 10px 0`,
   },
+  grid: {
+    [theme.breakpoints.up("md")]: {
+      height: "20px",
+    },
+  },
 }));
 
 const CategoryEyeGlassProducts = () => {
@@ -18,7 +23,7 @@ const CategoryEyeGlassProducts = () => {
   return (
     <Container maxWidth="lg">
       <Grid container direction="row" className={clsx(classes.container)}>
-        <Grid item container md={4}>
+        <Grid item container md={4} className={clsx(classes.grid)}>
           <RangeSlider />
           <FilterByColor />
         </Grid>
