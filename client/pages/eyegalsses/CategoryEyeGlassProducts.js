@@ -28,9 +28,9 @@ const CategoryEyeGlassProducts = () => {
           <FilterByColor />
           <FilterByGender />
           <FilterByLensType />
-          <FilterByShopCollection />
           <FilterByFrameStyle />
           <FilterByFrameShape />
+          <FilterByShopCollection />
         </Grid>
         <Grid item container md={8}>
           {products.map((item) => (
