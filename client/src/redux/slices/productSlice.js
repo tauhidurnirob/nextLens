@@ -14,7 +14,7 @@ const productSlice = createSlice({
       const inCart = state.cart.find((item) => item.id === id);
 
       if (inCart) {
-        // state.totalQuantity++;
+        state.totalQuantity++;
         inCart.quantity = quantity;
         inCart.totalPrice = totalPrice;
       }
@@ -23,7 +23,7 @@ const productSlice = createSlice({
       const { id, quantity, totalPrice } = payload;
       const inCart = state.cart.find((item) => item.id === id);
       if (inCart) {
-        // state.totalQuantity--;
+        state.totalQuantity--;
         inCart.quantity = quantity;
         inCart.totalPrice = totalPrice;
       }
@@ -45,6 +45,7 @@ const productSlice = createSlice({
       );
     },
     qty(state, { payload }) {
+      console.log(payload);
       const { id, quantity, totalPrice } = payload;
       const inCart = state.cart.find((item) => item.id === id);
 
