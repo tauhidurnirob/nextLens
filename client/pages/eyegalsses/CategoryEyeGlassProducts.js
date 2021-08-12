@@ -8,6 +8,7 @@ import RangeSlider from "./RangeSlider";
 import FilterByColor from "./FilterByColor";
 import FilterByGender from "./FilterByGender";
 import FilterByLensType from "./FilterByLenseType";
+import FilterByFrameShape from "./FilterByFrameShape";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -30,6 +31,7 @@ const CategoryEyeGlassProducts = () => {
           <FilterByColor />
           <FilterByGender />
           <FilterByLensType />
+          <FilterByFrameShape />
         </Grid>
         <Grid item container md={8}>
           {products.map((item) => (

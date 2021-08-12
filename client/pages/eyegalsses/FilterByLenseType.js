@@ -26,9 +26,7 @@ const useStyles = makeStyles({
   },
   divider: {
     width: "284px",
-  },
-  removeDivider: {
-    display: "none",
+    height: "1px",
   },
 
   "@global": {
@@ -97,11 +95,7 @@ const FilterByLensType = () => {
                         </Grid>
                       }
                     />
-                    <Divider
-                      className={clsx(classes.divider, {
-                        [classes.removeDivider]: item.remove,
-                      })}
-                    />
+                    <Divider className={clsx(classes.divider)} />
                   </>
                 ))}
               </FormGroup>
@@ -121,5 +115,5 @@ const filters = [
   { name: "Standard Lens", total: 248 },
   { name: "Premium Standard Lens", total: 163 },
   { name: "Blue Light Block Glass", total: 250 },
-  { name: "Anti Fog Lens", total: 250, remove: true },
+  { name: "Anti Fog Lens", total: 250 },
 ];

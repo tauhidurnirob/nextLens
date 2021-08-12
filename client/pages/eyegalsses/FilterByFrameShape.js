@@ -28,6 +28,7 @@ const useStyles = makeStyles({
     width: "284px",
     height: "1px",
   },
+
   "@global": {
     "span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1": {
       width: "100%",
@@ -35,7 +36,7 @@ const useStyles = makeStyles({
   },
 });
 
-const FilterByGender = () => {
+const FilterByFrameShape = () => {
   const classes = useStyles();
 
   const [expand, setExpand] = useState("expandBar");
@@ -44,15 +45,14 @@ const FilterByGender = () => {
     setExpand(newExpanded ? panel : false);
   };
   const [state, setState] = React.useState({
-    men: false,
-    women: false,
+    black: false,
   });
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const { men, women } = state;
+  const { black } = state;
 
   return (
     <Grid item container justifyContent="center">
@@ -67,52 +67,37 @@ const FilterByGender = () => {
             id="panel1a-header"
           >
             <Text className={clsx(classes.heading)}>
-              <Box fontWeight="fontWeightBold">Filter By Gender</Box>
+              <Box fontWeight="fontWeightBold">Filter By Lense Type</Box>
             </Text>
           </AccordionSummary>
           <AccordionDetails>
             <FormControl component="fieldset">
               <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={men}
-                      onChange={handleChange}
-                      name="men"
+                {filters.map((item, index) => (
+                  <>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={black}
+                          onChange={handleChange}
+                          name="black"
+                        />
+                      }
+                      key={index}
+                      label={
+                        <Grid
+                          container
+                          direction="row"
+                          justifyContent="space-between"
+                        >
+                          <Box component="div">{item.name}</Box>
+                          <Box component="div">({item.total})</Box>
+                        </Grid>
+                      }
                     />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">Men</Box>
-                      <Box component="div">(242)</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={women}
-                      onChange={handleChange}
-                      name="women"
-                    />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">Women</Box>
-                      <Box component="div">(9)</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
+                    <Divider className={clsx(classes.divider)} />
+                  </>
+                ))}
               </FormGroup>
             </FormControl>
           </AccordionDetails>
@@ -122,4 +107,13 @@ const FilterByGender = () => {
   );
 };
 
-export default FilterByGender;
+export default FilterByFrameShape;
+
+const filters = [
+  { name: "Round", total: 23 },
+  { name: "RetroSquare", total: 164 },
+  { name: "ClubMaster", total: 9 },
+  { name: "Oval", total: 27 },
+  { name: "Rectangle", total: 17 },
+  { name: "CatEye", total: 3 },
+];

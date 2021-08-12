@@ -26,6 +26,7 @@ const useStyles = makeStyles({
   },
   divider: {
     width: "284px",
+    height: "1px",
   },
   "@global": {
     "span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1": {
@@ -111,6 +112,7 @@ const FilterByColor = () => {
                     </Grid>
                   }
                 />
+                <Divider className={clsx(classes.divider)} />
               </FormGroup>
             </FormControl>
           </AccordionDetails>
