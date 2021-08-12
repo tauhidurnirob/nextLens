@@ -16,11 +16,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: `${theme.spacing(4)}px 0 10px 0`,
   },
-  // grid: {
-  //   [theme.breakpoints.up("md")]: {
-  //     height: "20px",
-  //   },
-  // },
 }));
 
 const CategoryEyeGlassProducts = () => {

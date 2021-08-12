@@ -179,7 +179,7 @@ const products = [
   },
   {
     id: 7,
-    title: "Shade Color Design Eyeglass",
+    title: "Shade Color Design Eyeglass 7",
     image: "/images/sun1.png",
     price: 200,
     ability: "In stock",
@@ -210,7 +210,7 @@ const products = [
   },
   {
     id: 8,
-    title: "High End Design Classic Frame",
+    title: "High End Design Classic Frame 8",
     image: "/images/sun1.png",
     price: 300,
     ability: "Stock Out",
@@ -241,7 +241,7 @@ const products = [
   },
   {
     id: 9,
-    title: "High End Design Eyeglass",
+    title: "High End Design Eyeglass 9",
     image: "/images/sun1.png",
     price: 400,
     ability: "In stock",
@@ -272,7 +272,7 @@ const products = [
   },
   {
     id: 10,
-    title: "High End Quality Rim less Eyeware",
+    title: "High End Quality Rim less Eyeware 10",
     image: "/images/sun1.png",
     price: 500,
     ability: "Stock Out",
@@ -303,7 +303,7 @@ const products = [
   },
   {
     id: 11,
-    title: "High End Quality Rim less Frame",
+    title: "High End Quality Rim less Frame 11",
     image: "/images/sun1.png",
     price: 600,
     ability: "In stock",
@@ -330,7 +330,7 @@ const products = [
   },
   {
     id: 12,
-    title: "High End Quality Rim less Eyeglass",
+    title: "High End Quality Rim less Eyeglass 12",
     image: "/images/sun1.png",
     price: 700,
     ability: "Stock Out",
