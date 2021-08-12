@@ -5,7 +5,6 @@ const productSlice = createSlice({
   initialState: {
     cart: [],
     productById: [],
-    totalQuantity: 1,
   },
   reducers: {
     addCart(state, { payload }) {
@@ -34,11 +33,7 @@ const productSlice = createSlice({
       }
     },
     findById(state, { payload }) {
-      state.productById = {
-        ...payload,
-        quantity: 1,
-        totalPrice: payload.price,
-      };
+      state.productById = payload;
     },
   },
 });

@@ -64,7 +64,7 @@ const ProductContents = () => {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            {productById?.listType.map((item, index) => (
+            {productById?.listType?.map((item, index) => (
               <MenuItem key={index} value={index + 1}>
                 {item.list}
               </MenuItem>
