@@ -10,6 +10,7 @@ import {
   FormGroup,
   FormControlLabel,
   Checkbox,
+  Grid,
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -18,10 +19,10 @@ import { Text } from "../../src/Re_components";
 
 const useStyles = makeStyles({
   root: {
-    width: "100%",
+    width: 300,
   },
   heading: {
-    fontSize: "20px",
+    fontSize: "16px",
   },
 });
 
@@ -45,48 +46,50 @@ const FilterByColor = () => {
   const { black, white } = state;
 
   return (
-    <Box mb={3} className={clsx(classes.root)}>
-      <Accordion
-        expanded={expand === "expandBar"}
-        onChange={handleChangeBar("expandBar")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+    <Grid item container justifyContent="center">
+      <Box mb={3} className={clsx(classes.root)}>
+        <Accordion
+          expanded={expand === "expandBar"}
+          onChange={handleChangeBar("expandBar")}
         >
-          <Text className={clsx(classes.heading)}>
-            <Box fontWeight="fontWeightBold">Filter By Color</Box>
-          </Text>
-        </AccordionSummary>
-        <AccordionDetails>
-          <FormControl component="fieldset">
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={black}
-                    onChange={handleChange}
-                    name="black"
-                  />
-                }
-                label="Black"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={white}
-                    onChange={handleChange}
-                    name="white"
-                  />
-                }
-                label="White"
-              />
-            </FormGroup>
-          </FormControl>
-        </AccordionDetails>
-      </Accordion>
-    </Box>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Text className={clsx(classes.heading)}>
+              <Box fontWeight="fontWeightBold">Filter By Color</Box>
+            </Text>
+          </AccordionSummary>
+          <AccordionDetails>
+            <FormControl component="fieldset">
+              <FormGroup>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={black}
+                      onChange={handleChange}
+                      name="black"
+                    />
+                  }
+                  label="Black"
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={white}
+                      onChange={handleChange}
+                      name="white"
+                    />
+                  }
+                  label="White"
+                />
+              </FormGroup>
+            </FormControl>
+          </AccordionDetails>
+        </Accordion>
+      </Box>
+    </Grid>
   );
 };
 
