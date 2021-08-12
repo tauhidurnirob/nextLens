@@ -88,7 +88,7 @@ const RatingComponent = () => {
             label="Description"
             variant="outlined"
             multiline
-            rows={4}
+            minRows={4}
             maxRows={8}
           />
         </FormControl>

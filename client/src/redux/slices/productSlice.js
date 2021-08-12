@@ -33,7 +33,18 @@ const productSlice = createSlice({
       }
     },
     findById(state, { payload }) {
-      state.productById = payload;
+
+      const productID = state.cart.find((item) => item.id === payload.id);
+      if (productID) {
+        state.productById.quantity = productID.quantity;
+        state.productById.quantity = productID.totalPrice;
+      }else{
+        state.productById = {
+          ...payload,
+          quantity: 1,
+          totalPrice: payload.price,
+        };
+      }
     },
   },
 });
