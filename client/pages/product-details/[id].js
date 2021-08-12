@@ -7,7 +7,6 @@ import { findById } from "../../src/redux/slices/productSlice";
 
 const ProductId = ({ data }) => {
   const dispatch = useDispatch();
-
   dispatch(findById(data));
 
   return <ProductDetails />;

@@ -44,7 +44,9 @@ const useStyles = makeStyles(() => ({
 const ProductContents = () => {
   const classes = useStyles();
 
-  const { productById } = useSelector(cartList);
+  const { productById, cart } = useSelector(cartList);
+
+  const findById = cart.find((item) => item.id === productById.id);
 
   return (
     <Grid item container md={7}>
@@ -72,7 +74,7 @@ const ProductContents = () => {
           </Select>
         </FormControl>
         {/*  */}
-        <Quantity items={productById} />
+        <Quantity items={findById ? findById : productById} />
         {/*  */}
         <Text gutterBottom variant="subtitle1">
           Availability:
