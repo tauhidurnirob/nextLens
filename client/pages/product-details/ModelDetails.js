@@ -1,8 +1,14 @@
 import React from "react";
-import { Container, makeStyles, Grid, Box } from "@material-ui/core";
+import {
+  Container,
+  makeStyles,
+  Grid,
+  Box,
+  Typography,
+} from "@material-ui/core";
 import clsx from "clsx";
 
-import { Text, Heading } from "./../../src/Re_components";
+import { Heading } from "./../../src/Re_components";
 import colors from "../../config/colors";
 import RatingComponent from "../../src/Components/RatingComponent";
 import { cartList } from "./../../src/redux/slices/productSlice";
@@ -27,62 +33,62 @@ const ModelDetails = () => {
       <Container maxWidth="lg" className={clsx(classes.container)}>
         <Grid container direction="row" spacing={2}>
           <Grid item md={5}>
-            <Text gutterBottom variant="subtitle1">
+            <Typography gutterBottom variant="subtitle1">
               <Box component="span" fontWeight="fontWeightBold">
                 Model Number:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
                 {productById?.details.modelNumber}
               </Box>
-            </Text>
-            <Text gutterBottom variant="subtitle1">
+            </Typography>
+            <Typography gutterBottom variant="subtitle1">
               <Box component="span" fontWeight="fontWeightBold">
                 Size:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
                 {productById?.details.size}
               </Box>
-            </Text>
-            <Text gutterBottom variant="subtitle1">
+            </Typography>
+            <Typography gutterBottom variant="subtitle1">
               <Box component="span" fontWeight="fontWeightBold">
                 Frame Material:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
                 {productById?.details.frameMaterial}
               </Box>
-            </Text>
-            <Text gutterBottom variant="subtitle1">
+            </Typography>
+            <Typography gutterBottom variant="subtitle1">
               <Box component="span" fontWeight="fontWeightBold">
                 Frame Lens Material:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
                 {productById?.details.frameLensMaterial}
               </Box>
-            </Text>
-            <Text gutterBottom variant="subtitle1">
+            </Typography>
+            <Typography gutterBottom variant="subtitle1">
               <Box component="span" fontWeight="fontWeightBold">
                 Frame Attribution:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
                 {productById?.details.frameAttribution}
               </Box>
-            </Text>
-            <Text gutterBottom variant="subtitle1">
+            </Typography>
+            <Typography gutterBottom variant="subtitle1">
               <Box component="span" fontWeight="fontWeightBold">
                 Usages:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
                 {productById?.details.usage}
               </Box>
-            </Text>
-            <Text gutterBottom variant="subtitle1">
+            </Typography>
+            <Typography gutterBottom variant="subtitle1">
               <Box component="span" fontWeight="fontWeightBold">
                 Lens Function:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
                 {productById?.details.lensFunction}
               </Box>
-            </Text>
+            </Typography>
           </Grid>
           <RatingComponent />
         </Grid>

@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Grid, Box } from "@material-ui/core";
+import { makeStyles, Grid, Box, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
 import MailOutlineOutlinedIcon from "@material-ui/icons/MailOutlineOutlined";
@@ -8,7 +8,6 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 
-import { Text } from "../../Re_components";
 import colors from "../../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,27 +28,39 @@ const Contact = () => {
   return (
     <Grid item container md={6}>
       <Grid container direction="column">
-        <Text gutterBottom variant="h6">
+        <Typography gutterBottom variant="h6">
           <Box fontWeight="fontWeightBold">Contacts</Box>
-        </Text>
-        <Text gutterBottom variant="subtitle1" className={clsx(classes.text)}>
+        </Typography>
+        <Typography
+          gutterBottom
+          variant="subtitle1"
+          className={clsx(classes.text)}
+        >
           <Box mr={1}>
             <RoomOutlinedIcon />
           </Box>
           44/8,1st Floor, West Panthopath,North Dhanmondhi,Dhaka-1205
-        </Text>
-        <Text gutterBottom variant="subtitle1" className={clsx(classes.text)}>
+        </Typography>
+        <Typography
+          gutterBottom
+          variant="subtitle1"
+          className={clsx(classes.text)}
+        >
           <Box mr={1}>
             <MailOutlineOutlinedIcon />
           </Box>
           info@dukpion.com
-        </Text>
-        <Text gutterBottom variant="subtitle1" className={clsx(classes.text)}>
+        </Typography>
+        <Typography
+          gutterBottom
+          variant="subtitle1"
+          className={clsx(classes.text)}
+        >
           <Box mr={1}>
             <CallOutlinedIcon />
           </Box>
           +88 01872777452
-        </Text>
+        </Typography>
         <Box component="div" className={clsx(classes.box)}>
           <Box mr={4}>
             <FacebookIcon

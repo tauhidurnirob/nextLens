@@ -20,13 +20,13 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
+      <Navigation />
       <ThemeProvider theme={theme}>
-        <Navigation />
         <CssBaseline />
         <GlobalStyles />
         <Component {...pageProps} />
-        <Footer />
       </ThemeProvider>
+      <Footer />
     </Provider>
   );
 }
