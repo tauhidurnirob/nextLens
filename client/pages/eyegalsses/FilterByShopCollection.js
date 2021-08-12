@@ -36,7 +36,7 @@ const useStyles = makeStyles({
   },
 });
 
-const FilterByFrameShape = () => {
+const FilterByShopCollection = () => {
   const classes = useStyles();
 
   const [expand, setExpand] = useState("expandBar");
@@ -67,7 +67,7 @@ const FilterByFrameShape = () => {
             id="panel1a-header"
           >
             <Text className={clsx(classes.heading)}>
-              <Box fontWeight="fontWeightBold">Filter By Frame Shape</Box>
+              <Box fontWeight="fontWeightBold">Filter By Shop Collection</Box>
             </Text>
           </AccordionSummary>
           <AccordionDetails>
@@ -107,13 +107,9 @@ const FilterByFrameShape = () => {
   );
 };
 
-export default FilterByFrameShape;
+export default FilterByShopCollection;
 
 const filters = [
-  { name: "Round", total: 23 },
-  { name: "RetroSquare", total: 164 },
-  { name: "ClubMaster", total: 9 },
-  { name: "Oval", total: 27 },
-  { name: "Rectangle", total: 17 },
-  { name: "CatEye", total: 3 },
+  { name: "Economy", total: 59 },
+  { name: "Premium", total: 189 },
 ];

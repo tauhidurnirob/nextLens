@@ -9,6 +9,8 @@ import FilterByColor from "./FilterByColor";
 import FilterByGender from "./FilterByGender";
 import FilterByLensType from "./FilterByLenseType";
 import FilterByFrameShape from "./FilterByFrameShape";
+import FilterByFrameStyle from "./FilterByFrameStyle";
+import FilterByShopCollection from "./FilterByShopCollection";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -32,6 +34,8 @@ const CategoryEyeGlassProducts = () => {
           <FilterByGender />
           <FilterByLensType />
           <FilterByFrameShape />
+          <FilterByFrameStyle />
+          <FilterByShopCollection />
         </Grid>
         <Grid item container md={8}>
           {products.map((item) => (
