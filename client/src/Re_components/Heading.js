@@ -1,6 +1,11 @@
 import React from "react";
-import { Container, Grid, Divider, Box, makeStyles } from "@material-ui/core";
-import Text from "./Text";
+import {
+  Container,
+  Grid,
+  Typography,
+  Box,
+  makeStyles,
+} from "@material-ui/core";
 import colors from "../../config/colors";
 import clsx from "clsx";
 
@@ -22,7 +27,7 @@ const Heading = ({ children, isDivider, ...otherProps }) => {
         alignItems="center"
         direction="column"
       >
-        <Text {...otherProps}>{children}</Text>
+        <Typography {...otherProps}>{children}</Typography>
         {isDivider && <Box component="div" className={clsx(classes.divider)} />}
       </Grid>
     </Container>

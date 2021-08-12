@@ -30,7 +30,7 @@ const ProductImage = () => {
   };
   return (
     <Grid item container md={5} justifyContent="center">
-      {productById?.detailsImage.length === 0 ? (
+      {productById?.detailsImage?.length === 0 ? (
         <Image
           src={productById?.image}
           alt={productById?.title}
@@ -40,11 +40,11 @@ const ProductImage = () => {
       ) : (
         <Carousel
           {...settings}
-          slider={productById?.detailsImage.map((item, index) => (
+          slider={productById?.detailsImage?.map((item, index) => (
             <Image
               key={index}
               src={item?.image}
-              alt={productById?.title}
+              alt={item?.title}
               width={450}
               height={400}
             />

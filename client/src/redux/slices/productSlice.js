@@ -5,29 +5,8 @@ const productSlice = createSlice({
   initialState: {
     cart: [],
     productById: [],
-    totalQuantity: 1,
   },
   reducers: {
-    increment(state, { payload }) {
-      console.log(payload);
-      const { id, quantity, totalPrice } = payload;
-      const inCart = state.cart.find((item) => item.id === id);
-
-      if (inCart) {
-        // state.totalQuantity++;
-        inCart.quantity = quantity;
-        inCart.totalPrice = totalPrice;
-      }
-    },
-    decrement(state, { payload }) {
-      const { id, quantity, totalPrice } = payload;
-      const inCart = state.cart.find((item) => item.id === id);
-      if (inCart) {
-        // state.totalQuantity--;
-        inCart.quantity = quantity;
-        inCart.totalPrice = totalPrice;
-      }
-    },
     addCart(state, { payload }) {
       const { id } = payload;
       const inCart = state.cart.find((item) => item.id === id);
@@ -54,7 +33,11 @@ const productSlice = createSlice({
       }
     },
     findById(state, { payload }) {
-      state.productById = payload;
+      state.productById = {
+        ...payload,
+        quantity: 1,
+        totalPrice: payload.price,
+      };
     },
   },
 });

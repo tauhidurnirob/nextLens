@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, makeStyles, Grid } from "@material-ui/core";
+import { Container, makeStyles, Box, Grid } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -34,16 +34,18 @@ const CartDetails = () => {
           <Heading className={clsx(classes.heading)}>
             <Text variant="h4">You haven't any cart products</Text>
           </Heading>
-          <Grid container justifyContent="center">
-            <Button
-              startIcon={<HistoryIcon />}
-              variant="outlined"
-              color="primary"
-              onClick={() => back()}
-            >
-              Go Back
-            </Button>
-          </Grid>
+          <Box mt={3}>
+            <Grid container justifyContent="center">
+              <Button
+                startIcon={<HistoryIcon />}
+                variant="outlined"
+                color="primary"
+                onClick={() => back()}
+              >
+                Go Back
+              </Button>
+            </Grid>
+          </Box>
         </>
       )}
     </Container>
