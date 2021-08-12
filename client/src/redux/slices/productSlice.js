@@ -54,7 +54,6 @@ const productSlice = createSlice({
       }
     },
     findById(state, { payload }) {
-      console.log(payload)
       state.productById = payload;
     },
   },
