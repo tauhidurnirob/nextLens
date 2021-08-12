@@ -93,12 +93,10 @@ const Quantity = ({ items, isCartTable }) => {
     >
       <Box component="div" className={clsx(classes.control)}>
         <Button
-          // onClick={handleDecrement}
           onClick={() => setCount(count - 1)}
           color="secondary"
           type="submit"
           size="small"
-          // disabled={items.quantity === 1}
           disabled={items.quantity === 1}
           className={clsx(classes.btn)}
         >
@@ -107,7 +105,6 @@ const Quantity = ({ items, isCartTable }) => {
         <FormControl variant="outlined">
           <Input
             value={Math.abs(items.quantity)}
-            // value={Math.abs(totalQuantity)}
             className={clsx(classes.input)}
             type="number"
             inputProps={{ min: "1" }}
@@ -118,7 +115,6 @@ const Quantity = ({ items, isCartTable }) => {
           color="secondary"
           type="submit"
           size="small"
-          // onClick={handleIncrement}
           onClick={() => setCount(count + 1)}
           className={clsx(classes.btn)}
         >

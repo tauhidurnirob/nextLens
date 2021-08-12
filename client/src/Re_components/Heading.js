@@ -6,7 +6,6 @@ import {
   Box,
   makeStyles,
 } from "@material-ui/core";
-import Text from "./Text";
 import colors from "../../config/colors";
 import clsx from "clsx";
 
