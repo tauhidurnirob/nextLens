@@ -33,7 +33,11 @@ const productSlice = createSlice({
       }
     },
     findById(state, { payload }) {
-      state.productById = payload;
+      state.productById = {
+        ...payload,
+        quantity: 1,
+        totalPrice: payload.price,
+      };
     },
   },
 });
