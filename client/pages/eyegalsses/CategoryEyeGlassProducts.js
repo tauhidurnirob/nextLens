@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   grid: {
     [theme.breakpoints.up("md")]: {
-      height: "20px",
+      // height: "20px",
     },
   },
 }));

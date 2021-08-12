@@ -27,6 +27,10 @@ const useStyles = makeStyles({
   divider: {
     width: "284px",
   },
+  removeDivider: {
+    display: "none",
+  },
+
   "@global": {
     "span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1": {
       width: "100%",
@@ -93,7 +97,11 @@ const FilterByLensType = () => {
                         </Grid>
                       }
                     />
-                    <Divider className={clsx(classes.divider)} />
+                    <Divider
+                      className={clsx(classes.divider, {
+                        [classes.removeDivider]: item.remove,
+                      })}
+                    />
                   </>
                 ))}
               </FormGroup>
@@ -113,5 +121,5 @@ const filters = [
   { name: "Standard Lens", total: 248 },
   { name: "Premium Standard Lens", total: 163 },
   { name: "Blue Light Block Glass", total: 250 },
-  { name: "Anti Fog Lens", total: 250 },
+  { name: "Anti Fog Lens", total: 250, remove: true },
 ];
