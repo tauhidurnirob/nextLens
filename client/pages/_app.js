@@ -6,6 +6,7 @@ import "nprogress/nprogress.css";
 import dynamic from "next/dynamic";
 
 import theme from "../src/Theme/theme";
+import GlobalStyles from "../src/Theme/globalStyles";
 import "../styles/globals.scss";
 import Navigation from "./../src/Components/Navigation/Navigation";
 import Footer from "./../src/Components/Footer/Footer";
@@ -27,14 +28,15 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <TopProgressBar />
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
         <Navigation />
+        <TopProgressBar />
         <CssBaseline />
+        <GlobalStyles />
         <Component {...pageProps} />
         <Footer />
-      </ThemeProvider>
-    </Provider>
+      </Provider>
+    </ThemeProvider>
   );
 }

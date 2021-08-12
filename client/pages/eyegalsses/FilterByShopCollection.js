@@ -28,12 +28,6 @@ const useStyles = makeStyles({
     width: "284px",
     height: "1px",
   },
-
-  // "@global": {
-  //   "span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1": {
-  //     width: "100%",
-  //   },
-  // },
 });
 
 const FilterByShopCollection = () => {
