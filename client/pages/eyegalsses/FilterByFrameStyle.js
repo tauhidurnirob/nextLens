@@ -28,6 +28,7 @@ const useStyles = makeStyles({
     width: "284px",
     height: "1px",
   },
+
   "@global": {
     "span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1": {
       width: "100%",
@@ -35,7 +36,7 @@ const useStyles = makeStyles({
   },
 });
 
-const FilterByColor = () => {
+const FilterByFrameStyle = () => {
   const classes = useStyles();
 
   const [expand, setExpand] = useState("expandBar");
@@ -45,14 +46,13 @@ const FilterByColor = () => {
   };
   const [state, setState] = React.useState({
     black: false,
-    white: false,
   });
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const { black, white } = state;
+  const { black } = state;
 
   return (
     <Grid item container justifyContent="center">
@@ -67,52 +67,37 @@ const FilterByColor = () => {
             id="panel1a-header"
           >
             <Text className={clsx(classes.heading)}>
-              <Box fontWeight="fontWeightBold">Filter By Color</Box>
+              <Box fontWeight="fontWeightBold">Filter By Frame Style</Box>
             </Text>
           </AccordionSummary>
           <AccordionDetails>
             <FormControl component="fieldset">
               <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={black}
-                      onChange={handleChange}
-                      name="black"
+                {filters.map((item, index) => (
+                  <>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={black}
+                          onChange={handleChange}
+                          name="black"
+                        />
+                      }
+                      key={index}
+                      label={
+                        <Grid
+                          container
+                          direction="row"
+                          justifyContent="space-between"
+                        >
+                          <Box component="div">{item.name}</Box>
+                          <Box component="div">({item.total})</Box>
+                        </Grid>
+                      }
                     />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">Black</Box>
-                      <Box component="div">(105)</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={white}
-                      onChange={handleChange}
-                      name="white"
-                    />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">White</Box>
-                      <Box component="div">(10)</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
+                    <Divider className={clsx(classes.divider)} />
+                  </>
+                ))}
               </FormGroup>
             </FormControl>
           </AccordionDetails>
@@ -122,4 +107,10 @@ const FilterByColor = () => {
   );
 };
 
-export default FilterByColor;
+export default FilterByFrameStyle;
+
+const filters = [
+  { name: "Half Frame", total: 21 },
+  { name: "Full Frame", total: 211 },
+  { name: "Rimless", total: 11 },
+];

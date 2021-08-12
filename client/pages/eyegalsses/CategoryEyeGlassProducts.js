@@ -6,11 +6,21 @@ import { Cards } from "../../src/Re_components";
 import products from "../../fakeData/products";
 import RangeSlider from "./RangeSlider";
 import FilterByColor from "./FilterByColor";
+import FilterByGender from "./FilterByGender";
+import FilterByLensType from "./FilterByLenseType";
+import FilterByFrameShape from "./FilterByFrameShape";
+import FilterByFrameStyle from "./FilterByFrameStyle";
+import FilterByShopCollection from "./FilterByShopCollection";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: `${theme.spacing(4)}px 0 10px 0`,
   },
+  // grid: {
+  //   [theme.breakpoints.up("md")]: {
+  //     height: "20px",
+  //   },
+  // },
 }));
 
 const CategoryEyeGlassProducts = () => {
@@ -21,6 +31,11 @@ const CategoryEyeGlassProducts = () => {
         <Grid item container md={4}>
           <RangeSlider />
           <FilterByColor />
+          <FilterByGender />
+          <FilterByLensType />
+          <FilterByShopCollection />
+          <FilterByFrameStyle />
+          <FilterByFrameShape />
         </Grid>
         <Grid item container md={8}>
           {products.map((item) => (

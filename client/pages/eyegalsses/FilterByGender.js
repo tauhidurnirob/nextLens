@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   },
 });
 
-const FilterByColor = () => {
+const FilterByGender = () => {
   const classes = useStyles();
 
   const [expand, setExpand] = useState("expandBar");
@@ -44,15 +44,15 @@ const FilterByColor = () => {
     setExpand(newExpanded ? panel : false);
   };
   const [state, setState] = React.useState({
-    black: false,
-    white: false,
+    men: false,
+    women: false,
   });
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const { black, white } = state;
+  const { men, women } = state;
 
   return (
     <Grid item container justifyContent="center">
@@ -67,7 +67,7 @@ const FilterByColor = () => {
             id="panel1a-header"
           >
             <Text className={clsx(classes.heading)}>
-              <Box fontWeight="fontWeightBold">Filter By Color</Box>
+              <Box fontWeight="fontWeightBold">Filter By Gender</Box>
             </Text>
           </AccordionSummary>
           <AccordionDetails>
@@ -76,9 +76,9 @@ const FilterByColor = () => {
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={black}
+                      checked={men}
                       onChange={handleChange}
-                      name="black"
+                      name="men"
                     />
                   }
                   label={
@@ -87,8 +87,8 @@ const FilterByColor = () => {
                       direction="row"
                       justifyContent="space-between"
                     >
-                      <Box component="div">Black</Box>
-                      <Box component="div">(105)</Box>
+                      <Box component="div">Men</Box>
+                      <Box component="div">(242)</Box>
                     </Grid>
                   }
                 />
@@ -96,9 +96,9 @@ const FilterByColor = () => {
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={white}
+                      checked={women}
                       onChange={handleChange}
-                      name="white"
+                      name="women"
                     />
                   }
                   label={
@@ -107,8 +107,8 @@ const FilterByColor = () => {
                       direction="row"
                       justifyContent="space-between"
                     >
-                      <Box component="div">White</Box>
-                      <Box component="div">(10)</Box>
+                      <Box component="div">Women</Box>
+                      <Box component="div">(9)</Box>
                     </Grid>
                   }
                 />
@@ -122,4 +122,4 @@ const FilterByColor = () => {
   );
 };
 
-export default FilterByColor;
+export default FilterByGender;
