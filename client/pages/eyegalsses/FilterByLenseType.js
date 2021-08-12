@@ -34,7 +34,7 @@ const useStyles = makeStyles({
   },
 });
 
-const FilterByColor = () => {
+const FilterByLensType = () => {
   const classes = useStyles();
 
   const [expand, setExpand] = useState("expandBar");
@@ -44,14 +44,13 @@ const FilterByColor = () => {
   };
   const [state, setState] = React.useState({
     black: false,
-    white: false,
   });
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const { black, white } = state;
+  const { black } = state;
 
   return (
     <Grid item container justifyContent="center">
@@ -66,51 +65,37 @@ const FilterByColor = () => {
             id="panel1a-header"
           >
             <Text className={clsx(classes.heading)}>
-              <Box fontWeight="fontWeightBold">Filter By Color</Box>
+              <Box fontWeight="fontWeightBold">Filter By Lense Type</Box>
             </Text>
           </AccordionSummary>
           <AccordionDetails>
             <FormControl component="fieldset">
               <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={black}
-                      onChange={handleChange}
-                      name="black"
+                {filters.map((item, index) => (
+                  <>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={black}
+                          onChange={handleChange}
+                          name="black"
+                        />
+                      }
+                      key={index}
+                      label={
+                        <Grid
+                          container
+                          direction="row"
+                          justifyContent="space-between"
+                        >
+                          <Box component="div">{item.name}</Box>
+                          <Box component="div">({item.total})</Box>
+                        </Grid>
+                      }
                     />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">Black</Box>
-                      <Box component="div">(105)</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={white}
-                      onChange={handleChange}
-                      name="white"
-                    />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">White</Box>
-                      <Box component="div">(10)</Box>
-                    </Grid>
-                  }
-                />
+                    <Divider className={clsx(classes.divider)} />
+                  </>
+                ))}
               </FormGroup>
             </FormControl>
           </AccordionDetails>
@@ -120,4 +105,13 @@ const FilterByColor = () => {
   );
 };
 
-export default FilterByColor;
+export default FilterByLensType;
+
+const filters = [
+  { name: "Frame Only", total: 250 },
+  { name: "Basic Lens", total: 248 },
+  { name: "Standard Lens", total: 248 },
+  { name: "Premium Standard Lens", total: 163 },
+  { name: "Blue Light Block Glass", total: 250 },
+  { name: "Anti Fog Lens", total: 250 },
+];

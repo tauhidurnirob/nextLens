@@ -6,6 +6,8 @@ import { Cards } from "../../src/Re_components";
 import products from "../../fakeData/products";
 import RangeSlider from "./RangeSlider";
 import FilterByColor from "./FilterByColor";
+import FilterByGender from "./FilterByGender";
+import FilterByLensType from "./FilterByLenseType";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -26,6 +28,8 @@ const CategoryEyeGlassProducts = () => {
         <Grid item container md={4} className={clsx(classes.grid)}>
           <RangeSlider />
           <FilterByColor />
+          <FilterByGender />
+          <FilterByLensType />
         </Grid>
         <Grid item container md={8}>
           {products.map((item) => (
