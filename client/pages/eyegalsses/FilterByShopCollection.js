@@ -29,11 +29,11 @@ const useStyles = makeStyles({
     height: "1px",
   },
 
-  "@global": {
-    "span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1": {
-      width: "100%",
-    },
-  },
+  // "@global": {
+  //   "span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1": {
+  //     width: "100%",
+  //   },
+  // },
 });
 
 const FilterByShopCollection = () => {

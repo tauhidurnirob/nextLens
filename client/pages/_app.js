@@ -28,13 +28,13 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <TopProgressBar />
-      <Navigation />
       <ThemeProvider theme={theme}>
+        <TopProgressBar />
+        <Navigation />
         <CssBaseline />
         <Component {...pageProps} />
+        <Footer />
       </ThemeProvider>
-      <Footer />
     </Provider>
   );
 }
