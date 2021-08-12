@@ -90,7 +90,7 @@ const Quantity = ({ items, isCartTable }) => {
       decrement({
         id: items.id,
         quantity: count,
-        totalPrice: items.price * count,
+        totalPrice: items.price * items.quantity,
       })
     );
   };
