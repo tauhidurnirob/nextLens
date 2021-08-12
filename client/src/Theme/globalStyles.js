@@ -43,9 +43,9 @@ const styles = (theme) => ({
     ".capitalize": {
       textTransform: "capitalize",
     },
-    // "span.MuiFormControlLabel-label": {
-    //   width: "100%",
-    // },
+    "span.MuiFormControlLabel-label": {
+      width: "100%",
+    },
   },
 });
 
