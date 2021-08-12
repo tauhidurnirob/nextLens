@@ -14,7 +14,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 import colors from "../../config/colors";
 import AddToCartButton from "./AddToCartButton";
-import { qty } from "../redux/slices/productSlice";
+import {
+  increment,
+  decrement,
+  qty,
+  cartList,
+} from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: { margin: `${theme.spacing(1)}px 0 ${theme.spacing(2)}px 0` },

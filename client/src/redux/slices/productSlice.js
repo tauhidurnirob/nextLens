@@ -5,6 +5,7 @@ const productSlice = createSlice({
   initialState: {
     cart: [],
     productById: [],
+    totalQuantity: 1,
   },
   reducers: {
     addCart(state, { payload }) {
@@ -33,18 +34,11 @@ const productSlice = createSlice({
       }
     },
     findById(state, { payload }) {
-
-      const productID = state.cart.find((item) => item.id === payload.id);
-      if (productID) {
-        state.productById.quantity = productID.quantity;
-        state.productById.quantity = productID.totalPrice;
-      }else{
-        state.productById = {
-          ...payload,
-          quantity: 1,
-          totalPrice: payload.price,
-        };
-      }
+      state.productById = {
+        ...payload,
+        quantity: 1,
+        totalPrice: payload.price,
+      };
     },
   },
 });
