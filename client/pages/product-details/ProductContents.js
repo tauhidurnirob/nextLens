@@ -73,7 +73,6 @@ const ProductContents = () => {
           </Select>
         </FormControl>
         {/*  */}
-        {/* <Quantity items={cartProductById ? cartProductById : productById} /> */}
         <Quantity items={cartProductById || productById} />
         {/*  */}
         <Text gutterBottom variant="subtitle1">

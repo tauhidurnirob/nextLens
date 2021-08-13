@@ -14,12 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import colors from "../../config/colors";
 import AddToCartButton from "./AddToCartButton";
-import {
-  increment,
-  decrement,
-  qty,
-  cartList,
-} from "../redux/slices/productSlice";
+import { qty, cartList } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: { margin: `${theme.spacing(1)}px 0 ${theme.spacing(2)}px 0` },
@@ -79,6 +74,9 @@ const Quantity = ({ items, isCartTable }) => {
   const dispatch = useDispatch();
   const [count, setCount] = useState(items.quantity);
 
+  const { cart } = useSelector(cartList);
+  const inCart = cart.find((item) => item.id === items.id);
+
   useEffect(() => {
     dispatch(
       qty({
@@ -122,6 +120,7 @@ const Quantity = ({ items, isCartTable }) => {
           size="small"
           onClick={() => setCount(count + 1)}
           className={clsx(classes.btn)}
+          disabled={!inCart}
         >
           <AddIcon fontSize="small" />
         </Button>
