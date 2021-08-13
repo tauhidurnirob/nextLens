@@ -12,7 +12,7 @@ import {
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 
-import { Text, Quantity } from "./../../src/Re_components";
+import { Quantity } from "./../../src/Re_components";
 import colors from "../../config/colors";
 import { cartList } from "./../../src/redux/slices/productSlice";
 
