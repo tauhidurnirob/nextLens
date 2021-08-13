@@ -41,8 +41,7 @@ const productSlice = createSlice({
   },
 });
 
-export const { addCart, removeCart, qty, findById, increment, decrement } =
-  productSlice.actions;
+export const { addCart, removeCart, qty, findById } = productSlice.actions;
 
 export default productSlice.reducer;
 
