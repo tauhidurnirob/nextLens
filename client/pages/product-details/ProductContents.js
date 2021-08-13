@@ -7,6 +7,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
@@ -33,7 +34,7 @@ const useStyles = makeStyles(() => ({
     transition: "0.3s",
     fontWeight: "500",
     letterSpacing: "1px",
-    fontSize: "12px",
+    fontSize: "14px",
     padding: "4px 0",
     "&:hover": {
       color: colors.sky,
@@ -50,15 +51,24 @@ const ProductContents = () => {
   return (
     <Grid item container md={7}>
       <Grid container direction="column">
-        <Text gutterBottom variant="h5">
+        <Typography gutterBottom variant="h5">
           <Box fontWeight="fontWeightBold">{productById?.title}</Box>
-        </Text>
-        <Text gutterBottom color="textSecondary" className={clsx(classes.font)}>
+        </Typography>
+        <Typography
+          variant="h6"
+          gutterBottom
+          color="textSecondary"
+          className={clsx(classes.font)}
+        >
           Be the first to review this product
-        </Text>
-        <Text gutterBottom color="textSecondary" variant="subtitle1">
-          As low as ৳{productById?.price}
-        </Text>
+        </Typography>
+        <Typography gutterBottom color="textSecondary" variant="subtitle1">
+          As low as
+          {cartProductById
+            ? ` ৳${cartProductById?.price} * ${cartProductById?.quantity} = ${cartProductById?.totalPrice}`
+            : `৳${productById?.price}`}
+        </Typography>
+
         <FormControl variant="outlined" className={clsx(classes.form)}>
           <InputLabel id="list">List</InputLabel>
           <Select labelId="list" id="list" label="List">
@@ -75,7 +85,7 @@ const ProductContents = () => {
         {/*  */}
         <Quantity items={cartProductById || productById} />
         {/*  */}
-        <Text gutterBottom variant="subtitle1">
+        <Typography gutterBottom variant="subtitle1">
           Availability:
           <Box
             component="span"
@@ -87,19 +97,19 @@ const ProductContents = () => {
           >
             {productById?.ability}
           </Box>
-        </Text>
-        <Text gutterBottom variant="subtitle1">
+        </Typography>
+        <Typography gutterBottom variant="subtitle1">
           Delivery:
           <Box component="span" ml={1} className={clsx(classes.box)}>
             {productById?.sizeGuide}
           </Box>
-        </Text>
-        <Text gutterBottom variant="subtitle1">
+        </Typography>
+        <Typography gutterBottom variant="subtitle1">
           SKU:
           <Box component="span" ml={1} className={clsx(classes.box)}>
             {productById?.Sku}
           </Box>
-        </Text>
+        </Typography>
       </Grid>
     </Grid>
   );
