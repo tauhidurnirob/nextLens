@@ -1,11 +1,17 @@
 import React from "react";
-import { Container, makeStyles, Grid, Typography } from "@material-ui/core";
+import {
+  Container,
+  makeStyles,
+  Grid,
+  Typography,
+  Button,
+} from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import HistoryIcon from "@material-ui/icons/History";
 
-import { Button, Heading } from "../../src/Re_components";
+import { Heading } from "../../src/Re_components";
 import { cartList } from "../../src/redux/slices/productSlice";
 import CartTable from "./CartTable";
 
@@ -31,8 +37,10 @@ const CartDetails = () => {
         </>
       ) : (
         <>
-          <Heading className={clsx(classes.heading)}>
-            <Typography variant="h4">You haven't any cart products</Typography>
+          <Heading>
+            <Typography className={clsx(classes.heading)} variant="h4">
+              You haven't any cart products
+            </Typography>
           </Heading>
           <Grid container justifyContent="center">
             <Button
