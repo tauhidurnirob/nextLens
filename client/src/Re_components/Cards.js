@@ -1,14 +1,19 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { CardContent, Box, IconButton, Grid } from "@material-ui/core";
+import {
+  CardContent,
+  Box,
+  IconButton,
+  Grid,
+  Button,
+  Typography,
+} from "@material-ui/core";
 import clsx from "clsx";
 import Image from "next/image";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import Link from "next/link";
 
 import styles from "../../styles/imageHover.module.scss";
-import Button from "./AppButton";
-import Text from "./Text";
 import colors from "../../config/colors";
 import { ShouldBeCapital } from "../../utils/utils";
 import AddToCartButton from "./AddToCartButton";
@@ -164,12 +169,12 @@ const Cards = ({
       {isProduct && (
         <>
           <Grid container direction="column">
-            <Text className={clsx(classes.font)}>
+            <Typography className={clsx(classes.font)}>
               {ShouldBeCapital(item?.title)}
-            </Text>
-            <Text>
+            </Typography>
+            <Typography>
               <Box fontWeight={500}>৳{item?.price}</Box>
-            </Text>
+            </Typography>
           </Grid>
         </>
       )}

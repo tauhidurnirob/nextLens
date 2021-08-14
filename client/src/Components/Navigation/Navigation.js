@@ -3,7 +3,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import { Box, ButtonGroup, Container, Grid, Badge } from "@material-ui/core";
+import {
+  Box,
+  ButtonGroup,
+  Container,
+  Grid,
+  Badge,
+  Typography,
+} from "@material-ui/core";
 import clsx from "clsx";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
@@ -14,7 +21,7 @@ import { useSelector } from "react-redux";
 import { cartList } from "../../redux/slices/productSlice";
 
 import MobileNavigation from "./MobileNavigation";
-import { Text } from "../../Re_components";
+
 import Search from "../Search";
 
 const useStyles = makeStyles((theme) => ({
@@ -104,12 +111,12 @@ const Navigation = () => {
                 {!isDesktopOrLaptop && (
                   <Grid item>
                     <Link href="/">
-                      <Text
+                      <Typography
                         variant="h5"
                         style={{ color: "black", cursor: "pointer" }}
                       >
                         NextLens
-                      </Text>
+                      </Typography>
                     </Link>
                   </Grid>
                 )}

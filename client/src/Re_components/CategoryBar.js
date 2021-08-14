@@ -6,12 +6,12 @@ import {
   AccordionDetails,
   Grid,
   AccordionSummary,
+  Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import { Gender, FrameShare, FrameStyles, Shope } from "../Components/Menus";
-import Text from "./Text";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,26 +27,18 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryBar = () => {
   const classes = useStyles();
-  // const [expand, setExpand] = useState("expandBar");
-
-  // const handleChange = (panel) => (event, newExpanded) => {
-  //   setExpand(newExpanded ? panel : false);
-  // };
 
   return (
     <Box component="div" className={clsx(classes.root)}>
-      <Accordion
-      // expanded={expand === "expandBar"}
-      // onChange={handleChange("expandBar")}
-      >
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Text className={clsx(classes.heading)}>
+          <Typography className={clsx(classes.heading)}>
             <Box fontWeight="fontWeightBold">EYE GLASSES</Box>
-          </Text>
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Grid container direction="row">

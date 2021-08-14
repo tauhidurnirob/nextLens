@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
 
 import { Heading, Cards, Carousel } from "../../Re_components";
@@ -46,8 +46,10 @@ const EyeOffers = () => {
 
   return (
     <>
-      <Heading className={clsx(classes.heading)} isDivider>
-        EYEGLASSES OFFERS
+      <Heading isDivider>
+        <Typography className={clsx(classes.heading)}>
+          EYEGLASSES OFFERS
+        </Typography>
       </Heading>
       <Carousel
         {...settings}

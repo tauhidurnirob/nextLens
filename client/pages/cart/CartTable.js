@@ -9,6 +9,7 @@ import {
   TableRow,
   Paper,
   Box,
+  Typography,
 } from "@material-ui/core";
 import Image from "next/image";
 import clsx from "clsx";
@@ -16,7 +17,7 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 
 import colors from "../../config/colors";
-import { AddToCartButton, Quantity, Text } from "../../src/Re_components";
+import { AddToCartButton, Quantity } from "../../src/Re_components";
 import { cartList } from "../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
@@ -93,11 +94,11 @@ const CartTable = () => {
               </TableCell>
               <TableCell align="center">
                 <Link href={`/product-details/${item?.id}`}>
-                  <Text noWrap variant="subtitle2">
+                  <Typography noWrap variant="subtitle2">
                     <Box fontWeight={500} className={clsx(classes.font)}>
                       {item.title}
                     </Box>
-                  </Text>
+                  </Typography>
                 </Link>
               </TableCell>
               <TableCell align="center">

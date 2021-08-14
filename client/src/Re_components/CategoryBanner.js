@@ -1,9 +1,8 @@
 import React, { useLayoutEffect } from "react";
-import { makeStyles, Box, Grid } from "@material-ui/core";
+import { makeStyles, Box, Grid, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 
-import Text from "./Text";
 import styles from "../../styles/categoryBanner.module.scss";
 import { ShouldBeCapital } from "../../utils/utils";
 import { cartList } from "./../redux/slices/productSlice";
@@ -30,11 +29,11 @@ const CategoryBanner = ({ title }) => {
       alignItems="center"
       direction="column"
     >
-      <Text align="center" variant="h2" className={clsx(classes.title)}>
+      <Typography align="center" variant="h2" className={clsx(classes.title)}>
         <Box fontWeight="fontWeightBold">
           {productById && ShouldBeCapital(productById?.title)} {title && title}
         </Box>
-      </Text>
+      </Typography>
     </Grid>
   );
 };

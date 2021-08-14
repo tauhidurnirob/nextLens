@@ -97,7 +97,7 @@ export default function MobileNavigation() {
 }
 
 const router = [
-  { routeName: "Home", route: "/home" },
+  { routeName: "Home", route: "/" },
   { routeName: "Eyeglasses", route: "/home" },
   { routeName: "sunglasses", route: "/home" },
   { routeName: "blue light block glass", route: "/home" },

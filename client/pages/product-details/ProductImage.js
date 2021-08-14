@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 import Image from "next/image";
 
 import { Carousel } from "../../src/Re_components";
-import { cartList } from "./../../src/redux/slices/productSlice";
+import { cartList } from "../../src/redux/slices/productSlice";
 import { useSelector } from "react-redux";
 
 const ProductImage = () => {

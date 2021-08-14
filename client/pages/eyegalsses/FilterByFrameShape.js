@@ -11,11 +11,10 @@ import {
   Checkbox,
   Grid,
   Divider,
+  Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
-import { Text } from "../../src/Re_components";
 
 const useStyles = makeStyles({
   root: {
@@ -28,8 +27,6 @@ const useStyles = makeStyles({
     width: "284px",
     height: "1px",
   },
-
-
 });
 
 const FilterByFrameShape = () => {
@@ -62,9 +59,9 @@ const FilterByFrameShape = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Text className={clsx(classes.heading)}>
+            <Typography className={clsx(classes.heading)}>
               <Box fontWeight="fontWeightBold">Filter By Frame Shape</Box>
-            </Text>
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <FormControl component="fieldset">
