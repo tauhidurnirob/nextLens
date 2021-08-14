@@ -38,7 +38,7 @@ const ModelDetails = () => {
                 Model Number:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {productById?.details.modelNumber}
+                {productById?.details?.modelNumber}
               </Box>
             </Typography>
             <Typography gutterBottom variant="subtitle1">
@@ -46,7 +46,7 @@ const ModelDetails = () => {
                 Size:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {productById?.details.size}
+                {productById?.details?.size}
               </Box>
             </Typography>
             <Typography gutterBottom variant="subtitle1">
@@ -54,7 +54,7 @@ const ModelDetails = () => {
                 Frame Material:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {productById?.details.frameMaterial}
+                {productById?.details?.frameMaterial}
               </Box>
             </Typography>
             <Typography gutterBottom variant="subtitle1">
@@ -62,7 +62,7 @@ const ModelDetails = () => {
                 Frame Lens Material:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {productById?.details.frameLensMaterial}
+                {productById?.details?.frameLensMaterial}
               </Box>
             </Typography>
             <Typography gutterBottom variant="subtitle1">
@@ -70,7 +70,7 @@ const ModelDetails = () => {
                 Frame Attribution:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {productById?.details.frameAttribution}
+                {productById?.details?.frameAttribution}
               </Box>
             </Typography>
             <Typography gutterBottom variant="subtitle1">
@@ -78,7 +78,7 @@ const ModelDetails = () => {
                 Usages:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {productById?.details.usage}
+                {productById?.details?.usage}
               </Box>
             </Typography>
             <Typography gutterBottom variant="subtitle1">
@@ -86,7 +86,7 @@ const ModelDetails = () => {
                 Lens Function:
               </Box>
               <Box component="span" ml={1} className={clsx(classes.box)}>
-                {productById?.details.lensFunction}
+                {productById?.details?.lensFunction}
               </Box>
             </Typography>
           </Grid>
