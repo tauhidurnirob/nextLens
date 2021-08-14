@@ -45,10 +45,8 @@ import Navigation from "./../src/Components/Navigation/Navigation";
 import Footer from "./../src/Components/Footer/Footer";
 import store from "../src/redux/store";
 
-export default function MyApp({Component, pageProps}) {
-
+export default function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
-    // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
@@ -75,8 +73,3 @@ export default function MyApp({Component, pageProps}) {
     </React.Fragment>
   );
 }
-
-// MyApp.propTypes = {
-//   Component: PropTypes.elementType.isRequired,
-//   pageProps: PropTypes.object.isRequired,
-// };
