@@ -1,13 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { CardContent, Box, IconButton, Grid } from "@material-ui/core";
+import { CardContent, Box, IconButton, Grid, Button } from "@material-ui/core";
 import clsx from "clsx";
 import Image from "next/image";
 import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import Link from "next/link";
 
 import styles from "../../styles/imageHover.module.scss";
-import Button from "./AppButton";
 import Text from "./Text";
 import colors from "../../config/colors";
 import { ShouldBeCapital } from "../../utils/utils";

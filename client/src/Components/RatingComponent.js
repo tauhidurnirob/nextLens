@@ -5,11 +5,11 @@ import {
   Grid,
   TextField,
   FormControl,
+  Button,
 } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import clsx from "clsx";
 
-import { Button } from "../Re_components";
 import colors from "../../config/colors";
 
 const labels = {
