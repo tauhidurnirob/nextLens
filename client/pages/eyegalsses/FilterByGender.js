@@ -11,11 +11,12 @@ import {
   Checkbox,
   Grid,
   Divider,
+  Typography
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import { Text } from "../../src/Re_components";
+
 
 const useStyles = makeStyles({
   root: {
@@ -62,9 +63,9 @@ const FilterByGender = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Text className={clsx(classes.heading)}>
+            <Typography className={clsx(classes.heading)}>
               <Box fontWeight="fontWeightBold">Filter By Gender</Box>
-            </Text>
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <FormControl component="fieldset">

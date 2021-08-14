@@ -6,10 +6,10 @@ import {
   Card,
   CardHeader,
   CardContent,
+  Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
 
-import { Text } from "../Re_components";
 import AcUnitOutlinedIcon from "@material-ui/icons/AcUnitOutlined";
 import DriveEtaOutlinedIcon from "@material-ui/icons/DriveEtaOutlined";
 import HistoryOutlinedIcon from "@material-ui/icons/HistoryOutlined";
@@ -49,9 +49,9 @@ const Support = () => {
                 className={clsx(classes.cardHeader)}
               />
               <CardContent className={clsx(classes.cardContent)}>
-                <Text variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" color="textSecondary" component="p">
                   {item.description}
-                </Text>
+                </Typography>
               </CardContent>
             </Card>
           </Grid>

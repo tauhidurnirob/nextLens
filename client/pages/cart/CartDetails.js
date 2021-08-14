@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, makeStyles, Grid } from "@material-ui/core";
+import { Container, makeStyles, Grid, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import HistoryIcon from "@material-ui/icons/History";
 
-import { Button, Heading, Text } from "../../src/Re_components";
+import { Button, Heading } from "../../src/Re_components";
 import { cartList } from "../../src/redux/slices/productSlice";
 import CartTable from "./CartTable";
 
@@ -25,14 +25,14 @@ const CartDetails = () => {
       {cart.length !== 0 ? (
         <>
           <Heading isDivider>
-            <Text variant="h4">Cart</Text>
+            <Typography variant="h4">Cart</Typography>
           </Heading>
           <CartTable />
         </>
       ) : (
         <>
           <Heading className={clsx(classes.heading)}>
-            <Text variant="h4">You haven't any cart products</Text>
+            <Typography variant="h4">You haven't any cart products</Typography>
           </Heading>
           <Grid container justifyContent="center">
             <Button
