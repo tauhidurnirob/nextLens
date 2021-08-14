@@ -11,12 +11,12 @@ import Footer from "./../src/Components/Footer/Footer";
 import store from "../src/redux/store";
 
 export default function MyApp({ Component, pageProps }) {
-  React.useEffect(() => {
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const jssStyles = document.querySelector("#jss-server-side");
+  //   if (jssStyles) {
+  //     jssStyles.parentElement.removeChild(jssStyles);
+  //   }
+  // }, []);
 
   return (
     <Provider store={store}>
