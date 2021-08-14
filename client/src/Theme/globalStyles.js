@@ -46,6 +46,9 @@ const styles = (theme) => ({
     "span.MuiFormControlLabel-label": {
       width: "100%",
     },
+    "svg.MuiSvgIcon-root": {
+      color: "black",
+    },
   },
 });
 
