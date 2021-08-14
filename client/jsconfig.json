@@ -3,10 +3,9 @@
     "baseUrl": ".",
     "paths": {
       "@/src/Components/*": ["src/Components/*"],
-      "@/src/Re_components/": ["src/Re_components/index.js"],
       "@/src/redux/*": ["src/redux/*"],
-      "@/styles/*": ["styles/*"],
-      "@/config/*": ["config/*"]
+      "@/context/*": ["context/*"],
+      "@/helpers/*": ["helpers/*"]
     }
   }
 }
