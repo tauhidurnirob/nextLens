@@ -5,7 +5,7 @@ import { default as LoginForm } from "./Login";
 import { Layout } from "../../src/Re_components";
 
 const useStyles = makeStyles((theme) => ({
-  container: {},
+  container: { paddingTop: "100px" },
 }));
 
 const Login = () => {
