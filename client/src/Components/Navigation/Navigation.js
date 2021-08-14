@@ -72,28 +72,6 @@ const Navigation = () => {
 
   const classes = useStyles();
 
-  const icons = (
-    <>
-      <Box mr={2} onClick={() => setIsSearch(true)}>
-        <SearchIcon style={{ color: "black" }} />
-      </Box>
-
-      <Link href="/login">
-        <Box mr={2}>
-          <AccountCircleOutlinedIcon style={{ color: "black" }} />
-        </Box>
-      </Link>
-
-      <Link href="/cart">
-        <Box mr={2}>
-          <Badge badgeContent={totalQuantity || "0"} color="primary">
-            <ShoppingCartOutlinedIcon style={{ color: "black" }} />
-          </Badge>
-        </Box>
-      </Link>
-    </>
-  );
-
   return (
     <Box component="div">
       <AppBar position="fixed" className={clsx(classes.appBar)}>
@@ -107,19 +85,19 @@ const Navigation = () => {
                 justifyContent="space-between"
                 alignItems="center"
               >
-                {isDesktopOrLaptop && <MobileNavigation />}
-                {!isDesktopOrLaptop && (
-                  <Grid item>
-                    <Link href="/">
-                      <Typography
-                        variant="h5"
-                        style={{ color: "black", cursor: "pointer" }}
-                      >
-                        NextLens
-                      </Typography>
-                    </Link>
-                  </Grid>
-                )}
+                {/* {isDesktopOrLaptop && <MobileNavigation />} */}
+                {/* {!isDesktopOrLaptop && ( */}
+                <Grid item>
+                  <Link href="/">
+                    <Typography
+                      variant="h5"
+                      style={{ color: "black", cursor: "pointer" }}
+                    >
+                      NextLens
+                    </Typography>
+                  </Link>
+                </Grid>
+                {/* )} */}
 
                 <Grid item>
                   <ButtonGroup
@@ -138,7 +116,26 @@ const Navigation = () => {
                   </ButtonGroup>
                 </Grid>
                 <Grid item className={clsx(classes.icon)}>
-                  {icons}
+                  <Box mr={2} onClick={() => setIsSearch(true)}>
+                    <SearchIcon style={{ color: "black" }} />
+                  </Box>
+
+                  <Link href="/login">
+                    <Box mr={2}>
+                      <AccountCircleOutlinedIcon style={{ color: "black" }} />
+                    </Box>
+                  </Link>
+
+                  <Link href="/cart">
+                    <Box mr={2}>
+                      <Badge
+                        badgeContent={totalQuantity || "0"}
+                        color="primary"
+                      >
+                        <ShoppingCartOutlinedIcon style={{ color: "black" }} />
+                      </Badge>
+                    </Box>
+                  </Link>
                 </Grid>
               </Grid>
             </Toolbar>
