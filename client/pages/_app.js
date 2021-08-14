@@ -45,8 +45,7 @@ import Navigation from "./../src/Components/Navigation/Navigation";
 import Footer from "./../src/Components/Footer/Footer";
 import store from "../src/redux/store";
 
-export default function MyApp(props) {
-  const { Component, pageProps } = props;
+export default function MyApp({Component, pageProps}) {
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -77,7 +76,7 @@ export default function MyApp(props) {
   );
 }
 
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object.isRequired,
-};
+// MyApp.propTypes = {
+//   Component: PropTypes.elementType.isRequired,
+//   pageProps: PropTypes.object.isRequired,
+// };
