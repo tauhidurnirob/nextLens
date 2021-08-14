@@ -12,7 +12,6 @@ import {
   InputAdornment,
   IconButton,
   FormHelperText,
-  Box,
 } from "@material-ui/core";
 import clsx from "clsx";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -42,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "1px",
     fontSize: "14px",
     padding: "4px 0",
+    marginTop: "10px",
     "&:hover": {
       color: colors.sky,
     },
@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     background: colors.black,
     color: colors.white,
     fontWeight: "bold",
+    width: "150px",
     "&:hover": {
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.sky,
@@ -102,13 +103,9 @@ const Login = () => {
         </FormControl>
         <FormHelperText>
           <Link href="/register">
-            <a>
-              <Box mt={1}>
-                <Typography className={clsx(classes.font)} variant="subtitle1">
-                  Don't have an account?
-                </Typography>
-              </Box>
-            </a>
+            <Typography className={clsx(classes.font)} variant="subtitle1">
+              Don't have an account?
+            </Typography>
           </Link>
         </FormHelperText>
         <Grid container justifyContent="center">
