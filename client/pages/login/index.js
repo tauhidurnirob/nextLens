@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, makeStyles } from "@material-ui/core";
+import { Container, makeStyles, Grid } from "@material-ui/core";
 import clsx from "clsx";
 import { default as LoginForm } from "./Login";
 import { Layout } from "../../src/Re_components";
@@ -14,7 +14,11 @@ const Login = () => {
   return (
     <Layout title="Login">
       <Container maxWidth="lg" className={clsx(classes.container)}>
-        <LoginForm />
+        <Grid container justifyContent="center">
+          <Grid item container md={6} lg={6}>
+            <LoginForm />
+          </Grid>
+        </Grid>
       </Container>
     </Layout>
   );
