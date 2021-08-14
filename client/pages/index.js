@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Box } from "@material-ui/core";
 
-import { default as MainHome } from "../src/Components/Home";
+import { default as MainHome } from "@/src/Components/Home";
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
