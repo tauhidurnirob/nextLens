@@ -8,6 +8,7 @@ import GlobalStyles from "../src/Theme/globalStyles";
 import "../styles/globals.scss";
 import store from "../src/redux/store";
 import Footer from "./../src/Components/Footer/Footer";
+import Navigation from "./../src/Components/Navigation/Navigation";
 
 export default function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
@@ -20,6 +21,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
+        <Navigation />
         <CssBaseline />
         <GlobalStyles />
         <Component {...pageProps} />
