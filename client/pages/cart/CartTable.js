@@ -15,9 +15,9 @@ import clsx from "clsx";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 
-import colors from "../../config/colors";
+import colors from "@/config/colors";
 import { AddToCartButton, Quantity, Text } from "../../src/Re_components";
-import { cartList } from "./../../src/redux/slices/productSlice";
+import { cartList } from "@/src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
   table: {
