@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     padding: "4px 0",
     marginBottom: "10px",
-
     "&:hover": {
       color: colors.sky,
     },

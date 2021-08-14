@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import HistoryIcon from "@material-ui/icons/History";
 
 import { Button, Heading, Text } from "../../src/Re_components";
-import { cartList } from "@/src/redux/slices/productSlice";
+import { cartList } from "../../src/redux/slices/productSlice";
 import CartTable from "./CartTable";
 
 const useStyles = makeStyles(() => ({
