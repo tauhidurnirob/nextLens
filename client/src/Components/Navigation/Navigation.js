@@ -10,10 +10,10 @@ import {
   Grid,
   Badge,
   Typography,
+  useMediaQuery,
 } from "@material-ui/core";
 import clsx from "clsx";
 import Link from "next/link";
-import { useMediaQuery } from "react-responsive";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
@@ -66,9 +66,7 @@ const Navigation = () => {
     .map((item) => item.quantity)
     .reduce((total, qty) => total + qty, 0);
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(max-width: 992px)",
-  });
+  const isDesktopOrLaptop = useMediaQuery("(max-width: 992px)");
 
   const classes = useStyles();
 
@@ -85,19 +83,19 @@ const Navigation = () => {
                 justifyContent="space-between"
                 alignItems="center"
               >
-                {/* {isDesktopOrLaptop && <MobileNavigation />} */}
-                {/* {!isDesktopOrLaptop && ( */}
-                <Grid item>
-                  <Link href="/">
-                    <Typography
-                      variant="h5"
-                      style={{ color: "black", cursor: "pointer" }}
-                    >
-                      NextLens
-                    </Typography>
-                  </Link>
-                </Grid>
-                {/* )} */}
+                {isDesktopOrLaptop && <MobileNavigation />}
+                {!isDesktopOrLaptop && (
+                  <Grid item className={clsx(classes.logo)}>
+                    <Link href="/">
+                      <Typography
+                        variant="h5"
+                        style={{ color: "black", cursor: "pointer" }}
+                      >
+                        NextLens
+                      </Typography>
+                    </Link>
+                  </Grid>
+                )}
 
                 <Grid item>
                   <ButtonGroup
