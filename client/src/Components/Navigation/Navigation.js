@@ -70,9 +70,13 @@ const Navigation = () => {
       <Box mr={2} onClick={() => setIsSearch(true)}>
         <SearchIcon style={{ color: "black" }} />
       </Box>
-      <Box mr={2}>
-        <AccountCircleOutlinedIcon style={{ color: "black" }} />
-      </Box>
+
+      <Link href="/login">
+        <Box mr={2}>
+          <AccountCircleOutlinedIcon style={{ color: "black" }} />
+        </Box>
+      </Link>
+
       <Link href="/cart">
         <Box mr={2}>
           <Badge badgeContent={totalQuantity || "0"} color="primary">
