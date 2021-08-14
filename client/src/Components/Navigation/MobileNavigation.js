@@ -57,6 +57,7 @@ export default function MobileNavigation() {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      className={clsx(classes.mobileMenu)}
     >
       <List className={clsx(classes.list)}>
         {router.map((item, index) => (
