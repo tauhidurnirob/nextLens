@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import {
   makeStyles,
@@ -10,18 +10,17 @@ import {
   AppBar,
   Toolbar,
   List,
-  CssBaseline,
   Typography,
   Divider,
   IconButton,
   Box,
 } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 
+import MailIcon from "@material-ui/icons/Mail";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import MenuIcon from "@material-ui/icons/Menu";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 
 const drawerWidth = 240;
 
@@ -90,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -102,7 +101,6 @@ const Dashboard = () => {
 
   return (
     <Box component="div" className={clsx(classes.root)}>
-      <CssBaseline />
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
@@ -139,7 +137,7 @@ const Dashboard = () => {
           }),
         }}
       >
-        <div className={clsx(classes.toolbar)}>
+        <Box component="div" className={clsx(classes.toolbar)}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
@@ -147,7 +145,7 @@ const Dashboard = () => {
               <ChevronLeftIcon />
             )}
           </IconButton>
-        </div>
+        </Box>
         <Divider />
         <List>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
@@ -171,8 +169,8 @@ const Dashboard = () => {
           ))}
         </List>
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
+      <main className={clsx(classes.content)}>
+        <Box component="div" className={clsx(classes.toolbar)} />
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
