@@ -9,7 +9,7 @@ import {
   removeCart,
 } from "../../src/redux/slices/productSlice";
 
-const AddToCartButton = ({ item, ...otherProps }) => {
+const AddToCartButton = ({ item, iconStyle, ...otherProps }) => {
   const dispatch = useDispatch();
 
   const { cart } = useSelector(cartList);
