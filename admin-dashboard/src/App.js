@@ -1,5 +1,7 @@
+import Dashboard from "./Components/Dashboard";
+
 function App() {
-  return <h1>Welcome muktadir</h1>;
+  return <Dashboard />;
 }
 
 export default App;
