@@ -17,10 +17,15 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import MailIcon from "@material-ui/icons/Mail";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import CategoryIcon from "@material-ui/icons/Category";
+import StoreIcon from "@material-ui/icons/Store";
+import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
+import PostAddIcon from "@material-ui/icons/PostAdd";
+import SettingsIcon from "@material-ui/icons/Settings";
 
 const drawerWidth = 240;
 
@@ -83,6 +88,16 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+  },
+  listItem: {
+    padding: `${theme.spacing(2)}px `,
+  },
+  divider: {
+    height: "1px",
+  },
+  font: {
+    fontSize: "18px",
+    fontWeight: "500",
   },
 }));
 
@@ -148,24 +163,25 @@ const Dashboard = () => {
         </Box>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+          {dashboards.map((items, index) => (
+            <>
+              <ListItem
+                button
+                key={index}
+                onClick={handleDrawerOpen}
+                className={clsx(classes.listItem)}
+              >
+                <ListItemIcon>{items.icon}</ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography className={clsx(classes.font)}>
+                      {items.name}
+                    </Typography>
+                  }
+                />
+              </ListItem>
+              <Divider className={clsx(classes.divider)} />
+            </>
           ))}
         </List>
       </Drawer>
@@ -206,3 +222,41 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+const dashboards = [
+  {
+    name: "Dashbaord",
+    icon: <ListAltIcon style={{ fontSize: "30px" }} />,
+    route: "/",
+  },
+  {
+    name: "Prodcuts",
+    icon: <ShoppingBasketIcon style={{ fontSize: "30px" }} />,
+    route: "/",
+  },
+  {
+    name: "Category",
+    icon: <CategoryIcon style={{ fontSize: "30px" }} />,
+    route: "/",
+  },
+  {
+    name: "Orders",
+    icon: <StoreIcon style={{ fontSize: "30px" }} />,
+    route: "/",
+  },
+  {
+    name: "Customers",
+    icon: <AssignmentIndIcon style={{ fontSize: "30px" }} />,
+    route: "/",
+  },
+  {
+    name: "Coupons",
+    icon: <PostAddIcon style={{ fontSize: "30px" }} />,
+    route: "/",
+  },
+  {
+    name: "Settings",
+    icon: <SettingsIcon style={{ fontSize: "30px" }} />,
+    route: "/",
+  },
+];
