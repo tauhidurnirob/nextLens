@@ -15,6 +15,8 @@ import {
   IconButton,
   Box,
   Grid,
+  Avatar,
+  Badge,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -27,6 +29,8 @@ import StoreIcon from "@material-ui/icons/Store";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import SettingsIcon from "@material-ui/icons/Settings";
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 
 const drawerWidth = 240;
 
@@ -142,21 +146,35 @@ const Dashboard = () => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid container direction="row" justifyContent="flex-end">
+          <Grid
+            container
+            direction="row"
+            justifyContent="flex-end"
+            alignItems="center"
+          >
             <Grid item>
-              <Typography variant="h6" noWrap>
-                Dashboard
-              </Typography>
+              <Box mr={2}>
+                <IconButton>
+                  <PowerSettingsNewIcon
+                    style={{ fontSize: "25px", color: "black" }}
+                  />
+                </IconButton>
+              </Box>
             </Grid>
             <Grid item>
-              <Typography variant="h6" noWrap>
-                Dashboard
-              </Typography>
+              <Box mr={4}>
+                <Badge variant="dot" color="error">
+                  <NotificationsIcon />
+                </Badge>
+              </Box>
             </Grid>
             <Grid item>
-              <Typography variant="h6" noWrap>
-                Dashboard
-              </Typography>
+              <Box>
+                <Avatar
+                  alt="Muktadir"
+                  src="https://avatars.githubusercontent.com/u/55608139?v=4"
+                />
+              </Box>
             </Grid>
           </Grid>
         </Toolbar>
