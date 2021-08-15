@@ -14,6 +14,7 @@ import {
   Divider,
   IconButton,
   Box,
+  Grid,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -134,9 +135,30 @@ const Dashboard = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Mini variant drawer
-          </Typography>
+          <Grid container direction="row" justifyContent="flex-start">
+            <Grid item>
+              <Typography variant="h6" noWrap>
+                Dashboard
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid container direction="row" justifyContent="flex-end">
+            <Grid item>
+              <Typography variant="h6" noWrap>
+                Dashboard
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="h6" noWrap>
+                Dashboard
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="h6" noWrap>
+                Dashboard
+              </Typography>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
       <Drawer
