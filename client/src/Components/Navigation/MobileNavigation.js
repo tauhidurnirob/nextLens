@@ -82,7 +82,7 @@ export default function MobileNavigation() {
             aria-label="menu"
             onClick={toggleDrawer(anchor, true)}
           >
-            <MenuIcon />
+            <MenuIcon style={{ color: "black" }} />
           </IconButton>
           <Drawer
             anchor="left"
