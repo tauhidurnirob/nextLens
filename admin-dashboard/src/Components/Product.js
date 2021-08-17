@@ -24,13 +24,25 @@ const Product = () => {
     <Container maxWidth="lg">
       <Paper className={clsx(classes.root)}>
         <form>
-          <Box>
+          <Box mb={2}>
             <FormControl className={clsx(classes.formControl)}>
               <TextField
                 id="outlined-name"
                 label="Name"
                 variant="outlined"
                 name="name"
+              />
+            </FormControl>
+          </Box>
+          <Box mb={2}>
+            <FormControl className={clsx(classes.formControl)}>
+              <TextField
+                id="outlined-Description"
+                label="Description"
+                variant="outlined"
+                multiline
+                minRows={4}
+                maxRows={8}
               />
             </FormControl>
           </Box>
