@@ -9,14 +9,34 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Grid,
+  Button,
 } from "@material-ui/core";
 import clsx from "clsx";
+
+import colors from "../config/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
   formControl: {
     width: "100%",
     margin: `${theme.spacing(2)}px opx`,
+  },
+  btn: {
+    transition: "all 300ms ease-in-out",
+    boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+    padding: "10px 20px",
+    minWidth: "220px",
+    letterSpacing: "2px",
+    borderRadius: 0,
+    borderColor: "2px solid #222",
+    fontSize: "16px",
+    fontWeight: "bold",
+    "&:hover": {
+      boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+      background: colors.green,
+      color: colors.white,
+    },
   },
 }));
 
@@ -139,6 +159,17 @@ const Product = () => {
                 ))}
               </Select>
             </FormControl>
+          </Box>
+          <Box mt={2}>
+            <Grid container justifyContent="center">
+              <Button
+                className={clsx(classes.btn)}
+                variant="contained"
+                color="primary"
+              >
+                Submit
+              </Button>
+            </Grid>
           </Box>
         </form>
       </Paper>
