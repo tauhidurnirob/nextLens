@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { Routes, Route } from "react-router-dom";
 
 import GlobalStyles from "./config/GlobalStyles";
 import theme from "./config/theme";
@@ -11,6 +12,16 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <GlobalStyles />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout title="Products">
+              <Product />
+            </Layout>
+          }
+        />
+      </Routes>
     </ThemeProvider>
   );
 }
