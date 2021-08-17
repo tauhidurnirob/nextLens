@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
       color: colors.white,
     },
   },
+  gridItem: {
+    width: "100%",
+  },
 }));
 
 const Product = () => {
@@ -70,7 +73,7 @@ const Product = () => {
             justifyContent="center"
             spacing={2}
           >
-            <Grid item md={4}>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
               <FormControl
                 variant="outlined"
                 className={clsx(classes.formControl)}
@@ -88,7 +91,7 @@ const Product = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item md={4}>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
               <FormControl
                 variant="outlined"
                 className={clsx(classes.formControl)}
@@ -106,7 +109,7 @@ const Product = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item md={4}>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
               <FormControl className={clsx(classes.formControl)}>
                 <TextField
                   id="outlined-search"
