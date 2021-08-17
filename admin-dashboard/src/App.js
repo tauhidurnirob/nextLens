@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import GlobalStyles from "./config/GlobalStyles";
 import theme from "./config/theme";
 import Layout from "./Components/Layout";
-import Product from "./Components/Product";
+import Product from "./Components/Products/Product";
 import Dashboard from "./Components/Dashboard";
 
 function App() {

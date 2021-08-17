@@ -14,7 +14,7 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 
-import colors from "../config/colors";
+import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
