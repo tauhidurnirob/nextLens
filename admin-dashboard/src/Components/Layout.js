@@ -19,7 +19,6 @@ import {
   Badge,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListAltIcon from "@material-ui/icons/ListAlt";
@@ -31,6 +30,7 @@ import PostAddIcon from "@material-ui/icons/PostAdd";
 import SettingsIcon from "@material-ui/icons/Settings";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -210,6 +210,8 @@ const Layout = ({ title, children }) => {
                 key={index}
                 onClick={handleDrawerOpen}
                 className={clsx(classes.listItem)}
+                component={NavLink}
+                to={items.route}
               >
                 <ListItemIcon>{items.icon}</ListItemIcon>
                 <ListItemText
@@ -242,33 +244,33 @@ const dashboards = [
     route: "/",
   },
   {
-    name: "Prodcuts",
+    name: "Products",
     icon: <ShoppingBasketIcon style={{ fontSize: "30px" }} />,
-    route: "/",
+    route: "/product",
   },
   {
     name: "Category",
     icon: <CategoryIcon style={{ fontSize: "30px" }} />,
-    route: "/",
+    route: "/category",
   },
   {
     name: "Orders",
     icon: <StoreIcon style={{ fontSize: "30px" }} />,
-    route: "/",
+    route: "/orders",
   },
   {
     name: "Customers",
     icon: <AssignmentIndIcon style={{ fontSize: "30px" }} />,
-    route: "/",
+    route: "/customers",
   },
   {
     name: "Coupons",
     icon: <PostAddIcon style={{ fontSize: "30px" }} />,
-    route: "/",
+    route: "/coupons",
   },
   {
     name: "Settings",
     icon: <SettingsIcon style={{ fontSize: "30px" }} />,
-    route: "/",
+    route: "/setting",
   },
 ];
