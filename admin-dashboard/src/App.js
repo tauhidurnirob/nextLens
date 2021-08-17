@@ -7,6 +7,7 @@ import theme from "./config/theme";
 import Layout from "./Components/Layout";
 import Product from "./Components/Products/Product";
 import Dashboard from "./Components/Dashboard";
+import ProductForm from "./Components/Products/ProductForm";
 
 function App() {
   return (
@@ -27,6 +28,15 @@ function App() {
           element={
             <Layout title="Products">
               <Product />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/product/add-product"
+          element={
+            <Layout title="Add Product">
+              <ProductForm />
             </Layout>
           }
         />

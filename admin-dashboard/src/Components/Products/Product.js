@@ -13,6 +13,8 @@ import {
   Button,
 } from "@material-ui/core";
 import clsx from "clsx";
+import AddIcon from "@material-ui/icons/Add";
+import { NavLink } from "react-router-dom";
 
 import colors from "../../config/colors";
 
@@ -45,85 +47,22 @@ const Product = () => {
 
   return (
     <Container maxWidth="lg">
+      <Box mt={2} mb={2}>
+        <Grid container justifyContent="flex-end">
+          <Button
+            className={clsx(classes.btn)}
+            variant="contained"
+            color="primary"
+            startIcon={<AddIcon style={{ fontSize: "25px" }} />}
+            component={NavLink}
+            to="/product/add-product"
+          >
+            Add Product
+          </Button>
+        </Grid>
+      </Box>
       <Paper className={clsx(classes.root)}>
         <form>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-name"
-                label="Name"
-                variant="outlined"
-                name="name"
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-Description"
-                label="Description"
-                variant="outlined"
-                multiline
-                minRows={4}
-                maxRows={8}
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-Unit"
-                label="Unit"
-                variant="outlined"
-                name="unit"
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-price"
-                label="Price"
-                variant="outlined"
-                name="price"
-                type="number"
-              />
-            </FormControl>
-          </Box>
-
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-sales-price"
-                label="Sales Price"
-                variant="outlined"
-                name="salesPrice"
-                type="number"
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-discount"
-                label="Discount"
-                variant="outlined"
-                name="discount"
-                type="number"
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-product-quantity"
-                label="Quantity"
-                variant="outlined"
-                name="quantity"
-                type="number"
-              />
-            </FormControl>
-          </Box>
           <Box mb={2}>
             <FormControl
               variant="outlined"
@@ -160,16 +99,15 @@ const Product = () => {
               </Select>
             </FormControl>
           </Box>
-          <Box mt={2}>
-            <Grid container justifyContent="center">
-              <Button
-                className={clsx(classes.btn)}
-                variant="contained"
-                color="primary"
-              >
-                Submit
-              </Button>
-            </Grid>
+          <Box mb={2}>
+            <FormControl className={clsx(classes.formControl)}>
+              <TextField
+                id="outlined-name"
+                label="Name"
+                variant="outlined"
+                name="name"
+              />
+            </FormControl>
           </Box>
         </form>
       </Paper>
