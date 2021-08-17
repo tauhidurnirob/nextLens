@@ -63,52 +63,60 @@ const Product = () => {
       </Box>
       <Paper className={clsx(classes.root)}>
         <form>
-          <Box mb={2}>
-            <FormControl
-              variant="outlined"
-              className={clsx(classes.formControl)}
-            >
-              <InputLabel id="type">Type</InputLabel>
-              <Select labelId="type" id="type" label="Type">
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                {types?.map((item, index) => (
-                  <MenuItem key={index} value={index + 1}>
-                    {item.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl
-              variant="outlined"
-              className={clsx(classes.formControl)}
-            >
-              <InputLabel id="category">Category</InputLabel>
-              <Select labelId="category" id="category" label="Category">
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                {categories?.map((item, index) => (
-                  <MenuItem key={index} value={index + 1}>
-                    {item.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-name"
-                label="Name"
+          <Grid
+            container
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={2}
+          >
+            <Grid item md={4}>
+              <FormControl
                 variant="outlined"
-                name="name"
-              />
-            </FormControl>
-          </Box>
+                className={clsx(classes.formControl)}
+              >
+                <InputLabel id="category">Category</InputLabel>
+                <Select labelId="category" id="category" label="Category">
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  {categories?.map((item, index) => (
+                    <MenuItem key={index} value={index + 1}>
+                      {item.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item md={4}>
+              <FormControl
+                variant="outlined"
+                className={clsx(classes.formControl)}
+              >
+                <InputLabel id="price">Price</InputLabel>
+                <Select labelId="price" id="price" label="price">
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  {price?.map((item, index) => (
+                    <MenuItem key={index} value={index + 1}>
+                      {item.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item md={4}>
+              <FormControl className={clsx(classes.formControl)}>
+                <TextField
+                  id="outlined-search"
+                  label="Search"
+                  variant="outlined"
+                  name="search"
+                />
+              </FormControl>
+            </Grid>
+          </Grid>
         </form>
       </Paper>
     </Container>
@@ -117,12 +125,7 @@ const Product = () => {
 
 export default Product;
 
-const types = [
-  { name: "Grocery" },
-  { name: "Women Cloths" },
-  { name: "Bags" },
-  { name: "Makeup" },
-];
+const price = [{ name: "Highest to Lowest" }, { name: "Lowest to Highest" }];
 
 const categories = [
   { name: "Frame Only" },
