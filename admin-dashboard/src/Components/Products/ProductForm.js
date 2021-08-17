@@ -20,6 +20,7 @@ import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
+
   formControl: {
     width: "100%",
     margin: `${theme.spacing(2)}px opx`,
@@ -39,6 +40,16 @@ const useStyles = makeStyles((theme) => ({
       background: colors.green,
       color: colors.white,
     },
+  },
+  uploadBtn: {
+    width: "100%",
+    padding: "15px 0px",
+  },
+  gridItem: {
+    width: "100%",
+  },
+  input: {
+    display: "none",
   },
 }));
 
@@ -83,97 +94,152 @@ const ProductForm = () => {
               />
             </FormControl>
           </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-Unit"
-                label="Unit"
-                variant="outlined"
-                name="unit"
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-price"
-                label="Price"
-                variant="outlined"
-                name="price"
-                type="number"
-              />
-            </FormControl>
-          </Box>
-
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-sales-price"
-                label="Sales Price"
-                variant="outlined"
-                name="salesPrice"
-                type="number"
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-discount"
-                label="Discount"
-                variant="outlined"
-                name="discount"
-                type="number"
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-product-quantity"
-                label="Quantity"
-                variant="outlined"
-                name="quantity"
-                type="number"
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl
-              variant="outlined"
-              className={clsx(classes.formControl)}
-            >
-              <InputLabel id="type">Type</InputLabel>
-              <Select labelId="type" id="type" label="Type">
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                {types?.map((item, index) => (
-                  <MenuItem key={index} value={index + 1}>
-                    {item.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl
-              variant="outlined"
-              className={clsx(classes.formControl)}
-            >
-              <InputLabel id="category">Category</InputLabel>
-              <Select labelId="category" id="category" label="Category">
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                {categories?.map((item, index) => (
-                  <MenuItem key={index} value={index + 1}>
-                    {item.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
+          <Grid
+            item
+            container
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl className={clsx(classes.formControl)}>
+                  <input
+                    accept="image/*"
+                    className={clsx(classes.input)}
+                    id="contained-button-file"
+                    multiple
+                    type="file"
+                  />
+                  <label htmlFor="contained-button-file">
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      component="span"
+                      className={clsx(classes.uploadBtn)}
+                    >
+                      Upload
+                    </Button>
+                  </label>
+                </FormControl>
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl className={clsx(classes.formControl)}>
+                  <TextField
+                    id="outlined-Unit"
+                    label="Unit"
+                    variant="outlined"
+                    name="unit"
+                  />
+                </FormControl>
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl className={clsx(classes.formControl)}>
+                  <TextField
+                    id="outlined-price"
+                    label="Price"
+                    variant="outlined"
+                    name="price"
+                    type="number"
+                  />
+                </FormControl>
+              </Box>
+            </Grid>
+          </Grid>
+          <Grid
+            item
+            container
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+          >
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl className={clsx(classes.formControl)}>
+                  <TextField
+                    id="outlined-sales-price"
+                    label="Sales Price"
+                    variant="outlined"
+                    name="salesPrice"
+                    type="number"
+                  />
+                </FormControl>
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl className={clsx(classes.formControl)}>
+                  <TextField
+                    id="outlined-discount"
+                    label="Discount"
+                    variant="outlined"
+                    name="discount"
+                    type="number"
+                  />
+                </FormControl>
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl className={clsx(classes.formControl)}>
+                  <TextField
+                    id="outlined-product-quantity"
+                    label="Quantity"
+                    variant="outlined"
+                    name="quantity"
+                    type="number"
+                  />
+                </FormControl>
+              </Box>
+            </Grid>
+          </Grid>
+          <Grid container direction="row" spacing={2} justifyContent="center">
+            <Grid item md={6} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
+                >
+                  <InputLabel id="type">Type</InputLabel>
+                  <Select labelId="type" id="type" label="Type">
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {types?.map((item, index) => (
+                      <MenuItem key={index} value={index + 1}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+            </Grid>
+            <Grid item md={6} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
+                >
+                  <InputLabel id="category">Category</InputLabel>
+                  <Select labelId="category" id="category" label="Category">
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {categories?.map((item, index) => (
+                      <MenuItem key={index} value={index + 1}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+            </Grid>
+          </Grid>
           <Box mt={2}>
             <Grid container justifyContent="center">
               <Button
