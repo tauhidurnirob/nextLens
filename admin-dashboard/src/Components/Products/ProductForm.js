@@ -13,8 +13,10 @@ import {
   Button,
 } from "@material-ui/core";
 import clsx from "clsx";
+import { NavLink } from "react-router-dom";
+import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 
-import colors from "../config/colors";
+import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -40,11 +42,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Product = () => {
+const ProductForm = () => {
   const classes = useStyles();
 
   return (
     <Container maxWidth="lg">
+      <Box mt={2} mb={2}>
+        <Grid container justifyContent="flex-end">
+          <Button
+            className={clsx(classes.btn)}
+            variant="contained"
+            color="primary"
+            startIcon={<KeyboardBackspaceIcon style={{ fontSize: "25px" }} />}
+            component={NavLink}
+            to="/product"
+          />
+        </Grid>
+      </Box>
       <Paper className={clsx(classes.root)}>
         <form>
           <Box mb={2}>
@@ -177,7 +191,7 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default ProductForm;
 
 const types = [
   { name: "Grocery" },
