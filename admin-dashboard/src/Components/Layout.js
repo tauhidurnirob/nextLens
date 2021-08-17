@@ -32,6 +32,8 @@ import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { NavLink } from "react-router-dom";
 
+import colors from "../config/colors";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -70,6 +72,8 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    background: "#161F6A",
+    overflow: "hidden",
   },
   drawerClose: {
     transition: theme.transitions.create("width", {
@@ -81,6 +85,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9) + 1,
     },
+    background: "#161F6A",
   },
   toolbar: {
     display: "flex",
@@ -99,10 +104,12 @@ const useStyles = makeStyles((theme) => ({
   },
   divider: {
     height: "1px",
+    background: colors.white,
   },
   font: {
     fontSize: "18px",
     fontWeight: "500",
+    color: colors.white,
   },
 }));
 
@@ -156,7 +163,7 @@ const Layout = ({ title, children }) => {
               <Box mr={2}>
                 <IconButton>
                   <PowerSettingsNewIcon
-                    style={{ fontSize: "25px", color: "black" }}
+                    style={{ fontSize: "25px", color: colors.white }}
                   />
                 </IconButton>
               </Box>
@@ -195,9 +202,9 @@ const Layout = ({ title, children }) => {
         <Box component="div" className={clsx(classes.toolbar)}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
+              <ChevronRightIcon style={{ color: colors.white }} />
             ) : (
-              <ChevronLeftIcon />
+              <ChevronLeftIcon style={{ color: colors.white }} />
             )}
           </IconButton>
         </Box>
@@ -240,37 +247,41 @@ export default Layout;
 const dashboards = [
   {
     name: "Dashbaord",
-    icon: <ListAltIcon style={{ fontSize: "30px" }} />,
+    icon: <ListAltIcon style={{ fontSize: "30px", color: colors.white }} />,
     route: "/",
   },
   {
     name: "Products",
-    icon: <ShoppingBasketIcon style={{ fontSize: "30px" }} />,
+    icon: (
+      <ShoppingBasketIcon style={{ fontSize: "30px", color: colors.white }} />
+    ),
     route: "/product",
   },
   {
     name: "Category",
-    icon: <CategoryIcon style={{ fontSize: "30px" }} />,
+    icon: <CategoryIcon style={{ fontSize: "30px", color: colors.white }} />,
     route: "/category",
   },
   {
     name: "Orders",
-    icon: <StoreIcon style={{ fontSize: "30px" }} />,
+    icon: <StoreIcon style={{ fontSize: "30px", color: colors.white }} />,
     route: "/orders",
   },
   {
     name: "Customers",
-    icon: <AssignmentIndIcon style={{ fontSize: "30px" }} />,
+    icon: (
+      <AssignmentIndIcon style={{ fontSize: "30px", color: colors.white }} />
+    ),
     route: "/customers",
   },
   {
     name: "Coupons",
-    icon: <PostAddIcon style={{ fontSize: "30px" }} />,
+    icon: <PostAddIcon style={{ fontSize: "30px", color: colors.white }} />,
     route: "/coupons",
   },
   {
     name: "Settings",
-    icon: <SettingsIcon style={{ fontSize: "30px" }} />,
+    icon: <SettingsIcon style={{ fontSize: "30px", color: colors.white }} />,
     route: "/setting",
   },
 ];
