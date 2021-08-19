@@ -10,7 +10,7 @@ import clsx from "clsx";
 
 const useStyles = makeStyles({
   media: {
-    height: 345,
+    height: 250,
     cursor: "pointer",
   },
 });
