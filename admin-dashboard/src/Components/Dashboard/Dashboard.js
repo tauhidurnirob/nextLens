@@ -4,6 +4,7 @@ import clsx from "clsx";
 // import useApi from "./../hooks/useApi";
 // import postsApi from "../api/posts";
 import DashboardBar from "./DashboardBar";
+import DashboardCard from "./DashboardCard";
 
 const useStyles = makeStyles((theme) => ({
   container: {},
@@ -20,8 +21,13 @@ const Dashboard = () => {
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
       <Grid container justifyContent="center">
-        <Grid item container md={10}>
+        <Grid item container md={12}>
           <DashboardBar />
+        </Grid>
+      </Grid>
+      <Grid container justifyContent="center">
+        <Grid item container md={12}>
+          <DashboardCard />
         </Grid>
       </Grid>
     </Container>
