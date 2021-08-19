@@ -3,6 +3,7 @@ import { Container, makeStyles, Grid } from "@material-ui/core";
 import clsx from "clsx";
 // import useApi from "./../hooks/useApi";
 // import postsApi from "../api/posts";
+import DashboardBar from "./DashboardBar";
 
 const useStyles = makeStyles((theme) => ({
   container: {},
@@ -17,8 +18,8 @@ const Dashboard = () => {
   // }, [data, request]);
 
   return (
-    <Container className={clsx(classes.container)}>
-      <Grid>Dashboard</Grid>
+    <Container maxWidth="lg" className={clsx(classes.container)}>
+      <DashboardBar />
     </Container>
   );
 };
