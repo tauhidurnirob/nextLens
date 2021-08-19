@@ -77,9 +77,11 @@ const DashboardCard = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" variant="outlined" color="primary">
-                    Full Details
-                  </Button>
+                  <Box mt={2}>
+                    <Button size="small" variant="outlined" color="primary">
+                      Full Details
+                    </Button>
+                  </Box>
                 </CardActions>
               </Card>
             </Grid>
