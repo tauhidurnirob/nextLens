@@ -1,9 +1,10 @@
 import React from "react";
-import { Container, makeStyles, Grid } from "@material-ui/core";
+import { Container, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 // import useApi from "./../hooks/useApi";
 // import postsApi from "../api/posts";
 import DashboardBar from "./DashboardBar";
+import DashboardCard from "./DashboardCard";
 
 const useStyles = makeStyles((theme) => ({
   container: {},
@@ -19,11 +20,8 @@ const Dashboard = () => {
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
-      <Grid container justifyContent="center">
-        <Grid item container md={10}>
-          <DashboardBar />
-        </Grid>
-      </Grid>
+      <DashboardCard />
+      <DashboardBar />
     </Container>
   );
 };
