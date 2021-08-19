@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
+import TextTruncate from "react-text-truncate";
 
 const useStyles = makeStyles({
   media: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Cards = ({ items }) => {
+const Cards = ({ items, isTruncate, nameLine = 1, descLine = 1 }) => {
   const classes = useStyles();
 
   return (
@@ -27,10 +28,22 @@ const Cards = ({ items }) => {
       />
       <CardContent>
         <Typography gutterBottom variant="h6">
-          {items.name}
+          {isTruncate ? (
+            <TextTruncate line={nameLine} truncateText="…" text={items.name} />
+          ) : (
+            items.name
+          )}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          {items.description}
+          {isTruncate ? (
+            <TextTruncate
+              line={descLine}
+              truncateText="…"
+              text={items.description}
+            />
+          ) : (
+            items.description
+          )}
         </Typography>
       </CardContent>
     </Card>
