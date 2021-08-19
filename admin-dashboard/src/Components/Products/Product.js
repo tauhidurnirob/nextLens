@@ -11,14 +11,8 @@ const Product = () => {
       <Box mt={4} mb={4}>
         <Grid container direction="row" spacing={4} justifyContent="center">
           {products.map((item, index) => (
-            <Grid item container md={3}>
-              <Cards
-                items={item}
-                key={index}
-                isTruncate
-                line={1}
-                descLine={4}
-              />
+            <Grid key={index} item container md={3}>
+              <Cards items={item} isTruncate line={1} descLine={4} />
             </Grid>
           ))}
         </Grid>
