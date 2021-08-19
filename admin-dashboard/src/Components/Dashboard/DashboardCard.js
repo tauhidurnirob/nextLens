@@ -10,10 +10,10 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 
-import AcUnitOutlinedIcon from "@material-ui/icons/AcUnitOutlined";
+import SupervisorAccountOutlinedIcon from "@material-ui/icons/SupervisorAccountOutlined";
+import ClassOutlinedIcon from "@material-ui/icons/ClassOutlined";
 import DriveEtaOutlinedIcon from "@material-ui/icons/DriveEtaOutlined";
-import HistoryOutlinedIcon from "@material-ui/icons/HistoryOutlined";
-import HttpsOutlinedIcon from "@material-ui/icons/HttpsOutlined";
+import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
 
 const useStyles = makeStyles((theme) => ({
   container: { padding: `${theme.spacing(4)}px 0 10px 0` },
@@ -66,26 +66,26 @@ export default DashboardCard;
 const supports = [
   {
     id: 1,
-    title: "FREE SHIPPING",
+    title: "Total Revenue",
     description: "Free shipping on order or order above Tk.1000",
-    icon: <DriveEtaOutlinedIcon style={{ fontSize: 55 }} />,
+    icon: <MonetizationOnOutlinedIcon style={{ fontSize: 45 }} />,
   },
   {
     id: 2,
-    title: "SUPPORT 24/7",
+    title: "Total Order",
     description: "Guaranteed quality products, Never compromise on quality",
-    icon: <AcUnitOutlinedIcon style={{ fontSize: 55 }} />,
+    icon: <ClassOutlinedIcon style={{ fontSize: 45 }} />,
   },
   {
     id: 3,
-    title: "14 DAYS RETURN",
+    title: "New Customer",
     description: "Simply return it within 14 days for an exchange.",
-    icon: <HistoryOutlinedIcon style={{ fontSize: 55 }} />,
+    icon: <SupervisorAccountOutlinedIcon style={{ fontSize: 45 }} />,
   },
   {
     id: 4,
-    title: "100% PAYMENT SECURE",
+    title: "Total Delivery",
     description: "We ensure secure payment with PEV  an exchange.",
-    icon: <HttpsOutlinedIcon style={{ fontSize: 55 }} />,
+    icon: <DriveEtaOutlinedIcon style={{ fontSize: 45 }} />,
   },
 ];
