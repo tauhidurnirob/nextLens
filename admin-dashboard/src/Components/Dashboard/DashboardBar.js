@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, Grid } from "@material-ui/core";
 
 const data = {
   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -45,11 +45,15 @@ const options = {
 const DashboardBar = () => (
   <>
     <Box component="div" className="header">
-      <Typography variant="h5" className="title">
+      <Typography align="center" variant="h5" className="title">
         Sale History
       </Typography>
     </Box>
-    <Bar data={data} options={options} />
+    <Grid container justifyContent="center">
+      <Grid item container md={10}>
+        <Bar data={data} options={options} />
+      </Grid>
+    </Grid>
   </>
 );
 

@@ -17,11 +17,11 @@ import SupervisorAccountOutlinedIcon from "@material-ui/icons/SupervisorAccountO
 import ClassOutlinedIcon from "@material-ui/icons/ClassOutlined";
 import DriveEtaOutlinedIcon from "@material-ui/icons/DriveEtaOutlined";
 import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
+import { isText } from "./../../utils/utils";
 
 const useStyles = makeStyles((theme) => ({
   container: { padding: `${theme.spacing(4)}px 0 10px 0` },
   root: {
-    maxWidth: 345,
     padding: theme.spacing(1),
   },
   cardHeader: {
@@ -29,6 +29,12 @@ const useStyles = makeStyles((theme) => ({
   },
   cardContent: {
     padding: `0px ${theme.spacing(2)}px`,
+  },
+  isUp: {
+    color: "green",
+  },
+  isDown: {
+    color: "red",
   },
   "@global": {
     ".MuiCardHeader-title": {
@@ -44,8 +50,8 @@ const DashboardCard = () => {
   return (
     <Container maxWidth={false} className={clsx(classes.container)}>
       <Box mb={4}>
-        <Grid container direction="row" spacing={2}>
-          {supports.map((item) => (
+        <Grid container direction="row" spacing={2} justifyContent="center">
+          {dashboards.map((item) => (
             <Grid key={item.id} item container md={3}>
               <Card className={clsx(classes.root)}>
                 <CardHeader
@@ -54,16 +60,24 @@ const DashboardCard = () => {
                   className={clsx(classes.cardHeader)}
                 />
                 <CardContent className={clsx(classes.cardContent)}>
+                  <Box mb={2}>
+                    <Typography variant="h5" color="textSecondary">
+                      {item.details}
+                    </Typography>
+                  </Box>
                   <Typography
-                    variant="body2"
+                    variant="subtitle1"
                     color="textSecondary"
-                    component="p"
+                    className={clsx({
+                      [classes.isUp]: isText(item.description) === "up",
+                      [classes.isDown]: isText(item.description) === "down",
+                    })}
                   >
-                    {item.description}
+                    {item.description} (previous 30 days)
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary">
+                  <Button size="small" variant="outlined" color="primary">
                     Full Details
                   </Button>
                 </CardActions>
@@ -78,29 +92,36 @@ const DashboardCard = () => {
 
 export default DashboardCard;
 
-const supports = [
+const dashboards = [
   {
     id: 1,
     title: "Total Revenue",
-    description: "Free shipping on order or order above Tk.1000",
+    details: "$711.66",
+    description: " Revenue up ",
     icon: <MonetizationOnOutlinedIcon style={{ fontSize: 45 }} />,
+    isIcon: true,
   },
   {
     id: 2,
     title: "Total Order",
-    description: "Guaranteed quality products, Never compromise on quality",
+    details: "88,568",
+    description: " Order down",
+
     icon: <ClassOutlinedIcon style={{ fontSize: 45 }} />,
   },
   {
     id: 3,
     title: "New Customer",
-    description: "Simply return it within 14 days for an exchange.",
+    details: "5,678",
+    description: " Customer up",
+
     icon: <SupervisorAccountOutlinedIcon style={{ fontSize: 45 }} />,
   },
   {
     id: 4,
     title: "Total Delivery",
-    description: "We ensure secure payment with PEV  an exchange.",
+    details: "78,000",
+    description: " Delivery up ",
     icon: <DriveEtaOutlinedIcon style={{ fontSize: 45 }} />,
   },
 ];

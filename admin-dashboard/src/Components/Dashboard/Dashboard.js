@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, makeStyles, Grid } from "@material-ui/core";
+import { Container, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 // import useApi from "./../hooks/useApi";
 // import postsApi from "../api/posts";
@@ -20,16 +20,8 @@ const Dashboard = () => {
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
-      <Grid container justifyContent="center">
-        <Grid item container md={12}>
-          <DashboardCard />
-        </Grid>
-      </Grid>
-      <Grid container justifyContent="center">
-        <Grid item container md={10}>
-          <DashboardBar />
-        </Grid>
-      </Grid>
+      <DashboardCard />
+      <DashboardBar />
     </Container>
   );
 };
