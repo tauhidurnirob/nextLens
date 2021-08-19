@@ -1,1 +1,1 @@
-import { default as Card } from "./Cards";
+export { default as Cards } from "./Cards";
