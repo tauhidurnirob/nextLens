@@ -6,7 +6,7 @@ import GlobalStyles from "./config/GlobalStyles";
 import theme from "./config/theme";
 import Layout from "./Components/Layout";
 import Product from "./Components/Products/Product";
-import Dashboard from "./Components/Dashboard";
+import Dashboard from "./Components/Dashboard/Dashboard";
 import ProductForm from "./Components/Products/ProductForm";
 
 function App() {
