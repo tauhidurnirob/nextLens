@@ -282,6 +282,6 @@ const dashboards = [
   {
     name: "Settings",
     icon: <SettingsIcon style={{ fontSize: "30px", color: colors.white }} />,
-    route: "/setting",
+    route: "/settings",
   },
 ];

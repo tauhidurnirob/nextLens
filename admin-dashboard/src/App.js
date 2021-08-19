@@ -31,7 +31,6 @@ function App() {
             </Layout>
           }
         />
-
         <Route
           path="/product/add-product"
           element={
@@ -40,6 +39,14 @@ function App() {
             </Layout>
           }
         />
+        <Route path="/category" element={<Layout title="Category"></Layout>} />
+        <Route path="/orders" element={<Layout title="Orders"></Layout>} />
+        <Route
+          path="/customers"
+          element={<Layout title="Customers"></Layout>}
+        />
+        <Route path="/coupons" element={<Layout title="Coupons"></Layout>} />
+        <Route path="/settings" element={<Layout title="Settings"></Layout>} />
       </Routes>
     </ThemeProvider>
   );
