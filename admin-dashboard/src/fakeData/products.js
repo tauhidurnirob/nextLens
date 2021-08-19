@@ -73,6 +73,31 @@ const products = [
     rating: 4,
     numReviews: 12,
   },
+  {
+    name: "Logitech G-Series Gaming Mouse",
+    image: "https://i.ibb.co/YkLym60/mouse.jpg",
+    description:
+      "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
+    brand: "Logitech",
+    category: "Electronics",
+    price: 49.99,
+    countInStock: 7,
+    rating: 3.5,
+    numReviews: 10,
+  },
+  {
+    name: "Amazon Echo Dot 3rd Generation",
+    image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
+
+    description:
+      "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
+    brand: "Amazon",
+    category: "Electronics",
+    price: 29.99,
+    countInStock: 0,
+    rating: 4,
+    numReviews: 12,
+  },
 ];
 
 export default products;
