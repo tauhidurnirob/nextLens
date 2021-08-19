@@ -45,7 +45,7 @@ const options = {
 const DashboardBar = () => (
   <>
     <Box component="div" className="header">
-      <Typography variant="h5" align="center" className="title">
+      <Typography variant="h5" className="title">
         Sale History
       </Typography>
     </Box>
