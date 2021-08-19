@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import {
   makeStyles,
@@ -30,7 +30,7 @@ import PostAddIcon from "@material-ui/icons/PostAdd";
 import SettingsIcon from "@material-ui/icons/Settings";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import colors from "../config/colors";
 
@@ -117,6 +117,12 @@ const Layout = ({ title, children }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    handleDrawerOpen();
+  }, [location.pathname]);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -215,7 +221,6 @@ const Layout = ({ title, children }) => {
               <ListItem
                 button
                 key={index}
-                onClick={handleDrawerOpen}
                 className={clsx(classes.listItem)}
                 component={NavLink}
                 to={items.route}
