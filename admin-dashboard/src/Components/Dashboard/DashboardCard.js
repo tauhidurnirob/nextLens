@@ -7,6 +7,9 @@ import {
   CardHeader,
   CardContent,
   Typography,
+  CardActions,
+  Button,
+  Box,
 } from "@material-ui/core";
 import clsx from "clsx";
 
@@ -19,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   container: { padding: `${theme.spacing(4)}px 0 10px 0` },
   root: {
     maxWidth: 345,
+    padding: theme.spacing(1),
   },
   cardHeader: {
     padding: `${theme.spacing(1.4)}px ${theme.spacing(2)}px`,
@@ -39,24 +43,35 @@ const DashboardCard = () => {
 
   return (
     <Container maxWidth={false} className={clsx(classes.container)}>
-      <Grid container direction="row" spacing={2}>
-        {supports.map((item) => (
-          <Grid key={item.id} item container md={3}>
-            <Card className={clsx(classes.root)}>
-              <CardHeader
-                avatar={item.icon}
-                title={item.title}
-                className={clsx(classes.cardHeader)}
-              />
-              <CardContent className={clsx(classes.cardContent)}>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {item.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+      <Box mb={4}>
+        <Grid container direction="row" spacing={2}>
+          {supports.map((item) => (
+            <Grid key={item.id} item container md={3}>
+              <Card className={clsx(classes.root)}>
+                <CardHeader
+                  avatar={item.icon}
+                  title={item.title}
+                  className={clsx(classes.cardHeader)}
+                />
+                <CardContent className={clsx(classes.cardContent)}>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    {item.description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" color="primary">
+                    Full Details
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Container>
   );
 };

@@ -22,12 +22,12 @@ const Dashboard = () => {
     <Container maxWidth="lg" className={clsx(classes.container)}>
       <Grid container justifyContent="center">
         <Grid item container md={12}>
-          <DashboardBar />
+          <DashboardCard />
         </Grid>
       </Grid>
       <Grid container justifyContent="center">
-        <Grid item container md={12}>
-          <DashboardCard />
+        <Grid item container md={10}>
+          <DashboardBar />
         </Grid>
       </Grid>
     </Container>
