@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { Box, Typography } from "@material-ui/core";
 
 const data = {
@@ -45,10 +45,10 @@ const DashboardBar = () => (
   <>
     <Box component="div" className="header">
       <Typography variant="h4" align="center" className="title">
-        Vertical Bar Chart
+        Vertical Line Chart
       </Typography>
     </Box>
-    <Bar data={data} options={options} />
+    <Line data={data} options={options} />
   </>
 );
 

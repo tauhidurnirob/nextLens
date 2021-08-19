@@ -19,7 +19,11 @@ const Dashboard = () => {
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
-      <DashboardBar />
+      <Grid container justifyContent="center">
+        <Grid item container md={10}>
+          <DashboardBar />
+        </Grid>
+      </Grid>
     </Container>
   );
 };
