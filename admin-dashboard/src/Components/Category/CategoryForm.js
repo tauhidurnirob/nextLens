@@ -109,8 +109,6 @@ const CategoryForm = () => {
 
 export default CategoryForm;
 
-const price = [{ name: "Highest to Lowest" }, { name: "Lowest to Highest" }];
-
 const categories = [
   { name: "Frame Only" },
   { name: "Basic Lens" },
