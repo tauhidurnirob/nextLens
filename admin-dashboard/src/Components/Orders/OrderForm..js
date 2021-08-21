@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     margin: `${theme.spacing(2)}px opx`,
   },
-
   gridItem: {
     width: "100%",
   },
@@ -41,12 +40,12 @@ const OrderForm = () => {
               variant="outlined"
               className={clsx(classes.formControl)}
             >
-              <InputLabel id="category">Category</InputLabel>
-              <Select labelId="category" id="category" label="Category">
+              <InputLabel id="status">Status</InputLabel>
+              <Select labelId="status" id="status" label="status">
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                {categories?.map((item, index) => (
+                {status?.map((item, index) => (
                   <MenuItem key={index} value={index + 1}>
                     {item.name}
                   </MenuItem>
@@ -59,12 +58,16 @@ const OrderForm = () => {
               variant="outlined"
               className={clsx(classes.formControl)}
             >
-              <InputLabel id="price">Price</InputLabel>
-              <Select labelId="price" id="price" label="price">
+              <InputLabel id="order-limits">Order Limits</InputLabel>
+              <Select
+                labelId="order-limits"
+                id="order-limits"
+                label="order-limits"
+              >
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                {price?.map((item, index) => (
+                {orders?.map((item, index) => (
                   <MenuItem key={index} value={index + 1}>
                     {item.name}
                   </MenuItem>
@@ -90,13 +93,15 @@ const OrderForm = () => {
 
 export default OrderForm;
 
-const price = [{ name: "Highest to Lowest" }, { name: "Lowest to Highest" }];
+const orders = [
+  { name: "Last 7 Orders" },
+  { name: "Last 15 Orders" },
+  { name: "Last 30 Orders" },
+];
 
-const categories = [
-  { name: "Frame Only" },
-  { name: "Basic Lens" },
-  { name: "Standard Lens" },
-  { name: "Premium Standard Lens" },
-  { name: "Blue Light Block Glass" },
-  { name: "Anti Fog Lens" },
+const status = [
+  { name: "Delivered" },
+  { name: "Pending" },
+  { name: "PRocessing" },
+  { name: "Failed" },
 ];
