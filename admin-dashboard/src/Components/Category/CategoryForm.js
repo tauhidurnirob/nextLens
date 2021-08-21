@@ -72,12 +72,12 @@ const CategoryForm = () => {
             justifyContent="center"
             spacing={2}
           >
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={6} className={clsx(classes.gridItem)}>
               <FormControl
                 variant="outlined"
                 className={clsx(classes.formControl)}
               >
-                <InputLabel id="category">Category</InputLabel>
+                <InputLabel id="category">Category </InputLabel>
                 <Select labelId="category" id="category" label="Category">
                   <MenuItem value="">
                     <em>None</em>
@@ -90,25 +90,7 @@ const CategoryForm = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <FormControl
-                variant="outlined"
-                className={clsx(classes.formControl)}
-              >
-                <InputLabel id="price">Price</InputLabel>
-                <Select labelId="price" id="price" label="price">
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {price?.map((item, index) => (
-                    <MenuItem key={index} value={index + 1}>
-                      {item.name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={6} className={clsx(classes.gridItem)}>
               <FormControl className={clsx(classes.formControl)}>
                 <TextField
                   id="outlined-search"
