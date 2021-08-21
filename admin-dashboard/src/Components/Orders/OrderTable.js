@@ -12,6 +12,7 @@ import {
   TableHead,
   TableRow,
   Typography,
+  Badge,
 } from "@material-ui/core";
 
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
@@ -24,6 +25,20 @@ const useRowStyles = makeStyles({
       borderBottom: "unset",
     },
   },
+  isDelver: {
+    color: "#00C58D",
+    fontWeight: "bold",
+  },
+  isProcessing: {
+    color: "#666D92",
+    fontWeight: "bold",
+  },
+  isFailed: {
+    color: "#FC5C63",
+    fontWeight: "bold",
+  },
+
+  isPending: { color: "#2067FA", fontWeight: "bold" },
 });
 
 function createData(id, deliveryAddress, paymentMethod, status) {
@@ -70,7 +85,17 @@ const Row = ({ row }) => {
         </TableCell>
         <TableCell align="center">{row.deliveryAddress}</TableCell>
         <TableCell align="center">{row.paymentMethod}</TableCell>
-        <TableCell align="center">{row.status}</TableCell>
+        <TableCell
+          align="center"
+          className={clsx({
+            [classes.isDelver]: row.status === "Delivered",
+            [classes.isProcessing]: row.status === "Processing",
+            [classes.isPending]: row.status === "Pending",
+            [classes.isFailed]: row.status === "Failed",
+          })}
+        >
+          {row.status}
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -114,7 +139,7 @@ const rows = [
     14,
     "29 Eve Street, 543 Evenue Road, Ny 87876",
     "Cash On Delivery",
-    "Processing"
+    "Failed"
   ),
   createData(
     14,
@@ -126,14 +151,13 @@ const rows = [
     14,
     "29 Eve Street, 543 Evenue Road, Ny 87876",
     "Cash On Delivery",
-    "Processing"
+    "Pending"
   ),
-
   createData(
     14,
     "29 Eve Street, 543 Evenue Road, Ny 87876",
     "Cash On Delivery",
-    "Processing"
+    "Delivered"
   ),
   createData(
     14,
@@ -202,7 +226,7 @@ const OrderTable = () => {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.name} row={row} />
+            <Row key={row.id} row={row} />
           ))}
         </TableBody>
       </Table>

@@ -102,6 +102,6 @@ const orders = [
 const status = [
   { name: "Delivered" },
   { name: "Pending" },
-  { name: "PRocessing" },
+  { name: "Processing" },
   { name: "Failed" },
 ];
