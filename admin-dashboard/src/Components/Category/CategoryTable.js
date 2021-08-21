@@ -21,6 +21,9 @@ const useStyles = makeStyles({
     width: 70,
     height: 70,
   },
+  tableContainer: {
+    height: "500px",
+  },
 });
 
 function createData(id, image, name, slug, type) {
@@ -69,8 +72,12 @@ const CategoryTable = () => {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={clsx(classes.table)} aria-label="simple table">
+    <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
+      <Table
+        stickyHeader
+        aria-label="sticky table"
+        className={clsx(classes.table)}
+      >
         <TableHead>
           <TableRow>
             <TableCell>

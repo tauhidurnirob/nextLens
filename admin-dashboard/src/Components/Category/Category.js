@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Box } from "@material-ui/core";
+
 import CategoryForm from "./CategoryForm";
 import CategoryTable from "./CategoryTable";
 
