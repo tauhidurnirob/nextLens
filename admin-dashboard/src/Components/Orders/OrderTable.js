@@ -12,7 +12,6 @@ import {
   TableHead,
   TableRow,
   Typography,
-  Badge,
 } from "@material-ui/core";
 
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
