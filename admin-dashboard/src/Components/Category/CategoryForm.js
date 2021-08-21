@@ -57,9 +57,9 @@ const CategoryForm = () => {
             color="primary"
             startIcon={<AddIcon style={{ fontSize: "25px" }} />}
             component={NavLink}
-            to="/product/add-product"
+            to="/category/add-category"
           >
-            Add Product
+            Add Category
           </Button>
         </Grid>
       </Box>
