@@ -5,6 +5,8 @@ import products from "../../fakeData/products";
 import { Cards } from "../../Re_components";
 
 const Product = () => {
+  document.title = "Products";
+
   return (
     <Container maxWidth="lg">
       <ProductForm />

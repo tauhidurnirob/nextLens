@@ -53,8 +53,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddProductForm = () => {
-  document.title = "Add Product";
+const AddCategoryForm = () => {
+  document.title = "Add Category";
 
   const classes = useStyles();
 
@@ -68,34 +68,12 @@ const AddProductForm = () => {
             color="primary"
             startIcon={<KeyboardBackspaceIcon style={{ fontSize: "25px" }} />}
             component={NavLink}
-            to="/product"
+            to="/category"
           />
         </Grid>
       </Box>
       <Paper className={clsx(classes.root)}>
         <form>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-name"
-                label="Name"
-                variant="outlined"
-                name="name"
-              />
-            </FormControl>
-          </Box>
-          <Box mb={2}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-Description"
-                label="Description"
-                variant="outlined"
-                multiline
-                minRows={4}
-                maxRows={8}
-              />
-            </FormControl>
-          </Box>
           <Grid
             item
             container
@@ -104,7 +82,7 @@ const AddProductForm = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={12} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <input
@@ -127,31 +105,6 @@ const AddProductForm = () => {
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl className={clsx(classes.formControl)}>
-                  <TextField
-                    id="outlined-Unit"
-                    label="Unit"
-                    variant="outlined"
-                    name="unit"
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl className={clsx(classes.formControl)}>
-                  <TextField
-                    id="outlined-price"
-                    label="Price"
-                    variant="outlined"
-                    name="price"
-                    type="number"
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
           </Grid>
           <Grid
             item
@@ -160,48 +113,35 @@ const AddProductForm = () => {
             spacing={2}
             justifyContent="center"
           >
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={6} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
                     id="outlined-sales-price"
-                    label="Sales Price"
+                    label="Slug"
                     variant="outlined"
                     name="salesPrice"
-                    type="number"
+                    type="text"
                   />
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl className={clsx(classes.formControl)}>
-                  <TextField
-                    id="outlined-discount"
-                    label="Discount"
-                    variant="outlined"
-                    name="discount"
-                    type="number"
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={6} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
                     id="outlined-product-quantity"
-                    label="Quantity"
+                    label="Category Name"
                     variant="outlined"
                     name="quantity"
-                    type="number"
+                    type="text"
                   />
                 </FormControl>
               </Box>
             </Grid>
           </Grid>
           <Grid container direction="row" spacing={2} justifyContent="center">
-            <Grid item md={6} className={clsx(classes.gridItem)}>
+            <Grid item md={12} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl
                   variant="outlined"
@@ -213,26 +153,6 @@ const AddProductForm = () => {
                       <em>None</em>
                     </MenuItem>
                     {types?.map((item, index) => (
-                      <MenuItem key={index} value={index + 1}>
-                        {item.name}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </Box>
-            </Grid>
-            <Grid item md={6} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  variant="outlined"
-                  className={clsx(classes.formControl)}
-                >
-                  <InputLabel id="category">Category</InputLabel>
-                  <Select labelId="category" id="category" label="Category">
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    {categories?.map((item, index) => (
                       <MenuItem key={index} value={index + 1}>
                         {item.name}
                       </MenuItem>
@@ -259,20 +179,11 @@ const AddProductForm = () => {
   );
 };
 
-export default AddProductForm;
+export default AddCategoryForm;
 
 const types = [
   { name: "Grocery" },
   { name: "Women Cloths" },
   { name: "Bags" },
   { name: "Makeup" },
-];
-
-const categories = [
-  { name: "Frame Only" },
-  { name: "Basic Lens" },
-  { name: "Standard Lens" },
-  { name: "Premium Standard Lens" },
-  { name: "Blue Light Block Glass" },
-  { name: "Anti Fog Lens" },
 ];
