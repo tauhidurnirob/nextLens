@@ -54,6 +54,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AddProductForm = () => {
+  document.title = "Add Product";
+
   const classes = useStyles();
 
   return (

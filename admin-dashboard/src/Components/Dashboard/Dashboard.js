@@ -17,6 +17,7 @@ const Dashboard = () => {
   // useEffect(() => {
   //   request();
   // }, [data, request]);
+  document.title = "Dashboard";
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
