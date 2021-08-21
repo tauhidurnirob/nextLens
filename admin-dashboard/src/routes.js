@@ -4,6 +4,7 @@ import AddProductForm from "./Components/Products/AddProductForm";
 import Category from "./Components/Category/Category";
 import Layout from "./Components/Layout";
 import AddCategoryForm from "./Components/Category/AddCategoryForm";
+import Order from "./Components/Orders/Orders";
 
 const routes = [
   {
@@ -46,7 +47,14 @@ const routes = [
       </Layout>
     ),
   },
-  { path: "/orders", component: <Layout title="Orders">Orders</Layout> },
+  {
+    path: "/orders",
+    component: (
+      <Layout title="Orders">
+        <Order />
+      </Layout>
+    ),
+  },
   {
     path: "/customers",
     component: <Layout title="Customers">Customers</Layout>,
