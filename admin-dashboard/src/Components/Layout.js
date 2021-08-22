@@ -26,8 +26,8 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import CategoryIcon from "@material-ui/icons/Category";
 import StoreIcon from "@material-ui/icons/Store";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
-import PostAddIcon from "@material-ui/icons/PostAdd";
-import SettingsIcon from "@material-ui/icons/Settings";
+// import PostAddIcon from "@material-ui/icons/PostAdd";
+// import SettingsIcon from "@material-ui/icons/Settings";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { NavLink, useLocation } from "react-router-dom";
@@ -279,14 +279,14 @@ const dashboards = [
     ),
     route: "/customers",
   },
-  {
-    name: "Coupons",
-    icon: <PostAddIcon style={{ fontSize: "30px", color: colors.white }} />,
-    route: "/coupons",
-  },
-  {
-    name: "Settings",
-    icon: <SettingsIcon style={{ fontSize: "30px", color: colors.white }} />,
-    route: "/settings",
-  },
+  // {
+  //   name: "Coupons",
+  //   icon: <PostAddIcon style={{ fontSize: "30px", color: colors.white }} />,
+  //   route: "/coupons",
+  // },
+  // {
+  //   name: "Settings",
+  //   icon: <SettingsIcon style={{ fontSize: "30px", color: colors.white }} />,
+  //   route: "/settings",
+  // },
 ];

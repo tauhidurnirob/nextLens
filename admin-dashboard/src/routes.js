@@ -59,8 +59,8 @@ const routes = [
     path: "/customers",
     component: <Layout title="Customers">Customers</Layout>,
   },
-  { path: "/coupons", component: <Layout title="Coupons">Coupons</Layout> },
-  { path: "/settings", component: <Layout title="Settings">Settings</Layout> },
+  // { path: "/coupons", component: <Layout title="Coupons">Coupons</Layout> },
+  // { path: "/settings", component: <Layout title="Settings">Settings</Layout> },
 ];
 
 export default routes;
