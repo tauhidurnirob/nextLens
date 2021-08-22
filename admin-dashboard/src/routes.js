@@ -5,6 +5,7 @@ import Category from "./Components/Category/Category";
 import Layout from "./Components/Layout";
 import AddCategoryForm from "./Components/Category/AddCategoryForm";
 import Order from "./Components/Orders/Orders";
+import Customers from "./Components/Customers/Cutomers";
 
 const routes = [
   {
@@ -57,7 +58,11 @@ const routes = [
   },
   {
     path: "/customers",
-    component: <Layout title="Customers">Customers</Layout>,
+    component: (
+      <Layout title="Customers">
+        <Customers />
+      </Layout>
+    ),
   },
   // { path: "/coupons", component: <Layout title="Coupons">Coupons</Layout> },
   // { path: "/settings", component: <Layout title="Settings">Settings</Layout> },
