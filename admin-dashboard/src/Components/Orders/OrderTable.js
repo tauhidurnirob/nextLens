@@ -178,14 +178,14 @@ const rows = [
   ),
 ];
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   table: {
     minWidth: 1024,
   },
   tableContainer: {
     height: "500px",
   },
-});
+}));
 
 const OrderTable = () => {
   const classes = useStyles();
