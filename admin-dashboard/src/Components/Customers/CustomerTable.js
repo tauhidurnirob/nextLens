@@ -26,8 +26,8 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(id, image, name, slug, type) {
-  return { id, image, name, slug, type };
+function createData(id, image, name, order, amount) {
+  return { id, image, name, order, amount };
 }
 
 const rows = [
@@ -35,36 +35,36 @@ const rows = [
     15,
     "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
+    30,
+    1000
   ),
   createData(
     15,
     "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
+    30,
+    1000
   ),
   createData(
     15,
     "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
+    30,
+    1000
   ),
   createData(
     15,
     "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
+    30,
+    1000
   ),
   createData(
     15,
     "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
+    30,
+    1000
   ),
 ];
 
@@ -82,7 +82,7 @@ const CustomerTable = () => {
           <TableRow>
             <TableCell>
               <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Id</Box>
+                <Box fontWeight="fontWeightBold">ID</Box>
               </Typography>
             </TableCell>
             <TableCell align="center">
@@ -97,12 +97,12 @@ const CustomerTable = () => {
             </TableCell>
             <TableCell align="center">
               <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Slug</Box>
+                <Box fontWeight="fontWeightBold">Total Order</Box>
               </Typography>
             </TableCell>
             <TableCell align="center">
               <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Type</Box>
+                <Box fontWeight="fontWeightBold">Total Amount</Box>
               </Typography>
             </TableCell>
           </TableRow>
@@ -121,8 +121,8 @@ const CustomerTable = () => {
                 />
               </TableCell>
               <TableCell align="center">{row.name}</TableCell>
-              <TableCell align="center">{row.slug}</TableCell>
-              <TableCell align="center">{row.type}</TableCell>
+              <TableCell align="center">{row.order}</TableCell>
+              <TableCell align="center">${row.amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>
