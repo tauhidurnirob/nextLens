@@ -191,13 +191,12 @@ const OrderTable = () => {
   const classes = useStyles();
 
   return (
-    <TableContainer
-      stickyHeader
-      aria-label="sticky table"
-      className={clsx(classes.tableContainer)}
-      component={Paper}
-    >
-      <Table className={clsx(classes.table)} aria-label="collapsible table">
+    <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
+      <Table
+        stickyHeader
+        aria-label="sticky table"
+        className={clsx(classes.table)}
+      >
         <TableHead>
           <TableRow>
             <TableCell />
