@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
   },
   errorFont: {
     color: "red",
-    padding: "10px 0",
   },
   btn: {
     transition: "all 300ms ease-in-out",
@@ -83,6 +82,7 @@ const schema = yup.object().shape({
 
 const Login = () => {
   const classes = useStyles();
+
   const {
     register,
     handleSubmit,
@@ -90,6 +90,7 @@ const Login = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data) => console.log(data);
+
   const [showPassword, setShowPassword] = useState(false);
 
   return (
