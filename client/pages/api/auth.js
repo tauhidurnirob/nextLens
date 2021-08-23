@@ -1,7 +1,10 @@
 import client from "./client";
 import endpoint from "../../config/endpoints";
 
-const login = (email, password) =>
+const loginAuth = (email, password) =>
   client.post(endpoint.login, { email, password });
 
-export default { login };
+const registerAuth = (name, email, password) =>
+  client.post(endpoint.register, { name, email, password });
+
+export default { loginAuth, registerAuth };

@@ -20,9 +20,12 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useDispatch } from "react-redux";
 
 import colors from "../../config/colors";
-import { Heading } from "../../src/Re_components";
+import { Heading, ErrorMessage } from "../../src/Re_components";
+import { register } from "../../src/redux/slices/authSlice";
+import authApi from "../api/auth";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -89,6 +92,7 @@ const schema = yup.object().shape({
 
 const Register = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -96,7 +100,14 @@ const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = (data) => console.log(data);
+  const [registerFailed, setRegisterFailed] = useState(false);
+
+  const onSubmit = async ({ name, email, password }) => {
+    const { data, ok } = await authApi.registerAuth(name, email, password);
+    if (!ok) return setRegisterFailed(true);
+    setRegisterFailed(false);
+    dispatch(register(data));
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -104,6 +115,7 @@ const Register = () => {
     <Paper className={clsx(classes.paper)}>
       <Heading className={clsx(classes.heading)} isDivider>
         <Typography variant="h5">Register</Typography>
+        <ErrorMessage error="User already exists" visible={registerFailed} />
       </Heading>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container direction="column">

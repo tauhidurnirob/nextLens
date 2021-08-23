@@ -20,11 +20,11 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { login } from "../../src/redux/slices/authSlice";
 import { useDispatch } from "react-redux";
 
 import colors from "../../config/colors";
 import { Heading, ErrorMessage } from "../../src/Re_components";
+import { login } from "../../src/redux/slices/authSlice";
 import authApi from "../api/auth";
 
 const useStyles = makeStyles((theme) => ({
@@ -96,7 +96,7 @@ const Login = () => {
   const [loginFailed, setLoginFailed] = useState(false);
 
   const onSubmit = async ({ email, password }) => {
-    const { data, ok } = await authApi.login(email, password);
+    const { data, ok } = await authApi.loginAuth(email, password);
     if (!ok) return setLoginFailed(true);
     setLoginFailed(false);
     dispatch(login(data));
