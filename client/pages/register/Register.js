@@ -72,7 +72,7 @@ const schema = yup.object().shape({
   name: yup
     .string()
     .required("Name is required")
-    .matches(/^[A-Za-z]+$/, "Must be only letters"),
+    .matches(/([A-Za-z])\w+/, "Must be only letters"),
   email: yup
     .string()
     .email("Invalid email format")
