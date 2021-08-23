@@ -24,7 +24,7 @@ import { useDispatch } from "react-redux";
 
 import colors from "../../config/colors";
 import { Heading, ErrorMessage } from "../../src/Re_components";
-import { login } from "../../src/redux/slices/authSlice";
+import { loginAction } from "../../src/redux/slices/authSlice";
 import authApi from "../api/auth";
 
 const useStyles = makeStyles((theme) => ({
@@ -99,7 +99,7 @@ const Login = () => {
     const { data, ok } = await authApi.loginAuth(email, password);
     if (!ok) return setLoginFailed(true);
     setLoginFailed(false);
-    dispatch(login(data));
+    dispatch(loginAction(data));
   };
 
   const [showPassword, setShowPassword] = useState(false);
