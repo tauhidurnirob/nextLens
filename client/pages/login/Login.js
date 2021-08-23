@@ -23,9 +23,10 @@ import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 import colors from "../../config/colors";
-import { Heading, ErrorMessage } from "../../src/Re_components";
+import { Heading } from "../../src/Re_components";
 import { loginAction } from "../../src/redux/slices/authSlice";
 import authApi from "../api/auth";
 
@@ -88,6 +89,7 @@ const schema = yup.object().shape({
 const Login = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const {
     register,
@@ -97,8 +99,12 @@ const Login = () => {
 
   const onSubmit = async ({ email, password }) => {
     const { data, ok } = await authApi.loginAuth(email, password);
-    if (!ok) return toast.error("Invalid email or password");
-    dispatch(loginAction(data));
+    if (!ok) {
+      return toast.error("Invalid email or password");
+    } else {
+      dispatch(loginAction(data));
+      router.push("/");
+    }
   };
 
   const [showPassword, setShowPassword] = useState(false);

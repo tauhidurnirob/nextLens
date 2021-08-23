@@ -23,6 +23,7 @@ import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 import colors from "../../config/colors";
 import { Heading } from "../../src/Re_components";
@@ -95,6 +96,7 @@ const schema = yup.object().shape({
 const Register = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const {
     register,
@@ -104,8 +106,12 @@ const Register = () => {
 
   const onSubmit = async ({ name, email, password }) => {
     const { data, ok } = await authApi.registerAuth(name, email, password);
-    if (!ok) toast.error("User already exists");
-    dispatch(registerAction(data));
+    if (!ok) {
+      return toast.error("User already exists");
+    } else {
+      dispatch(registerAction(data));
+      router.push("/");
+    }
   };
 
   const [showPassword, setShowPassword] = useState(false);
