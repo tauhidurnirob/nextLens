@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
   errorFont: {
     color: "red",
+    padding: "0 0 5px 0",
   },
   btn: {
     transition: "all 300ms ease-in-out",
