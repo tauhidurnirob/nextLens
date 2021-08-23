@@ -98,6 +98,7 @@ const Login = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async ({ email, password }) => {
+    console.log(email, password);
     const { data, ok } = await authApi.loginAuth(email, password);
     if (!ok) {
       return toast.error("Invalid email or password");
