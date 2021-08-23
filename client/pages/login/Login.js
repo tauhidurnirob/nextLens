@@ -22,7 +22,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import colors from "../../config/colors";
-import { Heading } from "../../src/Re_components";
+import { Heading, ErrorMessage } from "../../src/Re_components";
+import authApi from "../api/auth";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -89,14 +90,27 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = (data) => console.log(data);
+  const [loginFailed, setLoginFailed] = useState(false);
+
+  const onSubmit = async ({ email, password }) => {
+    const { data, ok } = await authApi.login(email, password);
+    if (!ok) return setLoginFailed(true);
+    setLoginFailed(false);
+    console.log(data);
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <Paper className={clsx(classes.paper)}>
       <Heading className={clsx(classes.heading)} isDivider>
-        <Typography variant="h5">Login</Typography>
+        <Typography variant="h5" gutterBottom>
+          Login
+        </Typography>
+        <ErrorMessage
+          error="Invalid email and/or password"
+          visible={loginFailed}
+        />
       </Heading>
 
       <form onSubmit={handleSubmit(onSubmit)}>
