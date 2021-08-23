@@ -24,15 +24,14 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // apis
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
 app.use("/api/users", userRoutes);
 
 // middleware
 app.use(notFound);
 app.use(errorHandler);
-
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
 
 app.listen(
   PORT,
