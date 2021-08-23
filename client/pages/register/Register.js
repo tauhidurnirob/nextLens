@@ -21,9 +21,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import colors from "../../config/colors";
-import { Heading, ErrorMessage } from "../../src/Re_components";
+import { Heading } from "../../src/Re_components";
 import { registerAction } from "../../src/redux/slices/authSlice";
 import authApi from "../api/auth";
 
@@ -100,12 +102,9 @@ const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const [registerFailed, setRegisterFailed] = useState(false);
-
   const onSubmit = async ({ name, email, password }) => {
     const { data, ok } = await authApi.registerAuth(name, email, password);
-    if (!ok) return setRegisterFailed(true);
-    setRegisterFailed(false);
+    if (!ok) toast("User already exists");
     dispatch(registerAction(data));
   };
 
@@ -115,7 +114,7 @@ const Register = () => {
     <Paper className={clsx(classes.paper)}>
       <Heading className={clsx(classes.heading)} isDivider>
         <Typography variant="h5">Register</Typography>
-        <ErrorMessage error="User already exists" visible={registerFailed} />
+        <ToastContainer />
       </Heading>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container direction="column">

@@ -21,6 +21,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import colors from "../../config/colors";
 import { Heading, ErrorMessage } from "../../src/Re_components";
@@ -93,12 +95,9 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const [loginFailed, setLoginFailed] = useState(false);
-
   const onSubmit = async ({ email, password }) => {
     const { data, ok } = await authApi.loginAuth(email, password);
-    if (!ok) return setLoginFailed(true);
-    setLoginFailed(false);
+    if (!ok) return toast("Invalid email or password");
     dispatch(loginAction(data));
   };
 
@@ -110,7 +109,7 @@ const Login = () => {
         <Typography variant="h5" gutterBottom>
           Login
         </Typography>
-        <ErrorMessage error="Invalid email or password" visible={loginFailed} />
+        <ToastContainer />
       </Heading>
 
       <form onSubmit={handleSubmit(onSubmit)}>
