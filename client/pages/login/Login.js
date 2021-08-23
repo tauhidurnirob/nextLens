@@ -20,6 +20,8 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { login } from "../../src/redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 import colors from "../../config/colors";
 import { Heading, ErrorMessage } from "../../src/Re_components";
@@ -83,6 +85,7 @@ const schema = yup.object().shape({
 
 const Login = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -96,7 +99,7 @@ const Login = () => {
     const { data, ok } = await authApi.login(email, password);
     if (!ok) return setLoginFailed(true);
     setLoginFailed(false);
-    console.log(data);
+    dispatch(login(data));
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -107,10 +110,7 @@ const Login = () => {
         <Typography variant="h5" gutterBottom>
           Login
         </Typography>
-        <ErrorMessage
-          error="Invalid email and/or password"
-          visible={loginFailed}
-        />
+        <ErrorMessage error="Invalid email or password" visible={loginFailed} />
       </Heading>
 
       <form onSubmit={handleSubmit(onSubmit)}>
