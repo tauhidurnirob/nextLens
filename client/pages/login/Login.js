@@ -43,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "500",
     letterSpacing: "1px",
     fontSize: "14px",
-    padding: "4px 0",
     margin: "10px 0",
     "&:hover": {
       color: colors.sky,
