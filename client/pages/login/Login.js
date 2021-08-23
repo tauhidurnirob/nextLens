@@ -18,6 +18,8 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Visibility from "@material-ui/icons/Visibility";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import colors from "../../config/colors";
 import { Heading } from "../../src/Re_components";
@@ -47,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
       color: colors.sky,
     },
   },
+  errorFont: {
+    color: "red",
+    padding: "10px 0",
+  },
   btn: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
@@ -63,14 +69,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  password: yup
+    .string()
+    .required("Password is required")
+    .matches(/^[0-9]+$/, "Must be only digits")
+    .min(5, "Minimum 5 digits"),
+});
+
 const Login = () => {
   const classes = useStyles();
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(schema) });
+
   const onSubmit = (data) => console.log(data);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -87,9 +105,22 @@ const Login = () => {
               id="outlined-Email"
               label="Email"
               variant="outlined"
-              inputProps={{ ...register("email") }}
+              inputProps={{
+                ...register("email"),
+              }}
             />
           </FormControl>
+          {errors.email && (
+            <FormHelperText>
+              <Typography
+                className={clsx(classes.errorFont)}
+                variant="subtitle2"
+              >
+                {errors.email?.message}
+              </Typography>
+            </FormHelperText>
+          )}
+
           <FormControl
             className={clsx(classes.margin, classes.textField)}
             variant="outlined"
@@ -118,6 +149,17 @@ const Login = () => {
               inputProps={{ ...register("password") }}
             />
           </FormControl>
+          {errors.password && (
+            <FormHelperText>
+              <Typography
+                className={clsx(classes.errorFont)}
+                variant="subtitle2"
+              >
+                {errors.password?.message}
+              </Typography>
+            </FormHelperText>
+          )}
+
           <FormHelperText>
             <Link href="/register">
               <Typography className={clsx(classes.font)} variant="subtitle1">
