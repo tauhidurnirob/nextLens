@@ -104,7 +104,7 @@ const Register = () => {
 
   const onSubmit = async ({ name, email, password }) => {
     const { data, ok } = await authApi.registerAuth(name, email, password);
-    if (!ok) toast("User already exists");
+    if (!ok) toast.error("User already exists");
     dispatch(registerAction(data));
   };
 

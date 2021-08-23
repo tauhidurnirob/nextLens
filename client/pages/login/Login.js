@@ -97,7 +97,7 @@ const Login = () => {
 
   const onSubmit = async ({ email, password }) => {
     const { data, ok } = await authApi.loginAuth(email, password);
-    if (!ok) return toast("Invalid email or password");
+    if (!ok) return toast.error("Invalid email or password");
     dispatch(loginAction(data));
   };
 
