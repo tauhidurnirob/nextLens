@@ -28,7 +28,9 @@ const ModelDetails = () => {
   return (
     <>
       <Heading className={clsx(classes.heading)} isDivider>
-        Model Details
+        <Typography variant="h5">
+          <Box fontWeight="fontWeightBold">Model Details</Box>
+        </Typography>
       </Heading>
       <Container maxWidth="lg" className={clsx(classes.container)}>
         <Grid container direction="row" spacing={2}>
