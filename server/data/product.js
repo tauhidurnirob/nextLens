@@ -12,6 +12,8 @@ const products = [
     countInStock: 10,
     rating: 4.5,
     numReviews: 12,
+    sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
       { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
@@ -48,6 +50,8 @@ const products = [
     countInStock: 7,
     rating: 4.0,
     numReviews: 8,
+    sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
       { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
@@ -83,6 +87,8 @@ const products = [
     countInStock: 5,
     rating: 3,
     numReviews: 12,
+    sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
       { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
@@ -119,7 +125,8 @@ const products = [
     countInStock: 11,
     rating: 5,
     numReviews: 12,
-
+    sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
       { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
@@ -155,6 +162,8 @@ const products = [
     countInStock: 7,
     rating: 3.5,
     numReviews: 10,
+    sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
       { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
@@ -190,6 +199,8 @@ const products = [
     countInStock: 0,
     rating: 4,
     numReviews: 12,
+    sku: "DKE04461",
+    sizeGuide: "Delivery & Return",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
       { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
@@ -215,32 +226,4 @@ const products = [
   },
 ];
 
-// title: "Shade Color Design Eyeglass",
-// image: "/images/sun1.png",
-// price: 200,
-// ability: "In stock",
-// Sku: "DKE04461",
-// sizeGuide: "Delivery & Return",
-// detailsImage: [
-//   { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-//   { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-//   { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-// ],
-// details: {
-//   modelNumber: "DKE04461",
-//   size: "54-16-141 mm",
-//   frameMaterial: "High quality Metal & Fiber",
-//   frameLensMaterial: "Polycarbonate",
-//   frameAttribution: "High Quality, Flexible & Durable",
-//   usage: "Eyeglasses Frame or Prescription Optical Frame",
-//   lensFunction:
-//     "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
-// },
-// listType: [
-//   { list: "Frame Only" },
-//   { list: "Basic Lens + ৳200" },
-//   { list: "Standard Lens + ৳300" },
-//   { list: "Premium Standard Lens + ৳500" },
-//   { list: "Blue Light Block Glass + ৳500" },
-// ],
 export default products;

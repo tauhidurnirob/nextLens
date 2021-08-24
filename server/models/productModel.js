@@ -65,6 +65,8 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
+    sku: { type: String },
+    sizeGuide: { type: String },
     detailsImage: [
       {
         image: { type: String },
