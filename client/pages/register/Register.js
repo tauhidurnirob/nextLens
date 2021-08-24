@@ -109,7 +109,6 @@ const Register = () => {
     if (!ok) {
       return toast.error("User already exists");
     } else {
-      toast.success("Successfully registered");
       dispatch(registerAction(data));
       router.push("/");
     }
