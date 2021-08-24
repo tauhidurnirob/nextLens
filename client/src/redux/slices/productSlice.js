@@ -5,6 +5,8 @@ const productSlice = createSlice({
   initialState: {
     cart: [],
     productById: [],
+    topProduct: [],
+    products: [],
   },
   reducers: {
     addCart(state, { payload }) {
@@ -38,10 +40,23 @@ const productSlice = createSlice({
         totalPrice: payload.price,
       };
     },
+    fetchedProducts(state, { payload }) {
+      state.products = payload;
+    },
+    topProducts(state, { payload }) {
+      state.topProduct = payload;
+    },
   },
 });
 
-export const { addCart, removeCart, qty, findById } = productSlice.actions;
+export const {
+  addCart,
+  removeCart,
+  qty,
+  findById,
+  topProducts,
+  fetchedProducts,
+} = productSlice.actions;
 
 export default productSlice.reducer;
 
