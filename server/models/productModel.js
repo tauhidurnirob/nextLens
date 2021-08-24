@@ -29,6 +29,10 @@ const productSchema = mongoose.Schema(
     brand: {
       type: String,
     },
+    ability: {
+      type: String,
+      required: true,
+    },
     category: {
       type: String,
       required: true,
@@ -61,6 +65,26 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
+    detailsImage: [
+      {
+        image: { type: String },
+      },
+    ],
+    details: {
+      modelNumber: { type: String },
+      size: { type: String },
+      frameMaterial: { type: String },
+      frameLensMaterial: { type: String },
+      frameAttribution: { type: String },
+      usage: { type: String },
+      lensFunction: { type: String },
+    },
+
+    listType: [
+      {
+        list: { type: String },
+      },
+    ],
   },
   {
     timestamps: true,
