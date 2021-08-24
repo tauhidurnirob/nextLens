@@ -75,12 +75,12 @@ const Quantity = ({ items, isCartTable }) => {
   const [count, setCount] = useState(items.quantity);
 
   const { cart } = useSelector(cartList);
-  const inCart = cart.find((item) => item.id === items.id);
+  const inCart = cart.find((item) => item._id === items._id);
 
   useEffect(() => {
     dispatch(
       qty({
-        id: items.id,
+        _id: items._id,
         quantity: count,
         totalPrice: items.price * count,
       })
