@@ -105,7 +105,7 @@ const Cards = ({
             blurDataURL
             src={item?.image}
             // loader={() => "/images/imageLoader.svg"}
-            alt={item?.title}
+            alt={item?.name}
             height={height}
             width={width}
           />
@@ -150,7 +150,7 @@ const Cards = ({
             blurDataURL
             src={item?.image}
             // loader={() => "/images/imageLoader.svg"}
-            alt={item?.title}
+            alt={item?.name}
             height={height}
             width={width}
           />
@@ -163,14 +163,14 @@ const Cards = ({
             [classes.categoryContent]: isCategory,
           })}
         >
-          <Button {...otherProps}>{item?.title}</Button>
+          <Button {...otherProps}>{item?.name}</Button>
         </CardContent>
       )}
       {isProduct && (
         <>
           <Grid container direction="column">
             <Typography className={clsx(classes.font)}>
-              {ShouldBeCapital(item?.title)}
+              {ShouldBeCapital(item?.name)}
             </Typography>
             <Typography>
               <Box fontWeight={500}>৳{item?.price}</Box>
