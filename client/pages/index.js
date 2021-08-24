@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { default as MainHome } from "../src/Components/Home";
 import clsx from "clsx";
 import productApi from "./api/products";
-import { topProducts } from "../src/redux/slices/productSlice";
+import { fetchedProducts, topProducts } from "../src/redux/slices/productSlice";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -19,7 +19,10 @@ const useStyles = makeStyles(() => ({
 
 const Home = ({ data }) => {
   const dispatch = useDispatch();
+
+  dispatch(fetchedProducts(data.products));
   dispatch(topProducts(data.topProduct));
+
   const classes = useStyles();
   return (
     <Box component="div" className={clsx(classes.container)}>
