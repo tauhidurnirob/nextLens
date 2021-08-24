@@ -2,8 +2,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import ProductDetails from "./ProductDetail";
-import products from "../../fakeData/products";
+
 import { findById } from "../../src/redux/slices/productSlice";
+import productApi from "../api/products";
 
 const ProductId = ({ data }) => {
   const dispatch = useDispatch();
@@ -15,13 +16,16 @@ const ProductId = ({ data }) => {
 export default ProductId;
 
 export async function getStaticPaths() {
-  const paths = products.map((item) => ({
-    params: { id: item.id.toString() },
+  const {
+    data: { products },
+  } = await productApi.getAllProduct();
+  const paths = products?.map((item) => ({
+    params: { id: item._id },
   }));
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
-  const data = products.find((item) => item.id.toString() === params.id);
+  const { data } = await productApi.getProductById(params.id);
   return { props: { data }, revalidate: 1 };
 }

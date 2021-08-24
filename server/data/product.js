@@ -1,6 +1,6 @@
 const products = [
   {
-    name: "Airpods Wireless Bluetooth Headphones",
+    title: "Airpods Wireless Bluetooth Headphones",
     image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
     ability: "In stock",
 
@@ -38,7 +38,7 @@ const products = [
     ],
   },
   {
-    name: "iPhone 11 Pro 256GB Memory",
+    title: "iPhone 11 Pro 256GB Memory",
     image: "https://i.ibb.co/XL8CX77/phone.jpg",
     ability: "In stock",
 
@@ -76,7 +76,7 @@ const products = [
     ],
   },
   {
-    name: "Cannon EOS 80D DSLR Camera",
+    title: "Cannon EOS 80D DSLR Camera",
     image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
@@ -113,7 +113,7 @@ const products = [
     ],
   },
   {
-    name: "Sony Playstation 4 Pro White Version",
+    title: "Sony Playstation 4 Pro White Version",
     image: "https://i.ibb.co/17pr13r/playstation.jpg",
     ability: "In stock",
 
@@ -151,7 +151,7 @@ const products = [
     ],
   },
   {
-    name: "Logitech G-Series Gaming Mouse",
+    title: "Logitech G-Series Gaming Mouse",
     image: "https://i.ibb.co/YkLym60/mouse.jpg",
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
@@ -188,7 +188,7 @@ const products = [
     ],
   },
   {
-    name: "Amazon Echo Dot 3rd Generation",
+    title: "Amazon Echo Dot 3rd Generation",
     image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     ability: "In stock",
     description:

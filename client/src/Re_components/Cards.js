@@ -105,7 +105,7 @@ const Cards = ({
             blurDataURL
             src={item?.image}
             // loader={() => "/images/imageLoader.svg"}
-            alt={item?.name}
+            alt={item?.title}
             height={height}
             width={width}
           />
@@ -116,7 +116,7 @@ const Cards = ({
               [classes.productView]: isProduct,
             })}
           >
-            <Link href={`/product-details/${item?.id}`}>
+            <Link href={`/product-details/${item?._id}`}>
               <a>
                 <IconButton size="medium" style={{ color: colors.white }}>
                   <VisibilityOutlinedIcon
@@ -150,7 +150,7 @@ const Cards = ({
             blurDataURL
             src={item?.image}
             // loader={() => "/images/imageLoader.svg"}
-            alt={item?.name}
+            alt={item?.title}
             height={height}
             width={width}
           />
@@ -163,14 +163,14 @@ const Cards = ({
             [classes.categoryContent]: isCategory,
           })}
         >
-          <Button {...otherProps}>{item?.name}</Button>
+          <Button {...otherProps}>{item?.title}</Button>
         </CardContent>
       )}
       {isProduct && (
         <>
           <Grid container direction="column">
             <Typography className={clsx(classes.font)}>
-              {ShouldBeCapital(item?.name)}
+              {ShouldBeCapital(item?.title)}
             </Typography>
             <Typography>
               <Box fontWeight={500}>৳{item?.price}</Box>
