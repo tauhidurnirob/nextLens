@@ -1,5 +1,6 @@
 const products = [
   {
+    id: "1",
     title: "Airpods Wireless Bluetooth Headphones",
     image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
     ability: "In stock",
@@ -38,6 +39,8 @@ const products = [
     ],
   },
   {
+    id: "2",
+
     title: "iPhone 11 Pro 256GB Memory",
     image: "https://i.ibb.co/XL8CX77/phone.jpg",
     ability: "In stock",
@@ -76,6 +79,8 @@ const products = [
     ],
   },
   {
+    id: "3",
+
     title: "Cannon EOS 80D DSLR Camera",
     image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
     description:
@@ -113,6 +118,8 @@ const products = [
     ],
   },
   {
+    id: "4",
+
     title: "Sony Playstation 4 Pro White Version",
     image: "https://i.ibb.co/17pr13r/playstation.jpg",
     ability: "In stock",
@@ -151,6 +158,8 @@ const products = [
     ],
   },
   {
+    id: "5",
+
     title: "Logitech G-Series Gaming Mouse",
     image: "https://i.ibb.co/YkLym60/mouse.jpg",
     description:
@@ -188,6 +197,8 @@ const products = [
     ],
   },
   {
+    id: "6",
+
     title: "Amazon Echo Dot 3rd Generation",
     image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     ability: "In stock",

@@ -22,10 +22,11 @@ export async function getStaticPaths() {
   const paths = products?.map((item) => ({
     params: { id: item._id },
   }));
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
+  console.log(params);
   const { data } = await productApi.getProductById(params.id);
   return { props: { data }, revalidate: 1 };
 }
