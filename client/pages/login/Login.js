@@ -105,7 +105,9 @@ const Login = () => {
     } else {
       toast.success("Successfully logged in");
       dispatch(loginAction(data));
-      router.push("/");
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
     }
   };
 

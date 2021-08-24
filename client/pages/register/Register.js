@@ -111,7 +111,9 @@ const Register = () => {
     } else {
       toast.success("Successfully registered");
       dispatch(registerAction(data));
-      router.push("/");
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
     }
   };
 
