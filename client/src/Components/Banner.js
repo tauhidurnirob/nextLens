@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import Image from "next/image";
 import { Grid, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
-import { useSelector } from "react-redux";
 
 import { Carousel } from "../Re_components";
 import { cartList } from "./../redux/slices/productSlice";
@@ -28,8 +27,6 @@ const useStyles = makeStyles((theme) => ({
 const Banner = () => {
   const classes = useStyles();
 
-  const { topProduct } = useSelector(cartList);
-
   const settings = {
     infinite: true,
     fade: true,
@@ -45,7 +42,7 @@ const Banner = () => {
         <Image src="/images/virtual.png" height={400} width={400} />
       </Grid>
       <Grid item container md={8} lg={8}>
-        {/* <Carousel
+        <Carousel
           isBanner
           {...settings}
           slider={images.map((item, index) => (
@@ -58,15 +55,6 @@ const Banner = () => {
               />
             </Fragment>
           ))}
-        /> */}
-        <Carousel
-          isBanner
-          {...settings}
-          slider={topProduct?.map(({ title, image, _id }) => (
-            <Fragment key={_id}>
-              <Image src={image} alt={title} height={400} width={400} />
-            </Fragment>
-          ))}
         />
       </Grid>
     </Grid>
@@ -75,8 +63,8 @@ const Banner = () => {
 
 export default Banner;
 
-// const images = [
-//   { image: "/images/c1.png" },
-//   { image: "/images/c2.png" },
-//   { image: "/images/c3.png" },
-// ];
+const images = [
+  { image: "/images/c1.png" },
+  { image: "/images/c2.png" },
+  { image: "/images/c3.png" },
+];
