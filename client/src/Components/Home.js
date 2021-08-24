@@ -1,4 +1,7 @@
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Banner from "./Banner";
 import { Layout } from "../Re_components";
 import Category from "./Category";
@@ -10,6 +13,7 @@ import Support from "./Support";
 const Home = () => {
   return (
     <Layout title="Home">
+      <ToastContainer />
       <Banner />
       <Category />
       <EyeglassesShape />

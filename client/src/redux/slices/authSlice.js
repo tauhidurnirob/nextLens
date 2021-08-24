@@ -22,4 +22,4 @@ export default authSlice.reducer;
 
 // Selector
 
-export const cartList = (state) => state.entities.product;
+export const authList = (state) => state.entities.auth;

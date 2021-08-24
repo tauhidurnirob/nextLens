@@ -103,6 +103,7 @@ const Login = () => {
     if (!ok) {
       return toast.error("Invalid email or password");
     } else {
+      toast.success("Successfully logged in");
       dispatch(loginAction(data));
       router.push("/");
     }
