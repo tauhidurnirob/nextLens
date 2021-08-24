@@ -3,6 +3,7 @@ import { makeStyles, Box } from "@material-ui/core";
 
 import { default as MainHome } from "../src/Components/Home";
 import clsx from "clsx";
+import productApi from "./api/products";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -14,7 +15,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Home = () => {
+const Home = ({ data }) => {
+  console.log(data);
   const classes = useStyles();
   return (
     <Box component="div" className={clsx(classes.container)}>
@@ -24,3 +26,11 @@ const Home = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  const { data } = await productApi.getAllProduct();
+
+  return {
+    props: { data, revalidate: 1 },
+  };
+}
