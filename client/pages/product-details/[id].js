@@ -26,7 +26,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params);
   const { data } = await productApi.getProductById(params.id);
   return { props: { data }, revalidate: 1 };
 }
