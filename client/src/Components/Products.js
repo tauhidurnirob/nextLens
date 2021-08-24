@@ -1,9 +1,10 @@
 import React from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
+import { useSelector } from "react-redux";
 
 import { Cards } from "./../Re_components";
-import products from "../../fakeData/products";
+import { cartList } from "./../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -12,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Products = () => {
+  const { products } = useSelector(cartList);
+
   const classes = useStyles();
   return (
     <Grid container direction="row" className={clsx(classes.container)}>

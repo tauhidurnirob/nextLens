@@ -18,7 +18,8 @@ const reviewSchema = mongoose.Schema(
 
 const productSchema = mongoose.Schema(
   {
-    name: {
+    id: { type: String },
+    title: {
       type: String,
       required: true,
     },

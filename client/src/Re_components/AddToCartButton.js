@@ -13,7 +13,7 @@ const AddToCartButton = ({ item, iconStyle, ...otherProps }) => {
   const dispatch = useDispatch();
 
   const { cart } = useSelector(cartList);
-  const inCart = cart?.find((items) => items.id === item?.id);
+  const inCart = cart?.find((items) => items._id === item?._id);
 
   return !inCart ? (
     <a>
@@ -25,7 +25,7 @@ const AddToCartButton = ({ item, iconStyle, ...otherProps }) => {
     <IconButton
       variant="contained"
       {...otherProps}
-      onClick={() => dispatch(removeCart(item.id))}
+      onClick={() => dispatch(removeCart(item._id))}
     >
       <DeleteIcon />
     </IconButton>

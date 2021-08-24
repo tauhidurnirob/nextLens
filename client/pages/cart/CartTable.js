@@ -93,7 +93,7 @@ const CartTable = () => {
                 />
               </TableCell>
               <TableCell align="center">
-                <Link href={`/product-details/${item?.id}`}>
+                <Link href={`/product-details/${item?._id}`}>
                   <Typography noWrap variant="subtitle2">
                     <Box fontWeight={500} className={clsx(classes.font)}>
                       {item.title}

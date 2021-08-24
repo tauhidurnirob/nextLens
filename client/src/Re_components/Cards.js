@@ -116,7 +116,7 @@ const Cards = ({
               [classes.productView]: isProduct,
             })}
           >
-            <Link href={`/product-details/${item?.id}`}>
+            <Link href={`/product-details/${item?._id}`}>
               <a>
                 <IconButton size="medium" style={{ color: colors.white }}>
                   <VisibilityOutlinedIcon

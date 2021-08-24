@@ -65,7 +65,7 @@ const ProductContents = () => {
         <Typography gutterBottom color="textSecondary" variant="subtitle1">
           As low as
           {cartProductById
-            ? ` ৳${cartProductById?.price} * ${cartProductById?.quantity} = ${cartProductById?.totalPrice}`
+            ? ` ৳${cartProductById?.price} * ${cartProductById?.quantity} = ৳${cartProductById?.totalPrice}`
             : `৳${productById?.price}`}
         </Typography>
 
