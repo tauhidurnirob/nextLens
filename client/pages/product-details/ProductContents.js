@@ -107,7 +107,7 @@ const ProductContents = () => {
         <Typography gutterBottom variant="subtitle1">
           SKU:
           <Box component="span" ml={1} className={clsx(classes.box)}>
-            {productById?.Sku}
+            {productById?.sku}
           </Box>
         </Typography>
       </Grid>
