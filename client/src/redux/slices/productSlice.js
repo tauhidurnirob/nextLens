@@ -10,8 +10,8 @@ const productSlice = createSlice({
   },
   reducers: {
     addCart(state, { payload }) {
-      const { id } = payload;
-      const inCart = state.cart.find((item) => item.id === id);
+      const { _id } = payload;
+      const inCart = state.cart.find((item) => item._id === _id);
       if (!inCart) {
         state.cart.push({
           ...payload,
@@ -21,7 +21,7 @@ const productSlice = createSlice({
     },
     removeCart(state, { payload }) {
       state.cart.splice(
-        state.cart.findIndex((item) => item.id === payload),
+        state.cart.findIndex((item) => item._id === payload),
         1
       );
     },
