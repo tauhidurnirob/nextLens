@@ -96,11 +96,15 @@ const Cards = ({
   ...otherProps
 }) => {
   const classes = useStyles();
+
   return (
     <Box component="div" className={clsx(classes.root)}>
       {isProduct ? (
         <Box component="div" className={clsx(styles.productArea)}>
-          <Box component="div" className={clsx(styles.productOverlay)} />
+          <Link href={`/product-details/${item.slug}`}>
+            <Box component="div" className={clsx(styles.productOverlay)} />
+          </Link>
+
           <Image
             blurDataURL
             src={item?.image}
@@ -115,17 +119,7 @@ const Cards = ({
             className={clsx({
               [classes.productView]: isProduct,
             })}
-          >
-            <Link href={`/product-details/${item?._id}`}>
-              <a>
-                <IconButton size="medium" style={{ color: colors.white }}>
-                  <VisibilityOutlinedIcon
-                    style={{ fontSize: 25, color: colors.white }}
-                  />
-                </IconButton>
-              </a>
-            </Link>
-          </Box>
+          ></Box>
           <Box
             component="div"
             className={clsx({
@@ -163,7 +157,7 @@ const Cards = ({
             [classes.categoryContent]: isCategory,
           })}
         >
-          <Button {...otherProps}>{item?.title}</Button>
+          <Button {...otherProps}>{item?.categoryTitle}</Button>
         </CardContent>
       )}
       {isProduct && (

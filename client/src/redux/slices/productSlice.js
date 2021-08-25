@@ -4,7 +4,7 @@ const productSlice = createSlice({
   name: "product",
   initialState: {
     cart: [],
-    productById: [],
+    productById: {},
     topProduct: [],
     products: [],
   },
