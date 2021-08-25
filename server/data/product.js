@@ -2,7 +2,7 @@ const products = [
   {
     title: "Airpods Wireless Bluetooth Headphones",
     image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
-    ability: "In stock",
+    availability: "In stock",
 
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -14,6 +14,7 @@ const products = [
     numReviews: 12,
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    slug: "Airpods_Wireless_Bluetooth_Headphones_DKE04461",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
       { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
@@ -40,8 +41,8 @@ const products = [
   {
     title: "iPhone 11 Pro 256GB Memory",
     image: "https://i.ibb.co/XL8CX77/phone.jpg",
-    ability: "In stock",
-
+    availability: "In stock",
+    slug: "iPhone_11_Pro_256GB_Memory_DKE04462",
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
@@ -50,7 +51,7 @@ const products = [
     countInStock: 7,
     rating: 4.0,
     numReviews: 8,
-    sku: "DKE04461",
+    sku: "DKE04462",
     sizeGuide: "Delivery & Return",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
@@ -78,16 +79,17 @@ const products = [
   {
     title: "Cannon EOS 80D DSLR Camera",
     image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
+    slug: "Cannon_EOS_80D_DSLR_Camera_DKE04463",
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
     brand: "Cannon",
-    ability: "Stock Out",
+    availability: "Stock Out",
     category: "Electronics",
     price: 929,
     countInStock: 5,
     rating: 3,
     numReviews: 12,
-    sku: "DKE04461",
+    sku: "DKE04463",
     sizeGuide: "Delivery & Return",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
@@ -115,8 +117,8 @@ const products = [
   {
     title: "Sony Playstation 4 Pro White Version",
     image: "https://i.ibb.co/17pr13r/playstation.jpg",
-    ability: "In stock",
-
+    availability: "In stock",
+    slug: "Sony_Playstation_4_Pro_White_Version_DKE04464",
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
@@ -125,7 +127,7 @@ const products = [
     countInStock: 11,
     rating: 5,
     numReviews: 12,
-    sku: "DKE04461",
+    sku: "DKE04464",
     sizeGuide: "Delivery & Return",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
@@ -153,10 +155,11 @@ const products = [
   {
     title: "Logitech G-Series Gaming Mouse",
     image: "https://i.ibb.co/YkLym60/mouse.jpg",
+    slug: "Logitech_G-Series_Gaming_Mouse_DKE04461",
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
     brand: "Logitech",
-    ability: "Stock Out",
+    availability: "Stock Out",
     category: "Electronics",
     price: 49,
     countInStock: 7,
@@ -170,7 +173,7 @@ const products = [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
     ],
     details: {
-      modelNumber: "DKE04461",
+      modelNumber: "DKE04465",
       size: "54-16-141 mm",
       frameMaterial: "High quality Metal & Fiber",
       frameLensMaterial: "Polycarbonate",
@@ -190,7 +193,8 @@ const products = [
   {
     title: "Amazon Echo Dot 3rd Generation",
     image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
-    ability: "In stock",
+    availability: "In stock",
+    slug: "Amazon_Echo_Dot_3rd_Generation_DKE04461",
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
@@ -207,7 +211,7 @@ const products = [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
     ],
     details: {
-      modelNumber: "DKE04461",
+      modelNumber: "DKE04466",
       size: "54-16-141 mm",
       frameMaterial: "High quality Metal & Fiber",
       frameLensMaterial: "Polycarbonate",

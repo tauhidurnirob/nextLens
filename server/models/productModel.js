@@ -29,7 +29,7 @@ const productSchema = mongoose.Schema(
     brand: {
       type: String,
     },
-    ability: {
+    availability: {
       type: String,
       required: true,
     },
@@ -65,7 +65,8 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    sku: { type: String },
+    slug: { type: String, required: true },
+    sku: { type: String, required: true },
     sizeGuide: { type: String },
     detailsImage: [
       {
