@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModelDetailsForm = () => {
+const ModelDetailsForm = ({ register }) => {
   const classes = useStyles();
 
   return (
@@ -58,6 +58,7 @@ const ModelDetailsForm = () => {
                     id="outlined-adornment-frameMaterial"
                     type="text"
                     labelWidth={120}
+                    inputProps={{ ...register("frameMaterial") }}
                   />
                 </FormControl>
               </Box>
@@ -75,6 +76,7 @@ const ModelDetailsForm = () => {
                     id="outlined-adornment-lensFunction"
                     type="text"
                     labelWidth={105}
+                    inputProps={{ ...register("lensFunction") }}
                   />
                 </FormControl>
               </Box>
@@ -92,6 +94,7 @@ const ModelDetailsForm = () => {
                     id="outlined-adornment-frameAttribution"
                     type="text"
                     labelWidth={135}
+                    inputProps={{ ...register("frameAttribution") }}
                   />
                 </FormControl>
               </Box>
@@ -109,6 +112,7 @@ const ModelDetailsForm = () => {
                     id="outlined-adornment-frameLenseMaterial"
                     type="text"
                     labelWidth={170}
+                    inputProps={{ ...register("frameLenseMaterial") }}
                   />
                 </FormControl>
               </Box>
@@ -126,6 +130,7 @@ const ModelDetailsForm = () => {
                     id="outlined-adornment-usage"
                     type="text"
                     labelWidth={50}
+                    inputProps={{ ...register("usage") }}
                   />
                 </FormControl>
               </Box>
@@ -143,6 +148,7 @@ const ModelDetailsForm = () => {
                     id="outlined-adornment-modelNumber"
                     type="text"
                     labelWidth={115}
+                    inputProps={{ ...register("modelNumber") }}
                   />
                 </FormControl>
               </Box>
@@ -160,6 +166,7 @@ const ModelDetailsForm = () => {
                     id="outlined-adornment-size"
                     type="text"
                     labelWidth={30}
+                    inputProps={{ ...register("size") }}
                   />
                 </FormControl>
               </Box>

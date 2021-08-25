@@ -15,6 +15,7 @@ import {
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
+import { useForm } from "react-hook-form";
 
 import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";
@@ -52,6 +53,13 @@ const useStyles = makeStyles((theme) => ({
 const AddProductForm = () => {
   document.title = "Add Product";
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   const classes = useStyles();
 
   return (
@@ -69,14 +77,14 @@ const AddProductForm = () => {
         </Grid>
       </Box>
       <Paper className={clsx(classes.root)}>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Box mb={2}>
             <FormControl className={clsx(classes.formControl)}>
               <TextField
                 id="outlined-name"
                 label="Product Title"
                 variant="outlined"
-                name="name"
+                inputProps={{ ...register("title") }}
               />
             </FormControl>
           </Box>
@@ -89,6 +97,7 @@ const AddProductForm = () => {
                 multiline
                 minRows={4}
                 maxRows={8}
+                inputProps={{ ...register("description") }}
               />
             </FormControl>
           </Box>
@@ -109,8 +118,8 @@ const AddProductForm = () => {
                     id="outlined-price"
                     label="Price"
                     variant="outlined"
-                    name="price"
                     type="number"
+                    inputProps={{ ...register("price") }}
                   />
                 </FormControl>
               </Box>
@@ -122,8 +131,8 @@ const AddProductForm = () => {
                     id="outlined-sales-price"
                     label="Sales Price"
                     variant="outlined"
-                    name="salesPrice"
                     type="number"
+                    inputProps={{ ...register("salesPrice") }}
                   />
                 </FormControl>
               </Box>
@@ -135,8 +144,8 @@ const AddProductForm = () => {
                     id="outlined-discount"
                     label="Discount"
                     variant="outlined"
-                    name="discount"
                     type="number"
+                    inputProps={{ ...register("discount") }}
                   />
                 </FormControl>
               </Box>
@@ -148,15 +157,15 @@ const AddProductForm = () => {
                     id="outlined-product-countInStock"
                     label="Count In Stock"
                     variant="outlined"
-                    name="countInStock"
                     type="number"
+                    inputProps={{ ...register("countInStock") }}
                   />
                 </FormControl>
               </Box>
             </Grid>
           </Grid>
           {/*  */}
-          <ModelDetailsForm />
+          <ModelDetailsForm register={register} />
           {/*  */}
           <Grid container direction="row" spacing={2} justifyContent="center">
             <Grid item md={4} className={clsx(classes.gridItem)}>
@@ -170,12 +179,13 @@ const AddProductForm = () => {
                     labelId="availability"
                     id="availability"
                     label="availability"
+                    inputProps={{ ...register("availability") }}
                   >
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
                     {availability?.map((item, index) => (
-                      <MenuItem key={index} value={index + 1}>
+                      <MenuItem key={index} value={item.name}>
                         {item.name}
                       </MenuItem>
                     ))}
@@ -190,12 +200,18 @@ const AddProductForm = () => {
                   className={clsx(classes.formControl)}
                 >
                   <InputLabel id="type">Type</InputLabel>
-                  <Select labelId="type" id="type" label="Type">
+
+                  <Select
+                    inputProps={{ ...register("type") }}
+                    labelId="type"
+                    id="type"
+                    label="Type"
+                  >
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
                     {types?.map((item, index) => (
-                      <MenuItem key={index} value={index + 1}>
+                      <MenuItem key={index} value={item.name}>
                         {item.name}
                       </MenuItem>
                     ))}
@@ -210,12 +226,17 @@ const AddProductForm = () => {
                   className={clsx(classes.formControl)}
                 >
                   <InputLabel id="category">Category</InputLabel>
-                  <Select labelId="category" id="category" label="Category">
+                  <Select
+                    inputProps={{ ...register("category") }}
+                    labelId="category"
+                    id="category"
+                    label="Category"
+                  >
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
                     {categories?.map((item, index) => (
-                      <MenuItem key={index} value={index + 1}>
+                      <MenuItem key={index} value={item.name}>
                         {item.name}
                       </MenuItem>
                     ))}
@@ -230,6 +251,7 @@ const AddProductForm = () => {
                 className={clsx(classes.btn)}
                 variant="contained"
                 color="primary"
+                type="submit"
               >
                 Submit
               </Button>
