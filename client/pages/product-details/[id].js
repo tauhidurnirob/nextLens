@@ -7,8 +7,10 @@ import { findById } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
 const ProductId = ({ data }) => {
+  const findData = Object.assign({}, ...data);
   const dispatch = useDispatch();
-  dispatch(findById(data));
+
+  dispatch(findById(findData));
 
   return <ProductDetails />;
 };
@@ -21,14 +23,13 @@ export async function getStaticPaths() {
   } = await productApi.getAllProduct();
   const paths = products?.map((item) => ({
     params: {
-      id: `${item?.title.split(" ").join("_")}_${item.sku}`,
+      id: item.slug,
     },
   }));
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params);
   const { data } = await productApi.getProductById(params.id);
   return { props: { data }, revalidate: 1 };
 }
