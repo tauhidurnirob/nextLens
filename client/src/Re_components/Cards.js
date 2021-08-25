@@ -101,7 +101,10 @@ const Cards = ({
     <Box component="div" className={clsx(classes.root)}>
       {isProduct ? (
         <Box component="div" className={clsx(styles.productArea)}>
-          <Box component="div" className={clsx(styles.productOverlay)} />
+          <Link href={`/product-details/${item.slug}`}>
+            <Box component="div" className={clsx(styles.productOverlay)} />
+          </Link>
+
           <Image
             blurDataURL
             src={item?.image}
@@ -116,17 +119,7 @@ const Cards = ({
             className={clsx({
               [classes.productView]: isProduct,
             })}
-          >
-            <Link href={`/product-details/${item.slug}`}>
-              <a>
-                <IconButton size="medium" style={{ color: colors.white }}>
-                  <VisibilityOutlinedIcon
-                    style={{ fontSize: 25, color: colors.white }}
-                  />
-                </IconButton>
-              </a>
-            </Link>
-          </Box>
+          ></Box>
           <Box
             component="div"
             className={clsx({
