@@ -99,24 +99,7 @@ const ModelDetailsForm = ({ register }) => {
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  className={clsx(classes.formControl)}
-                  variant="outlined"
-                >
-                  <InputLabel htmlFor="outlined-adornment-frameLenseMaterial">
-                    Frame Lense Material
-                  </InputLabel>
-                  <OutlinedInput
-                    id="outlined-adornment-frameLenseMaterial"
-                    type="text"
-                    labelWidth={170}
-                    inputProps={{ ...register("frameLenseMaterial") }}
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
+
             <Grid item md={4} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl
