@@ -15,8 +15,11 @@ import {
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
+import { useForm } from "react-hook-form";
 
 import colors from "../../config/colors";
+import ImageUpload from "./ImageUpload";
+import ModelDetailsForm from "./ModelDetailsForm";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -41,20 +44,21 @@ const useStyles = makeStyles((theme) => ({
       color: colors.white,
     },
   },
-  uploadBtn: {
-    width: "100%",
-    padding: "15px 0px",
-  },
+
   gridItem: {
     width: "100%",
-  },
-  input: {
-    display: "none",
   },
 }));
 
 const AddProductForm = () => {
   document.title = "Add Product";
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
 
   const classes = useStyles();
 
@@ -73,14 +77,14 @@ const AddProductForm = () => {
         </Grid>
       </Box>
       <Paper className={clsx(classes.root)}>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Box mb={2}>
             <FormControl className={clsx(classes.formControl)}>
               <TextField
                 id="outlined-name"
                 label="Product Title"
                 variant="outlined"
-                name="name"
+                inputProps={{ ...register("title") }}
               />
             </FormControl>
           </Box>
@@ -93,127 +97,95 @@ const AddProductForm = () => {
                 multiline
                 minRows={4}
                 maxRows={8}
+                inputProps={{ ...register("description") }}
               />
             </FormControl>
           </Box>
+          {/*  */}
+          <ImageUpload />
+          {/*  */}
           <Grid
             item
             container
             direction="row"
             spacing={2}
             justifyContent="center"
-            alignItems="center"
           >
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl className={clsx(classes.formControl)}>
-                  <input
-                    accept="image/*"
-                    className={clsx(classes.input)}
-                    id="contained-button-file"
-                    multiple
-                    type="file"
-                  />
-                  <label htmlFor="contained-button-file">
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      component="span"
-                      className={clsx(classes.uploadBtn)}
-                    >
-                      Upload
-                    </Button>
-                  </label>
-                </FormControl>
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl className={clsx(classes.formControl)}>
-                  <TextField
-                    id="outlined-Unit"
-                    label="Unit"
-                    variant="outlined"
-                    name="unit"
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={3} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
                     id="outlined-price"
                     label="Price"
                     variant="outlined"
-                    name="price"
                     type="number"
+                    inputProps={{ ...register("price") }}
                   />
                 </FormControl>
               </Box>
             </Grid>
-          </Grid>
-          <Grid
-            item
-            container
-            direction="row"
-            spacing={2}
-            justifyContent="center"
-          >
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={3} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
                     id="outlined-sales-price"
                     label="Sales Price"
                     variant="outlined"
-                    name="salesPrice"
                     type="number"
+                    inputProps={{ ...register("salesPrice") }}
                   />
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={3} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
                     id="outlined-discount"
                     label="Discount"
                     variant="outlined"
-                    name="discount"
                     type="number"
+                    inputProps={{ ...register("discount") }}
                   />
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={3} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
-                    id="outlined-product-quantity"
-                    label="Quantity"
+                    id="outlined-product-countInStock"
+                    label="Count In Stock"
                     variant="outlined"
-                    name="quantity"
                     type="number"
+                    inputProps={{ ...register("countInStock") }}
                   />
                 </FormControl>
               </Box>
             </Grid>
           </Grid>
+          {/*  */}
+          <ModelDetailsForm register={register} />
+          {/*  */}
           <Grid container direction="row" spacing={2} justifyContent="center">
-            <Grid item md={6} className={clsx(classes.gridItem)}>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl
                   variant="outlined"
                   className={clsx(classes.formControl)}
                 >
-                  <InputLabel id="type">Type</InputLabel>
-                  <Select labelId="type" id="type" label="Type">
+                  <InputLabel id="availability">Availability</InputLabel>
+                  <Select
+                    labelId="availability"
+                    id="availability"
+                    label="availability"
+                    inputProps={{ ...register("availability") }}
+                  >
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    {types?.map((item, index) => (
-                      <MenuItem key={index} value={index + 1}>
+                    {availability?.map((item, index) => (
+                      <MenuItem key={index} value={item.name}>
                         {item.name}
                       </MenuItem>
                     ))}
@@ -221,19 +193,50 @@ const AddProductForm = () => {
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item md={6} className={clsx(classes.gridItem)}>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
+                >
+                  <InputLabel id="type">Type</InputLabel>
+
+                  <Select
+                    inputProps={{ ...register("type") }}
+                    labelId="type"
+                    id="type"
+                    label="Type"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {types?.map((item, index) => (
+                      <MenuItem key={index} value={item.name}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl
                   variant="outlined"
                   className={clsx(classes.formControl)}
                 >
                   <InputLabel id="category">Category</InputLabel>
-                  <Select labelId="category" id="category" label="Category">
+                  <Select
+                    inputProps={{ ...register("category") }}
+                    labelId="category"
+                    id="category"
+                    label="Category"
+                  >
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
                     {categories?.map((item, index) => (
-                      <MenuItem key={index} value={index + 1}>
+                      <MenuItem key={index} value={item.name}>
                         {item.name}
                       </MenuItem>
                     ))}
@@ -248,6 +251,7 @@ const AddProductForm = () => {
                 className={clsx(classes.btn)}
                 variant="contained"
                 color="primary"
+                type="submit"
               >
                 Submit
               </Button>
@@ -269,3 +273,4 @@ const types = [
 ];
 
 const categories = [{ name: "Men's" }, { name: "Women's" }, { name: "Kid's" }];
+const availability = [{ name: "In Stock " }, { name: "Stock Out" }];
