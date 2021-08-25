@@ -18,6 +18,7 @@ import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 
 import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";
+import ModelDetailsForm from "./ModelDetailsForm";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -91,7 +92,11 @@ const AddProductForm = () => {
               />
             </FormControl>
           </Box>
+          {/*  */}
           <ImageUpload />
+          {/*  */}
+          <ModelDetailsForm />
+          {/*  */}
           <Grid
             item
             container
