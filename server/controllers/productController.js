@@ -17,6 +17,7 @@ export const getProducts = asyncHandler(async (req, res) => {
 // @access public
 
 export const getProductById = asyncHandler(async (req, res) => {
+  console.log(req.params);
   const product = await Product.findById(req.params.id);
 
   if (product) {

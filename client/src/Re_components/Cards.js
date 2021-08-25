@@ -96,6 +96,8 @@ const Cards = ({
   ...otherProps
 }) => {
   const classes = useStyles();
+
+  const slug = isProduct && item?.title.split(" ").join("_");
   return (
     <Box component="div" className={clsx(classes.root)}>
       {isProduct ? (
@@ -116,7 +118,7 @@ const Cards = ({
               [classes.productView]: isProduct,
             })}
           >
-            <Link href={`/product-details/${item?._id}`}>
+            <Link href={`/product-details/${slug}_${item?.sku}`}>
               <a>
                 <IconButton size="medium" style={{ color: colors.white }}>
                   <VisibilityOutlinedIcon
@@ -163,7 +165,7 @@ const Cards = ({
             [classes.categoryContent]: isCategory,
           })}
         >
-          <Button {...otherProps}>{item?.title}</Button>
+          <Button {...otherProps}>{item?.categoryTitle}</Button>
         </CardContent>
       )}
       {isProduct && (

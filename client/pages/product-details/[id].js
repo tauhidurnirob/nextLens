@@ -20,12 +20,15 @@ export async function getStaticPaths() {
     data: { products },
   } = await productApi.getAllProduct();
   const paths = products?.map((item) => ({
-    params: { id: item._id },
+    params: {
+      id: `${item?.title.split(" ").join("_")}_${item.sku}`,
+    },
   }));
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
+  console.log(params);
   const { data } = await productApi.getProductById(params.id);
   return { props: { data }, revalidate: 1 };
 }
