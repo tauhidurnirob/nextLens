@@ -17,6 +17,7 @@ import { NavLink } from "react-router-dom";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 
 import colors from "../../config/colors";
+import ImageUpload from "./ImageUpload";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -41,15 +42,9 @@ const useStyles = makeStyles((theme) => ({
       color: colors.white,
     },
   },
-  uploadBtn: {
-    width: "100%",
-    padding: "15px 0px",
-  },
+
   gridItem: {
     width: "100%",
-  },
-  input: {
-    display: "none",
   },
 }));
 
@@ -96,6 +91,7 @@ const AddProductForm = () => {
               />
             </FormControl>
           </Box>
+          <ImageUpload />
           <Grid
             item
             container
@@ -104,29 +100,6 @@ const AddProductForm = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl className={clsx(classes.formControl)}>
-                  <input
-                    accept="image/*"
-                    className={clsx(classes.input)}
-                    id="contained-button-file"
-                    multiple
-                    type="file"
-                  />
-                  <label htmlFor="contained-button-file">
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      component="span"
-                      className={clsx(classes.uploadBtn)}
-                    >
-                      Upload
-                    </Button>
-                  </label>
-                </FormControl>
-              </Box>
-            </Grid>
             <Grid item md={4} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
