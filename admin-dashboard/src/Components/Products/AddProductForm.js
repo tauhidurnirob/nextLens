@@ -78,7 +78,7 @@ const AddProductForm = () => {
             <FormControl className={clsx(classes.formControl)}>
               <TextField
                 id="outlined-name"
-                label="Name"
+                label="Product Title"
                 variant="outlined"
                 name="name"
               />
@@ -262,17 +262,10 @@ const AddProductForm = () => {
 export default AddProductForm;
 
 const types = [
-  { name: "Grocery" },
-  { name: "Women Cloths" },
-  { name: "Bags" },
-  { name: "Makeup" },
+  { name: "Round Frame" },
+  { name: "Rectangle Frame" },
+  { name: "Rim Less Frame" },
+  { name: "Blue Frame" },
 ];
 
-const categories = [
-  { name: "Frame Only" },
-  { name: "Basic Lens" },
-  { name: "Standard Lens" },
-  { name: "Premium Standard Lens" },
-  { name: "Blue Light Block Glass" },
-  { name: "Anti Fog Lens" },
-];
+const categories = [{ name: "Men's" }, { name: "Women's" }, { name: "Kid's" }];

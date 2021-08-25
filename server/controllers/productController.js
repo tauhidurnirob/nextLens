@@ -21,12 +21,7 @@ export const getProducts = asyncHandler(async (req, res) => {
 
 export const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.find({ slug: req.params.id });
-  // const newProducts = product?.map((item) => {
-  //   return { slug: `${item.title.split(" ").join("_")}_${item.sku}` };
-  // });
-  // console.log(newProducts);
-  // const findProduct = newProducts.find((item) => item.slug === req.params.id);
-  // console.log(findProduct);
+
   if (product) {
     res.json(product);
   } else {
