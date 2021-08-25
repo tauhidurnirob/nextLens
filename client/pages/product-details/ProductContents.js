@@ -46,7 +46,7 @@ const ProductContents = () => {
   const classes = useStyles();
   const { productById, cart } = useSelector(cartList);
 
-  const cartProductById = cart.find((item) => item.id === productById.id);
+  const cartProductById = cart.find((item) => item._id === productById._id);
 
   return (
     <Grid item container md={7}>
