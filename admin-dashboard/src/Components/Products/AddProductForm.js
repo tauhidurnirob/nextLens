@@ -95,29 +95,14 @@ const AddProductForm = () => {
           {/*  */}
           <ImageUpload />
           {/*  */}
-          <ModelDetailsForm />
-          {/*  */}
           <Grid
             item
             container
             direction="row"
             spacing={2}
             justifyContent="center"
-            alignItems="center"
           >
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl className={clsx(classes.formControl)}>
-                  <TextField
-                    id="outlined-Unit"
-                    label="Unit"
-                    variant="outlined"
-                    name="unit"
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={3} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
@@ -130,15 +115,7 @@ const AddProductForm = () => {
                 </FormControl>
               </Box>
             </Grid>
-          </Grid>
-          <Grid
-            item
-            container
-            direction="row"
-            spacing={2}
-            justifyContent="center"
-          >
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={3} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
@@ -151,7 +128,7 @@ const AddProductForm = () => {
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={3} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
@@ -164,22 +141,49 @@ const AddProductForm = () => {
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
+            <Grid item md={3} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl className={clsx(classes.formControl)}>
                   <TextField
-                    id="outlined-product-quantity"
-                    label="Quantity"
+                    id="outlined-product-countInStock"
+                    label="Count In Stock"
                     variant="outlined"
-                    name="quantity"
+                    name="countInStock"
                     type="number"
                   />
                 </FormControl>
               </Box>
             </Grid>
           </Grid>
+          {/*  */}
+          <ModelDetailsForm />
+          {/*  */}
           <Grid container direction="row" spacing={2} justifyContent="center">
-            <Grid item md={6} className={clsx(classes.gridItem)}>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
+                >
+                  <InputLabel id="availability">Availability</InputLabel>
+                  <Select
+                    labelId="availability"
+                    id="availability"
+                    label="availability"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {availability?.map((item, index) => (
+                      <MenuItem key={index} value={index + 1}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl
                   variant="outlined"
@@ -199,7 +203,7 @@ const AddProductForm = () => {
                 </FormControl>
               </Box>
             </Grid>
-            <Grid item md={6} className={clsx(classes.gridItem)}>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
               <Box mb={2}>
                 <FormControl
                   variant="outlined"
@@ -247,3 +251,4 @@ const types = [
 ];
 
 const categories = [{ name: "Men's" }, { name: "Women's" }, { name: "Kid's" }];
+const availability = [{ name: "In Stock " }, { name: "Stock Out" }];
