@@ -105,7 +105,7 @@ const AddProductForm = () => {
             </FormControl>
           </Box>
           {/*  */}
-          <ImageUpload />
+          <ImageUpload register={register} />
           {/*  */}
           <Grid
             item
