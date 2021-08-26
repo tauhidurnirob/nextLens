@@ -11,6 +11,7 @@ import {
   MenuItem,
   Grid,
   Button,
+  FormHelperText,
 } from "@material-ui/core";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
@@ -18,10 +19,13 @@ import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import { useForm } from "react-hook-form";
 import productApi from "../../api/posts";
 import { yupResolver } from "@hookform/resolvers/yup";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";
 import ModelDetailsForm from "./ModelDetailsForm";
+import productSchema from "./../../schema/productSchema";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -59,15 +63,17 @@ const AddProductForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(productSchema) });
   const onSubmit = async (data) => {
-    await productApi.postsProduct(data);
+    const { ok } = await productApi.postsProduct(data);
+    // if (ok) toast.success("Successfully product posted");
   };
 
   const classes = useStyles();
 
   return (
     <Container maxWidth="lg">
+      {/* <ToastContainer /> */}
       <Box mt={2} mb={2}>
         <Grid container justifyContent="flex-end">
           <Button
@@ -106,7 +112,7 @@ const AddProductForm = () => {
             </FormControl>
           </Box>
           {/*  */}
-          <ImageUpload register={register} />
+          <ImageUpload register={register} errors={errors} />
           {/*  */}
           <Grid
             item
@@ -169,7 +175,7 @@ const AddProductForm = () => {
             </Grid>
           </Grid>
           {/*  */}
-          <ModelDetailsForm register={register} />
+          <ModelDetailsForm register={register} errors={errors} />
           {/*  */}
           <Grid container direction="row" spacing={2} justifyContent="center">
             <Grid item md={4} className={clsx(classes.gridItem)}>
