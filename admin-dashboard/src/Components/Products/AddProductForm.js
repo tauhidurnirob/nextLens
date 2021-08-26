@@ -12,6 +12,7 @@ import {
   Grid,
   Button,
   FormHelperText,
+  Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
@@ -19,8 +20,8 @@ import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import { useForm } from "react-hook-form";
 import productApi from "../../api/posts";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";
@@ -66,14 +67,14 @@ const AddProductForm = () => {
   } = useForm({ resolver: yupResolver(productSchema) });
   const onSubmit = async (data) => {
     const { ok } = await productApi.postsProduct(data);
-    // if (ok) toast.success("Successfully product posted");
+    if (ok) toast.success("Successfully product posted");
   };
 
   const classes = useStyles();
 
   return (
     <Container maxWidth="lg">
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <Box mt={2} mb={2}>
         <Grid container justifyContent="flex-end">
           <Button
@@ -97,7 +98,15 @@ const AddProductForm = () => {
                 inputProps={{ ...register("title") }}
               />
             </FormControl>
+            {errors.title && (
+              <FormHelperText>
+                <Typography style={{ color: "red" }} variant="subtitle2">
+                  {errors.title?.message}
+                </Typography>
+              </FormHelperText>
+            )}
           </Box>
+
           <Box mb={2}>
             <FormControl className={clsx(classes.formControl)}>
               <TextField
@@ -110,6 +119,13 @@ const AddProductForm = () => {
                 inputProps={{ ...register("description") }}
               />
             </FormControl>
+            {errors.description && (
+              <FormHelperText>
+                <Typography style={{ color: "red" }} variant="subtitle2">
+                  {errors.description?.message}
+                </Typography>
+              </FormHelperText>
+            )}
           </Box>
           {/*  */}
           <ImageUpload register={register} errors={errors} />
@@ -132,6 +148,13 @@ const AddProductForm = () => {
                     inputProps={{ ...register("price") }}
                   />
                 </FormControl>
+                {errors.price && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.price?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
               </Box>
             </Grid>
             <Grid item md={3} className={clsx(classes.gridItem)}>
@@ -145,6 +168,13 @@ const AddProductForm = () => {
                     inputProps={{ ...register("salesPrice") }}
                   />
                 </FormControl>
+                {errors.salesPrice && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.salesPrice?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
               </Box>
             </Grid>
             <Grid item md={3} className={clsx(classes.gridItem)}>
@@ -158,6 +188,13 @@ const AddProductForm = () => {
                     inputProps={{ ...register("discount") }}
                   />
                 </FormControl>
+                {errors.discount && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.discount?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
               </Box>
             </Grid>
             <Grid item md={3} className={clsx(classes.gridItem)}>
@@ -171,6 +208,13 @@ const AddProductForm = () => {
                     inputProps={{ ...register("countInStock") }}
                   />
                 </FormControl>
+                {errors.countInStock && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.countInStock?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
               </Box>
             </Grid>
           </Grid>
@@ -201,6 +245,13 @@ const AddProductForm = () => {
                     ))}
                   </Select>
                 </FormControl>
+                {errors.availability && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.availability?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
               </Box>
             </Grid>
             <Grid item md={4} className={clsx(classes.gridItem)}>
@@ -227,6 +278,13 @@ const AddProductForm = () => {
                     ))}
                   </Select>
                 </FormControl>
+                {errors.type && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.type?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
               </Box>
             </Grid>
             <Grid item md={4} className={clsx(classes.gridItem)}>
@@ -252,6 +310,13 @@ const AddProductForm = () => {
                     ))}
                   </Select>
                 </FormControl>
+                {errors.category && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.category?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
               </Box>
             </Grid>
           </Grid>

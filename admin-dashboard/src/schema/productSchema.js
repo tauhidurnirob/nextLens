@@ -31,6 +31,9 @@ const productSchema = yup.object().shape({
   usage: yup.string().required().label("Usage"),
   modelNumber: yup.string().required().label("Model Number"),
   size: yup.string().required().label("Size"),
+  availability: yup.string().required().label("Availability"),
+  type: yup.string().required().label("Type"),
+  category: yup.string().required().label("Category"),
 });
 
 export default productSchema;
