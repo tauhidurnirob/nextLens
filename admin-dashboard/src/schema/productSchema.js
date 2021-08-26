@@ -26,15 +26,21 @@ const productSchema = yup.object().shape({
     .required()
     .label("Count in stock")
     .matches(/^[0-9]+$/, "Must be only digits"),
-  image: yup.array().nullable().required().label("Image"),
-  // .test(
-  //   "fileSize",
-  //   "File Size is too large",
-  //   (value) => value.size <= FILE_SIZE
-  // )
-  // .test("fileType", "Unsupported File Format", (value) =>
-  //   SUPPORTED_FORMATS.includes(value.type)
-  // ),
+  // image: yup.mixed().required("Image is a required filed"),
+  // image: yup
+  //   .mixed()
+  //   .required()
+  //   .label("Image")
+  //   .test(
+  //     "fileSize",
+  //     "File too large",
+  //     (value) => value && value.size <= FILE_SIZE
+  //   )
+  //   .test(
+  //     "fileFormat",
+  //     "Unsupported Format",
+  //     (value) => value && SUPPORTED_FORMATS.includes(value.type)
+  //   ),
   frameMaterial: yup.string().required().label("Frame Material"),
   lensFunction: yup.string().required().label("Lense Function"),
   frameAttribution: yup.string().required().label("Frame Attribution"),
