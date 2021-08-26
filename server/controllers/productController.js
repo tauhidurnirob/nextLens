@@ -35,7 +35,8 @@ export const getProductById = asyncHandler(async (req, res) => {
 // @access Private/Admin
 
 export const createProduct = asyncHandler(async (req, res) => {
-  const product = new Product(req.body);
-  const createProduct = await product.save();
-  res.status(201).json(createProduct);
+  console.log(req.body);
+  // const product = new Product(req.body);
+  // const createProduct = await product.save();
+  // res.status(201).json(createProduct);
 });
