@@ -44,115 +44,136 @@ const ModelDetailsForm = ({ register }) => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Grid container direction="row" spacing={2} justifyContent="center">
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  className={clsx(classes.formControl)}
-                  variant="outlined"
-                >
-                  <InputLabel htmlFor="outlined-adornment-frameMaterial">
-                    Frame Material
-                  </InputLabel>
-                  <OutlinedInput
-                    id="outlined-adornment-frameMaterial"
-                    type="text"
-                    labelWidth={120}
-                    inputProps={{ ...register("frameMaterial") }}
-                  />
-                </FormControl>
-              </Box>
+          <Grid container direction="column" justifyContent="center">
+            <Grid container direction="row" spacing={2} justifyContent="center">
+              <Grid item md={4} className={clsx(classes.gridItem)}>
+                <Box mb={2}>
+                  <FormControl
+                    className={clsx(classes.formControl)}
+                    variant="outlined"
+                  >
+                    <InputLabel htmlFor="outlined-adornment-frameMaterial">
+                      Frame Material
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-frameMaterial"
+                      type="text"
+                      labelWidth={120}
+                      inputProps={{ ...register("frameMaterial") }}
+                    />
+                  </FormControl>
+                </Box>
+              </Grid>
+              <Grid item md={4} className={clsx(classes.gridItem)}>
+                <Box mb={2}>
+                  <FormControl
+                    className={clsx(classes.formControl)}
+                    variant="outlined"
+                  >
+                    <InputLabel htmlFor="outlined-adornment-lensFunction">
+                      Lens Function
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-lensFunction"
+                      type="text"
+                      labelWidth={105}
+                      inputProps={{ ...register("lensFunction") }}
+                    />
+                  </FormControl>
+                </Box>
+              </Grid>
+              <Grid item md={4} className={clsx(classes.gridItem)}>
+                <Box mb={2}>
+                  <FormControl
+                    className={clsx(classes.formControl)}
+                    variant="outlined"
+                  >
+                    <InputLabel htmlFor="outlined-adornment-frameAttribution">
+                      Frame Attribution
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-frameAttribution"
+                      type="text"
+                      labelWidth={135}
+                      inputProps={{ ...register("frameAttribution") }}
+                    />
+                  </FormControl>
+                </Box>
+              </Grid>
             </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  className={clsx(classes.formControl)}
-                  variant="outlined"
-                >
-                  <InputLabel htmlFor="outlined-adornment-lensFunction">
-                    Lens Function
-                  </InputLabel>
-                  <OutlinedInput
-                    id="outlined-adornment-lensFunction"
-                    type="text"
-                    labelWidth={105}
-                    inputProps={{ ...register("lensFunction") }}
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  className={clsx(classes.formControl)}
-                  variant="outlined"
-                >
-                  <InputLabel htmlFor="outlined-adornment-frameAttribution">
-                    Frame Attribution
-                  </InputLabel>
-                  <OutlinedInput
-                    id="outlined-adornment-frameAttribution"
-                    type="text"
-                    labelWidth={135}
-                    inputProps={{ ...register("frameAttribution") }}
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
-
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  className={clsx(classes.formControl)}
-                  variant="outlined"
-                >
-                  <InputLabel htmlFor="outlined-adornment-usage">
-                    Usage
-                  </InputLabel>
-                  <OutlinedInput
-                    id="outlined-adornment-usage"
-                    type="text"
-                    labelWidth={50}
-                    inputProps={{ ...register("usage") }}
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  className={clsx(classes.formControl)}
-                  variant="outlined"
-                >
-                  <InputLabel htmlFor="outlined-adornment-modelNumber">
-                    Model Number
-                  </InputLabel>
-                  <OutlinedInput
-                    id="outlined-adornment-modelNumber"
-                    type="text"
-                    labelWidth={115}
-                    inputProps={{ ...register("modelNumber") }}
-                  />
-                </FormControl>
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  className={clsx(classes.formControl)}
-                  variant="outlined"
-                >
-                  <InputLabel htmlFor="outlined-adornment-size">
-                    Size
-                  </InputLabel>
-                  <OutlinedInput
-                    id="outlined-adornment-size"
-                    type="text"
-                    labelWidth={30}
-                    inputProps={{ ...register("size") }}
-                  />
-                </FormControl>
-              </Box>
+            <Grid container direction="row" spacing={2} justifyContent="center">
+              <Grid item md={3} className={clsx(classes.gridItem)}>
+                <Box mb={2}>
+                  <FormControl
+                    className={clsx(classes.formControl)}
+                    variant="outlined"
+                  >
+                    <InputLabel htmlFor="outlined-adornment-frameLenseMaterial">
+                      Frame Lense Material
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-frameLenseMaterial"
+                      type="text"
+                      labelWidth={165}
+                      inputProps={{ ...register("frameLenseMaterial") }}
+                    />
+                  </FormControl>
+                </Box>
+              </Grid>
+              <Grid item md={3} className={clsx(classes.gridItem)}>
+                <Box mb={2}>
+                  <FormControl
+                    className={clsx(classes.formControl)}
+                    variant="outlined"
+                  >
+                    <InputLabel htmlFor="outlined-adornment-usage">
+                      Usage
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-usage"
+                      type="text"
+                      labelWidth={50}
+                      inputProps={{ ...register("usage") }}
+                    />
+                  </FormControl>
+                </Box>
+              </Grid>
+              <Grid item md={3} className={clsx(classes.gridItem)}>
+                <Box mb={2}>
+                  <FormControl
+                    className={clsx(classes.formControl)}
+                    variant="outlined"
+                  >
+                    <InputLabel htmlFor="outlined-adornment-modelNumber">
+                      Model Number
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-modelNumber"
+                      type="text"
+                      labelWidth={115}
+                      inputProps={{ ...register("modelNumber") }}
+                    />
+                  </FormControl>
+                </Box>
+              </Grid>
+              <Grid item md={3} className={clsx(classes.gridItem)}>
+                <Box mb={2}>
+                  <FormControl
+                    className={clsx(classes.formControl)}
+                    variant="outlined"
+                  >
+                    <InputLabel htmlFor="outlined-adornment-size">
+                      Size
+                    </InputLabel>
+                    <OutlinedInput
+                      id="outlined-adornment-size"
+                      type="text"
+                      labelWidth={30}
+                      inputProps={{ ...register("size") }}
+                    />
+                  </FormControl>
+                </Box>
+              </Grid>
             </Grid>
           </Grid>
         </AccordionDetails>
