@@ -1,5 +1,7 @@
 import client from "./client";
+import endpoint from "./endpoints";
 
-const endpoint = "/posts";
+const postsProduct = (formData) => client.post(endpoint.post, formData);
 
-export const getPosts = () => client.get(endpoint);
+// eslint-disable-next-line
+export default { postsProduct };

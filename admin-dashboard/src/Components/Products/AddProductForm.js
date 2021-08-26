@@ -20,6 +20,7 @@ import { useForm } from "react-hook-form";
 import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";
 import ModelDetailsForm from "./ModelDetailsForm";
+import postApi from "../../api/posts";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -58,7 +59,9 @@ const AddProductForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    await postApi.postsProduct(data);
+  };
 
   const classes = useStyles();
 
