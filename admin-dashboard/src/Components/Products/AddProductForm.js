@@ -16,6 +16,7 @@ import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import { useForm } from "react-hook-form";
+import productApi from "../../api/posts";
 
 import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";
@@ -58,7 +59,9 @@ const AddProductForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    await productApi.postsProduct(data);
+  };
 
   const classes = useStyles();
 
