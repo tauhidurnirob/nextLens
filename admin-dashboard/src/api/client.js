@@ -1,5 +1,5 @@
 import { create } from "apisauce";
 
-const apiClient = create({ baseURL: "https://jsonplaceholder.typicode.com" });
+const apiClient = create({ baseURL: "http://localhost:5000" });
 
 export default apiClient;
