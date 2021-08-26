@@ -29,3 +29,23 @@ export const getProductById = asyncHandler(async (req, res) => {
     throw new Error("Product not found");
   }
 });
+
+// @Description Create Product
+// @routes Post/api/products
+// @access Private/Admin
+
+export const createProduct = asyncHandler(async (req, res) => {
+  console.log(req.body);
+  // const product = new Product({
+  //   name: "sample name",
+  //   price: 0,
+  //   user: req.user._id,
+  //   image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+  //   category: "sample category",
+  //   countInStock: 0,
+  //   numReviews: 0,
+  //   description: "sample description",
+  // });
+  // const createProduct = await product.save();
+  // res.status(201).json(createProduct);
+});
