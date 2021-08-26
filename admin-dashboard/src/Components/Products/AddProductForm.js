@@ -17,6 +17,7 @@ import { NavLink } from "react-router-dom";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import { useForm } from "react-hook-form";
 import productApi from "../../api/posts";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";
