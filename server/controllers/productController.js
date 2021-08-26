@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
-
+import TestProduct from "../models/testModel.js";
 // @Description Fetch all products
 // @routes GET/api/products
 // @access public
@@ -35,8 +35,47 @@ export const getProductById = asyncHandler(async (req, res) => {
 // @access Private/Admin
 
 export const createProduct = asyncHandler(async (req, res) => {
-  console.log(req.body);
-  // const product = new Product(req.body);
-  // const createProduct = await product.save();
-  // res.status(201).json(createProduct);
+  const {
+    title,
+    description,
+    price,
+    salesPrice,
+    discount,
+    countInStock,
+    availability,
+    type,
+    category,
+    frameMaterial,
+    lensFunction,
+    frameAttribution,
+    frameLensMaterial,
+    usage,
+    modelNumber,
+    size,
+  } = req.body;
+  const slug = `${title.split(" ").join("_")}_${modelNumber}`;
+
+  const product = new TestProduct({
+    title,
+    description,
+    price,
+    salesPrice,
+    discount,
+    countInStock,
+    availability,
+    type,
+    slug,
+    category,
+    details: {
+      frameMaterial,
+      lensFunction,
+      frameAttribution,
+      frameLensMaterial,
+      usage,
+      modelNumber,
+      size,
+    },
+  });
+  const createProduct = await product.save();
+  res.status(201).json(createProduct);
 });
