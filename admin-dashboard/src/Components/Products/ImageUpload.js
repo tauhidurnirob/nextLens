@@ -9,6 +9,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
+  FormHelperText,
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ImageUpload = ({ register }) => {
+const ImageUpload = ({ register, errors }) => {
   const classes = useStyles();
 
   return (
@@ -73,6 +74,13 @@ const ImageUpload = ({ register }) => {
                     </Button>
                   </label>
                 </FormControl>
+                {errors.image && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.image?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
               </Box>
             </Grid>
             <Grid item md={3} className={clsx(classes.gridItem)}>

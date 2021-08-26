@@ -1,5 +1,8 @@
 import * as yup from "yup";
 
+// const FILE_SIZE = 160 * 1024;
+// const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/gif", "image/png"];
+
 const productSchema = yup.object().shape({
   title: yup.string().required().label("Title"),
   description: yup.string().required().label("Description"),
@@ -23,7 +26,15 @@ const productSchema = yup.object().shape({
     .required()
     .label("Count in stock")
     .matches(/^[0-9]+$/, "Must be only digits"),
-  image: yup.mixed().required().label("Image"),
+  image: yup.array().nullable().required().label("Image"),
+  // .test(
+  //   "fileSize",
+  //   "File Size is too large",
+  //   (value) => value.size <= FILE_SIZE
+  // )
+  // .test("fileType", "Unsupported File Format", (value) =>
+  //   SUPPORTED_FORMATS.includes(value.type)
+  // ),
   frameMaterial: yup.string().required().label("Frame Material"),
   lensFunction: yup.string().required().label("Lense Function"),
   frameAttribution: yup.string().required().label("Frame Attribution"),

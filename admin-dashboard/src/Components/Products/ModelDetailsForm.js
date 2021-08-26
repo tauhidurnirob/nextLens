@@ -10,6 +10,7 @@ import {
   AccordionDetails,
   Typography,
   OutlinedInput,
+  FormHelperText,
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModelDetailsForm = ({ register }) => {
+const ModelDetailsForm = ({ register, errors }) => {
   const classes = useStyles();
 
   return (
@@ -62,6 +63,13 @@ const ModelDetailsForm = ({ register }) => {
                       inputProps={{ ...register("frameMaterial") }}
                     />
                   </FormControl>
+                  {errors.frameMaterial && (
+                    <FormHelperText>
+                      <Typography style={{ color: "red" }} variant="subtitle2">
+                        {errors.frameMaterial?.message}
+                      </Typography>
+                    </FormHelperText>
+                  )}
                 </Box>
               </Grid>
               <Grid item md={4} className={clsx(classes.gridItem)}>
@@ -80,6 +88,13 @@ const ModelDetailsForm = ({ register }) => {
                       inputProps={{ ...register("lensFunction") }}
                     />
                   </FormControl>
+                  {errors.lensFunction && (
+                    <FormHelperText>
+                      <Typography style={{ color: "red" }} variant="subtitle2">
+                        {errors.lensFunction?.message}
+                      </Typography>
+                    </FormHelperText>
+                  )}
                 </Box>
               </Grid>
               <Grid item md={4} className={clsx(classes.gridItem)}>
@@ -98,6 +113,13 @@ const ModelDetailsForm = ({ register }) => {
                       inputProps={{ ...register("frameAttribution") }}
                     />
                   </FormControl>
+                  {errors.frameAttribution && (
+                    <FormHelperText>
+                      <Typography style={{ color: "red" }} variant="subtitle2">
+                        {errors.frameAttribution?.message}
+                      </Typography>
+                    </FormHelperText>
+                  )}
                 </Box>
               </Grid>
             </Grid>
@@ -118,6 +140,13 @@ const ModelDetailsForm = ({ register }) => {
                       inputProps={{ ...register("frameLensMaterial") }}
                     />
                   </FormControl>
+                  {errors.frameLensMaterial && (
+                    <FormHelperText>
+                      <Typography style={{ color: "red" }} variant="subtitle2">
+                        {errors.frameLensMaterial?.message}
+                      </Typography>
+                    </FormHelperText>
+                  )}
                 </Box>
               </Grid>
 
@@ -137,6 +166,13 @@ const ModelDetailsForm = ({ register }) => {
                       inputProps={{ ...register("usage") }}
                     />
                   </FormControl>
+                  {errors.usage && (
+                    <FormHelperText>
+                      <Typography style={{ color: "red" }} variant="subtitle2">
+                        {errors.usage?.message}
+                      </Typography>
+                    </FormHelperText>
+                  )}
                 </Box>
               </Grid>
               <Grid item md={3} className={clsx(classes.gridItem)}>
@@ -155,6 +191,13 @@ const ModelDetailsForm = ({ register }) => {
                       inputProps={{ ...register("modelNumber") }}
                     />
                   </FormControl>
+                  {errors.modelNumber && (
+                    <FormHelperText>
+                      <Typography style={{ color: "red" }} variant="subtitle2">
+                        {errors.modelNumber?.message}
+                      </Typography>
+                    </FormHelperText>
+                  )}
                 </Box>
               </Grid>
               <Grid item md={3} className={clsx(classes.gridItem)}>
@@ -173,6 +216,13 @@ const ModelDetailsForm = ({ register }) => {
                       inputProps={{ ...register("size") }}
                     />
                   </FormControl>
+                  {errors.size && (
+                    <FormHelperText>
+                      <Typography style={{ color: "red" }} variant="subtitle2">
+                        {errors.size?.message}
+                      </Typography>
+                    </FormHelperText>
+                  )}
                 </Box>
               </Grid>
             </Grid>
