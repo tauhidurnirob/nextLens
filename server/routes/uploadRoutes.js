@@ -2,53 +2,37 @@ import path from "path";
 import express from "express";
 import multer from "multer";
 import cloudinary from "../utils/cloudinary.js";
+import streamifier from "streamifier";
 
 const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename(req, file, cb) {
-    cb(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    );
-  },
-});
+const fileUpload = multer();
 
-function checkFileType(file, cb) {
-  const filetypes = /jpg|jpeg|png/;
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
+router.post("/", fileUpload.single("image"), function (req, res, next) {
+  let streamUpload = (req) => {
+    return new Promise((resolve, reject) => {
+      let stream = cloudinary.uploader.upload_stream((error, result) => {
+        if (result) {
+          resolve(result);
+        } else {
+          reject(error);
+        }
+      });
 
-  if (extname && mimetype) {
-    return cb(null, true);
-  } else {
-    cb("Images only!");
-  }
-}
-
-const upload = multer({
-  storage,
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  },
-});
-
-router.post("/", upload.single("image"), async (req, res) => {
-  console.log(req.file);
-  try {
-    const result = await cloudinary.uploader.upload(req.file.path, {
-      upload_preset: "ml_default",
+      streamifier.createReadStream(req.file.buffer).pipe(stream);
     });
+  };
 
-    console.log(result);
-
-    res.send({ image: result.secure_url, cloudinary_id: result.public_id });
-  } catch (error) {
-    console.log(error);
+  async function upload(req) {
+    try {
+      let result = await streamUpload(req);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  upload(req);
 });
 
 export default router;

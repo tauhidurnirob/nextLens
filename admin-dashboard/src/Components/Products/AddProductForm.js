@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   makeStyles,
@@ -22,6 +22,7 @@ import productApi from "../../api/posts";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";
@@ -67,9 +68,30 @@ const AddProductForm = () => {
   } = useForm();
   // resolver: yupResolver(productSchema)
 
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const { data } = await axios.post(
+        "http://localhost:5000/api/upload",
+        formData,
+        config
+      );
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const onSubmit = async (formData) => {
-    const { data } = await productApi.imageUpload(formData.image[0]);
-    console.log("data", data);
     // const { ok } = await productApi.postsProduct({
     //   ...formData,
     //   image: data.image,
@@ -136,7 +158,11 @@ const AddProductForm = () => {
             )}
           </Box>
           {/*  */}
-          <ImageUpload register={register} errors={errors} />
+          <ImageUpload
+            register={register}
+            errors={errors}
+            uploadFileHandler={uploadFileHandler}
+          />
           {/*  */}
           <Grid
             item

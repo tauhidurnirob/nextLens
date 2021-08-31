@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ImageUpload = ({ register, errors }) => {
+const ImageUpload = ({ register, errors, uploadFileHandler }) => {
   const classes = useStyles();
 
   return (
@@ -61,7 +61,8 @@ const ImageUpload = ({ register, errors }) => {
                     id="contained-button-file"
                     multiple
                     type="file"
-                    {...register("image")}
+                    // {...register("image")}
+                    onChange={uploadFileHandler}
                   />
                   <label htmlFor="contained-button-file">
                     <Button
