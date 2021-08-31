@@ -22,7 +22,6 @@ import productApi from "../../api/posts";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 
 import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";

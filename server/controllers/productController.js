@@ -61,8 +61,6 @@ export const createProduct = asyncHandler(async (req, res) => {
     upload_preset: "ml_default",
   });
 
-  console.log(result);
-
   const slug = `${title.split(" ").join("_")}_${modelNumber}`;
 
   const product = new TestProduct({
