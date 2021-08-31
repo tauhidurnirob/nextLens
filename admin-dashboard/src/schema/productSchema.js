@@ -26,7 +26,7 @@ const productSchema = yup.object().shape({
     .required()
     .label("Count in stock")
     .matches(/^[0-9]+$/, "Must be only digits"),
-  // image: yup.mixed().required("Image is a required filed"),
+  image: yup.mixed().nullable().required(),
   // image: yup
   //   .mixed()
   //   .required()
