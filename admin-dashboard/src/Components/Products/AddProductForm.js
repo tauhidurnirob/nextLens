@@ -64,7 +64,8 @@ const AddProductForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(productSchema) });
+  } = useForm();
+  // resolver: yupResolver(productSchema)
 
   const onSubmit = async (data) => {
     console.log(data);

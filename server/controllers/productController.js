@@ -4,7 +4,7 @@ import { CloudinaryStorage } from "multer-storage-cloudinary";
 import Product from "../models/productModel.js";
 import TestProduct from "../models/testModel.js";
 
-import cloudinary from "../utils/cloudinary.js";
+import cloudinaryApi from "../utils/cloudinary.js";
 
 // @Description Fetch all products
 // @routes GET/api/products
@@ -40,7 +40,7 @@ export const getProductById = asyncHandler(async (req, res) => {
 // @access Private/Admin
 
 const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
+  cloudinary: cloudinaryApi,
   params: {
     folder: "NextLens",
   },
@@ -48,19 +48,44 @@ const storage = new CloudinaryStorage({
 
 const upload = multer({ storage: storage });
 
-export const createProduct = asyncHandler(
-  upload.single("image"),
-  async (req, res) => {
-    const {
-      title,
-      description,
-      price,
-      salesPrice,
-      discount,
-      countInStock,
-      availability,
-      type,
-      category,
+export const createProduct = asyncHandler(async (req, res) => {
+  const {
+    title,
+    description,
+    price,
+    salesPrice,
+    discount,
+    countInStock,
+    availability,
+    image,
+    type,
+    category,
+    frameMaterial,
+    lensFunction,
+    frameAttribution,
+    frameLensMaterial,
+    usage,
+    modelNumber,
+    size,
+  } = req.body;
+
+  console.log(image);
+  const slug = `${title.split(" ").join("_")}_${modelNumber}`;
+
+  const product = new TestProduct({
+    title,
+    description,
+    price,
+    salesPrice,
+    discount,
+    countInStock,
+    availability,
+    image: req.file,
+    cloudinary_id: req.file.cloudinary_id,
+    type,
+    slug,
+    category,
+    details: {
       frameMaterial,
       lensFunction,
       frameAttribution,
@@ -68,34 +93,8 @@ export const createProduct = asyncHandler(
       usage,
       modelNumber,
       size,
-    } = req.body;
-
-    const slug = `${title.split(" ").join("_")}_${modelNumber}`;
-
-    const product = new TestProduct({
-      title,
-      description,
-      price,
-      salesPrice,
-      discount,
-      countInStock,
-      availability,
-      image: req.file,
-      cloudinary_id: req.file.cloudinary_id,
-      type,
-      slug,
-      category,
-      details: {
-        frameMaterial,
-        lensFunction,
-        frameAttribution,
-        frameLensMaterial,
-        usage,
-        modelNumber,
-        size,
-      },
-    });
-    const createProduct = await product.save();
-    res.status(201).json(createProduct);
-  }
-);
+    },
+  });
+  const createProduct = await product.save();
+  res.status(201).json(createProduct);
+});
