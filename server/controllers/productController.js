@@ -1,10 +1,6 @@
 import asyncHandler from "express-async-handler";
-import multer from "multer";
-import { CloudinaryStorage } from "multer-storage-cloudinary";
 import Product from "../models/productModel.js";
 import TestProduct from "../models/testModel.js";
-
-import cloudinaryApi from "../utils/cloudinary.js";
 
 // @Description Fetch all products
 // @routes GET/api/products
@@ -39,15 +35,6 @@ export const getProductById = asyncHandler(async (req, res) => {
 // @routes Post/api/products
 // @access Private/Admin
 
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinaryApi,
-  params: {
-    folder: "NextLens",
-  },
-});
-
-const upload = multer({ storage: storage });
-
 export const createProduct = asyncHandler(async (req, res) => {
   const {
     title,
@@ -80,8 +67,6 @@ export const createProduct = asyncHandler(async (req, res) => {
     discount,
     countInStock,
     availability,
-    image: req.file,
-    cloudinary_id: req.file.cloudinary_id,
     type,
     slug,
     category,

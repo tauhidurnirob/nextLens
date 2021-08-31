@@ -36,11 +36,14 @@ const upload = multer({
   },
 });
 
-router.post("/", upload.single("image"), async (req, res) => {
+router.post("/api/upload", upload.single("imageUri"), async (req, res) => {
+  console.log(req.body.imageUri);
   try {
     const result = await cloudinary.uploader.upload(req.file.path, {
       upload_preset: "ml_default",
     });
+
+    console.log(result);
 
     res.send({ image: result.secure_url, cloudinary_id: result.public_id });
   } catch (error) {
