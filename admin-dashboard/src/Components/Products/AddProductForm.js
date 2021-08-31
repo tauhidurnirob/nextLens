@@ -68,7 +68,6 @@ const AddProductForm = () => {
   // resolver: yupResolver(productSchema)
 
   const onSubmit = async (data) => {
-    console.log(data);
     const { ok } = await productApi.postsProduct(data);
     if (ok) toast.success("Successfully product posted");
   };
