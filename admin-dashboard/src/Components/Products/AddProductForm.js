@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   makeStyles,
@@ -60,15 +60,50 @@ const useStyles = makeStyles((theme) => ({
 const AddProductForm = () => {
   document.title = "Add Product";
 
+  const [image, setImage] = useState("");
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(productSchema) });
 
-  const onSubmit = async (data) => {
-    console.log(data);
-    const { ok } = await productApi.postsProduct(data);
+  const uploadFileHandler = async (e) => {
+    // const file = e.target.files[0];
+    // const formData = new FormData();
+    // formData.append("image", file);
+
+    // try {
+    //   const config = {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   };
+
+    //   const { data } = await axios.post(
+    //     "http://localhost:5000/api/upload",
+    //     formData,
+    //     config
+    //   );
+    //   // setImage(data);
+    //   console.log("data", data);
+    // } catch (error) {
+    //   console.error(error);
+    // }
+    const file = e.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
+  };
+
+  const onSubmit = async (formData) => {
+    const { ok } = await productApi.postsProduct({
+      ...formData,
+      imageUri: image,
+    });
     if (ok) toast.success("Successfully product posted");
   };
 
@@ -130,7 +165,11 @@ const AddProductForm = () => {
             )}
           </Box>
           {/*  */}
-          <ImageUpload register={register} errors={errors} />
+          <ImageUpload
+            register={register}
+            errors={errors}
+            uploadFileHandler={uploadFileHandler}
+          />
           {/*  */}
           <Grid
             item

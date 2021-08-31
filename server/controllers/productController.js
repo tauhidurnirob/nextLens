@@ -1,6 +1,8 @@
 import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
 import TestProduct from "../models/testModel.js";
+import cloudinary from "../utils/cloudinary.js";
+
 // @Description Fetch all products
 // @routes GET/api/products
 // @access public
@@ -52,7 +54,13 @@ export const createProduct = asyncHandler(async (req, res) => {
     usage,
     modelNumber,
     size,
+    imageUri,
   } = req.body;
+
+  const result = await cloudinary.uploader.upload(imageUri, {
+    upload_preset: "ml_default",
+  });
+
   const slug = `${title.split(" ").join("_")}_${modelNumber}`;
 
   const product = new TestProduct({
@@ -63,6 +71,8 @@ export const createProduct = asyncHandler(async (req, res) => {
     discount,
     countInStock,
     availability,
+    image: result.secure_url,
+    cloudinary_id: result.public_id,
     type,
     slug,
     category,

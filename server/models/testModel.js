@@ -11,6 +11,8 @@ const testSchema = mongoose.Schema(
     availability: { type: String, required: true },
     type: { type: String, required: true },
     category: { type: String, required: true },
+    image: { type: String, required: true },
+    cloudinary_id: { type: String, required: true },
     slug: { type: String },
     details: {
       frameMaterial: { type: String, required: true },
