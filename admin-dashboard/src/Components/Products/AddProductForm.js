@@ -61,43 +61,51 @@ const useStyles = makeStyles((theme) => ({
 const AddProductForm = () => {
   document.title = "Add Product";
 
+  const [image, setImage] = useState("");
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  // resolver: yupResolver(productSchema)
+  } = useForm({ resolver: yupResolver(productSchema) });
 
   const uploadFileHandler = async (e) => {
+    // const file = e.target.files[0];
+    // const formData = new FormData();
+    // formData.append("image", file);
+
+    // try {
+    //   const config = {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   };
+
+    //   const { data } = await axios.post(
+    //     "http://localhost:5000/api/upload",
+    //     formData,
+    //     config
+    //   );
+    //   // setImage(data);
+    //   console.log("data", data);
+    // } catch (error) {
+    //   console.error(error);
+    // }
     const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("image", file);
 
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      };
-
-      const { data } = await axios.post(
-        "http://localhost:5000/api/upload",
-        formData,
-        config
-      );
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
   };
 
   const onSubmit = async (formData) => {
-    // const { ok } = await productApi.postsProduct({
-    //   ...formData,
-    //   image: data.image,
-    //   cloudinary_id: data.public_id,
-    // });
-    // if (ok) toast.success("Successfully product posted");
+    const { ok } = await productApi.postsProduct({
+      ...formData,
+      imageUri: image,
+    });
+    if (ok) toast.success("Successfully product posted");
   };
 
   const classes = useStyles();

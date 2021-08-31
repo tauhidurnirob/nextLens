@@ -18,21 +18,20 @@ router.post("/", fileUpload.single("image"), function (req, res, next) {
           reject(error);
         }
       });
-
       streamifier.createReadStream(req.file.buffer).pipe(stream);
     });
   };
 
   async function upload(req) {
     try {
-      let result = await streamUpload(req);
-      console.log(result);
+      await streamUpload(req);
     } catch (error) {
       console.log(error);
     }
   }
 
   upload(req);
+  res.send(streamUpload);
 });
 
 export default router;

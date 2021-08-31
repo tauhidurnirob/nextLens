@@ -2,9 +2,6 @@ import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
 import TestProduct from "../models/testModel.js";
 import cloudinary from "../utils/cloudinary.js";
-import multer from "multer";
-
-const fileUpload = multer();
 
 // @Description Fetch all products
 // @routes GET/api/products
@@ -57,13 +54,14 @@ export const createProduct = asyncHandler(async (req, res) => {
     usage,
     modelNumber,
     size,
+    imageUri,
   } = req.body;
 
-  const fileName = fileUpload.single("image");
-  console.log(fileName);
-  // const result = await cloudinary.uploader.upload(image, {
-  //   upload_preset: "ml_default",
-  // });
+  const result = await cloudinary.uploader.upload(imageUri, {
+    upload_preset: "ml_default",
+  });
+
+  console.log(result);
 
   const slug = `${title.split(" ").join("_")}_${modelNumber}`;
 
@@ -75,8 +73,8 @@ export const createProduct = asyncHandler(async (req, res) => {
     discount,
     countInStock,
     availability,
-    image,
-    cloudinary_id,
+    image: result.secure_url,
+    cloudinary_id: result.public_id,
     type,
     slug,
     category,
