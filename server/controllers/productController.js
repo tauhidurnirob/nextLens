@@ -1,9 +1,11 @@
 import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
 import TestProduct from "../models/testModel.js";
-import cloudinaryApi from "../utils/cloudinary.js";
-import { CloudinaryStorage } from "multer-storage-cloudinary";
+import cloudinary from "../utils/cloudinary.js";
 import multer from "multer";
+
+const fileUpload = multer();
+
 // @Description Fetch all products
 // @routes GET/api/products
 // @access public
@@ -56,6 +58,12 @@ export const createProduct = asyncHandler(async (req, res) => {
     modelNumber,
     size,
   } = req.body;
+
+  const fileName = fileUpload.single("image");
+  console.log(fileName);
+  // const result = await cloudinary.uploader.upload(image, {
+  //   upload_preset: "ml_default",
+  // });
 
   const slug = `${title.split(" ").join("_")}_${modelNumber}`;
 

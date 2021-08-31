@@ -67,9 +67,15 @@ const AddProductForm = () => {
   } = useForm();
   // resolver: yupResolver(productSchema)
 
-  const onSubmit = async (data) => {
-    const { ok } = await productApi.postsProduct(data);
-    if (ok) toast.success("Successfully product posted");
+  const onSubmit = async (formData) => {
+    const { data } = await productApi.imageUpload(formData.image[0]);
+    console.log("data", data);
+    // const { ok } = await productApi.postsProduct({
+    //   ...formData,
+    //   image: data.image,
+    //   cloudinary_id: data.public_id,
+    // });
+    // if (ok) toast.success("Successfully product posted");
   };
 
   const classes = useStyles();

@@ -37,7 +37,7 @@ const upload = multer({
 });
 
 router.post("/", upload.single("image"), async (req, res) => {
-  console.log(req.body.image);
+  console.log(req.file);
   try {
     const result = await cloudinary.uploader.upload(req.file.path, {
       upload_preset: "ml_default",
