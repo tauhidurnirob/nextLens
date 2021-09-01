@@ -95,7 +95,6 @@ export const createProduct = asyncHandler(async (req, res) => {
 // @access public
 
 export const getProductByCategory = asyncHandler(async (req, res) => {
-  console.log("backhand", req.params.id);
   const product = await Product.find({}).where({ category: req.params.id });
 
   if (product) {

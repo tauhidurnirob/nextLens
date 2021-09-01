@@ -19,11 +19,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CategoryEyeGlassProducts = ({ ProductByCategory }) => {
-  console.log(ProductByCategory);
+const CategoryEyeGlassProducts = ({}) => {
   const classes = useStyles();
 
-  const { products } = useSelector(cartList);
+  const { products, productByCategory } = useSelector(cartList);
 
   return (
     <Container maxWidth="lg">
@@ -38,29 +37,11 @@ const CategoryEyeGlassProducts = ({ ProductByCategory }) => {
           <FilterByShopCollection />
         </Grid>
         <Grid item container md={8}>
-          {ProductByCategory.length !== 0
-            ? products.map((item) => (
-                <Grid
-                  item
-                  key={item.id}
-                  container
-                  md={4}
-                  justifyContent="center"
-                >
-                  <Cards item={item} isProduct width={300} height={300} />
-                </Grid>
-              ))
-            : ProductByCategory.map((item) => (
-                <Grid
-                  item
-                  key={item.id}
-                  container
-                  md={4}
-                  justifyContent="center"
-                >
-                  <Cards item={item} isProduct width={300} height={300} />
-                </Grid>
-              ))}
+          {products.map((item) => (
+            <Grid item key={item.id} container md={4} justifyContent="center">
+              <Cards item={item} isProduct width={300} height={300} />
+            </Grid>
+          ))}
         </Grid>
       </Grid>
     </Container>
