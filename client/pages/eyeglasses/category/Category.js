@@ -1,8 +1,12 @@
 import React from "react";
 import { Container } from "@material-ui/core";
 
-import { CategoryBar, Layout, CategoryBanner } from "./../../src/Re_components";
-import CategoryEyeGlassProducts from "./CategoryEyeGlassProducts";
+import {
+  CategoryBar,
+  Layout,
+  CategoryBanner,
+} from "../../../src/Re_components";
+import CategoryGlasses from "./CategoryGlasses";
 
 const Category = () => {
   return (
@@ -10,7 +14,7 @@ const Category = () => {
       <Container maxWidth={false}>
         <CategoryBar />
         <CategoryBanner title="EYE GLASSES" />
-        <CategoryEyeGlassProducts />
+        <CategoryGlasses />
       </Container>
     </Layout>
   );

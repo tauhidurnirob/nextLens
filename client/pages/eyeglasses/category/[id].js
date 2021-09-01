@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { findByCategory } from "../../../src/redux/slices/productSlice";
 
 import productApi from "../../api/products";
-import Category from "../Category";
+import Category from "./Category";
 
 const ProductByCategory = ({ data }) => {
   const dispatch = useDispatch();
