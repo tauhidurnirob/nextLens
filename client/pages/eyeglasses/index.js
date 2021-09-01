@@ -4,13 +4,16 @@ import { useDispatch } from "react-redux";
 
 import { CategoryBar, Layout, CategoryBanner } from "./../../src/Re_components";
 import CategoryEyeGlassProducts from "./CategoryEyeGlassProducts";
-import { fetchedProducts } from "../../src/redux/slices/productSlice";
+import {
+  fetchedProducts,
+  findByCategory,
+} from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
 const EyeGlasses = ({ data }) => {
   const dispatch = useDispatch();
 
-  dispatch(fetchedProducts(data.products));
+  dispatch(fetchedProducts(data?.products));
   return (
     <Layout title="Eye Glasses">
       <Container maxWidth={false}>

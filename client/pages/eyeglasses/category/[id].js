@@ -3,16 +3,14 @@ import { useDispatch } from "react-redux";
 import { findByCategory } from "../../../src/redux/slices/productSlice";
 
 import productApi from "../../api/products";
-import EyeGlasses from "../";
+import Category from "../Category";
 
 const ProductByCategory = ({ data }) => {
-  // const findData = Object.assign({}, ...data);
-  console.log(data);
   const dispatch = useDispatch();
 
-  // dispatch(findByCategory(data));
+  dispatch(findByCategory(data));
 
-  return <EyeGlasses />;
+  return <Category />;
 };
 
 export default ProductByCategory;

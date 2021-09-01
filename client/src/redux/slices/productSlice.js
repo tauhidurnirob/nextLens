@@ -42,11 +42,7 @@ const productSlice = createSlice({
       };
     },
     findByCategory(state, { payload }) {
-      state.productById = {
-        ...payload,
-        quantity: 1,
-        totalPrice: payload.price,
-      };
+      state.productByCategory = payload;
     },
     fetchedProducts(state, { payload }) {
       state.products = payload;
