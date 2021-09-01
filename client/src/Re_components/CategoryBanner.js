@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from "react";
 import { makeStyles, Box, Grid, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 import styles from "../../styles/categoryBanner.module.scss";
 import { ShouldBeCapital } from "../../utils/utils";
@@ -16,8 +17,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const CategoryBanner = ({ title }) => {
+const CategoryBanner = ({ categoryTitle }) => {
   const classes = useStyles();
+  const router = useRouter();
+  const route = router.asPath.split("/")[1];
 
   const { productById } = useSelector(cartList);
 
@@ -31,7 +34,9 @@ const CategoryBanner = ({ title }) => {
     >
       <Typography align="center" variant="h2" className={clsx(classes.title)}>
         <Box fontWeight="fontWeightBold">
-          {productById && ShouldBeCapital(productById?.title)} {title && title}
+          {route === "eyeglasses"
+            ? categoryTitle
+            : ShouldBeCapital(productById.title)}
         </Box>
       </Typography>
     </Grid>
