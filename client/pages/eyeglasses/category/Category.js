@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "@material-ui/core";
+import { useRouter } from "next/router";
 
 import {
   CategoryBar,
@@ -9,11 +10,15 @@ import {
 import CategoryGlasses from "./CategoryGlasses";
 
 const Category = () => {
+  const router = useRouter();
+  const title = router.asPath.toUpperCase();
+  const bannerTitle = title.split("/").join(">");
+
   return (
-    <Layout title="Eye Glasses">
+    <Layout title={bannerTitle}>
       <Container maxWidth={false}>
-        <CategoryBar />
-        <CategoryBanner title="EYE GLASSES" />
+        <CategoryBar title={bannerTitle} />
+        <CategoryBanner title={bannerTitle} />
         <CategoryGlasses />
       </Container>
     </Layout>
