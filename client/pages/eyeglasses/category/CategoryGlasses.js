@@ -2,16 +2,16 @@ import React from "react";
 import { Grid, makeStyles, Container } from "@material-ui/core";
 import clsx from "clsx";
 
-import { Cards } from "../../src/Re_components";
+import { Cards } from "../../../src/Re_components";
 import { useSelector } from "react-redux";
-import RangeSlider from "./RangeSlider";
-import FilterByColor from "./FilterByColor";
-import FilterByGender from "./FilterByGender";
-import FilterByLensType from "./FilterByLenseType";
-import FilterByFrameShape from "./FilterByFrameShape";
-import FilterByFrameStyle from "./FilterByFrameStyle";
-import FilterByShopCollection from "./FilterByShopCollection";
-import { cartList } from "./../../src/redux/slices/productSlice";
+import RangeSlider from "../RangeSlider";
+import FilterByColor from "../FilterByColor";
+import FilterByGender from "../FilterByGender";
+import FilterByLensType from "../FilterByLenseType";
+import FilterByFrameShape from "../FilterByFrameShape";
+import FilterByFrameStyle from "../FilterByFrameStyle";
+import FilterByShopCollection from "../FilterByShopCollection";
+import { cartList } from "../../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  const { products } = useSelector(cartList);
+  const { productByCategory } = useSelector(cartList);
 
   return (
     <Container maxWidth="lg">
@@ -36,7 +36,7 @@ const CategoryEyeGlassProducts = () => {
           <FilterByShopCollection />
         </Grid>
         <Grid item container md={8}>
-          {products.map((item) => (
+          {productByCategory.map((item) => (
             <Grid item key={item.id} container md={4} justifyContent="center">
               <Cards item={item} isProduct width={300} height={300} />
             </Grid>

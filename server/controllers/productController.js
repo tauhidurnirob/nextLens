@@ -89,3 +89,18 @@ export const createProduct = asyncHandler(async (req, res) => {
   const createProduct = await product.save();
   res.status(201).json(createProduct);
 });
+
+// @Description Fetch single products
+// @routes GET/api/products/:category
+// @access public
+
+export const getProductByCategory = asyncHandler(async (req, res) => {
+  const product = await Product.find({ category: req.params.id });
+
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404);
+    throw new Error("Product not found");
+  }
+});

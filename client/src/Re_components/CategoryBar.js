@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   makeStyles,
   Box,
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CategoryBar = () => {
+const CategoryBar = ({ categoryTitle }) => {
   const classes = useStyles();
 
   return (
@@ -37,7 +37,7 @@ const CategoryBar = () => {
           id="panel1a-header"
         >
           <Typography className={clsx(classes.heading)}>
-            <Box fontWeight="fontWeightBold">EYE GLASSES</Box>
+            <Box fontWeight="fontWeightBold">{categoryTitle}</Box>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
