@@ -45,7 +45,7 @@ const Gender = ({ title }) => {
         className={clsx(classes.root)}
       >
         {genders.map((item) => (
-          <Link href="/" key={item.id}>
+          <Link href={item.route} key={item.id}>
             <ListItem button>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={<Box fontWeight={600}>{item.name}</Box>} />
@@ -60,7 +60,22 @@ const Gender = ({ title }) => {
 export default Gender;
 
 const genders = [
-  { id: 1, name: "MEN", icon: <EmojiPeopleOutlinedIcon /> },
-  { id: 2, name: "WOMEN", icon: <PregnantWomanOutlinedIcon /> },
-  { id: 3, name: "KIDS", icon: <ChildCareOutlinedIcon /> },
+  {
+    id: 1,
+    name: "MEN",
+    icon: <EmojiPeopleOutlinedIcon />,
+    route: "/eyeglasses/men",
+  },
+  {
+    id: 2,
+    name: "WOMEN",
+    icon: <PregnantWomanOutlinedIcon />,
+    route: "/eyeglasses/women",
+  },
+  {
+    id: 3,
+    name: "KIDS",
+    icon: <ChildCareOutlinedIcon />,
+    route: "/eyeglasses/kid",
+  },
 ];
