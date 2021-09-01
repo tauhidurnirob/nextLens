@@ -14,7 +14,7 @@ const EyeGlasses = ({ data }) => {
   return (
     <Layout title="Eye Glasses">
       <Container maxWidth={false}>
-        <CategoryBar title="EYE GLASSES" />
+        <CategoryBar categoryTitle="EYE GLASSES" />
         <CategoryBanner title="EYE GLASSES" />
         <CategoryEyeGlassProducts />
       </Container>

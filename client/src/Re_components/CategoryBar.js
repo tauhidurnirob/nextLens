@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CategoryBar = ({ title }) => {
+const CategoryBar = ({ categoryTitle }) => {
   const classes = useStyles();
 
   return (
@@ -37,7 +37,7 @@ const CategoryBar = ({ title }) => {
           id="panel1a-header"
         >
           <Typography className={clsx(classes.heading)}>
-            <Box fontWeight="fontWeightBold">{title}</Box>
+            <Box fontWeight="fontWeightBold">{categoryTitle}</Box>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>

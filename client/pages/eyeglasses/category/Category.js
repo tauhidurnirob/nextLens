@@ -17,7 +17,7 @@ const Category = () => {
   return (
     <Layout title={bannerTitle}>
       <Container maxWidth={false}>
-        <CategoryBar title={bannerTitle} />
+        <CategoryBar categoryTitle={bannerTitle} />
         <CategoryBanner title={bannerTitle} />
         <CategoryGlasses />
       </Container>
