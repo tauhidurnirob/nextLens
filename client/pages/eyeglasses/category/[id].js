@@ -1,14 +1,16 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { findByCategory } from "../../../src/redux/slices/productSlice";
 
 import productApi from "../../api/products";
-import EyeGlasses from "../index";
+import EyeGlasses from "../";
 
-const ProductByCategory = ({}) => {
+const ProductByCategory = ({ data }) => {
   // const findData = Object.assign({}, ...data);
-  // const dispatch = useDispatch();
+  console.log(data);
+  const dispatch = useDispatch();
 
-  // dispatch(findById(findData));
+  // dispatch(findByCategory(data));
 
   return <EyeGlasses />;
 };
@@ -29,6 +31,5 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { data } = await productApi.getProductByCategory(params.id);
-  console.log(data);
-  // return { props: { data }, revalidate: 1 };
+  return { props: { data }, revalidate: 1 };
 }
