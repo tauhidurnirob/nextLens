@@ -3,4 +3,5 @@ export default {
   register: "/api/users",
   allProducts: "/api/products",
   productById: "/api/products",
+  productByCategory: "/api/products",
 };
