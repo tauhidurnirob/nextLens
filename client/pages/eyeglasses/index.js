@@ -4,10 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { CategoryBar, Layout, CategoryBanner } from "./../../src/Re_components";
 import CategoryEyeGlassProducts from "./CategoryEyeGlassProducts";
-import {
-  fetchedProducts,
-  findByCategory,
-} from "../../src/redux/slices/productSlice";
+import { fetchedProducts } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
 const EyeGlasses = ({ data }) => {
