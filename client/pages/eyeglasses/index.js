@@ -7,7 +7,7 @@ import CategoryEyeGlassProducts from "./CategoryEyeGlassProducts";
 import { fetchedProducts } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
-const index = ({ data }) => {
+const EyeGlasses = ({ data }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data.products));
@@ -22,7 +22,7 @@ const index = ({ data }) => {
   );
 };
 
-export default index;
+export default EyeGlasses;
 
 export async function getStaticProps() {
   const { data } = await productApi.getAllProduct();

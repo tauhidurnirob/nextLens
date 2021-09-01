@@ -64,18 +64,18 @@ const genders = [
     id: 1,
     name: "MEN",
     icon: <EmojiPeopleOutlinedIcon />,
-    route: "/eyeglasses/men",
+    route: "/category/men",
   },
   {
     id: 2,
     name: "WOMEN",
     icon: <PregnantWomanOutlinedIcon />,
-    route: "/eyeglasses/women",
+    route: "/category/women",
   },
   {
     id: 3,
     name: "KIDS",
     icon: <ChildCareOutlinedIcon />,
-    route: "/eyeglasses/kid",
+    route: "/category/kid",
   },
 ];
