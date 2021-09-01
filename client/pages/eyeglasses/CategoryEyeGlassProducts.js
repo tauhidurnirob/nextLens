@@ -19,10 +19,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CategoryEyeGlassProducts = ({}) => {
+const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
 
-  const { products, productByCategory } = useSelector(cartList);
+  const { products } = useSelector(cartList);
 
   return (
     <Container maxWidth="lg">
