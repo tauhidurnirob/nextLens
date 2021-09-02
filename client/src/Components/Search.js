@@ -33,8 +33,8 @@ const Search = ({ setIsSearch }) => {
   const onSubmit = ({ keyword }) => {
     if (keyword) {
       router.push({
-        pathname: "/search/[pid]",
-        query: { pid: keyword },
+        pathname: "/search/[sid]",
+        query: { sid: keyword },
       });
     } else {
       router.push("/");
