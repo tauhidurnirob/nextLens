@@ -3,18 +3,18 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import productApi from "../api/products";
 
-const Search = ({}) => {
-  const router = useRouter();
-  const { pid } = router.query;
-  console.log(router);
-  const testData = async () => {
-    const { data } = await productApi.getSearchProduct(pid);
-    console.log(data);
-  };
-  useEffect(() => {
-    testData();
-  }, [pid]);
-  return <h1>Post: {pid}</h1>;
+const Search = ({ data }) => {
+  // const router = useRouter();
+  // const { pid } = router.query;
+  // const testData = async () => {
+  //   const { data } = await productApi.getSearchProduct(pid);
+  //   console.log(data);
+  // };
+  // useEffect(() => {
+  //   testData();
+  // }, [pid]);
+  console.log(data);
+  return <h1>Post:</h1>;
 };
 
 export default Search;
@@ -31,7 +31,9 @@ export default Search;
 //   return { paths, fallback: false };
 // }
 
-// export async function getStaticProps({ params }) {
-//   const { data } = await productApi.getProductById(params.id);
-//   return { props: { data }, revalidate: 1 };
-// }
+export async function getServerSideProps({ query }) {
+  const { pid } = query;
+  console.log("pid", pid);
+  const { data } = await productApi.getSearchProduct(pid);
+  return { props: { data } };
+}
