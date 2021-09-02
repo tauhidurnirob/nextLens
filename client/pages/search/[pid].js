@@ -3,7 +3,6 @@ import React from "react";
 import productApi from "../api/products";
 
 const Search = ({ data }) => {
-  console.log("data", data);
   return <h1>Post:</h1>;
 };
 

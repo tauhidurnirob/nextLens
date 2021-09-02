@@ -8,7 +8,6 @@ import cloudinary from "../utils/cloudinary.js";
 // @access public
 
 export const getProducts = asyncHandler(async (req, res) => {
-  console.log("keyword", req.query.keyword);
   const keyword = req.query.keyword
     ? {
         title: { $regex: req.query.keyword, $options: "i" },
