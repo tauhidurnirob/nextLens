@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useRouter } from "next/router";
+import productApi from "../api/products";
 
 const Search = ({}) => {
   const router = useRouter();
   const { pid } = router.query;
   console.log(router);
+  const testData = async () => {
+    const { data } = await productApi.getSearchProduct(pid);
+    console.log(data);
+  };
+  useEffect(() => {
+    testData();
+  }, [pid]);
   return <h1>Post: {pid}</h1>;
 };
 
