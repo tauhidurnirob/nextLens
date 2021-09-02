@@ -1,6 +1,6 @@
 export default {
-  login: "/api/users/login",
-  register: "/api/users",
-  allProducts: "/api/products",
-  productById: "/api/products",
+  login: "api/users/login",
+  register: "api/users",
+  allProducts: "api/products",
+  productById: "api/products",
 };
