@@ -7,7 +7,7 @@ import {
   Layout,
   CategoryBanner,
 } from "../../../src/Re_components";
-import CategoryGlasses from "./CategoryGlasses";
+import CategoryEyeGlassProducts from "../CategoryEyeGlassProducts";
 
 const Category = () => {
   const router = useRouter();
@@ -19,7 +19,7 @@ const Category = () => {
       <Container maxWidth={false}>
         <CategoryBar categoryTitle={bannerTitle} />
         <CategoryBanner categoryTitle={bannerTitle} />
-        <CategoryGlasses />
+        <CategoryEyeGlassProducts />
       </Container>
     </Layout>
   );

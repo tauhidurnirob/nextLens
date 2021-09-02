@@ -36,7 +36,7 @@ const CategoryEyeGlassProducts = () => {
           <FilterByShopCollection />
         </Grid>
         <Grid item container md={8}>
-          {products.map((item) => (
+          {products?.map((item) => (
             <Grid item key={item.id} container md={4} justifyContent="center">
               <Cards item={item} isProduct width={300} height={300} />
             </Grid>
