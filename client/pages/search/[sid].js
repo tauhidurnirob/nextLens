@@ -5,7 +5,7 @@ import { Container, Box } from "@material-ui/core";
 import Products from "../../src/Components/Products";
 import { fetchedProducts } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
-import Layout from "./../../src/Re_components/Layout";
+import Layout from "../../src/Re_components/Layout";
 
 const Search = ({ data }) => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const Search = ({ data }) => {
 export default Search;
 
 export async function getServerSideProps({ query }) {
-  const { pid } = query;
-  const { data } = await productApi.getSearchProduct(pid);
+  const { sid } = query;
+  const { data } = await productApi.getSearchProduct(sid);
   return { props: { data } };
 }

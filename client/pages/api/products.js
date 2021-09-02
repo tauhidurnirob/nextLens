@@ -6,7 +6,7 @@ const getSearchProduct = (keyword) =>
   client.get(endpoint.allProducts + `?keyword=${keyword}`);
 const getProductById = (id) => client.get(endpoint.productById + `/${id}`);
 const getProductByCategory = (category) =>
-  client.get(endpoint.productByCategory + `/${category}`);
+  client.get(endpoint.allProducts + `?category=${category}`);
 
 export default {
   getAllProduct,
