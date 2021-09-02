@@ -16,7 +16,7 @@ const ProductByCategory = ({ data }) => {
 export default ProductByCategory;
 
 export async function getServerSideProps({ query }) {
-  const { pid } = query;
-  const { data } = await productApi.getProductByCategory(pid);
+  const { cid } = query;
+  const { data } = await productApi.getProductByCategory(cid);
   return { props: { data } };
 }
