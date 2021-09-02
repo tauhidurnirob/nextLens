@@ -8,7 +8,13 @@ import cloudinary from "../utils/cloudinary.js";
 // @access public
 
 export const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({});
+  const keyword = req.query.keyword
+    ? {
+        name: { $regex: req.query.keyword, $options: "i" },
+      }
+    : {};
+
+  const products = await Product.find({ ...keyword });
 
   const topProduct = await Product.find({}).sort({ rating: -1 }).limit(3);
   res.json({
