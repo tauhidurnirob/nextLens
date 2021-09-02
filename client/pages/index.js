@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Box } from "@material-ui/core";
 import { useDispatch } from "react-redux";
+import Link from "next/link";
 
 import { default as MainHome } from "../src/Components/Home";
 import clsx from "clsx";
