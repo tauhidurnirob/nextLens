@@ -31,11 +31,14 @@ const Search = ({ setIsSearch }) => {
     resolver: yupResolver(schema),
   });
   const onSubmit = ({ keyword }) => {
-    if (keyword)
+    if (keyword) {
       router.push({
-        pathname: "search/[pid]",
+        pathname: "/search/[pid]",
         query: { pid: keyword },
       });
+    } else {
+      router.push("/");
+    }
   };
   const classes = useStyles();
 

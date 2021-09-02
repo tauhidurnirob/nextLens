@@ -1,39 +1,31 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { Container, Box } from "@material-ui/core";
 
-import { useRouter } from "next/router";
+import Products from "../../src/Components/Products";
+import { fetchedProducts } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
+import Layout from "./../../src/Re_components/Layout";
 
 const Search = ({ data }) => {
-  // const router = useRouter();
-  // const { pid } = router.query;
-  // const testData = async () => {
-  //   const { data } = await productApi.getSearchProduct(pid);
-  //   console.log(data);
-  // };
-  // useEffect(() => {
-  //   testData();
-  // }, [pid]);
-  console.log(data);
-  return <h1>Post:</h1>;
+  const dispatch = useDispatch();
+
+  dispatch(fetchedProducts(data.products));
+  return (
+    <Layout title="Search">
+      <Container maxWidth="lg">
+        <Box mt={4}>
+          <Products />
+        </Box>
+      </Container>
+    </Layout>
+  );
 };
 
 export default Search;
 
-// export async function getStaticPaths() {
-//   const {
-//     data: { products },
-//   } = await productApi.getAllProduct();
-//   const paths = products?.map((item) => ({
-//     params: {
-//       id: item.slug,
-//     },
-//   }));
-//   return { paths, fallback: false };
-// }
-
 export async function getServerSideProps({ query }) {
   const { pid } = query;
-  console.log("pid", pid);
   const { data } = await productApi.getSearchProduct(pid);
   return { props: { data } };
 }
