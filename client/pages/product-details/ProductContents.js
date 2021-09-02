@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 
 import { Quantity } from "./../../src/Re_components";
 import colors from "../../config/colors";
-import { cartList } from "./../../src/redux/slices/productSlice";
+import { productList } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles(() => ({
   form: {
@@ -44,7 +44,7 @@ const useStyles = makeStyles(() => ({
 
 const ProductContents = () => {
   const classes = useStyles();
-  const { productById, cart } = useSelector(cartList);
+  const { productById, cart } = useSelector(productList);
 
   const cartProductById = cart.find((item) => item._id === productById._id);
 

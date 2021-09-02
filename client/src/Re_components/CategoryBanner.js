@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 import styles from "../../styles/categoryBanner.module.scss";
 import { ShouldBeCapital } from "../../utils/utils";
-import { cartList } from "./../redux/slices/productSlice";
+import { productList } from "./../redux/slices/productSlice";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -22,7 +22,7 @@ const CategoryBanner = ({ categoryTitle }) => {
   const router = useRouter();
   const route = router.asPath.split("/")[1];
 
-  const { productById } = useSelector(cartList);
+  const { productById } = useSelector(productList);
 
   return (
     <Grid

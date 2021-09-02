@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { useSelector } from "react-redux";
 
 import colors from "../../config/colors";
-import { cartList } from "./../../src/redux/slices/productSlice";
+import { productList } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductSubHeader = () => {
   const classes = useStyles();
-  const { productById } = useSelector(cartList);
+  const { productById } = useSelector(productList);
 
   return (
     <Container maxWidth={false} className={clsx(classes.container)}>

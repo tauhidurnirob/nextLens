@@ -7,7 +7,7 @@ import HistoryIcon from "@material-ui/icons/History";
 import { useRouter } from "next/router";
 
 import { Cards } from "./../Re_components";
-import { cartList } from "./../redux/slices/productSlice";
+import { productList } from "./../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Products = () => {
-  const { products } = useSelector(cartList);
+  const { products } = useSelector(productList);
   const { back } = useRouter();
   const classes = useStyles();
   return (

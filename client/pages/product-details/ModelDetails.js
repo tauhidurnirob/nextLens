@@ -11,7 +11,7 @@ import clsx from "clsx";
 import { Heading } from "./../../src/Re_components";
 import colors from "../../config/colors";
 import RatingComponent from "../../src/Components/RatingComponent";
-import { cartList } from "./../../src/redux/slices/productSlice";
+import { productList } from "./../../src/redux/slices/productSlice";
 import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 const ModelDetails = () => {
   const classes = useStyles();
 
-  const { productById } = useSelector(cartList);
+  const { productById } = useSelector(productList);
 
   return (
     <>

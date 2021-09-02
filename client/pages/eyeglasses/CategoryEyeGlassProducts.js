@@ -11,7 +11,7 @@ import FilterByLensType from "./FilterByLenseType";
 import FilterByFrameShape from "./FilterByFrameShape";
 import FilterByFrameStyle from "./FilterByFrameStyle";
 import FilterByShopCollection from "./FilterByShopCollection";
-import { cartList } from "./../../src/redux/slices/productSlice";
+import { productList } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  const { products } = useSelector(cartList);
+  const { products } = useSelector(productList);
 
   return (
     <Container maxWidth="lg">

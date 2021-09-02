@@ -62,4 +62,4 @@ export default productSlice.reducer;
 
 // Selector
 
-export const cartList = (state) => state.entities.product;
+export const productList = (state) => state.entities.product;
