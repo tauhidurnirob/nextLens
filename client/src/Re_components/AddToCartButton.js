@@ -5,14 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   addCart,
-  cartList,
+  productList,
   removeCart,
 } from "../../src/redux/slices/productSlice";
 
 const AddToCartButton = ({ item, iconStyle, ...otherProps }) => {
   const dispatch = useDispatch();
 
-  const { cart } = useSelector(cartList);
+  const { cart } = useSelector(productList);
   const inCart = cart?.find((items) => items._id === item?._id);
 
   return !inCart ? (

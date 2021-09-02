@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import colors from "../../config/colors";
 import AddToCartButton from "./AddToCartButton";
-import { qty, cartList } from "../redux/slices/productSlice";
+import { qty, productList } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: { margin: `${theme.spacing(1)}px 0 ${theme.spacing(2)}px 0` },
@@ -74,7 +74,7 @@ const Quantity = ({ items, isCartTable }) => {
   const dispatch = useDispatch();
   const [count, setCount] = useState(items.quantity);
 
-  const { cart } = useSelector(cartList);
+  const { cart } = useSelector(productList);
   const inCart = cart.find((item) => item._id === items._id);
 
   useEffect(() => {
