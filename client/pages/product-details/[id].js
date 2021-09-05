@@ -23,7 +23,7 @@ export async function getStaticPaths() {
   } = await productApi.getAllProduct();
   const paths = products?.map((item) => ({
     params: {
-      id: item.slug.toString(),
+      id: item.slug,
     },
   }));
   return { paths, fallback: false };

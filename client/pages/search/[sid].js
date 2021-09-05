@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Container, Box } from "@material-ui/core";
+import { useRouter } from "next/router";
 
 import Products from "../../src/Components/Products";
 import { fetchedProducts } from "../../src/redux/slices/productSlice";

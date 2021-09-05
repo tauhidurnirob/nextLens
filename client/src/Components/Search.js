@@ -27,7 +27,7 @@ const Search = ({ setIsSearch }) => {
     if (keyword) {
       router.push({
         pathname: "/search/[sid]",
-        query: { sid: keyword },
+        query: { sid: keyword.split(" ").join("+") },
       });
     } else {
       router.push("/");
