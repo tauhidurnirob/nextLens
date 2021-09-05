@@ -10,7 +10,10 @@ import {
   Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
+import { useSelector } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
+import { productList } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +30,15 @@ function valuetext(value) {
 
 const RangeSlider = () => {
   const classes = useStyles();
-  const [value, setValue] = useState([0, 37]);
+
+  const { products } = useSelector(productList);
+
+  const arr = products?.map(({ price }) => price);
+
+  const maxPrice = Math.max(...arr);
+  const minPrice = Math.min(...arr);
+
+  const [value, setValue] = useState([minPrice, maxPrice]);
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -62,6 +73,8 @@ const RangeSlider = () => {
               valueLabelDisplay="auto"
               aria-labelledby="range-slider"
               getAriaValueText={valuetext}
+              min={minPrice}
+              max={maxPrice}
             />
           </AccordionDetails>
         </Accordion>
