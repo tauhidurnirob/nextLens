@@ -16,7 +16,7 @@ const EconomyEyeGlasses = () => {
     <>
       <Heading isDivider>
         <Typography className={clsx(classes.heading)}>
-          EYEGLASSES SHAPE
+          ECONOMY EYEGLASSES
         </Typography>
       </Heading>
       <Products />
