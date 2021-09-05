@@ -52,6 +52,7 @@ const Banner = () => {
                 alt={item.image}
                 height={400}
                 width={400}
+                alt="main-banner"
               />
             </Fragment>
           ))}
@@ -64,7 +65,7 @@ const Banner = () => {
 export default Banner;
 
 const images = [
-  { image: "/images/c1.png" },
-  { image: "/images/c2.png" },
-  { image: "/images/c3.png" },
+  { image: "/images/navigation-banner/blue-light-glasses.png" },
+  { image: "/images/navigation-banner/eyeglasses-banner.png" },
+  { image: "/images/navigation-banner/sunglasses-banner.png" },
 ];
