@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   makeStyles,
   Slider,
@@ -10,10 +10,15 @@ import {
   Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useRouter } from "next/router";
 
-import { productList } from "./../../src/redux/slices/productSlice";
+import {
+  MinMaxFilter,
+  productList,
+} from "./../../src/redux/slices/productSlice";
+import productApi from "../api/products";
 
 const useStyles = makeStyles({
   root: {
@@ -24,21 +29,29 @@ const useStyles = makeStyles({
   },
 });
 
-function valuetext(value) {
-  return `${value}°C`;
+function priceValue(value) {
+  return value;
 }
 
 const RangeSlider = () => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
   const { products } = useSelector(productList);
-
   const arr = products?.map(({ price }) => price);
 
-  const maxPrice = Math.max(...arr);
   const minPrice = Math.min(...arr);
+  const maxPrice = Math.max(...arr);
 
   const [value, setValue] = useState([minPrice, maxPrice]);
+
+  useEffect(() => {
+    dispatch(
+      MinMaxFilter({
+        lowerNum: Number(value[0]),
+        upperNum: Number(value[1]),
+      })
+    );
+  }, [value]);
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -72,7 +85,7 @@ const RangeSlider = () => {
               onChange={handleChange}
               valueLabelDisplay="auto"
               aria-labelledby="range-slider"
-              getAriaValueText={valuetext}
+              getAriaValueText={priceValue}
               min={minPrice}
               max={maxPrice}
             />
