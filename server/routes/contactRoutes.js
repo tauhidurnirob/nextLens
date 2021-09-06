@@ -4,6 +4,6 @@ import { geContact } from "../controllers/contactController.js";
 
 const router = express.Router();
 
-router.route("/").get(geContact);
+router.route("/").post(geContact);
 
 export default router;
