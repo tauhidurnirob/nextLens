@@ -47,7 +47,6 @@ const productSlice = createSlice({
       state.topProduct = payload;
     },
     MinMaxFilter: (state, { payload }) => {
-      console.log(payload);
       const filterMinMax = state.products.filter(
         (item) =>
           item.price >= payload.lowerNum && item.price <= payload.upperNum
