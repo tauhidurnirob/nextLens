@@ -20,7 +20,9 @@ export const getProducts = asyncHandler(async (req, res) => {
       }
     : {};
 
-  const products = await Product.find({ ...keyword }).where({ ...category });
+  const products = await Product.find({
+    ...keyword,
+  }).where({ ...category });
 
   const topProduct = await Product.find({}).sort({ rating: -1 }).limit(3);
   res.json({

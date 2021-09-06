@@ -150,7 +150,7 @@ const router = [
   { routeName: "sunglasses", route: "/home" },
   { routeName: "blue light block glass", route: "/home" },
   { routeName: "Blog", route: "/home" },
-  { routeName: "Contact", route: "/home" },
+  { routeName: "Contact", route: "/contact" },
 ];
 
 export default Navigation;

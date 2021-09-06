@@ -10,10 +10,13 @@ import {
   Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import { productList } from "./../../src/redux/slices/productSlice";
+import {
+  MinMaxFilter,
+  productList,
+} from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
   root: {
@@ -24,21 +27,21 @@ const useStyles = makeStyles({
   },
 });
 
-function valuetext(value) {
-  return `${value}°C`;
+function priceValue(value) {
+  return value;
 }
 
 const RangeSlider = () => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
   const { products } = useSelector(productList);
 
   const arr = products?.map(({ price }) => price);
 
-  const maxPrice = Math.max(...arr);
   const minPrice = Math.min(...arr);
+  const maxPrice = Math.max(...arr);
 
-  const [value, setValue] = useState([minPrice, maxPrice]);
+  const [value, setValue] = useState([0, 1000]);
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -47,7 +50,13 @@ const RangeSlider = () => {
   };
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    // setValue(newValue);
+    dispatch(
+      MinMaxFilter({
+        lowerNum: newValue[0],
+        upperNum: newValue[1],
+      })
+    );
   };
 
   return (
@@ -63,18 +72,21 @@ const RangeSlider = () => {
             id="panel1a-header"
           >
             <Typography className={clsx(classes.heading)}>
-              <Box fontWeight="fontWeightBold">Filter By Price</Box>
+              <Box fontWeight="fontWeightBold">
+                Filter By Price `${value[0]} - ${value[1]}`
+              </Box>
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Slider
               value={value}
+              // defaultValue={value}
               onChange={handleChange}
               valueLabelDisplay="auto"
               aria-labelledby="range-slider"
-              getAriaValueText={valuetext}
-              min={minPrice}
-              max={maxPrice}
+              // getAriaValueText={priceValue}
+              // min={minPrice}
+              // max={maxPrice}
             />
           </AccordionDetails>
         </Accordion>

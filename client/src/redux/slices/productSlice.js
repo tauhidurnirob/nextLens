@@ -46,6 +46,15 @@ const productSlice = createSlice({
     topProducts(state, { payload }) {
       state.topProduct = payload;
     },
+    MinMaxFilter: (state, { payload }) => {
+      const filterMinMax = state.products.filter(
+        (item) =>
+          item.price >= payload.lowerNum && item.price <= payload.upperNum
+      );
+      if (filterMinMax) {
+        state.products = filterMinMax;
+      }
+    },
   },
 });
 
@@ -56,6 +65,7 @@ export const {
   findById,
   topProducts,
   fetchedProducts,
+  MinMaxFilter,
 } = productSlice.actions;
 
 export default productSlice.reducer;
