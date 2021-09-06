@@ -7,8 +7,15 @@ import {
   TextField,
   Button,
   Typography,
+  FormHelperText,
 } from "@material-ui/core";
 import clsx from "clsx";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import contactSchema from "../../schema/contactSchema";
+
 import colors from "../../config/colors";
 import { Heading, Layout } from "./../../src/Re_components";
 
@@ -37,10 +44,32 @@ const useStyles = makeStyles((theme) => ({
       color: colors.white,
     },
   },
+  errorFont: {
+    color: "red",
+  },
 }));
 
 const Contact = () => {
   const classes = useStyles();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(contactSchema) });
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    // const { data, ok } = await authApi.loginAuth(email, password);
+    // if (!ok) {
+    //   return toast.error("Invalid email or password");
+    // } else {
+    //   toast.success("Successfully logged in");
+    //   dispatch(loginAction(data));
+    //   setTimeout(() => {
+    //     router.push("/");
+    //   }, 2000);
+    // }
+  };
 
   return (
     <Layout title="contact">
@@ -48,16 +77,51 @@ const Contact = () => {
         <Grid container justifyContent="center">
           <Heading isDivider>
             <Typography variant="h5">Contact</Typography>
+            <ToastContainer />
           </Heading>
         </Grid>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container direction="column">
             <FormControl className={clsx(classes.form)} variant="filled">
-              <TextField id="outlined-Name" label="Name" variant="outlined" />
+              <TextField
+                id="outlined-Name"
+                label="Name"
+                variant="outlined"
+                inputProps={{
+                  ...register("name"),
+                }}
+              />
             </FormControl>
+            {errors.name && (
+              <FormHelperText>
+                <Typography
+                  className={clsx(classes.errorFont)}
+                  variant="subtitle2"
+                >
+                  {errors.name?.message}
+                </Typography>
+              </FormHelperText>
+            )}
             <FormControl className={clsx(classes.form)} variant="filled">
-              <TextField id="outlined-Email" label="Email" variant="outlined" />
+              <TextField
+                id="outlined-Email"
+                label="Email"
+                variant="outlined"
+                inputProps={{
+                  ...register("email"),
+                }}
+              />
             </FormControl>
+            {errors.email && (
+              <FormHelperText>
+                <Typography
+                  className={clsx(classes.errorFont)}
+                  variant="subtitle2"
+                >
+                  {errors.email?.message}
+                </Typography>
+              </FormHelperText>
+            )}
             <FormControl>
               <TextField
                 id="outlined-Description"
@@ -66,8 +130,21 @@ const Contact = () => {
                 multiline
                 minRows={4}
                 maxRows={8}
+                inputProps={{
+                  ...register("description"),
+                }}
               />
             </FormControl>
+            {errors.description && (
+              <FormHelperText>
+                <Typography
+                  className={clsx(classes.errorFont)}
+                  variant="subtitle2"
+                >
+                  {errors.description?.message}
+                </Typography>
+              </FormHelperText>
+            )}
             <Button type="submit" className={clsx(classes.btn)}>
               Submit
             </Button>

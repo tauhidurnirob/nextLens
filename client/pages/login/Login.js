@@ -19,11 +19,11 @@ import Visibility from "@material-ui/icons/Visibility";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import loginSchema from "../../schema/loginSchema";
 
 import colors from "../../config/colors";
 import { Heading } from "../../src/Re_components";
@@ -74,18 +74,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const schema = yup.object().shape({
-  email: yup
-    .string()
-    .email("Invalid email format")
-    .required("Email is required"),
-  password: yup
-    .string()
-    .required("Password is required")
-    .matches(/^[0-9]+$/, "Must be only digits")
-    .min(5, "Minimum 5 digits"),
-});
-
 const Login = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -95,7 +83,7 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  } = useForm({ resolver: yupResolver(loginSchema) });
 
   const onSubmit = async ({ email, password }) => {
     const { data, ok } = await authApi.loginAuth(email, password);
