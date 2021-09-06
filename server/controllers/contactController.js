@@ -10,7 +10,7 @@ dotenv.config();
 export const geContact = asyncHandler(async (req, res) => {
   const { name, email } = req.body;
   const transporter = nodemailer.createTransport({
-    service: process.env.USER,
+    service: process.env.SERVICE,
     auth: {
       user: process.env.USER,
       pass: process.env.PASS,

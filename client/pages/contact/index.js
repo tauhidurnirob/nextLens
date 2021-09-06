@@ -66,7 +66,7 @@ const Contact = () => {
     if (!ok) {
       return toast.error("Something went wrong");
     } else {
-      toast.success("Thanks! Check your email");
+      toast.success("Thanks! Check Your Email Kindly");
       setTimeout(() => {
         router.push("/");
       }, 2000);
