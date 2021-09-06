@@ -92,7 +92,9 @@ const RatingComponent = () => {
             maxRows={8}
           />
         </FormControl>
-        <Button className={clsx(classes.btn)}>Submit</Button>
+        <Button type="submit" className={clsx(classes.btn)}>
+          Submit
+        </Button>
       </Grid>
     </Grid>
   );
