@@ -62,15 +62,14 @@ const Contact = () => {
   const router = useRouter();
 
   const onSubmit = async (contactData) => {
-    const { data, ok } = await contactApi.postContact(contactData);
-    console.log(data);
+    const { ok } = await contactApi.postContact(contactData);
     if (!ok) {
       return toast.error("Something went wrong");
     } else {
       toast.success("Thanks! Check your email");
-      // setTimeout(() => {
-      //   router.push("/");
-      // }, 2000);
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
     }
   };
 
