@@ -1,18 +1,25 @@
 import nodemailer from "nodemailer";
-const sendMail = () => {
+import dotenv from "dotenv";
+dotenv.config();
+
+const sendMail = (name, email) => {
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    service: process.env.USER,
     auth: {
-      user: "djangomaster7023@gmail.com",
-      pass: "ShakiB7023956841", // naturally, replace both with your real credentials or an application-specific password
+      user: process.env.USER,
+      pass: process.env.PASS,
     },
   });
 
   const mailOptions = {
-    from: "support.next-lens@gmail.com",
-    to: "shakiba448@gmail.com",
-    subject: "Invoices due",
-    text: "Dudes, we really need your money.",
+    from: process.env.FORM,
+    to: email,
+    subject: "Support.next-lense",
+    text: `Hey ${name}, Hey we will touch very soon.`,
+    html: `Hello, <strong>${name}</strong> <br>
+    <p> I hope you doing well. Our team will touch very soon.</p> <br>
+    Thanks,<strong>Next-lense support team.</strong>
+    `,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

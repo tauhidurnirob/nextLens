@@ -14,8 +14,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import contactSchema from "../../schema/contactSchema";
+import { useRouter } from "next/router";
 
+import contactSchema from "../../schema/contactSchema";
+import contactApi from "../api/contact";
 import colors from "../../config/colors";
 import { Heading, Layout } from "./../../src/Re_components";
 
@@ -57,18 +59,19 @@ const Contact = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(contactSchema) });
 
-  const onSubmit = async (data) => {
+  const router = useRouter();
+
+  const onSubmit = async (contactData) => {
+    const { data, ok } = await contactApi.postContact(contactData);
     console.log(data);
-    // const { data, ok } = await authApi.loginAuth(email, password);
-    // if (!ok) {
-    //   return toast.error("Invalid email or password");
-    // } else {
-    //   toast.success("Successfully logged in");
-    //   dispatch(loginAction(data));
-    //   setTimeout(() => {
-    //     router.push("/");
-    //   }, 2000);
-    // }
+    if (!ok) {
+      return toast.error("Something went wrong");
+    } else {
+      toast.success("Thanks! Check your email");
+      // setTimeout(() => {
+      //   router.push("/");
+      // }, 2000);
+    }
   };
 
   return (
