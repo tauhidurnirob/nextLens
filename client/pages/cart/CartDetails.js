@@ -14,6 +14,7 @@ import HistoryIcon from "@material-ui/icons/History";
 import { Heading } from "../../src/Re_components";
 import { productList } from "../../src/redux/slices/productSlice";
 import CartTable from "./CartTable";
+import CartCheckout from "./CartCheckout";
 
 const useStyles = makeStyles(() => ({
   container: { padding: "84px 0 0 0 " },
@@ -34,6 +35,7 @@ const CartDetails = () => {
             <Typography variant="h4">Cart</Typography>
           </Heading>
           <CartTable />
+          <CartCheckout />
         </>
       ) : (
         <>
