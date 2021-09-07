@@ -29,12 +29,13 @@ const CartDetails = () => {
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
-      {/* {cart.length !== 0 ? (
+      {cart.length !== 0 ? (
         <>
           <Heading isDivider>
             <Typography variant="h4">Cart</Typography>
           </Heading>
           <CartTable />
+          <CartCheckout />
         </>
       ) : (
         <>
@@ -54,14 +55,7 @@ const CartDetails = () => {
             </Button>
           </Grid>
         </>
-      )} */}
-      <>
-        <Heading isDivider>
-          <Typography variant="h4">Cart</Typography>
-        </Heading>
-        <CartTable />
-        <CartCheckout />
-      </>
+      )}
     </Container>
   );
 };

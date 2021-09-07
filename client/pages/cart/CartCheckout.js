@@ -8,8 +8,10 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import { useSelector } from "react-redux";
 
 import colors from "../../config/colors";
+import { productList } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -39,6 +41,14 @@ const useStyles = makeStyles((theme) => ({
 
 const CartCheckout = () => {
   const classes = useStyles();
+  const { cart } = useSelector(productList);
+
+  const totalItems = cart
+    .map((item) => item.quantity)
+    .reduce((acc, cc) => acc + cc, 0);
+  const totalAmount = cart
+    .map((item) => item.totalPrice)
+    .reduce((acc, cc) => acc + cc, 0);
 
   return (
     <Container maxWidth={false} className={clsx(classes.container)}>
@@ -51,8 +61,8 @@ const CartCheckout = () => {
           className={clsx(classes.box)}
           direction="column"
         >
-          <Typography variant="h5" gutterBottom align="center">
-            Subtotal : Total items `` & Total amount ``
+          <Typography variant="h6" gutterBottom align="center">
+            Subtotal : Total items {totalItems} & Total amount ৳{totalAmount}
           </Typography>
           <Button
             className={clsx(classes.btn)}
