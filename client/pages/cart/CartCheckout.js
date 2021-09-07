@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   box: {
     border: "1px solid black",
     padding: `${theme.spacing(2)}px `,
+    margin: `${theme.spacing(2)}px  0px`,
   },
   btn: {
     transition: "all 300ms ease-in-out",
