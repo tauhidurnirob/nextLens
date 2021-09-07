@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 
 import colors from "../../config/colors";
 import { productList } from "./../../src/redux/slices/productSlice";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -65,14 +66,16 @@ const CartCheckout = () => {
           <Typography variant="h6" gutterBottom align="center">
             Subtotal : Total items {totalItems} & Total amount ৳{totalAmount}
           </Typography>
-          <Button
-            className={clsx(classes.btn)}
-            variant="contained"
-            color="primary"
-            startIcon={<ArrowForwardIosIcon />}
-          >
-            Processes to checkout
-          </Button>
+          <Link href="/shipping">
+            <Button
+              className={clsx(classes.btn)}
+              variant="contained"
+              color="primary"
+              startIcon={<ArrowForwardIosIcon />}
+            >
+              Processes to checkout
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </Container>
