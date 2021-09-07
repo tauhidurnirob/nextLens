@@ -10,7 +10,7 @@ import {
 import clsx from "clsx";
 import Link from "next/link";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   linkButtonHover: {
     transition: "all .5s",
     fontWeight: "bold",
@@ -49,7 +49,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
 
             {step2 ? (
               <Box mr={2}>
-                <Link href="/register">
+                <Link href="/shipping">
                   <Button className={clsx(classes.linkButtonHover)}>
                     Shipping Address
                   </Button>
@@ -64,7 +64,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             )}
             {step3 ? (
               <Box mr={2}>
-                <Link href="/register">
+                <Link href="/payment">
                   <Button className={clsx(classes.linkButtonHover)}>
                     Payment
                   </Button>
@@ -79,7 +79,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             )}
             {step4 ? (
               <Box mr={2}>
-                <Link href="/register">
+                <Link href="/place-order">
                   <Button className={clsx(classes.linkButtonHover)}>
                     Place Order
                   </Button>
