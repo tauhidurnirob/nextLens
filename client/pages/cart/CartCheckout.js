@@ -9,6 +9,7 @@ import {
 import clsx from "clsx";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 import colors from "../../config/colors";
 import { productList } from "./../../src/redux/slices/productSlice";
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   box: {
     border: "1px solid black",
     padding: `${theme.spacing(2)}px `,
+    margin: `${theme.spacing(2)}px  0px`,
   },
   btn: {
     transition: "all 300ms ease-in-out",
@@ -64,14 +66,16 @@ const CartCheckout = () => {
           <Typography variant="h6" gutterBottom align="center">
             Subtotal : Total items {totalItems} & Total amount ৳{totalAmount}
           </Typography>
-          <Button
-            className={clsx(classes.btn)}
-            variant="contained"
-            color="primary"
-            startIcon={<ArrowForwardIosIcon />}
-          >
-            Processes to checkout
-          </Button>
+          <Link href="/shipping">
+            <Button
+              className={clsx(classes.btn)}
+              variant="contained"
+              color="primary"
+              startIcon={<ArrowForwardIosIcon />}
+            >
+              Processes to checkout
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </Container>
