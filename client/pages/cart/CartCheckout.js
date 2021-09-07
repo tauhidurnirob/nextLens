@@ -9,10 +9,10 @@ import {
 import clsx from "clsx";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 import colors from "../../config/colors";
 import { productList } from "./../../src/redux/slices/productSlice";
-import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   container: {
