@@ -36,7 +36,7 @@ const index = () => {
     <Layout title="Payment">
       <Container className={clsx(classes.container)}>
         <CheckoutSteps step1 step2 step3 />
-        <Grid container justifyContent="center">
+        <Grid container justifyContent="flex-start">
           <FormControl component="fieldset" className={classes.formControl}>
             <FormGroup>
               <FormControlLabel
