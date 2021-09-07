@@ -4,4 +4,5 @@ export default {
   allProducts: "api/products",
   productById: "api/products",
   contact: "api/contact",
+  shipping: "api/shipping",
 };

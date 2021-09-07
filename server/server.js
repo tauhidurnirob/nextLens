@@ -11,6 +11,7 @@ import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
+import shippingRoutes from "./routes/shippingRoutes.js";
 
 const PORT = process.env.PORT || 5000;
 
@@ -35,6 +36,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/shipping", shippingRoutes);
 
 // middleware
 app.use(notFound);

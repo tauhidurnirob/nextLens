@@ -17,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 
 import shippingSchema from "../../schema/shippingSchema";
-import contactApi from "../api/contact";
+import shippingApi from "../api/shipping";
 import colors from "../../config/colors";
 import { Layout, CheckoutSteps } from "./../../src/Re_components";
 
@@ -63,20 +63,21 @@ const Shipping = () => {
 
   const onSubmit = async (shippingData) => {
     console.log(shippingData);
-    // const { ok } = await contactApi.postContact(shippingData);
-    // if (!ok) {
-    //   return toast.error("Something went wrong");
-    // } else {
-    //   toast.success("Thanks! Check Your Email Kindly");
-    //   setTimeout(() => {
-    //     router.push("/");
-    //   }, 2000);
-    // }
+    const { ok } = await shippingApi.postShipping(shippingData);
+    if (!ok) {
+      return toast.error("Something went wrong");
+    } else {
+      toast.success("Thanks for shipping information");
+      setTimeout(() => {
+        router.push("/payment");
+      }, 2000);
+    }
   };
 
   return (
     <Layout title="Shipping">
       <Container maxWidth="md" className={clsx(classes.container)}>
+        <ToastContainer />
         <CheckoutSteps step1 step2 />
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container direction="column">
@@ -177,29 +178,6 @@ const Shipping = () => {
                   variant="subtitle2"
                 >
                   {errors.country?.message}
-                </Typography>
-              </FormHelperText>
-            )}
-            <FormControl>
-              <TextField
-                id="outlined-Description"
-                label="Description"
-                variant="outlined"
-                multiline
-                minRows={4}
-                maxRows={8}
-                inputProps={{
-                  ...register("description"),
-                }}
-              />
-            </FormControl>
-            {errors.description && (
-              <FormHelperText>
-                <Typography
-                  className={clsx(classes.errorFont)}
-                  variant="subtitle2"
-                >
-                  {errors.description?.message}
                 </Typography>
               </FormHelperText>
             )}

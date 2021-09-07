@@ -1,9 +1,9 @@
 import express from "express";
 
-import { geContact } from "../controllers/contactController.js";
+import { createContact } from "../controllers/contactController.js";
 
 const router = express.Router();
 
-router.route("/").post(geContact);
+router.route("/").post(createContact);
 
 export default router;

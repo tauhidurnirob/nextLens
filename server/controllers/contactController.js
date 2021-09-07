@@ -3,11 +3,11 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 dotenv.config();
 
-// @Description Fetch all products
-// @routes GET/api/products
+// @Description contact
+// @routes POST/api/contact
 // @access public
 
-export const geContact = asyncHandler(async (req, res) => {
+export const createContact = asyncHandler(async (req, res) => {
   const { name, email } = req.body;
   const transporter = nodemailer.createTransport({
     service: process.env.SERVICE,
