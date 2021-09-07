@@ -4,7 +4,11 @@ import clsx from "clsx";
 import CheckoutSteps from "./../../src/Re_components/CheckoutSteps";
 
 const useStyles = makeStyles((theme) => ({
-  container: {},
+  container: {
+    padding: `${theme.spacing(10)}px 0 10px 0`,
+    overflow: "hidden",
+    width: "100%",
+  },
 }));
 
 const index = () => {
@@ -12,9 +16,11 @@ const index = () => {
 
   return (
     <Container className={clsx(classes.container)}>
-      <CheckoutSteps step1 step2 step3 />
-
-      <Grid> Welcome to payment</Grid>
+      <Grid>
+        {" "}
+        <CheckoutSteps step1 step2 step3 />
+        Welcome to payment
+      </Grid>
     </Container>
   );
 };

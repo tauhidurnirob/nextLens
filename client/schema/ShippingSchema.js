@@ -10,11 +10,6 @@ const shippingSchema = yup.object().shape({
   address: yup.string().required().label("Address"),
   postalCode: yup.string().required().label("Postal Code"),
   country: yup.string().required().label("Country"),
-  description: yup
-    .string()
-    .required()
-    .label("Description")
-    .matches(/[A-Za-z]+$/gi, "Must be only letters"),
 });
 
 export default shippingSchema;

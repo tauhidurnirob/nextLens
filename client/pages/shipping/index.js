@@ -77,6 +77,7 @@ const Shipping = () => {
   return (
     <Layout title="Shipping">
       <Container maxWidth="md" className={clsx(classes.container)}>
+        <ToastContainer />
         <CheckoutSteps step1 step2 />
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container direction="column">
@@ -177,29 +178,6 @@ const Shipping = () => {
                   variant="subtitle2"
                 >
                   {errors.country?.message}
-                </Typography>
-              </FormHelperText>
-            )}
-            <FormControl>
-              <TextField
-                id="outlined-Description"
-                label="Description"
-                variant="outlined"
-                multiline
-                minRows={4}
-                maxRows={8}
-                inputProps={{
-                  ...register("description"),
-                }}
-              />
-            </FormControl>
-            {errors.description && (
-              <FormHelperText>
-                <Typography
-                  className={clsx(classes.errorFont)}
-                  variant="subtitle2"
-                >
-                  {errors.description?.message}
                 </Typography>
               </FormHelperText>
             )}
