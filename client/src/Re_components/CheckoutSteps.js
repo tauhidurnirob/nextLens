@@ -33,7 +33,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
           <ButtonGroup color="inherit">
             {step1 ? (
               <Box mr={2}>
-                <Link href="/register">
+                <Link href="/login">
                   <Button className={clsx(classes.linkButtonHover)}>
                     Sign In
                   </Button>
