@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, makeStyles, Grid } from "@material-ui/core";
 import clsx from "clsx";
+import CheckoutSteps from "./../../src/Re_components/CheckoutSteps";
 
 const useStyles = makeStyles((theme) => ({
   container: {},
@@ -11,7 +12,9 @@ const index = () => {
 
   return (
     <Container className={clsx(classes.container)}>
-      <Grid></Grid>
+      <CheckoutSteps step1 step2 step3 />
+
+      <Grid> Welcome to payment</Grid>
     </Container>
   );
 };

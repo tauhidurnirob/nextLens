@@ -17,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 
 import shippingSchema from "../../schema/shippingSchema";
-import contactApi from "../api/contact";
+import shippingApi from "../api/shipping";
 import colors from "../../config/colors";
 import { Layout, CheckoutSteps } from "./../../src/Re_components";
 
@@ -63,15 +63,15 @@ const Shipping = () => {
 
   const onSubmit = async (shippingData) => {
     console.log(shippingData);
-    // const { ok } = await contactApi.postContact(shippingData);
-    // if (!ok) {
-    //   return toast.error("Something went wrong");
-    // } else {
-    //   toast.success("Thanks! Check Your Email Kindly");
-    //   setTimeout(() => {
-    //     router.push("/");
-    //   }, 2000);
-    // }
+    const { ok } = await shippingApi.postShipping(shippingData);
+    if (!ok) {
+      return toast.error("Something went wrong");
+    } else {
+      toast.success("Thanks for shipping information");
+      setTimeout(() => {
+        router.push("/payment");
+      }, 2000);
+    }
   };
 
   return (
