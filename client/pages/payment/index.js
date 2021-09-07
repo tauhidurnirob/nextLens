@@ -1,5 +1,14 @@
-import React from "react";
-import { Container, makeStyles, Grid } from "@material-ui/core";
+import React, { useState } from "react";
+import {
+  Container,
+  makeStyles,
+  Grid,
+  FormControl,
+  FormGroup,
+  FormLabel,
+  FormControlLabel,
+  Checkbox,
+} from "@material-ui/core";
 import clsx from "clsx";
 import CheckoutSteps from "./../../src/Re_components/CheckoutSteps";
 
@@ -13,13 +22,54 @@ const useStyles = makeStyles((theme) => ({
 
 const index = () => {
   const classes = useStyles();
+  const [state, setState] = useState({
+    paypal: false,
+    stripe: false,
+    cashOn: false,
+  });
+  const { paypal, stripe, cashOn } = state;
 
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
   return (
     <Container className={clsx(classes.container)}>
-      <Grid>
-        {" "}
-        <CheckoutSteps step1 step2 step3 />
-        Welcome to payment
+      <CheckoutSteps step1 step2 step3 />
+      <Grid container justifyContent="center">
+        <FormControl component="fieldset" className={classes.formControl}>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={paypal}
+                  onChange={handleChange}
+                  name="paypal"
+                />
+              }
+              label="PAYPAL"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={stripe}
+                  onChange={handleChange}
+                  name="stripe"
+                />
+              }
+              label="STRIPE"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={cashOn}
+                  onChange={handleChange}
+                  name="cashOn"
+                />
+              }
+              label="CASH ON"
+            />
+          </FormGroup>
+        </FormControl>
       </Grid>
     </Container>
   );
