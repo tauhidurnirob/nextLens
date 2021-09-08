@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 
 import colors from "../../config/colors";
-import { productList } from "./../../src/redux/slices/productSlice";
+import { productList } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
