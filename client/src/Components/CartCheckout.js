@@ -14,6 +14,8 @@ import Link from "next/link";
 
 import colors from "../../config/colors";
 import { productList } from "../redux/slices/productSlice";
+import Payment from "./Payment";
+import { Heading } from "./../Re_components";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -34,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: "2px solid #222",
     fontSize: "16px",
     fontWeight: "bold",
+    marginBottom: "5px",
     "&:hover": {
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.green,
@@ -95,6 +98,16 @@ const CartCheckout = ({ isProcessBtn, isPayment }) => {
                 Processes to checkout
               </Button>
             </Link>
+          )}
+          {isPayment && (
+            <>
+              <Typography variant="h6" gutterBottom>
+                Select Payment Method
+              </Typography>
+              <Divider style={{ marginBottom: "5px" }} />
+
+              <Payment />
+            </>
           )}
         </Grid>
       </Grid>

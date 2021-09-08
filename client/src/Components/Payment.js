@@ -9,17 +9,13 @@ import {
   Checkbox,
 } from "@material-ui/core";
 import clsx from "clsx";
-import { Layout } from "./../../src/Re_components";
+import { Layout } from "../Re_components";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: `${theme.spacing(10)}px 0 10px 0`,
-    overflow: "hidden",
-    width: "100%",
-  },
+  container: {},
 }));
 
-const index = () => {
+const Payment = () => {
   const classes = useStyles();
   const [state, setState] = useState({
     paypal: false,
@@ -75,4 +71,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Payment;
