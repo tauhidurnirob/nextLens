@@ -35,7 +35,7 @@ const CartDetails = () => {
             <Typography variant="h4">Cart</Typography>
           </Heading>
           <CartTable />
-          <CartCheckout />
+          <CartCheckout isProcessBtn />
         </>
       ) : (
         <>

@@ -5,6 +5,7 @@ import {
   Grid,
   Button,
   Typography,
+  Divider,
 } from "@material-ui/core";
 import clsx from "clsx";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CartCheckout = () => {
+const CartCheckout = ({ isProcessBtn, isPayment }) => {
   const classes = useStyles();
   const { cart } = useSelector(productList);
 
@@ -63,19 +64,38 @@ const CartCheckout = () => {
           className={clsx(classes.box)}
           direction="column"
         >
-          <Typography variant="h6" gutterBottom align="center">
-            Subtotal : Total items {totalItems} & Total amount ৳{totalAmount}
-          </Typography>
-          <Link href="/shipping">
-            <Button
-              className={clsx(classes.btn)}
-              variant="contained"
-              color="primary"
-              startIcon={<ArrowForwardIosIcon />}
-            >
-              Processes to checkout
-            </Button>
-          </Link>
+          <Grid item container justifyContent="space-evenly">
+            <Typography variant="h6" gutterBottom>
+              Total items :
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+              * {` `}
+              {totalItems}
+            </Typography>
+          </Grid>
+          <Divider style={{ marginBottom: "5px" }} />
+          <Grid item container justifyContent="space-evenly">
+            <Typography variant="h6" gutterBottom>
+              Grand Total :
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+              ৳{` `}
+              {totalAmount}
+            </Typography>
+          </Grid>
+
+          {isProcessBtn && (
+            <Link href="/shipping">
+              <Button
+                className={clsx(classes.btn)}
+                variant="contained"
+                color="primary"
+                startIcon={<ArrowForwardIosIcon />}
+              >
+                Processes to checkout
+              </Button>
+            </Link>
+          )}
         </Grid>
       </Grid>
     </Container>
