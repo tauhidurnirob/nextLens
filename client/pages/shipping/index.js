@@ -1,15 +1,15 @@
 import React from "react";
 import { Layout } from "./../../src/Re_components";
-import Shipping from "./Shipping";
+import { default as ShippingForm } from "./Shipping";
 import CartCheckout from "../../src/Components/CartCheckout";
 
-const index = () => {
+const Shipping = () => {
   return (
     <Layout title="Shipping">
-      <Shipping />
+      <ShippingForm />
       <CartCheckout isPayment />
     </Layout>
   );
 };
 
-export default index;
+export default Shipping;
