@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import Link from "next/link";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import AddIcon from "@material-ui/icons/Add";
 
 import { Layout, Heading } from "../Re_components";
 import colors from "../../config/colors";
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Payment = () => {
-  const classes = useState();
+  const classes = useStyles();
 
   const [state, setState] = useState({
     paypal: false,
@@ -94,18 +94,22 @@ const Payment = () => {
             </FormGroup>
           </FormControl>
         </Grid>
-        <Grid container justifyContent="center">
-          <Link href="/place-order">
-            <Button
-              className={clsx(classes.btn)}
-              variant="contained"
-              color="primary"
-              startIcon={<ArrowForwardIosIcon />}
-            >
-              Place Order
-            </Button>
-          </Link>
-        </Grid>
+        {paypal ||
+          stripe ||
+          (cashOn && (
+            <Grid container justifyContent="center">
+              <Link href="/place-order">
+                <Button
+                  className={clsx(classes.btn)}
+                  variant="contained"
+                  color="primary"
+                  startIcon={<AddIcon />}
+                >
+                  Place Order
+                </Button>
+              </Link>
+            </Grid>
+          ))}
       </Container>
     </Layout>
   );
