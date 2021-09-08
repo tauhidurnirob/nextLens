@@ -94,22 +94,20 @@ const Payment = () => {
             </FormGroup>
           </FormControl>
         </Grid>
-        {paypal ||
-          stripe ||
-          (cashOn && (
-            <Grid container justifyContent="center">
-              <Link href="/place-order">
-                <Button
-                  className={clsx(classes.btn)}
-                  variant="contained"
-                  color="primary"
-                  startIcon={<AddIcon />}
-                >
-                  Place Order
-                </Button>
-              </Link>
-            </Grid>
-          ))}
+        {paypal || stripe || cashOn ? (
+          <Grid container justifyContent="center">
+            <Link href="/place-order">
+              <Button
+                className={clsx(classes.btn)}
+                variant="contained"
+                color="primary"
+                startIcon={<AddIcon />}
+              >
+                Place Order
+              </Button>
+            </Link>
+          </Grid>
+        ) : null}
       </Container>
     </Layout>
   );
