@@ -15,7 +15,6 @@ import Link from "next/link";
 import colors from "../../config/colors";
 import { productList } from "../redux/slices/productSlice";
 import Payment from "./Payment";
-import { Heading } from "./../Re_components";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -61,7 +60,7 @@ const CartCheckout = ({ isProcessBtn, isPayment }) => {
       <Grid container justifyContent="center">
         <Grid
           item
-          md={6}
+          md={4}
           container
           justifyContent="center"
           className={clsx(classes.box)}
@@ -99,16 +98,9 @@ const CartCheckout = ({ isProcessBtn, isPayment }) => {
               </Button>
             </Link>
           )}
-          {isPayment && (
-            <>
-              <Typography variant="h6" gutterBottom>
-                Select Payment Method
-              </Typography>
-              <Divider style={{ marginBottom: "5px" }} />
-
-              <Payment />
-            </>
-          )}
+        </Grid>
+        <Grid container justifyContent="center" direction="column">
+          {isPayment && <Payment />}
         </Grid>
       </Grid>
     </Container>

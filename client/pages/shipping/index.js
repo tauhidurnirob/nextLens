@@ -1,15 +1,19 @@
 import React from "react";
+import { Container } from "@material-ui/core";
+
 import { Layout } from "./../../src/Re_components";
-import Shipping from "./Shipping";
+import { default as ShippingForm } from "./Shipping";
 import CartCheckout from "../../src/Components/CartCheckout";
 
-const index = () => {
+const Shipping = () => {
   return (
     <Layout title="Shipping">
-      <Shipping />
-      <CartCheckout isPayment />
+      <Container maxWidth="lg">
+        <ShippingForm />
+        <CartCheckout isPayment />
+      </Container>
     </Layout>
   );
 };
 
-export default index;
+export default Shipping;
