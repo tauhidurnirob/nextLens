@@ -7,11 +7,39 @@ import {
   FormControlLabel,
   Checkbox,
   Typography,
+  makeStyles,
+  Button,
 } from "@material-ui/core";
 import clsx from "clsx";
+import Link from "next/link";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+
 import { Layout, Heading } from "../Re_components";
+import colors from "../../config/colors";
+
+const useStyles = makeStyles((theme) => ({
+  btn: {
+    transition: "all 300ms ease-in-out",
+    boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+    padding: "10px 20px",
+    minWidth: "220px",
+    letterSpacing: "2px",
+    borderRadius: 0,
+    borderColor: "2px solid #222",
+    fontSize: "16px",
+    fontWeight: "bold",
+    marginBottom: "5px",
+    "&:hover": {
+      boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
+      background: colors.green,
+      color: colors.white,
+    },
+  },
+}));
 
 const Payment = () => {
+  const classes = useState();
+
   const [state, setState] = useState({
     paypal: false,
     stripe: false,
@@ -65,6 +93,18 @@ const Payment = () => {
               />
             </FormGroup>
           </FormControl>
+        </Grid>
+        <Grid container justifyContent="center">
+          <Link href="/place-order">
+            <Button
+              className={clsx(classes.btn)}
+              variant="contained"
+              color="primary"
+              startIcon={<ArrowForwardIosIcon />}
+            >
+              Place Order
+            </Button>
+          </Link>
         </Grid>
       </Container>
     </Layout>
