@@ -5,6 +5,7 @@ import {
   Grid,
   Button,
   Typography,
+  Divider,
 } from "@material-ui/core";
 import clsx from "clsx";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
@@ -12,7 +13,9 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 
 import colors from "../../config/colors";
-import { productList } from "./../../src/redux/slices/productSlice";
+import { productList } from "../redux/slices/productSlice";
+import Payment from "./Payment";
+import { Heading } from "./../Re_components";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -33,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: "2px solid #222",
     fontSize: "16px",
     fontWeight: "bold",
+    marginBottom: "5px",
     "&:hover": {
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.green,
@@ -41,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CartCheckout = () => {
+const CartCheckout = ({ isProcessBtn, isPayment }) => {
   const classes = useStyles();
   const { cart } = useSelector(productList);
 
@@ -63,19 +67,48 @@ const CartCheckout = () => {
           className={clsx(classes.box)}
           direction="column"
         >
-          <Typography variant="h6" gutterBottom align="center">
-            Subtotal : Total items {totalItems} & Total amount ৳{totalAmount}
-          </Typography>
-          <Link href="/shipping">
-            <Button
-              className={clsx(classes.btn)}
-              variant="contained"
-              color="primary"
-              startIcon={<ArrowForwardIosIcon />}
-            >
-              Processes to checkout
-            </Button>
-          </Link>
+          <Grid item container justifyContent="space-evenly">
+            <Typography variant="h6" gutterBottom>
+              Total items :
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+              * {` `}
+              {totalItems}
+            </Typography>
+          </Grid>
+          <Divider style={{ marginBottom: "5px" }} />
+          <Grid item container justifyContent="space-evenly">
+            <Typography variant="h6" gutterBottom>
+              Grand Total :
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+              ৳{` `}
+              {totalAmount}
+            </Typography>
+          </Grid>
+
+          {isProcessBtn && (
+            <Link href="/shipping">
+              <Button
+                className={clsx(classes.btn)}
+                variant="contained"
+                color="primary"
+                startIcon={<ArrowForwardIosIcon />}
+              >
+                Processes to checkout
+              </Button>
+            </Link>
+          )}
+          {isPayment && (
+            <>
+              <Typography variant="h6" gutterBottom>
+                Select Payment Method
+              </Typography>
+              <Divider style={{ marginBottom: "5px" }} />
+
+              <Payment />
+            </>
+          )}
         </Grid>
       </Grid>
     </Container>
