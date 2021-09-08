@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 import {
   Container,
-  makeStyles,
   Grid,
   FormControl,
   FormGroup,
   FormControlLabel,
   Checkbox,
+  Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
-import { Layout } from "../Re_components";
-
-const useStyles = makeStyles((theme) => ({
-  container: {},
-}));
+import { Layout, Heading } from "../Re_components";
 
 const Payment = () => {
-  const classes = useStyles();
   const [state, setState] = useState({
     paypal: false,
     stripe: false,
@@ -29,9 +24,14 @@ const Payment = () => {
   };
   return (
     <Layout title="Payment">
-      <Container className={clsx(classes.container)}>
-        <Grid container justifyContent="flex-start">
-          <FormControl component="fieldset" className={classes.formControl}>
+      <Container>
+        <Grid container justifyContent="center">
+          <Heading isDivider>
+            <Typography variant="h6" gutterBottom>
+              Select Payment Method
+            </Typography>
+          </Heading>
+          <FormControl component="fieldset">
             <FormGroup>
               <FormControlLabel
                 control={
