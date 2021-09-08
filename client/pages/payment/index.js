@@ -9,7 +9,6 @@ import {
   Checkbox,
 } from "@material-ui/core";
 import clsx from "clsx";
-import CheckoutSteps from "./../../src/Re_components/CheckoutSteps";
 import { Layout } from "./../../src/Re_components";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +34,6 @@ const index = () => {
   return (
     <Layout title="Payment">
       <Container className={clsx(classes.container)}>
-        <CheckoutSteps step1 step2 step3 />
         <Grid container justifyContent="flex-start">
           <FormControl component="fieldset" className={classes.formControl}>
             <FormGroup>

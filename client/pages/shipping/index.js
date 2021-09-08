@@ -19,7 +19,7 @@ import { useRouter } from "next/router";
 import shippingSchema from "../../schema/shippingSchema";
 import shippingApi from "../api/shipping";
 import colors from "../../config/colors";
-import { Layout, CheckoutSteps } from "./../../src/Re_components";
+import { Layout } from "./../../src/Re_components";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -78,7 +78,6 @@ const Shipping = () => {
     <Layout title="Shipping">
       <Container maxWidth="md" className={clsx(classes.container)}>
         <ToastContainer />
-        <CheckoutSteps step1 step2 />
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container direction="column">
             <FormControl className={clsx(classes.form)} variant="filled">
