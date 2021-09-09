@@ -158,8 +158,10 @@ const Shipping = ({ setBilling }) => {
             control={
               <Checkbox
                 checked={account}
+                onChange={account}
                 onClick={() => setAccount(!account)}
                 name="account"
+                inputProps={{ ...register("withAccount") }}
               />
             }
             label="With Create Account"
@@ -172,7 +174,7 @@ const Shipping = ({ setBilling }) => {
                   label="password"
                   variant="outlined"
                   inputProps={{
-                    ...register("password"),
+                    ...register("password", { required: account }),
                   }}
                 />
               </FormControl>
