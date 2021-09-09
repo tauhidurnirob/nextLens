@@ -8,6 +8,7 @@ import { CategoryBanner, Heading } from "./../../src/Re_components";
 
 const Shipping = () => {
   const [billing, setBilling] = useState(false);
+
   return (
     <Layout title="Shipping">
       <CategoryBanner title="Shipping" />
