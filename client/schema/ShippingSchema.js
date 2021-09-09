@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const shippingSchema = yup.object().shape({
+export const shippingSchema = yup.object().shape({
   name: yup
     .string()
     .label("Name")
@@ -29,5 +29,3 @@ const shippingSchema = yup.object().shape({
   zipCode: yup.string().required().label("Zip Code"),
   country: yup.string().required().label("Country"),
 });
-
-export default shippingSchema;
