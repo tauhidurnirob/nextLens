@@ -38,9 +38,7 @@ const CategoryBanner = ({ categoryTitle, title }) => {
             ? categoryTitle
             : ShouldBeCapital(productById.title)}
         </Box>
-        <Box fontWeight="fontWeightBold">
-          {route === "shipping" && { title }}
-        </Box>
+        <Box fontWeight="fontWeightBold">{route === "shipping" && title}</Box>
       </Typography>
     </Grid>
   );
