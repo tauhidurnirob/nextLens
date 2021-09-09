@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   makeStyles,
@@ -68,8 +68,6 @@ const Shipping = ({ setBilling }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(shippingSchema) });
 
-  const router = useRouter();
-
   const [account, setAccount] = useState(false);
   const onSubmit = async (shippingData) => {
     const { ok } = await shippingApi.postShipping(shippingData);
@@ -78,10 +76,8 @@ const Shipping = ({ setBilling }) => {
     } else {
       setBilling(true);
       toast.success("Thanks for shipping information");
-      // setTimeout(() => {
-      //   router.push("/payment");
-      // }, 2000);
     }
+
     if (shippingData.withAccount) {
       const { data, ok } = await authApi.registerAuth(
         shippingData.email,
@@ -92,9 +88,6 @@ const Shipping = ({ setBilling }) => {
       } else {
         toast.success("Successfully registered");
         dispatch(registerAction(data));
-        // setTimeout(() => {
-        //   router.push("/");
-        // }, 2000);
       }
     }
   };
