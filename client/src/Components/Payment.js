@@ -16,7 +16,6 @@ import { Heading } from "../Re_components";
 import colors from "../../config/colors";
 
 const useStyles = makeStyles(() => ({
-  btnGroup: { boxShadow: "none" },
   btn: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
@@ -41,50 +40,44 @@ const Payment = ({ billing }) => {
 
   return billing ? (
     <Container>
-      <Grid container justifyContent="center">
+      <Grid container justifyContent="center" direction="column">
         <Heading isDivider>
           <Typography variant="h6" gutterBottom>
             Select Payment Method
           </Typography>
         </Heading>
-        <ButtonGroup
-          orientation="vertical"
-          color="primary"
-          aria-label="vertical contained primary button group"
-          variant="contained"
-        >
-          <Link href="/payment/paypal">
-            <Button
-              variant="contained"
-              color="primary"
-              startIcon={<PaymentIcon />}
-              className={clsx(classes.btn)}
-            >
-              Paypal
-            </Button>
-          </Link>
-          <Link href="/payment/stripe">
-            <Button
-              variant="contained"
-              color="primary"
-              startIcon={<PaymentIcon />}
-              className={clsx(classes.btn)}
-            >
-              Stripe
-            </Button>
-          </Link>
 
-          <Link href="/payment/cash-on">
-            <Button
-              variant="contained"
-              color="primary"
-              startIcon={<PanToolIcon />}
-              className={clsx(classes.btn)}
-            >
-              Cash On
-            </Button>
-          </Link>
-        </ButtonGroup>
+        <Link href="/payment/paypal">
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<PaymentIcon />}
+            className={clsx(classes.btn)}
+          >
+            Paypal
+          </Button>
+        </Link>
+        <Link href="/payment/stripe">
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<PaymentIcon />}
+            className={clsx(classes.btn)}
+          >
+            Stripe
+          </Button>
+        </Link>
+
+        <Link href="/payment/cash-on">
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<PanToolIcon />}
+            className={clsx(classes.btn)}
+          >
+            Cash On
+          </Button>
+        </Link>
       </Grid>
     </Container>
   ) : null;

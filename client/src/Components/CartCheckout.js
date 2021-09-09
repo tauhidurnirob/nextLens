@@ -17,13 +17,8 @@ import { productList } from "../redux/slices/productSlice";
 import Payment from "./Payment";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: `${theme.spacing(2)}px 0`,
-  },
   box: {
-    border: "1px solid black",
-    padding: `${theme.spacing(2)}px `,
-    margin: `${theme.spacing(2)}px  0px`,
+    padding: `${theme.spacing(2)}px  0 0 0 `,
   },
   btn: {
     transition: "all 300ms ease-in-out",
@@ -56,54 +51,57 @@ const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
     .reduce((acc, cc) => acc + cc, 0);
 
   return (
-    <Container maxWidth={false} className={clsx(classes.container)}>
-      <Grid container justifyContent="center">
-        <Grid
-          item
-          md={4}
-          container
-          justifyContent="center"
-          className={clsx(classes.box)}
-          direction="column"
-        >
-          <Grid item container justifyContent="space-evenly">
-            <Typography variant="h6" gutterBottom>
-              Total items :
-            </Typography>
-            <Typography variant="h6" gutterBottom>
-              * {` `}
-              {totalItems}
-            </Typography>
-          </Grid>
-          <Divider style={{ marginBottom: "5px" }} />
-          <Grid item container justifyContent="space-evenly">
-            <Typography variant="h6" gutterBottom>
-              Grand Total :
-            </Typography>
-            <Typography variant="h6" gutterBottom>
-              ৳{` `}
-              {totalAmount}
-            </Typography>
-          </Grid>
-
-          {isProcessBtn && (
-            <Link href="/shipping">
-              <Button
-                className={clsx(classes.btn)}
-                variant="contained"
-                color="primary"
-                startIcon={<ArrowForwardIosIcon />}
-              >
-                Processes to checkout
-              </Button>
-            </Link>
-          )}
-        </Grid>
-        <Grid container justifyContent="center" direction="column">
-          {isPayment && <Payment billing={billing} />}
-        </Grid>
+    <Grid
+      container
+      justifyContent="center"
+      direction="column"
+      className={clsx(classes.box)}
+    >
+      <Grid item container justifyContent="space-evenly">
+        <Typography variant="h6" gutterBottom>
+          Total items :
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          * {` `}
+          {totalItems}
+        </Typography>
       </Grid>
-    </Container>
+      <Grid container justifyContent="center">
+        <Divider style={{ marginBottom: "5px", width: "80%" }} />
+      </Grid>
+      <Grid item container justifyContent="space-evenly">
+        <Typography variant="h6" gutterBottom>
+          Grand Total :
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          ৳{` `}
+          {totalAmount}
+        </Typography>
+      </Grid>
+
+      {isProcessBtn && (
+        <Link href="/shipping">
+          <Button
+            className={clsx(classes.btn)}
+            variant="contained"
+            color="primary"
+            startIcon={<ArrowForwardIosIcon />}
+          >
+            Processes to checkout
+          </Button>
+        </Link>
+      )}
+      <Grid container justifyContent="center" direction="column">
+        {isPayment && (
+          <>
+            <Grid container justifyContent="center">
+              <Divider style={{ marginBottom: "5px", width: "80%" }} />
+            </Grid>
+            <Payment billing={billing} />
+          </>
+        )}
+      </Grid>
+    </Grid>
   );
 };
 

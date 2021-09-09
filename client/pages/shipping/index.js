@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 
 import { Layout } from "./../../src/Re_components";
 import { default as ShippingForm } from "./Shipping";
@@ -10,8 +10,14 @@ const Shipping = () => {
   return (
     <Layout title="Shipping">
       <Container maxWidth="lg">
-        <ShippingForm setBilling={setBilling} />
-        <CartCheckout isPayment billing={billing} />
+        <Grid container direction="row">
+          <Grid item container md={7}>
+            <ShippingForm setBilling={setBilling} />
+          </Grid>
+          <Grid item container md={5}>
+            <CartCheckout isPayment billing={billing} />
+          </Grid>
+        </Grid>
       </Container>
     </Layout>
   );
