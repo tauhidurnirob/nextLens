@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Payment = () => {
+const Payment = ({ billing }) => {
   const classes = useStyles();
 
   const [state, setState] = useState({
@@ -50,67 +50,65 @@ const Payment = () => {
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-  return (
-    <Layout title="Payment">
-      <Container>
+  return billing ? (
+    <Container>
+      <Grid container justifyContent="center">
+        <Heading isDivider>
+          <Typography variant="h6" gutterBottom>
+            Select Payment Method
+          </Typography>
+        </Heading>
+        <FormControl component="fieldset">
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={paypal}
+                  onChange={handleChange}
+                  name="paypal"
+                />
+              }
+              label="PAYPAL"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={stripe}
+                  onChange={handleChange}
+                  name="stripe"
+                />
+              }
+              label="STRIPE"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={cashOn}
+                  onChange={handleChange}
+                  name="cashOn"
+                />
+              }
+              label="CASH ON"
+            />
+          </FormGroup>
+        </FormControl>
+      </Grid>
+      {paypal || stripe || cashOn ? (
         <Grid container justifyContent="center">
-          <Heading isDivider>
-            <Typography variant="h6" gutterBottom>
-              Select Payment Method
-            </Typography>
-          </Heading>
-          <FormControl component="fieldset">
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={paypal}
-                    onChange={handleChange}
-                    name="paypal"
-                  />
-                }
-                label="PAYPAL"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={stripe}
-                    onChange={handleChange}
-                    name="stripe"
-                  />
-                }
-                label="STRIPE"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={cashOn}
-                    onChange={handleChange}
-                    name="cashOn"
-                  />
-                }
-                label="CASH ON"
-              />
-            </FormGroup>
-          </FormControl>
+          <Link href="/place-order">
+            <Button
+              className={clsx(classes.btn)}
+              variant="contained"
+              color="primary"
+              startIcon={<AddIcon />}
+            >
+              Place Order
+            </Button>
+          </Link>
         </Grid>
-        {paypal || stripe || cashOn ? (
-          <Grid container justifyContent="center">
-            <Link href="/place-order">
-              <Button
-                className={clsx(classes.btn)}
-                variant="contained"
-                color="primary"
-                startIcon={<AddIcon />}
-              >
-                Place Order
-              </Button>
-            </Link>
-          </Grid>
-        ) : null}
-      </Container>
-    </Layout>
-  );
+      ) : null}
+    </Container>
+  ) : null;
 };
 
 export default Payment;

@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Shipping = () => {
+const Shipping = ({ setBilling }) => {
   const classes = useStyles();
   const {
     register,
@@ -65,10 +65,11 @@ const Shipping = () => {
     if (!ok) {
       return toast.error("Something went wrong");
     } else {
+      setBilling(true);
       toast.success("Thanks for shipping information");
-      setTimeout(() => {
-        router.push("/payment");
-      }, 2000);
+      // setTimeout(() => {
+      //   router.push("/payment");
+      // }, 2000);
     }
   };
 
@@ -177,10 +178,7 @@ const Shipping = () => {
               </Typography>
             </FormHelperText>
           )}
-          <Button
-            type="submit"
-            className={clsx(classes.btn)}
-          >
+          <Button type="submit" className={clsx(classes.btn)}>
             Submit
           </Button>
         </Grid>

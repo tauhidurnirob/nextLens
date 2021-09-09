@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CartCheckout = ({ isProcessBtn, isPayment }) => {
+const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
   const classes = useStyles();
   const { cart } = useSelector(productList);
 
@@ -100,7 +100,7 @@ const CartCheckout = ({ isProcessBtn, isPayment }) => {
           )}
         </Grid>
         <Grid container justifyContent="center" direction="column">
-          {isPayment && <Payment />}
+          {isPayment && <Payment billing={billing} />}
         </Grid>
       </Grid>
     </Container>
