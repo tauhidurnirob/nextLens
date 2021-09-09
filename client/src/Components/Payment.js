@@ -2,22 +2,20 @@ import React, { useState } from "react";
 import {
   Container,
   Grid,
-  FormControl,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
   Typography,
   makeStyles,
   Button,
+  ButtonGroup,
 } from "@material-ui/core";
 import clsx from "clsx";
 import Link from "next/link";
-import AddIcon from "@material-ui/icons/Add";
+import PaymentIcon from "@material-ui/icons/Payment";
+import PanToolIcon from "@material-ui/icons/PanTool";
 
-import { Layout, Heading } from "../Re_components";
+import { Heading } from "../Re_components";
 import colors from "../../config/colors";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   btn: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
@@ -28,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: "2px solid #222",
     fontSize: "16px",
     fontWeight: "bold",
-    marginBottom: "5px",
+    margin: "10px  0px 0px 0px",
     "&:hover": {
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.green,
@@ -37,80 +35,52 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Payment = () => {
+const Payment = ({ billing }) => {
   const classes = useStyles();
 
-  const [state, setState] = useState({
-    paypal: false,
-    stripe: false,
-    cashOn: false,
-  });
-  const { paypal, stripe, cashOn } = state;
+  return billing ? (
+    <Container>
+      <Grid container justifyContent="center" direction="column">
+        <Heading isDivider>
+          <Typography variant="h6" gutterBottom>
+            Select Payment Method
+          </Typography>
+        </Heading>
 
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-  return (
-    <Layout title="Payment">
-      <Container>
-        <Grid container justifyContent="center">
-          <Heading isDivider>
-            <Typography variant="h6" gutterBottom>
-              Select Payment Method
-            </Typography>
-          </Heading>
-          <FormControl component="fieldset">
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={paypal}
-                    onChange={handleChange}
-                    name="paypal"
-                  />
-                }
-                label="PAYPAL"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={stripe}
-                    onChange={handleChange}
-                    name="stripe"
-                  />
-                }
-                label="STRIPE"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={cashOn}
-                    onChange={handleChange}
-                    name="cashOn"
-                  />
-                }
-                label="CASH ON"
-              />
-            </FormGroup>
-          </FormControl>
-        </Grid>
-        {paypal || stripe || cashOn ? (
-          <Grid container justifyContent="center">
-            <Link href="/place-order">
-              <Button
-                className={clsx(classes.btn)}
-                variant="contained"
-                color="primary"
-                startIcon={<AddIcon />}
-              >
-                Place Order
-              </Button>
-            </Link>
-          </Grid>
-        ) : null}
-      </Container>
-    </Layout>
-  );
+        <Link href="/payment/paypal">
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<PaymentIcon />}
+            className={clsx(classes.btn)}
+          >
+            Paypal
+          </Button>
+        </Link>
+        <Link href="/payment/stripe">
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<PaymentIcon />}
+            className={clsx(classes.btn)}
+          >
+            Stripe
+          </Button>
+        </Link>
+
+        <Link href="/payment/cash-on">
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<PanToolIcon />}
+            className={clsx(classes.btn)}
+          >
+            Cash On
+          </Button>
+        </Link>
+      </Grid>
+    </Container>
+  ) : null;
 };
 
 export default Payment;
