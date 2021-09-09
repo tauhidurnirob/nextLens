@@ -62,6 +62,7 @@ const Shipping = ({ setBilling }) => {
   const router = useRouter();
 
   const onSubmit = async (shippingData) => {
+    console.log(shippingData);
     const { ok } = await shippingApi.postShipping(shippingData);
     if (!ok) {
       return toast.error("Something went wrong");
@@ -214,6 +215,17 @@ const Shipping = ({ setBilling }) => {
               </Typography>
             </FormHelperText>
           )}
+          <FormControl className={clsx(classes.form)}>
+            <TextField
+              id="outlined-Description"
+              label="Order Notes"
+              variant="outlined"
+              multiline
+              minRows={4}
+              maxRows={8}
+              inputProps={{ ...register("Order Notes") }}
+            />
+          </FormControl>
           <Button type="submit" className={clsx(classes.btn)}>
             Submit
           </Button>
