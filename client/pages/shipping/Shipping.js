@@ -72,7 +72,7 @@ const Shipping = ({ setBilling }) => {
   const onSubmit = async (shippingData) => {
     const { ok } = await shippingApi.postShipping(shippingData);
     if (!ok) {
-      return toast.error("Something went wrong");
+      toast.error("Something went wrong");
     } else {
       setBilling(true);
       toast.success("Thanks for shipping information");
@@ -80,11 +80,12 @@ const Shipping = ({ setBilling }) => {
 
     if (shippingData.withAccount) {
       const { data, ok } = await authApi.registerAuth(
+        shippingData.name,
         shippingData.email,
         shippingData.password
       );
       if (!ok) {
-        return toast.error("User already exists");
+        toast.error("User already exists");
       } else {
         toast.success("Successfully registered");
         dispatch(registerAction(data));
