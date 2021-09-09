@@ -22,7 +22,7 @@ import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    padding: `${theme.spacing(10)}px 0 10px 0`,
+    padding: `${theme.spacing(2)}px 0 10px 0`,
     overflow: "hidden",
     width: "100%",
   },
@@ -76,6 +76,7 @@ const Shipping = ({ setBilling }) => {
   return (
     <Container maxWidth="md" className={clsx(classes.container)}>
       <ToastContainer />
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container direction="column">
           <FormControl className={clsx(classes.form)} variant="filled">

@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const CategoryBanner = ({ categoryTitle }) => {
+const CategoryBanner = ({ categoryTitle, title }) => {
   const classes = useStyles();
   const router = useRouter();
   const route = router.asPath.split("/")[1];
@@ -38,6 +38,7 @@ const CategoryBanner = ({ categoryTitle }) => {
             ? categoryTitle
             : ShouldBeCapital(productById.title)}
         </Box>
+        {title && <Box fontWeight="fontWeightBold">{title}</Box>}
       </Typography>
     </Grid>
   );
