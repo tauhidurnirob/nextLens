@@ -21,7 +21,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 
-import shippingSchema from "../../schema/shippingSchema";
+import { shippingSchema } from "../../schema/shippingSchema";
 import shippingApi from "../api/shipping";
 import authApi from "../api/auth";
 import colors from "../../config/colors";
