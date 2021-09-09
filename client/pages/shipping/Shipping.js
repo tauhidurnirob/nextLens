@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px 0",
   },
   btn: {
-    transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
     padding: "10px 20px",
     background: colors.black,
