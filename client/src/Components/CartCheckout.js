@@ -16,10 +16,7 @@ import colors from "../../config/colors";
 import { productList } from "../redux/slices/productSlice";
 import Payment from "./Payment";
 
-const useStyles = makeStyles((theme) => ({
-  box: {
-    padding: `${theme.spacing(2)}px  0 0 0 `,
-  },
+const useStyles = makeStyles(() => ({
   btn: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
@@ -51,12 +48,7 @@ const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
     .reduce((acc, cc) => acc + cc, 0);
 
   return (
-    <Grid
-      container
-      justifyContent="center"
-      direction="column"
-      className={clsx(classes.box)}
-    >
+    <Grid container justifyContent="center" direction="column">
       <Grid item container justifyContent="space-evenly">
         <Typography variant="h6" gutterBottom>
           Total items :

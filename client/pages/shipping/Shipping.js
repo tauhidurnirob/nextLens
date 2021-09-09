@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   makeStyles,
@@ -8,6 +8,11 @@ import {
   Button,
   Typography,
   FormHelperText,
+  FormControlLabel,
+  Checkbox,
+  MenuItem,
+  Select,
+  InputLabel,
 } from "@material-ui/core";
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
@@ -22,15 +27,16 @@ import colors from "../../config/colors";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    padding: `${theme.spacing(10)}px 0 10px 0`,
+    padding: `${theme.spacing(2)}px 0 10px 0`,
     overflow: "hidden",
     width: "100%",
   },
   form: {
     margin: "10px 0",
+    width: "100%",
   },
+  gridItem: { width: "100%" },
   btn: {
-    transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
     padding: "10px 20px",
     background: colors.black,
@@ -60,7 +66,9 @@ const Shipping = ({ setBilling }) => {
 
   const router = useRouter();
 
+  const [account, setAccount] = useState(false);
   const onSubmit = async (shippingData) => {
+    console.log(shippingData);
     const { ok } = await shippingApi.postShipping(shippingData);
     if (!ok) {
       return toast.error("Something went wrong");
@@ -76,6 +84,7 @@ const Shipping = ({ setBilling }) => {
   return (
     <Container maxWidth="md" className={clsx(classes.container)}>
       <ToastContainer />
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container direction="column">
           <FormControl className={clsx(classes.form)} variant="filled">
@@ -98,66 +107,162 @@ const Shipping = ({ setBilling }) => {
               </Typography>
             </FormHelperText>
           )}
-          <FormControl className={clsx(classes.form)} variant="filled">
-            <TextField
-              id="outlined-Email"
-              label="Email"
-              variant="outlined"
-              inputProps={{
-                ...register("email"),
-              }}
-            />
+          <Grid container direction="row" spacing={2}>
+            <Grid item container md={6} className={clsx(classes.gridItem)}>
+              <FormControl className={clsx(classes.form)} variant="filled">
+                <TextField
+                  id="outlined-Email"
+                  label="Email"
+                  variant="outlined"
+                  inputProps={{
+                    ...register("email"),
+                  }}
+                />
+              </FormControl>
+              {errors.email && (
+                <FormHelperText>
+                  <Typography
+                    className={clsx(classes.errorFont)}
+                    variant="subtitle2"
+                  >
+                    {errors.email?.message}
+                  </Typography>
+                </FormHelperText>
+              )}
+            </Grid>
+
+            <Grid item container md={6} className={clsx(classes.gridItem)}>
+              <FormControl className={clsx(classes.form)} variant="filled">
+                <TextField
+                  id="outlined-Email"
+                  label="Phone"
+                  variant="outlined"
+                  inputProps={{
+                    ...register("phone"),
+                  }}
+                />
+              </FormControl>
+              {errors.phone && (
+                <FormHelperText>
+                  <Typography
+                    className={clsx(classes.errorFont)}
+                    variant="subtitle2"
+                  >
+                    {errors.phone?.message}
+                  </Typography>
+                </FormHelperText>
+              )}
+            </Grid>
+          </Grid>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={account}
+                onClick={() => setAccount(!account)}
+                name="account"
+              />
+            }
+            label="With Create Account"
+          />
+          {account && (
+            <>
+              <FormControl className={clsx(classes.form)} variant="filled">
+                <TextField
+                  id="outlined-Email"
+                  label="password"
+                  variant="outlined"
+                  inputProps={{
+                    ...register("password"),
+                  }}
+                />
+              </FormControl>
+              {errors.password && (
+                <FormHelperText>
+                  <Typography
+                    className={clsx(classes.errorFont)}
+                    variant="subtitle2"
+                  >
+                    {errors.password?.message}
+                  </Typography>
+                </FormHelperText>
+              )}
+            </>
+          )}
+          <FormControl variant="outlined" className={clsx(classes.form)}>
+            <InputLabel id="location">Location</InputLabel>
+            <Select
+              inputProps={{ ...register("location") }}
+              labelId="location"
+              id="location"
+              label="location"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              {location?.map((item, index) => (
+                <MenuItem key={index} value={index + 1}>
+                  {item.name}
+                </MenuItem>
+              ))}
+            </Select>
           </FormControl>
-          {errors.email && (
+          {errors.location && (
             <FormHelperText>
               <Typography
                 className={clsx(classes.errorFont)}
                 variant="subtitle2"
               >
-                {errors.email?.message}
+                {errors.location?.message}
               </Typography>
             </FormHelperText>
           )}
-          <FormControl className={clsx(classes.form)} variant="filled">
-            <TextField
-              id="outlined-Email"
-              label="Address"
-              variant="outlined"
-              inputProps={{
-                ...register("address"),
-              }}
-            />
-          </FormControl>
-          {errors.address && (
-            <FormHelperText>
-              <Typography
-                className={clsx(classes.errorFont)}
-                variant="subtitle2"
-              >
-                {errors.address?.message}
-              </Typography>
-            </FormHelperText>
-          )}
-          <FormControl className={clsx(classes.form)} variant="filled">
-            <TextField
-              id="outlined-Email"
-              label="Postal Code"
-              variant="outlined"
-              inputProps={{
-                ...register("postalCode"),
-              }}
-            />
-          </FormControl>
-          {errors.postalCode && (
-            <FormHelperText>
-              <Typography
-                className={clsx(classes.errorFont)}
-                variant="subtitle2"
-              >
-                {errors.postalCode?.message}
-              </Typography>
-            </FormHelperText>
-          )}
+          <Grid container direction="row" spacing={2}>
+            <Grid item container md={6} className={clsx(classes.gridItem)}>
+              <FormControl className={clsx(classes.form)} variant="filled">
+                <TextField
+                  id="outlined-Email"
+                  label="Address"
+                  variant="outlined"
+                  inputProps={{
+                    ...register("address"),
+                  }}
+                />
+              </FormControl>
+              {errors.address && (
+                <FormHelperText>
+                  <Typography
+                    className={clsx(classes.errorFont)}
+                    variant="subtitle2"
+                  >
+                    {errors.address?.message}
+                  </Typography>
+                </FormHelperText>
+              )}
+            </Grid>
+            <Grid item container md={6} className={clsx(classes.gridItem)}>
+              <FormControl className={clsx(classes.form)} variant="filled">
+                <TextField
+                  id="outlined-Email"
+                  label="Zip Code"
+                  variant="outlined"
+                  inputProps={{
+                    ...register("zipCode"),
+                  }}
+                />
+              </FormControl>
+              {errors.zipCode && (
+                <FormHelperText>
+                  <Typography
+                    className={clsx(classes.errorFont)}
+                    variant="subtitle2"
+                  >
+                    {errors.zipCode?.message}
+                  </Typography>
+                </FormHelperText>
+              )}
+            </Grid>
+          </Grid>
+
           <FormControl className={clsx(classes.form)} variant="filled">
             <TextField
               id="outlined-Email"
@@ -178,6 +283,17 @@ const Shipping = ({ setBilling }) => {
               </Typography>
             </FormHelperText>
           )}
+          <FormControl className={clsx(classes.form)}>
+            <TextField
+              id="outlined-Description"
+              label="Order Notes"
+              variant="outlined"
+              multiline
+              minRows={4}
+              maxRows={8}
+              inputProps={{ ...register("Order Notes") }}
+            />
+          </FormControl>
           <Button type="submit" className={clsx(classes.btn)}>
             Submit
           </Button>
@@ -188,3 +304,10 @@ const Shipping = ({ setBilling }) => {
 };
 
 export default Shipping;
+
+const location = [
+  { name: "Dhaka" },
+  { name: "Chattogram" },
+  { name: "Cumilla" },
+  { name: "Sylhet" },
+];
