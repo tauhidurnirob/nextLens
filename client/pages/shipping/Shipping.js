@@ -20,10 +20,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
 
 import shippingSchema from "../../schema/shippingSchema";
 import shippingApi from "../api/shipping";
+import authApi from "../api/auth";
 import colors from "../../config/colors";
+import { registerAction } from "../../src/redux/slices/authSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -58,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Shipping = ({ setBilling }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -68,7 +72,6 @@ const Shipping = ({ setBilling }) => {
 
   const [account, setAccount] = useState(false);
   const onSubmit = async (shippingData) => {
-    console.log(shippingData);
     const { ok } = await shippingApi.postShipping(shippingData);
     if (!ok) {
       return toast.error("Something went wrong");
@@ -78,6 +81,21 @@ const Shipping = ({ setBilling }) => {
       // setTimeout(() => {
       //   router.push("/payment");
       // }, 2000);
+    }
+    if (shippingData.withAccount) {
+      const { data, ok } = await authApi.registerAuth(
+        shippingData.email,
+        shippingData.password
+      );
+      if (!ok) {
+        return toast.error("User already exists");
+      } else {
+        toast.success("Successfully registered");
+        dispatch(registerAction(data));
+        // setTimeout(() => {
+        //   router.push("/");
+        // }, 2000);
+      }
     }
   };
 
