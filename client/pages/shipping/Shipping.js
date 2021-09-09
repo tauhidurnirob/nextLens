@@ -10,6 +10,9 @@ import {
   FormHelperText,
   FormControlLabel,
   Checkbox,
+  MenuItem,
+  Select,
+  InputLabel,
 } from "@material-ui/core";
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
@@ -185,6 +188,34 @@ const Shipping = ({ setBilling }) => {
               )}
             </>
           )}
+          <FormControl variant="outlined" className={clsx(classes.form)}>
+            <InputLabel id="location">Location</InputLabel>
+            <Select
+              inputProps={{ ...register("location") }}
+              labelId="location"
+              id="location"
+              label="location"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              {location?.map((item, index) => (
+                <MenuItem key={index} value={index + 1}>
+                  {item.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          {errors.location && (
+            <FormHelperText>
+              <Typography
+                className={clsx(classes.errorFont)}
+                variant="subtitle2"
+              >
+                {errors.location?.message}
+              </Typography>
+            </FormHelperText>
+          )}
           <Grid container direction="row" spacing={2}>
             <Grid item container md={6} className={clsx(classes.gridItem)}>
               <FormControl className={clsx(classes.form)} variant="filled">
@@ -273,3 +304,10 @@ const Shipping = ({ setBilling }) => {
 };
 
 export default Shipping;
+
+const location = [
+  { name: "Dhaka" },
+  { name: "Chattogram" },
+  { name: "Cumilla" },
+  { name: "Sylhet" },
+];
