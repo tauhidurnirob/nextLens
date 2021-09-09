@@ -10,7 +10,6 @@ import {
   FormHelperText,
   FormControlLabel,
   Checkbox,
-  Box,
 } from "@material-ui/core";
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
@@ -154,13 +153,11 @@ const Shipping = ({ setBilling }) => {
           </Grid>
           <FormControlLabel
             control={
-              <Box ml={2}>
-                <Checkbox
-                  checked={account}
-                  onClick={() => setAccount(!account)}
-                  name="account"
-                />
-              </Box>
+              <Checkbox
+                checked={account}
+                onClick={() => setAccount(!account)}
+                name="account"
+              />
             }
             label="With Create Account"
           />
