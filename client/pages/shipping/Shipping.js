@@ -19,7 +19,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
 import shippingSchema from "../../schema/shippingSchema";
