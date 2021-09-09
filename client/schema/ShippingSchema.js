@@ -13,6 +13,12 @@ const shippingSchema = yup.object().shape({
     .label("Phone")
     .matches(/^[0-9]+$/, "Must be only digits")
     .max(11, "Phone should be 11 digits"),
+  password: yup
+    .string()
+    .required()
+    .label("Password")
+    .matches(/^[0-9]+$/, "Must be only digits")
+    .min(5, "Minimum 5 digits"),
   address: yup.string().required().label("Address"),
   zipCode: yup.string().required().label("Zip Code"),
   country: yup.string().required().label("Country"),

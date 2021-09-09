@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   makeStyles,
@@ -8,6 +8,9 @@ import {
   Button,
   Typography,
   FormHelperText,
+  FormControlLabel,
+  Checkbox,
+  Box,
 } from "@material-ui/core";
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
@@ -61,6 +64,7 @@ const Shipping = ({ setBilling }) => {
 
   const router = useRouter();
 
+  const [account, setAccount] = useState(false);
   const onSubmit = async (shippingData) => {
     console.log(shippingData);
     const { ok } = await shippingApi.postShipping(shippingData);
@@ -124,6 +128,7 @@ const Shipping = ({ setBilling }) => {
                 </FormHelperText>
               )}
             </Grid>
+
             <Grid item container md={6} className={clsx(classes.gridItem)}>
               <FormControl className={clsx(classes.form)} variant="filled">
                 <TextField
@@ -147,7 +152,42 @@ const Shipping = ({ setBilling }) => {
               )}
             </Grid>
           </Grid>
-
+          <FormControlLabel
+            control={
+              <Box ml={2}>
+                <Checkbox
+                  checked={account}
+                  onClick={() => setAccount(!account)}
+                  name="account"
+                />
+              </Box>
+            }
+            label="With Create Account"
+          />
+          {account && (
+            <>
+              <FormControl className={clsx(classes.form)} variant="filled">
+                <TextField
+                  id="outlined-Email"
+                  label="password"
+                  variant="outlined"
+                  inputProps={{
+                    ...register("password"),
+                  }}
+                />
+              </FormControl>
+              {errors.password && (
+                <FormHelperText>
+                  <Typography
+                    className={clsx(classes.errorFont)}
+                    variant="subtitle2"
+                  >
+                    {errors.password?.message}
+                  </Typography>
+                </FormHelperText>
+              )}
+            </>
+          )}
           <Grid container direction="row" spacing={2}>
             <Grid item container md={6} className={clsx(classes.gridItem)}>
               <FormControl className={clsx(classes.form)} variant="filled">
