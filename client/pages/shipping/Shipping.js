@@ -65,7 +65,7 @@ const Shipping = ({ setBilling }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(shippingSchema) });
+  } = useForm({ resolver: yupResolver(ShippingSchema) });
 
   const [account, setAccount] = useState(false);
   const onSubmit = async (shippingData) => {
