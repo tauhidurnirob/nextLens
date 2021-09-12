@@ -15,8 +15,6 @@ const paypal = () => {
   return (
     <Layout title="Payment-Paypal">
       <Container maxWidth="lg" className={clsx(classes.container)}>
-        <Grid>This is a paypal payment page</Grid>
-
         <CheckoutPayment paymentMethod="Paypal" />
       </Container>
     </Layout>

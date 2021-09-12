@@ -1,5 +1,11 @@
 import React from "react";
-import { Container, makeStyles, Grid, Typography } from "@material-ui/core";
+import {
+  Container,
+  makeStyles,
+  Grid,
+  Typography,
+  Divider,
+} from "@material-ui/core";
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
@@ -13,9 +19,10 @@ const CheckoutPayment = ({ paymentMethod }) => {
     <Container maxWidth="lg" className={clsx(classes.container)}>
       <Grid container direction="row">
         <Grid container md={7}>
-          <Typography variant="h4" gutterBottom>
+          <Typography variant="h4" gutterBottom color="textSecondary">
             Shipping
           </Typography>
+          <Divider style={{ height: "10px" }} />
         </Grid>
         <Grid container md={5}>
           <Typography variant="h4" gutterBottom>
