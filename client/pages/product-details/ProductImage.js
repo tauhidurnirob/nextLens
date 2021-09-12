@@ -3,11 +3,11 @@ import { Grid } from "@material-ui/core";
 import Image from "next/image";
 
 import { Carousel } from "../../src/Re_components";
-import { productList } from "../../src/redux/slices/productSlice";
+import { productSelector } from "../../src/redux/slices/productSlice";
 import { useSelector } from "react-redux";
 
 const ProductImage = () => {
-  const { productById } = useSelector(productList);
+  const { productById } = useSelector(productSelector);
 
   const settings = {
     customPaging: function (i) {

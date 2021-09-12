@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
   Container,
   makeStyles,
@@ -8,9 +9,12 @@ import {
   Box,
   Avatar,
 } from "@material-ui/core";
-import clsx from "clsx";
+
+import { shippingSelector } from "./../redux/slices/shippingSlice";
 
 const CheckoutPayment = ({ paymentMethod, paymentName }) => {
+  const { shippingInfo } = useSelector(shippingSelector);
+
   return (
     <Container maxWidth="lg">
       <Grid container direction="row">
@@ -20,7 +24,11 @@ const CheckoutPayment = ({ paymentMethod, paymentName }) => {
               SHIPPING
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
-              <Box fontWeight="fontWeightBold">Address :</Box>
+              <Box fontWeight="fontWeightBold">
+                Address : {shippingInfo?.address}, {` `}
+                {shippingInfo?.location}, {` `} {shippingInfo?.zipCode}, {` `}
+                {shippingInfo?.country}
+              </Box>
             </Typography>
           </Grid>
           <Divider style={{ marginBottom: "20px", width: "90%" }} />

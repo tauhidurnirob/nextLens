@@ -26,6 +26,7 @@ import shippingApi from "../api/shipping";
 import authApi from "../api/auth";
 import colors from "../../config/colors";
 import { registerAction } from "../../src/redux/slices/authSlice";
+import { shippingAction } from "../../src/redux/slices/shippingSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -69,11 +70,11 @@ const Shipping = ({ setBilling }) => {
 
   const [account, setAccount] = useState(false);
   const onSubmit = async (shippingData) => {
-    console.log(shippingData);
     const { ok } = await shippingApi.postShipping(shippingData);
     if (!ok) {
       toast.error("Something went wrong");
     } else {
+      dispatch(shippingAction(shippingData));
       setBilling(true);
       toast.success("Thanks for shipping information");
     }
@@ -214,7 +215,7 @@ const Shipping = ({ setBilling }) => {
                 <em>None</em>
               </MenuItem>
               {location?.map((item, index) => (
-                <MenuItem key={index} value={index + 1}>
+                <MenuItem key={index + 1} value={item.name}>
                   {item.name}
                 </MenuItem>
               ))}
