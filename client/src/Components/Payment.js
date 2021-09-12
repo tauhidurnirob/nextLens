@@ -13,6 +13,7 @@ import PanToolIcon from "@material-ui/icons/PanTool";
 
 import { Heading } from "../Re_components";
 import colors from "../../config/colors";
+import paypalApi from "../../pages/api/paypal";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -37,6 +38,16 @@ const useStyles = makeStyles(() => ({
 const Payment = ({ billing }) => {
   const classes = useStyles();
 
+  // const addPaypalScript = async () => {
+  //   const { data: clientId } = await paypalApi.getPaypal();
+  //   const script = document.createElement("script");
+  //   script.type = "text/javascript";
+  //   script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
+  //   script.async = true;
+
+  //   document.body.appendChild(script);
+  // };
+
   return billing ? (
     <Container>
       <Grid container justifyContent="center" direction="column">
@@ -53,6 +64,7 @@ const Payment = ({ billing }) => {
             variant="contained"
             color="primary"
             className={clsx(classes.btn)}
+            // onClick={addPaypalScript}
           >
             Paypal
           </Button>
