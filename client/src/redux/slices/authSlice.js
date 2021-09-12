@@ -9,7 +9,6 @@ const authSlice = createSlice({
   reducers: {
     loginAction(state, { payload }) {
       state.loginUser = payload;
-      localStorage.setItem("userInfo", JSON.stringify(payload));
     },
     registerAction(state, { payload }) {
       state.registerUser = payload;
@@ -23,4 +22,4 @@ export default authSlice.reducer;
 
 // Selector
 
-export const authList = (state) => state.entities.auth;
+export const authSelector = (state) => state.entities.auth;

@@ -72,4 +72,4 @@ export default productSlice.reducer;
 
 // Selector
 
-export const productList = (state) => state.entities.product;
+export const productSelector = (state) => state.entities.product;

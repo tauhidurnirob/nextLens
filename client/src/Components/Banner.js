@@ -4,7 +4,7 @@ import { Grid, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 
 import { Carousel } from "../Re_components";
-import { productList } from "./../redux/slices/productSlice";
+import { productSelector } from "./../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {

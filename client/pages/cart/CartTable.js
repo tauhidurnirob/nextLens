@@ -18,7 +18,7 @@ import Link from "next/link";
 
 import colors from "../../config/colors";
 import { AddToCartButton, Quantity } from "../../src/Re_components";
-import { productList } from "../../src/redux/slices/productSlice";
+import { productSelector } from "../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
   table: {
@@ -60,7 +60,7 @@ const useStyles = makeStyles({
 const CartTable = () => {
   const classes = useStyles();
 
-  const { cart } = useSelector(productList);
+  const { cart } = useSelector(productSelector);
 
   return (
     <TableContainer component={Paper} className={clsx(classes.tableContainer)}>

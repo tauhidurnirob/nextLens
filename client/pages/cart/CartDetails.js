@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import HistoryIcon from "@material-ui/icons/History";
 
 import { Heading } from "../../src/Re_components";
-import { productList } from "../../src/redux/slices/productSlice";
+import { productSelector } from "../../src/redux/slices/productSlice";
 import CartTable from "./CartTable";
 import CartCheckout from "../../src/Components/CartCheckout";
 
@@ -25,7 +25,7 @@ const CartDetails = () => {
   const classes = useStyles();
   const { back } = useRouter();
 
-  const { cart } = useSelector(productList);
+  const { cart } = useSelector(productSelector);
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>

@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Container,
   makeStyles,
   Grid,
   Button,
@@ -13,7 +12,7 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 
 import colors from "../../config/colors";
-import { productList } from "../redux/slices/productSlice";
+import { productSelector } from "../redux/slices/productSlice";
 import Payment from "./Payment";
 
 const useStyles = makeStyles(() => ({
@@ -38,7 +37,7 @@ const useStyles = makeStyles(() => ({
 
 const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
   const classes = useStyles();
-  const { cart } = useSelector(productList);
+  const { cart } = useSelector(productSelector);
 
   const totalItems = cart
     .map((item) => item.quantity)

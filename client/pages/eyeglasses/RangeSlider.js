@@ -15,7 +15,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import {
   MinMaxFilter,
-  productList,
+  productSelector,
 } from "./../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
@@ -34,7 +34,7 @@ function priceValue(value) {
 const RangeSlider = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { products } = useSelector(productList);
+  const { products } = useSelector(productSelector);
 
   const arr = products?.map(({ price }) => price);
 

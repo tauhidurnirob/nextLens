@@ -18,7 +18,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { useSelector } from "react-redux";
-import { productList } from "../../redux/slices/productSlice";
+import { productSelector } from "../../redux/slices/productSlice";
 
 import MobileNavigation from "./MobileNavigation";
 
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Navigation = () => {
   const [isSearch, setIsSearch] = useState(false);
-  const { cart } = useSelector(productList);
+  const { cart } = useSelector(productSelector);
   const totalQuantity = cart
     .map((item) => item.quantity)
     .reduce((total, qty) => total + qty, 0);
