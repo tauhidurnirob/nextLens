@@ -20,11 +20,9 @@ const paypal = () => {
           paymentName="Paypal"
           paymentMethod={
             <Grid container justifyContent="center">
-              <Grid container md={4}>
-                <Box mt={2}>
-                  <PayPalButton />
-                </Box>
-              </Grid>
+              <Box mt={2}>
+                <PayPalButton />
+              </Box>
             </Grid>
           }
         />

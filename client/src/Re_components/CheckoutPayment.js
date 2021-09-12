@@ -23,7 +23,7 @@ const CheckoutPayment = ({ paymentMethod, paymentName }) => {
               <Box fontWeight="fontWeightBold">Address :</Box>
             </Typography>
           </Grid>
-          <Divider style={{ marginBottom: "5px", width: "90%" }} />
+          <Divider style={{ marginBottom: "20px", width: "90%" }} />
           <Grid container direction="column">
             <Typography variant="h4" gutterBottom color="textSecondary">
               PAYMENT METHOD
@@ -32,7 +32,7 @@ const CheckoutPayment = ({ paymentMethod, paymentName }) => {
               <Box fontWeight="fontWeightBold">Method : {paymentName}</Box>
             </Typography>
           </Grid>
-          <Divider style={{ marginBottom: "5px", width: "90%" }} />
+          <Divider style={{ marginBottom: "20px", width: "90%" }} />
         </Grid>
         <Grid container md={5} direction="column" justifyContent="center">
           <Typography
