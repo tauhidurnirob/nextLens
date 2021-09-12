@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Grid,
@@ -10,6 +10,8 @@ import {
 import clsx from "clsx";
 import PaymentIcon from "@material-ui/icons/Payment";
 import PanToolIcon from "@material-ui/icons/PanTool";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalButton } from "react-paypal-button-v2";
 
 import { Heading } from "../Re_components";
 import colors from "../../config/colors";
@@ -38,15 +40,18 @@ const useStyles = makeStyles(() => ({
 const Payment = ({ billing }) => {
   const classes = useStyles();
 
-  // const addPaypalScript = async () => {
-  //   const { data: clientId } = await paypalApi.getPaypal();
-  //   const script = document.createElement("script");
-  //   script.type = "text/javascript";
-  //   script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
-  //   script.async = true;
+  const [clientID, setClientID] = useState("");
+  console.log(clientID);
 
-  //   document.body.appendChild(script);
-  // };
+  const payWithPaypal = async () => {
+    const { data } = await paypalApi.getPaypal();
+    console.log(data);
+  };
+  const addPayPalScript = async () => {
+    const { data } = await paypalApi.Paypal();
+    setClientID(data);
+  };
+  addPayPalScript();
 
   return billing ? (
     <Container>
@@ -58,13 +63,19 @@ const Payment = ({ billing }) => {
             </Typography>
           </Box>
         </Heading>
+
+        <PayPalScriptProvider
+          options={{ "client-id": clientID, shippingPreference: "NO_SHIPPING" }}
+        >
+          <PayPalButtons />
+        </PayPalScriptProvider>
         <Grid item container justifyContent="center">
           <Button
             startIcon={<PaymentIcon />}
             variant="contained"
             color="primary"
             className={clsx(classes.btn)}
-            // onClick={addPaypalScript}
+            onClick={payWithPaypal}
           >
             Paypal
           </Button>

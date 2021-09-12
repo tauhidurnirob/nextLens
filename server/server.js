@@ -12,6 +12,7 @@ import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import shippingRoutes from "./routes/shippingRoutes.js";
+import paypalRoutes from "./routes/paypalRoutes.js";
 
 const PORT = process.env.PORT || 5000;
 
@@ -37,11 +38,11 @@ app.use("/api/products", productRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/shipping", shippingRoutes);
+app.use("/api/config/paypal", paypalRoutes);
 
-// Paypal
-app.get("/api/config/paypal", (req, res) =>
-  res.send(process.env.PAYPAL_CLIENT_ID)
-);
+app.get("/api/paypal", (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID);
+});
 
 // middleware
 app.use(notFound);
