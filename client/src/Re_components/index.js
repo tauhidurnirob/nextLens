@@ -7,3 +7,4 @@ export { default as Quantity } from "./Quantity";
 export { default as CategoryBar } from "./CategoryBar";
 export { default as AddToCartButton } from "./AddToCartButton";
 export { default as ErrorMessage } from "./ErrorMessage";
+export { default as CheckoutPayment } from "./CheckoutPayment";

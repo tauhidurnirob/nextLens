@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import { makeStyles, Box, Grid, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
@@ -38,9 +38,7 @@ const CategoryBanner = ({ categoryTitle, title }) => {
             ? categoryTitle
             : ShouldBeCapital(productById.title)}
         </Box>
-        <Box fontWeight="fontWeightBold">
-          {route === "shipping" && { title }}
-        </Box>
+        <Box fontWeight="fontWeightBold">{route === "shipping" && title}</Box>
       </Typography>
     </Grid>
   );
