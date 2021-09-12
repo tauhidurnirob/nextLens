@@ -66,6 +66,7 @@ const Shipping = ({ setBilling }) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(ShippingSchema) });
 
   const [account, setAccount] = useState(false);
@@ -92,6 +93,7 @@ const Shipping = ({ setBilling }) => {
         dispatch(registerAction(data));
       }
     }
+    reset();
   };
 
   return (
