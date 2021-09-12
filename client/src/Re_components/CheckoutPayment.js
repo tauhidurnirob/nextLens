@@ -24,6 +24,14 @@ const CheckoutPayment = ({ paymentMethod, paymentName }) => {
               SHIPPING
             </Typography>
             <Typography variant="subtitle1" gutterBottom>
+              <Box fontWeight="fontWeightBold">Name : {shippingInfo?.name}</Box>
+            </Typography>
+            <Typography variant="subtitle1" gutterBottom>
+              <Box fontWeight="fontWeightBold">
+                Email : {shippingInfo?.email}
+              </Box>
+            </Typography>
+            <Typography variant="subtitle1" gutterBottom>
               <Box fontWeight="fontWeightBold">
                 Address : {shippingInfo?.address}, {` `}
                 {shippingInfo?.location}, {` `} {shippingInfo?.zipCode}, {` `}
