@@ -69,6 +69,7 @@ const Shipping = ({ setBilling }) => {
 
   const [account, setAccount] = useState(false);
   const onSubmit = async (shippingData) => {
+    console.log(shippingData);
     const { ok } = await shippingApi.postShipping(shippingData);
     if (!ok) {
       toast.error("Something went wrong");
