@@ -10,15 +10,9 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 
-const useStyles = makeStyles((theme) => ({
-  container: {},
-}));
-
 const CheckoutPayment = ({ paymentMethod, paymentName }) => {
-  const classes = useStyles();
-
   return (
-    <Container maxWidth="lg" className={clsx(classes.container)}>
+    <Container maxWidth="lg">
       <Grid container direction="row">
         <Grid item container md={7}>
           <Grid container direction="column">
@@ -29,7 +23,7 @@ const CheckoutPayment = ({ paymentMethod, paymentName }) => {
               <Box fontWeight="fontWeightBold">Address :</Box>
             </Typography>
           </Grid>
-          <Divider style={{ marginBottom: "20px", width: "90%" }} />
+          <Divider style={{ marginBottom: "5px", width: "90%" }} />
           <Grid container direction="column">
             <Typography variant="h4" gutterBottom color="textSecondary">
               PAYMENT METHOD
@@ -38,7 +32,7 @@ const CheckoutPayment = ({ paymentMethod, paymentName }) => {
               <Box fontWeight="fontWeightBold">Method : {paymentName}</Box>
             </Typography>
           </Grid>
-          <Divider style={{ marginBottom: "20px", width: "90%" }} />
+          <Divider style={{ marginBottom: "5px", width: "90%" }} />
         </Grid>
         <Grid container md={5} direction="column" justifyContent="center">
           <Typography
@@ -57,6 +51,7 @@ const CheckoutPayment = ({ paymentMethod, paymentName }) => {
             <Box fontWeight="fontWeightBold">Grand Total : 100</Box>
           </Typography>
           <Divider style={{ marginBottom: "5px" }} variant="middle" />
+          {paymentMethod}
         </Grid>
       </Grid>
     </Container>
