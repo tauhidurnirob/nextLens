@@ -1,19 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {
-  Container,
-  makeStyles,
-  Grid,
-  Typography,
-  Divider,
-  Box,
-  Avatar,
-} from "@material-ui/core";
+import { Container, Grid, Typography, Divider, Box } from "@material-ui/core";
 
 import { shippingSelector } from "./../redux/slices/shippingSlice";
+import { productSelector } from "./../redux/slices/productSlice";
 
 const CheckoutPayment = ({ paymentMethod, paymentName }) => {
   const { shippingInfo } = useSelector(shippingSelector);
+  const { cart } = useSelector(productSelector);
+
+  const totalItems = cart
+    ?.map((item) => item.quantity)
+    .reduce((acc, cc) => acc + cc, 0);
+  const totalAmount = cart
+    ?.map((item) => item.totalPrice)
+    .reduce((acc, cc) => acc + cc, 0);
 
   return (
     <Container maxWidth="lg">
@@ -60,11 +61,11 @@ const CheckoutPayment = ({ paymentMethod, paymentName }) => {
             ORDER SUMMARY
           </Typography>
           <Typography variant="subtitle1" gutterBottom align="center">
-            <Box fontWeight="fontWeightBold">Total Items : * 3</Box>
+            <Box fontWeight="fontWeightBold">Total Items : * {totalItems}</Box>
           </Typography>
           <Divider style={{ marginBottom: "5px" }} variant="middle" />
           <Typography variant="subtitle1" gutterBottom align="center">
-            <Box fontWeight="fontWeightBold">Grand Total : 100</Box>
+            <Box fontWeight="fontWeightBold">Grand Total : {totalAmount}</Box>
           </Typography>
           <Divider style={{ marginBottom: "5px" }} variant="middle" />
           {paymentMethod}
