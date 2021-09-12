@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Container,
   Grid,
   Typography,
   makeStyles,
   Button,
-  ButtonGroup,
+  Box,
 } from "@material-ui/core";
 import clsx from "clsx";
-import Link from "next/link";
 import PaymentIcon from "@material-ui/icons/Payment";
 import PanToolIcon from "@material-ui/icons/PanTool";
 
@@ -26,7 +25,7 @@ const useStyles = makeStyles(() => ({
     borderColor: "2px solid #222",
     fontSize: "16px",
     fontWeight: "bold",
-    margin: "10px  0px 0px 0px",
+    margin: "20px  0px 0px 0px",
     "&:hover": {
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.green,
@@ -42,42 +41,42 @@ const Payment = ({ billing }) => {
     <Container>
       <Grid container justifyContent="center" direction="column">
         <Heading isDivider>
-          <Typography variant="h6" gutterBottom>
-            Select Payment Method
-          </Typography>
+          <Box mt={5}>
+            <Typography variant="h6" gutterBottom>
+              Select Payment Method
+            </Typography>
+          </Box>
         </Heading>
-
-        <Link href="/payment/paypal">
+        <Grid item container justifyContent="center">
           <Button
+            startIcon={<PaymentIcon />}
             variant="contained"
             color="primary"
-            startIcon={<PaymentIcon />}
             className={clsx(classes.btn)}
           >
             Paypal
           </Button>
-        </Link>
-        <Link href="/payment/stripe">
+        </Grid>
+        <Grid item container justifyContent="center">
           <Button
+            startIcon={<PaymentIcon />}
             variant="contained"
             color="primary"
-            startIcon={<PaymentIcon />}
             className={clsx(classes.btn)}
           >
             Stripe
           </Button>
-        </Link>
-
-        <Link href="/payment/cash-on">
+        </Grid>
+        <Grid item container justifyContent="center">
           <Button
+            startIcon={<PanToolIcon />}
             variant="contained"
             color="primary"
-            startIcon={<PanToolIcon />}
             className={clsx(classes.btn)}
           >
             Cash On
           </Button>
-        </Link>
+        </Grid>
       </Grid>
     </Container>
   ) : null;

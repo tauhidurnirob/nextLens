@@ -16,7 +16,9 @@ const Shipping = () => {
         <Grid container justifyContent="center">
           <Box mt={4}>
             <Heading isDivider>
-              <Typography variant="h4">Shipping Details</Typography>
+              <Typography variant="h4" gutterBottom>
+                Shipping Details
+              </Typography>
             </Heading>
           </Box>
         </Grid>

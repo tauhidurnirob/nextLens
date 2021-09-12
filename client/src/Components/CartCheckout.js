@@ -58,7 +58,7 @@ const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
         </Typography>
       </Grid>
       <Grid container justifyContent="center">
-        <Divider style={{ marginBottom: "5px", width: "80%" }} />
+        <Divider style={{ marginBottom: "20px", width: "80%" }} />
       </Grid>
       <Grid item container justifyContent="space-evenly">
         <Typography variant="h6" gutterBottom>
