@@ -5,6 +5,5 @@ export default {
   productById: "api/products",
   contact: "api/contact",
   shipping: "api/shipping",
-  paypal: "api/config/paypal",
   paypalClient: "api/paypal",
 };
