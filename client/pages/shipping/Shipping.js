@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "150px",
     fontSize: "14px",
     fontWeight: "bold",
-    marginTop: "10px",
+    margin: "10px 0 20px 0",
     "&:hover": {
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.sky,
