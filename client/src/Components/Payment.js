@@ -21,7 +21,7 @@ import { Heading } from "../Re_components";
 import colors from "../../config/colors";
 import paypalApi from "../../pages/api/paypal";
 import { payOrderAction } from "../redux/slices/paySlice";
-import { productSelector } from "./../redux/slices/productSlice";
+import { productSelector } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -62,7 +62,9 @@ const Payment = ({ billing }) => {
   addPayPalScript();
 
   const successPayment = (paymentResult) => {
-    dispatch(payOrderAction(paymentResult));
+    if (paymentResult) {
+      dispatch(payOrderAction(paymentResult));
+    }
   };
   return billing ? (
     <Container>
