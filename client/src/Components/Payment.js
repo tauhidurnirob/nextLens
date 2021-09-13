@@ -6,17 +6,22 @@ import {
   makeStyles,
   Button,
   Box,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
 } from "@material-ui/core";
 import clsx from "clsx";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PaymentIcon from "@material-ui/icons/Payment";
 import PanToolIcon from "@material-ui/icons/PanTool";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { PayPalButton } from "react-paypal-button-v2";
 
 import { Heading } from "../Re_components";
 import colors from "../../config/colors";
 import paypalApi from "../../pages/api/paypal";
 import { payOrderAction } from "../redux/slices/paySlice";
+import { productSelector } from "./../redux/slices/productSlice";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -44,6 +49,11 @@ const Payment = ({ billing }) => {
   const dispatch = useDispatch();
 
   const [clientID, setClientId] = useState(false);
+  const { cart } = useSelector(productSelector);
+
+  const totalAmount = cart
+    .map((item) => item.totalPrice)
+    .reduce((acc, cc) => acc + cc, 0);
 
   const addPayPalScript = async () => {
     const { data } = await paypalApi.Paypal();
@@ -65,23 +75,25 @@ const Payment = ({ billing }) => {
           </Box>
         </Heading>
 
-        <PayPalButton
-          amount="10"
-          onSuccess={successPayment}
-          options={{
-            clientId: clientID,
-          }}
-        />
-
         <Grid item container justifyContent="center">
-          <Button
-            startIcon={<PaymentIcon />}
-            variant="contained"
-            color="primary"
-            className={clsx(classes.btn)}
-          >
-            Paypal
-          </Button>
+          <Accordion style={{ marginTop: "20px" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
+            >
+              <Box fontWeight="fontWeightBold">PayPal</Box>
+            </AccordionSummary>
+            <AccordionDetails>
+              <PayPalButton
+                amount={totalAmount}
+                onSuccess={successPayment}
+                options={{
+                  clientId: clientID,
+                }}
+              />
+            </AccordionDetails>
+          </Accordion>
         </Grid>
         <Grid item container justifyContent="center">
           <Button
