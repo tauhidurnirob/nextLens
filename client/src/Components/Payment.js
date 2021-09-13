@@ -15,13 +15,14 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PaymentIcon from "@material-ui/icons/Payment";
 import PanToolIcon from "@material-ui/icons/PanTool";
 import { useDispatch, useSelector } from "react-redux";
-import { PayPalButton } from "react-paypal-button-v2";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 import { Heading } from "../Re_components";
 import colors from "../../config/colors";
 import paypalApi from "../../pages/api/paypal";
 import { payOrderAction } from "../redux/slices/paySlice";
 import { productSelector } from "../redux/slices/productSlice";
+import { shippingSelector } from "./../redux/slices/shippingSlice";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -50,6 +51,7 @@ const Payment = ({ billing }) => {
 
   const [clientID, setClientId] = useState(false);
   const { cart } = useSelector(productSelector);
+  const { shippingInfo } = useSelector(shippingSelector);
 
   const totalAmount = cart
     .map((item) => item.totalPrice)
@@ -61,11 +63,41 @@ const Payment = ({ billing }) => {
   };
   addPayPalScript();
 
+  const createOrder = (data, actions) => {
+    return actions.order.create({
+      application_context: {
+        shipping_preferences: "SET_PROVIDED_ADDRESS",
+      },
+      purchase_units: [
+        {
+          amount: {
+            value: totalAmount,
+          },
+          shipping: {
+            name: {
+              full_name: shippingInfo?.name,
+            },
+            address: {
+              address_line_1: shippingInfo?.address,
+              address_line_2: shippingInfo?.location,
+              admin_area_2: "Phoenix",
+              admin_area_1: "AZ",
+              postal_code: "85001",
+              country_code: "US",
+            },
+          },
+        },
+      ],
+      intent: "CAPTURE",
+    });
+  };
+
   const successPayment = (paymentResult) => {
     if (paymentResult) {
       dispatch(payOrderAction(paymentResult));
     }
   };
+
   return billing ? (
     <Container>
       <Grid container justifyContent="center" direction="column">
@@ -87,13 +119,9 @@ const Payment = ({ billing }) => {
               <Box fontWeight="fontWeightBold">PayPal</Box>
             </AccordionSummary>
             <AccordionDetails>
-              <PayPalButton
-                amount={totalAmount}
-                onSuccess={successPayment}
-                options={{
-                  clientId: clientID,
-                }}
-              />
+              <PayPalScriptProvider options={{ "client-id": clientID }}>
+                <PayPalButtons createOrder={createOrder} />
+              </PayPalScriptProvider>
             </AccordionDetails>
           </Accordion>
         </Grid>
