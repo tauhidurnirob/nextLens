@@ -10,12 +10,13 @@ import {
 import clsx from "clsx";
 import PaymentIcon from "@material-ui/icons/Payment";
 import PanToolIcon from "@material-ui/icons/PanTool";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useDispatch } from "react-redux";
 import { PayPalButton } from "react-paypal-button-v2";
 
 import { Heading } from "../Re_components";
 import colors from "../../config/colors";
 import paypalApi from "../../pages/api/paypal";
+import { payOrderAction } from "../redux/slices/paySlice";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -40,19 +41,19 @@ const useStyles = makeStyles(() => ({
 const Payment = ({ billing }) => {
   const classes = useStyles();
 
-  const [clientID, setClientID] = useState("");
-  console.log(clientID);
+  const dispatch = useDispatch();
 
-  const payWithPaypal = async () => {
-    const { data } = await paypalApi.getPaypal();
-    console.log(data);
-  };
+  const [clientID, setClientId] = useState(false);
+
   const addPayPalScript = async () => {
     const { data } = await paypalApi.Paypal();
-    setClientID(data);
+    setClientId(data);
   };
   addPayPalScript();
 
+  const successPayment = (paymentResult) => {
+    dispatch(payOrderAction(paymentResult));
+  };
   return billing ? (
     <Container>
       <Grid container justifyContent="center" direction="column">
@@ -64,18 +65,20 @@ const Payment = ({ billing }) => {
           </Box>
         </Heading>
 
-        <PayPalScriptProvider
-          options={{ "client-id": clientID, shippingPreference: "NO_SHIPPING" }}
-        >
-          <PayPalButtons />
-        </PayPalScriptProvider>
+        <PayPalButton
+          amount="10"
+          onSuccess={successPayment}
+          options={{
+            clientId: clientID,
+          }}
+        />
+
         <Grid item container justifyContent="center">
           <Button
             startIcon={<PaymentIcon />}
             variant="contained"
             color="primary"
             className={clsx(classes.btn)}
-            onClick={payWithPaypal}
           >
             Paypal
           </Button>
