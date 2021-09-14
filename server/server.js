@@ -38,8 +38,8 @@ app.use("/api/upload", uploadRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/shipping", shippingRoutes);
 
-app.get("/api/paypal", (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID);
+app.get("/api/config/paypal", (req, res) => {
+  res.send(process.env.CLIENT_ID);
 });
 
 // middleware
