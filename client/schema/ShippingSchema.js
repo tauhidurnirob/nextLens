@@ -25,8 +25,14 @@ const ShippingSchema = yup.object().shape({
   }),
 
   address: yup.string().required().label("Address"),
-  location: yup.string().required().label("Location"),
-  zipCode: yup.string().required().label("Zip Code"),
+  state: yup.string().required().label("State"),
+
+  postalCode: yup
+    .string()
+    .required()
+    .label("Postal Code")
+    .min(5)
+    .max(5, "Postal code should be 5 digits"),
   country: yup.string().required().label("Country"),
 });
 

@@ -204,30 +204,30 @@ const Shipping = ({ setBilling }) => {
             </>
           )}
           <FormControl variant="outlined" className={clsx(classes.form)}>
-            <InputLabel id="location">Location</InputLabel>
+            <InputLabel id="location">State</InputLabel>
             <Select
-              inputProps={{ ...register("location") }}
-              labelId="location"
-              id="location"
-              label="location"
+              inputProps={{ ...register("state") }}
+              labelId="state"
+              id="state"
+              label="State"
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              {location?.map((item, index) => (
+              {state?.map((item, index) => (
                 <MenuItem key={index + 1} value={item.name}>
                   {item.name}
                 </MenuItem>
               ))}
             </Select>
           </FormControl>
-          {errors.location && (
+          {errors.state && (
             <FormHelperText>
               <Typography
                 className={clsx(classes.errorFont)}
                 variant="subtitle2"
               >
-                {errors.location?.message}
+                {errors.state?.message}
               </Typography>
             </FormHelperText>
           )}
@@ -258,20 +258,20 @@ const Shipping = ({ setBilling }) => {
               <FormControl className={clsx(classes.form)} variant="filled">
                 <TextField
                   id="outlined-Email"
-                  label="Zip Code"
+                  label="Postal Code"
                   variant="outlined"
                   inputProps={{
-                    ...register("zipCode"),
+                    ...register("postalCode"),
                   }}
                 />
               </FormControl>
-              {errors.zipCode && (
+              {errors.postalCode && (
                 <FormHelperText>
                   <Typography
                     className={clsx(classes.errorFont)}
                     variant="subtitle2"
                   >
-                    {errors.zipCode?.message}
+                    {errors.postalCode?.message}
                   </Typography>
                 </FormHelperText>
               )}
@@ -320,9 +320,9 @@ const Shipping = ({ setBilling }) => {
 
 export default Shipping;
 
-const location = [
-  { name: "Dhaka" },
-  { name: "Chattogram" },
-  { name: "Cumilla" },
-  { name: "Sylhet" },
+const state = [
+  { name: "New York" },
+  { name: "Los Angeles" },
+  { name: "Chicago" },
+  { name: "Boston" },
 ];

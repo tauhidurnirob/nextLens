@@ -58,8 +58,10 @@ const Payment = ({ billing }) => {
     .reduce((acc, cc) => acc + cc, 0);
 
   const addPayPalScript = async () => {
-    const { data } = await paypalApi.Paypal();
-    setClientId(data);
+    const { data, ok } = await paypalApi.Paypal();
+    if (ok) {
+      setClientId(data);
+    }
   };
   addPayPalScript();
 
@@ -71,7 +73,7 @@ const Payment = ({ billing }) => {
       purchase_units: [
         {
           amount: {
-            value: totalAmount,
+            value: "100",
           },
           shipping: {
             name: {
@@ -79,10 +81,10 @@ const Payment = ({ billing }) => {
             },
             address: {
               address_line_1: shippingInfo?.address,
-              address_line_2: shippingInfo?.location,
+              address_line_2: shippingInfo?.state,
               admin_area_2: "Phoenix",
               admin_area_1: "AZ",
-              postal_code: "85001",
+              postal_code: shippingInfo?.postalCode,
               country_code: "US",
             },
           },
