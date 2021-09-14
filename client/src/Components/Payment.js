@@ -16,6 +16,8 @@ import PaymentIcon from "@material-ui/icons/Payment";
 import PanToolIcon from "@material-ui/icons/PanTool";
 import { useDispatch, useSelector } from "react-redux";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Heading } from "../Re_components";
 import colors from "../../config/colors";
@@ -96,7 +98,8 @@ const Payment = ({ billing }) => {
 
   const onApprove = (data, actions) => {
     const paymentResult = actions.order.capture();
-    if (paymentResult.resolved) {
+    if (paymentResult) {
+      toast.success("Thanks for purchasing");
       dispatch(payOrderAction(paymentResult));
       dispatch(resetCartAction());
     }
@@ -104,6 +107,7 @@ const Payment = ({ billing }) => {
 
   return billing ? (
     <Container>
+      <ToastContainer />
       <Grid container justifyContent="center" direction="column">
         <Heading isDivider>
           <Box mt={5}>

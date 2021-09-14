@@ -47,8 +47,13 @@ const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
     .reduce((acc, cc) => acc + cc, 0);
 
   return (
-    <Grid container justifyContent="center" direction="column">
-      <Grid item container justifyContent="space-evenly">
+    <Grid
+      container
+      justifyContent="center"
+      direction="column"
+      style={{ marginTop: "20px" }}
+    >
+      <Grid container justifyContent="space-evenly">
         <Typography variant="h6" gutterBottom>
           Total items :
         </Typography>
@@ -58,7 +63,7 @@ const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
         </Typography>
       </Grid>
       <Grid container justifyContent="center">
-        <Divider style={{ marginBottom: "20px", width: "80%" }} />
+        <Divider style={{ marginBottom: "20px", width: "45%" }} />
       </Grid>
       <Grid item container justifyContent="space-evenly">
         <Typography variant="h6" gutterBottom>
@@ -71,16 +76,23 @@ const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
       </Grid>
 
       {isProcessBtn && (
-        <Link href="/shipping">
-          <Button
-            className={clsx(classes.btn)}
-            variant="contained"
-            color="primary"
-            startIcon={<ArrowForwardIosIcon />}
-          >
-            Processes to checkout
-          </Button>
-        </Link>
+        <Grid
+          item
+          container
+          justifyContent="center"
+          style={{ marginTop: "10px" }}
+        >
+          <Link href="/shipping">
+            <Button
+              className={clsx(classes.btn)}
+              variant="contained"
+              color="primary"
+              startIcon={<ArrowForwardIosIcon />}
+            >
+              Processes to checkout
+            </Button>
+          </Link>
+        </Grid>
       )}
       <Grid container justifyContent="center" direction="column">
         {isPayment && (
