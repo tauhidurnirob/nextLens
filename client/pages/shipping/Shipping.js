@@ -69,6 +69,7 @@ const Shipping = ({ setBilling }) => {
   } = useForm({ resolver: yupResolver(ShippingSchema) });
 
   const [account, setAccount] = useState(false);
+
   const onSubmit = async (shippingData) => {
     const { ok } = await shippingApi.postShipping(shippingData);
     if (!ok) {
@@ -203,6 +204,26 @@ const Shipping = ({ setBilling }) => {
               )}
             </>
           )}
+          <FormControl className={clsx(classes.form)} variant="filled">
+            <TextField
+              id="outlined-Email"
+              label="Address"
+              variant="outlined"
+              inputProps={{
+                ...register("address"),
+              }}
+            />
+          </FormControl>
+          {errors.address && (
+            <FormHelperText>
+              <Typography
+                className={clsx(classes.errorFont)}
+                variant="subtitle2"
+              >
+                {errors.address?.message}
+              </Typography>
+            </FormHelperText>
+          )}
           <FormControl variant="outlined" className={clsx(classes.form)}>
             <InputLabel id="location">State</InputLabel>
             <Select
@@ -214,11 +235,14 @@ const Shipping = ({ setBilling }) => {
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              {state?.map((item, index) => (
-                <MenuItem key={index + 1} value={item.name}>
-                  {item.name}
-                </MenuItem>
-              ))}
+              {state?.map((item, index) => {
+                return (
+                  <MenuItem key={index + 1} value={item}>
+                    {item.stateName} {item.city} {item.shortName}{" "}
+                    {item.postalCode}
+                  </MenuItem>
+                );
+              })}
             </Select>
           </FormControl>
           {errors.state && (
@@ -228,73 +252,6 @@ const Shipping = ({ setBilling }) => {
                 variant="subtitle2"
               >
                 {errors.state?.message}
-              </Typography>
-            </FormHelperText>
-          )}
-          <Grid container direction="row" spacing={2}>
-            <Grid item container md={6} className={clsx(classes.gridItem)}>
-              <FormControl className={clsx(classes.form)} variant="filled">
-                <TextField
-                  id="outlined-Email"
-                  label="Address"
-                  variant="outlined"
-                  inputProps={{
-                    ...register("address"),
-                  }}
-                />
-              </FormControl>
-              {errors.address && (
-                <FormHelperText>
-                  <Typography
-                    className={clsx(classes.errorFont)}
-                    variant="subtitle2"
-                  >
-                    {errors.address?.message}
-                  </Typography>
-                </FormHelperText>
-              )}
-            </Grid>
-            <Grid item container md={6} className={clsx(classes.gridItem)}>
-              <FormControl className={clsx(classes.form)} variant="filled">
-                <TextField
-                  id="outlined-Email"
-                  label="Postal Code"
-                  variant="outlined"
-                  inputProps={{
-                    ...register("postalCode"),
-                  }}
-                />
-              </FormControl>
-              {errors.postalCode && (
-                <FormHelperText>
-                  <Typography
-                    className={clsx(classes.errorFont)}
-                    variant="subtitle2"
-                  >
-                    {errors.postalCode?.message}
-                  </Typography>
-                </FormHelperText>
-              )}
-            </Grid>
-          </Grid>
-
-          <FormControl className={clsx(classes.form)} variant="filled">
-            <TextField
-              id="outlined-Email"
-              label="Country"
-              variant="outlined"
-              inputProps={{
-                ...register("country"),
-              }}
-            />
-          </FormControl>
-          {errors.country && (
-            <FormHelperText>
-              <Typography
-                className={clsx(classes.errorFont)}
-                variant="subtitle2"
-              >
-                {errors.country?.message}
               </Typography>
             </FormHelperText>
           )}
@@ -321,8 +278,28 @@ const Shipping = ({ setBilling }) => {
 export default Shipping;
 
 const state = [
-  { name: "New York" },
-  { name: "Los Angeles" },
-  { name: "Chicago" },
-  { name: "Boston" },
+  {
+    stateName: "Arizona",
+    shortName: "AZ",
+    postalCode: "85001",
+    city: "Phoenix",
+  },
+  {
+    stateName: "Arkansas",
+    shortName: "AR",
+    postalCode: "72201",
+    city: "Little Rock",
+  },
+  {
+    stateName: "California",
+    shortName: "CA",
+    postalCode: "94203",
+    city: "Sacramento Los Angeles Beverly Hills",
+  },
+  {
+    stateName: "Colorado",
+    shortName: "CO",
+    postalCode: "80201",
+    city: "Denver",
+  },
 ];
