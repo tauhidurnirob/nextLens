@@ -46,6 +46,9 @@ const productSlice = createSlice({
     topProducts(state, { payload }) {
       state.topProduct = payload;
     },
+    resetCartAction(state) {
+      state.cart = [];
+    },
     MinMaxFilter: (state, { payload }) => {
       const filterMinMax = state.products.filter(
         (item) =>
@@ -66,6 +69,7 @@ export const {
   topProducts,
   fetchedProducts,
   MinMaxFilter,
+  resetCartAction,
 } = productSlice.actions;
 
 export default productSlice.reducer;

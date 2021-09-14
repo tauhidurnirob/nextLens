@@ -25,9 +25,7 @@ const ShippingSchema = yup.object().shape({
   }),
 
   address: yup.string().required().label("Address"),
-  location: yup.string().required().label("Location"),
-  zipCode: yup.string().required().label("Zip Code"),
-  country: yup.string().required().label("Country"),
+  state: yup.mixed().required().label("State"),
 });
 
 export default ShippingSchema;
