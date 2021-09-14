@@ -21,7 +21,7 @@ import { Heading } from "../Re_components";
 import colors from "../../config/colors";
 import paypalApi from "../../pages/api/paypal";
 import { payOrderAction } from "../redux/slices/paySlice";
-import { productSelector } from "../redux/slices/productSlice";
+import { productSelector, resetCartAction } from "../redux/slices/productSlice";
 import { shippingSelector } from "./../redux/slices/shippingSlice";
 
 const useStyles = makeStyles(() => ({
@@ -73,7 +73,7 @@ const Payment = ({ billing }) => {
       purchase_units: [
         {
           amount: {
-            value: "100",
+            value: totalAmount,
           },
           shipping: {
             name: {
@@ -94,9 +94,11 @@ const Payment = ({ billing }) => {
     });
   };
 
-  const successPayment = (paymentResult) => {
-    if (paymentResult) {
+  const onApprove = (data, actions) => {
+    const paymentResult = actions.order.capture();
+    if (paymentResult.resolved) {
       dispatch(payOrderAction(paymentResult));
+      dispatch(resetCartAction());
     }
   };
 
@@ -111,42 +113,53 @@ const Payment = ({ billing }) => {
           </Box>
         </Heading>
 
-        <Grid item container justifyContent="center">
-          <Accordion style={{ marginTop: "20px" }}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1bh-content"
-              id="panel1bh-header"
-            >
-              <Box fontWeight="fontWeightBold">PayPal</Box>
-            </AccordionSummary>
-            <AccordionDetails>
-              <PayPalScriptProvider options={{ "client-id": clientID }}>
-                <PayPalButtons createOrder={createOrder} />
-              </PayPalScriptProvider>
-            </AccordionDetails>
-          </Accordion>
-        </Grid>
-        <Grid item container justifyContent="center">
-          <Button
-            startIcon={<PaymentIcon />}
-            variant="contained"
-            color="primary"
-            className={clsx(classes.btn)}
-          >
-            Stripe
-          </Button>
-        </Grid>
-        <Grid item container justifyContent="center">
-          <Button
-            startIcon={<PanToolIcon />}
-            variant="contained"
-            color="primary"
-            className={clsx(classes.btn)}
-          >
-            Cash On
-          </Button>
-        </Grid>
+        {cart.length !== 0 ? (
+          <>
+            <Grid item container justifyContent="center">
+              <Accordion style={{ marginTop: "20px" }}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1bh-content"
+                  id="panel1bh-header"
+                >
+                  <Box fontWeight="fontWeightBold">PayPal</Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <PayPalScriptProvider options={{ "client-id": clientID }}>
+                    <PayPalButtons
+                      createOrder={createOrder}
+                      onApprove={onApprove}
+                    />
+                  </PayPalScriptProvider>
+                </AccordionDetails>
+              </Accordion>
+            </Grid>
+            <Grid item container justifyContent="center">
+              <Button
+                startIcon={<PaymentIcon />}
+                variant="contained"
+                color="primary"
+                className={clsx(classes.btn)}
+              >
+                Stripe
+              </Button>
+            </Grid>
+            <Grid item container justifyContent="center">
+              <Button
+                startIcon={<PanToolIcon />}
+                variant="contained"
+                color="primary"
+                className={clsx(classes.btn)}
+              >
+                Cash On
+              </Button>
+            </Grid>
+          </>
+        ) : (
+          <Typography style={{ marginTop: "20px" }} align="center" variant="h5">
+            You haven't any cart products
+          </Typography>
+        )}
       </Grid>
     </Container>
   ) : null;
