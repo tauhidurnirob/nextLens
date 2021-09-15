@@ -75,14 +75,12 @@ const Payment = ({ billing }) => {
               </Accordion>
             </Grid>
             <Grid item container justifyContent="center">
-              <Button
+              <StripePayment
                 startIcon={<PaymentIcon />}
                 variant="contained"
                 color="primary"
                 className={clsx(classes.btn)}
-              >
-                Stripe
-              </Button>
+              />
             </Grid>
             <Grid item container justifyContent="center">
               <Button
@@ -102,9 +100,7 @@ const Payment = ({ billing }) => {
         )}
       </Grid>
     </Container>
-  ) : (
-    <StripePayment />
-  );
+  ) : null;
 };
 
 export default Payment;

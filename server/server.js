@@ -40,9 +40,6 @@ app.use("/api/contact", contactRoutes);
 app.use("/api/shipping", shippingRoutes);
 app.use("/api/config/stripe", stripeRoutes);
 
-app.get("/api/config/paypal", (req, res) => {
-  res.send(process.env.CLIENT_ID);
-});
 
 // middleware
 app.use(notFound);

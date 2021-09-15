@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import paypalApi from "../../pages/api/paypal";
 import { payOrderAction } from "../redux/slices/paySlice";
 import { resetCartAction, productSelector } from "../redux/slices/productSlice";
 import { shippingSelector } from "./../redux/slices/shippingSlice";
@@ -13,22 +12,12 @@ import { shippingSelector } from "./../redux/slices/shippingSlice";
 const PayPalPayment = () => {
   const dispatch = useDispatch();
 
-  const [clientID, setClientId] = useState("");
-
   const { shippingInfo } = useSelector(shippingSelector);
   const { cart } = useSelector(productSelector);
 
   const totalAmount = cart
     .map((item) => item.totalPrice)
     .reduce((acc, cc) => acc + cc, 0);
-
-  const addPayPalScript = async () => {
-    const { data, ok } = await paypalApi.Paypal();
-    if (ok) {
-      setClientId(data);
-    }
-  };
-  addPayPalScript();
 
   const createOrder = (data, actions) => {
     return actions.order.create({
@@ -42,7 +31,7 @@ const PayPalPayment = () => {
           },
           shipping: {
             name: {
-              full_name: shippingInfo?.name,
+              full_name: shippingInfo?.name?.split(" ")[0],
             },
             address: {
               address_line_1: shippingInfo?.address,
@@ -73,7 +62,7 @@ const PayPalPayment = () => {
       <ToastContainer />
       <PayPalScriptProvider
         options={{
-          "client-id": clientID,
+          "client-id": process.env.NEXT_PUBLIC_CLIENT_ID,
         }}
       >
         <PayPalButtons createOrder={createOrder} onApprove={onApprove} />

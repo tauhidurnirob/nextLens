@@ -66,11 +66,12 @@ const Shipping = ({ setBilling }) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(ShippingSchema) });
 
   const [account, setAccount] = useState(false);
 
-  const onSubmit = async (shippingData) => {
+  const onSubmit = async (shippingData, e) => {
     const { ok } = await shippingApi.postShipping(shippingData);
     if (!ok) {
       toast.error("Something went wrong");
@@ -93,6 +94,7 @@ const Shipping = ({ setBilling }) => {
         dispatch(registerAction(data));
       }
     }
+    reset();
   };
 
   return (

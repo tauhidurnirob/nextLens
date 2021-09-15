@@ -7,7 +7,7 @@ dotenv.config();
 const stripe = new Stripe(process.env.SECRET_KEY);
 
 export const createCustomer = asyncHandler(async (req, res) => {
-  const { token } = req.body;
+  const { token, shipping, price, address } = req.body;
 
   const customer = await stripe.customers.create({
     email: token.email,
@@ -16,15 +16,16 @@ export const createCustomer = asyncHandler(async (req, res) => {
   if (customer) {
     const paymentInfo = await stripe.charges.create({
       customer: customer.id,
-      amount: 2500,
+      amount: price,
       currency: "usd",
       shipping: {
         name: token.card.name,
         address: {
-          city: token.card.address_city,
-          country: token.card.address_country,
-          line1: token.card.address_line1,
-          postal_code: token.card.address_zip,
+          city: shipping.city,
+          state: shipping.stateName,
+          line1: address,
+          line2: shipping.shortName,
+          postal_code: shipping.postalCode,
         },
       },
     });
