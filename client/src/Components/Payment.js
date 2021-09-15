@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Container,
   Grid,
@@ -14,17 +14,13 @@ import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PaymentIcon from "@material-ui/icons/Payment";
 import PanToolIcon from "@material-ui/icons/PanTool";
-import { useDispatch, useSelector } from "react-redux";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
 import { Heading } from "../Re_components";
 import colors from "../../config/colors";
-import paypalApi from "../../pages/api/paypal";
-import { payOrderAction } from "../redux/slices/paySlice";
-import { productSelector, resetCartAction } from "../redux/slices/productSlice";
-import { shippingSelector } from "./../redux/slices/shippingSlice";
+import { productSelector } from "../redux/slices/productSlice";
+import PayPalPayment from "./PayPalPayment";
+import StripePayment from "./StripePayment";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -49,65 +45,10 @@ const useStyles = makeStyles(() => ({
 const Payment = ({ billing }) => {
   const classes = useStyles();
 
-  const dispatch = useDispatch();
-
-  const [clientID, setClientId] = useState(false);
   const { cart } = useSelector(productSelector);
-  const { shippingInfo } = useSelector(shippingSelector);
-
-  const totalAmount = cart
-    .map((item) => item.totalPrice)
-    .reduce((acc, cc) => acc + cc, 0);
-
-  const addPayPalScript = async () => {
-    const { data, ok } = await paypalApi.Paypal();
-    if (ok) {
-      setClientId(data);
-    }
-  };
-  addPayPalScript();
-
-  const createOrder = (data, actions) => {
-    return actions.order.create({
-      application_context: {
-        shipping_preferences: "SET_PROVIDED_ADDRESS",
-      },
-      purchase_units: [
-        {
-          amount: {
-            value: totalAmount,
-          },
-          shipping: {
-            name: {
-              full_name: shippingInfo?.name,
-            },
-            address: {
-              address_line_1: shippingInfo?.address,
-              address_line_2: shippingInfo?.state.stateName,
-              admin_area_2: shippingInfo?.state.city,
-              admin_area_1: shippingInfo?.state.shortName,
-              postal_code: shippingInfo?.state.postalCode,
-              country_code: "US",
-            },
-          },
-        },
-      ],
-      intent: "CAPTURE",
-    });
-  };
-
-  const onApprove = (data, actions) => {
-    const paymentResult = actions.order.capture();
-    if (paymentResult) {
-      toast.success("Thanks for purchasing");
-      dispatch(payOrderAction(paymentResult));
-      dispatch(resetCartAction());
-    }
-  };
 
   return billing ? (
     <Container>
-      <ToastContainer />
       <Grid container justifyContent="center" direction="column">
         <Heading isDivider>
           <Box mt={5}>
@@ -129,12 +70,7 @@ const Payment = ({ billing }) => {
                   <Box fontWeight="fontWeightBold">PayPal</Box>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <PayPalScriptProvider options={{ "client-id": clientID }}>
-                    <PayPalButtons
-                      createOrder={createOrder}
-                      onApprove={onApprove}
-                    />
-                  </PayPalScriptProvider>
+                  <PayPalPayment />
                 </AccordionDetails>
               </Accordion>
             </Grid>
@@ -166,7 +102,9 @@ const Payment = ({ billing }) => {
         )}
       </Grid>
     </Container>
-  ) : null;
+  ) : (
+    <StripePayment />
+  );
 };
 
 export default Payment;
