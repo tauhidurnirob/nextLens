@@ -31,10 +31,10 @@ const products = [
     },
     listType: [
       { list: "Frame Only" },
-      { list: "Basic Lens + ৳200" },
-      { list: "Standard Lens + ৳300" },
-      { list: "Premium Standard Lens + ৳500" },
-      { list: "Blue Light Block Glass + ৳500" },
+      { list: "Basic Lens + $200" },
+      { list: "Standard Lens + $300" },
+      { list: "Premium Standard Lens + $500" },
+      { list: "Blue Light Block Glass + $500" },
     ],
   },
   {
@@ -70,10 +70,10 @@ const products = [
     },
     listType: [
       { list: "Frame Only" },
-      { list: "Basic Lens + ৳200" },
-      { list: "Standard Lens + ৳300" },
-      { list: "Premium Standard Lens + ৳500" },
-      { list: "Blue Light Block Glass + ৳500" },
+      { list: "Basic Lens + $200" },
+      { list: "Standard Lens + $300" },
+      { list: "Premium Standard Lens + $500" },
+      { list: "Blue Light Block Glass + $500" },
     ],
   },
   {
@@ -109,10 +109,10 @@ const products = [
     },
     listType: [
       { list: "Frame Only" },
-      { list: "Basic Lens + ৳200" },
-      { list: "Standard Lens + ৳300" },
-      { list: "Premium Standard Lens + ৳500" },
-      { list: "Blue Light Block Glass + ৳500" },
+      { list: "Basic Lens + $200" },
+      { list: "Standard Lens + $300" },
+      { list: "Premium Standard Lens + $500" },
+      { list: "Blue Light Block Glass + $500" },
     ],
   },
   {
@@ -148,10 +148,10 @@ const products = [
     },
     listType: [
       { list: "Frame Only" },
-      { list: "Basic Lens + ৳200" },
-      { list: "Standard Lens + ৳300" },
-      { list: "Premium Standard Lens + ৳500" },
-      { list: "Blue Light Block Glass + ৳500" },
+      { list: "Basic Lens + $200" },
+      { list: "Standard Lens + $300" },
+      { list: "Premium Standard Lens + $500" },
+      { list: "Blue Light Block Glass + $500" },
     ],
   },
   {
@@ -187,10 +187,10 @@ const products = [
     },
     listType: [
       { list: "Frame Only" },
-      { list: "Basic Lens + ৳200" },
-      { list: "Standard Lens + ৳300" },
-      { list: "Premium Standard Lens + ৳500" },
-      { list: "Blue Light Block Glass + ৳500" },
+      { list: "Basic Lens + $200" },
+      { list: "Standard Lens + $300" },
+      { list: "Premium Standard Lens + $500" },
+      { list: "Blue Light Block Glass + $500" },
     ],
   },
   {
@@ -226,10 +226,10 @@ const products = [
     },
     listType: [
       { list: "Frame Only" },
-      { list: "Basic Lens + ৳200" },
-      { list: "Standard Lens + ৳300" },
-      { list: "Premium Standard Lens + ৳500" },
-      { list: "Blue Light Block Glass + ৳500" },
+      { list: "Basic Lens + $200" },
+      { list: "Standard Lens + $300" },
+      { list: "Premium Standard Lens + $500" },
+      { list: "Blue Light Block Glass + $500" },
     ],
   },
 ];

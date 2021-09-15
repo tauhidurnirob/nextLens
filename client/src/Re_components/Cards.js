@@ -167,7 +167,7 @@ const Cards = ({
               {ShouldBeCapital(item?.title)}
             </Typography>
             <Typography>
-              <Box fontWeight={500}>৳{item?.price}</Box>
+              <Box fontWeight={500}>${item?.price}</Box>
             </Typography>
           </Grid>
         </>

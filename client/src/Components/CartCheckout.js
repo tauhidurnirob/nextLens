@@ -71,7 +71,7 @@ const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
           Grand Total :
         </Typography>
         <Typography variant="h6" gutterBottom>
-          ৳{` `}
+          ${` `}
           {totalAmount}
         </Typography>
       </Grid>

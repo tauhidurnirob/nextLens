@@ -22,7 +22,7 @@ export const createCustomer = asyncHandler(async (req, res) => {
         name: token.card.name,
         address: {
           city: shipping.city,
-          country: shipping.stateName,
+          state: shipping.stateName,
           line1: address,
           line2: shipping.shortName,
           postal_code: shipping.postalCode,

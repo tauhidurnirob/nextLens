@@ -102,14 +102,14 @@ const CartTable = () => {
                 </Link>
               </TableCell>
               <TableCell align="center">
-                <Box fontWeight="fontWeightBold">৳{item.price}</Box>
+                <Box fontWeight="fontWeightBold">${item.price}</Box>
               </TableCell>
               <TableCell align="center">
                 <Quantity items={item} isCartTable />
               </TableCell>
               <TableCell align="center">
                 <Box style={{ color: colors.sky }} fontWeight="fontWeightBold">
-                  ৳{item?.totalPrice}
+                  ${item?.totalPrice}
                 </Box>
               </TableCell>
             </TableRow>
