@@ -18,10 +18,11 @@ const StripePayment = () => {
   };
   return (
     <StripeCheckout
-      stripeKey=" sk_test_51HZrZoASRJydd9koKrRDLR2Nsere9ETf1ScCTXENE7VOH5rXCsDGfkPolw9qRlrcMcYT73s1I0kMd9QTYsVTzGHc00qsb6SjZD"
+      stripeKey="pk_test_51HZrZoASRJydd9konZNtAoNFNfQSJttzAyouQzbGmwuq0mTl6l2c9B4Bw2X0ZnB146zEd5WTLSlC1jfaFRS9X7Ic00MSR4xE3i"
       token={makePayment}
       name="Buy React"
-      amount={200}
+      amount={200 * 100}
+      shippingAddress
     >
       <Button color="primary" variant="contained">
         Pay

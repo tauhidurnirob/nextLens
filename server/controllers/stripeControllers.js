@@ -2,37 +2,35 @@ import Stripe from "stripe";
 import dotenv from "dotenv";
 import asyncHandler from "express-async-handler";
 
-import { v4 as uuidv4 } from "uuid";
 dotenv.config();
 
-const stripe = new Stripe(process.env.PUBLISH_KEY, {
-  maxNetworkRetries: 2,
-});
+const stripe = new Stripe(process.env.SECRET_KEY);
 
 export const createCustomer = asyncHandler(async (req, res) => {
-  const { product, token } = req.body;
-  return stripe.customers
-    .create({
-      email: email,
-      source: token.id,
-    })
-    .then((customer) => {
-      stripe.charges.create(
-        {
-          amount: product.price * 100,
-          currency: "usd",
-          customer: customer.id,
-          receipt_email: token.email,
-          shipping: {
-            name: token.card.name,
-            address: {
-              country: token.card.address_country,
-            },
-          },
+  const { token } = req.body;
+
+  const customer = await stripe.customers.create({
+    email: token.email,
+    source: token.id,
+  });
+  if (customer) {
+    const paymentInfo = await stripe.charges.create({
+      customer: customer.id,
+      amount: 2500,
+      currency: "usd",
+      shipping: {
+        name: token.card.name,
+        address: {
+          city: token.card.address_city,
+          country: token.card.address_country,
+          line1: token.card.address_line1,
+          postal_code: token.card.address_zip,
         },
-        { maxNetworkRetries: 2 }
-      );
-    })
-    .then((result) => res.status(200).json(result))
-    .catch((err) => console.log(err));
+      },
+    });
+    res.send(paymentInfo);
+  } else {
+    res.sendStatus(500);
+    throw new Error("Invalid Customer");
+  }
 });
