@@ -57,6 +57,7 @@ const CartCheckout = ({ isProcessBtn, isPayment, billing }) => {
         <Typography variant="h6" gutterBottom>
           Total items :
         </Typography>
+
         <Typography variant="h6" gutterBottom>
           * {` `}
           {totalItems}
