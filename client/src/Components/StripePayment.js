@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@material-ui/core";
 import StripeCheckout from "react-stripe-checkout";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,7 +17,6 @@ const StripePayment = ({ ...otherProps }) => {
   const dispatch = useDispatch();
   const { shippingInfo } = useSelector(shippingSelector);
   const { cart } = useSelector(productSelector);
-  const [loading, setLoading] = useState(false);
   const totalAmount = cart
     .map((item) => item.totalPrice)
     .reduce((acc, cc) => acc + cc, 0);
@@ -30,9 +29,7 @@ const StripePayment = ({ ...otherProps }) => {
       price: totalAmount,
     };
     const { data, ok } = await stripeApi.createPaymentStripe(body);
-    setLoading(true);
     if (ok) {
-      setLoading(false);
       toast.success("Thanks for purchasing");
       dispatch(payOrderAction(data));
       dispatch(resetCartAction());
@@ -41,7 +38,7 @@ const StripePayment = ({ ...otherProps }) => {
   return (
     <>
       <ToastContainer />
-      {loading ? (
+      {!loading ? (
         <StripeCheckout
           stripeKey={process.env.NEXT_PUBLIC_PUBLISH_KEY}
           token={makePayment}
