@@ -32,6 +32,8 @@
     "nodemailer": "^6.6.3",
     "nodemailer-smtp-transport": "^2.7.4",
     "paypal-rest-sdk": "^1.8.1",
-    "streamifier": "^0.1.1"
+    "streamifier": "^0.1.1",
+    "stripe": "^8.174.0",
+    "uuid": "^8.3.2"
   }
 }
