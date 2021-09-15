@@ -38,20 +38,16 @@ const StripePayment = ({ ...otherProps }) => {
   return (
     <>
       <ToastContainer />
-      {!loading ? (
-        <StripeCheckout
-          stripeKey={process.env.NEXT_PUBLIC_PUBLISH_KEY}
-          token={makePayment}
-          name={shippingInfo?.name?.split(" ")[0]}
-          amount={totalAmount * 100}
-          email={shippingInfo?.email}
-          panelLabel="Pay"
-        >
-          <Button {...otherProps}>Stripe</Button>
-        </StripeCheckout>
-      ) : (
-        "shakib"
-      )}
+      <StripeCheckout
+        stripeKey={process.env.NEXT_PUBLIC_PUBLISH_KEY}
+        token={makePayment}
+        name={shippingInfo?.name?.split(" ")[0]}
+        amount={totalAmount * 100}
+        email={shippingInfo?.email}
+        panelLabel="Pay"
+      >
+        <Button {...otherProps}>Stripe</Button>
+      </StripeCheckout>
     </>
   );
 };
