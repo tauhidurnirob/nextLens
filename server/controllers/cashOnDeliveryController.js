@@ -1,5 +1,4 @@
 import asyncHandler from "express-async-handler";
-
 import easyinvoice from "easyinvoice";
 import fs from "fs";
 import path from "path";
@@ -15,7 +14,10 @@ const base64_encode = (img) => {
 };
 
 export const createCashOnDelivery = asyncHandler(async (req, res) => {
+  console.log(req.body);
+  const today = new Date();
   const data = {
+    documentTitle: "RECEIPT",
     currency: "USD",
     taxNotation: "vat",
     marginTop: 25,
@@ -24,36 +26,36 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
     marginBottom: 25,
     logo: base64_encode(imagePath),
     sender: {
-      company: "Buy Me A Gradient",
-      address: "Corso Italia 13",
-      zip: "1234 AB",
-      city: "Milan",
-      country: "IT",
+      company: "NEXT-LENSE",
+      address: "MIRPUR-1 DHAKA",
+      zip: "1216",
+      city: "SAVAR",
+      country: "",
     },
     client: {
-      company: "Client Corp",
+      company: "Shipping Address",
       address: "Clientstreet 456",
       zip: "4567 CD",
       city: "Clientcity",
       country: "Clientcountry",
     },
-    invoiceNumber: "2020.0001",
-    invoiceDate: "05-01-2020",
+    invoiceNumber: `NEXT-${Math.floor(1000 + Math.random() * 9000)}`,
+    invoiceDate: today.toLocaleDateString("en-US"),
     products: [
       {
         quantity: "2",
         description: "Test1",
-        tax: 6,
         price: 33.87,
+        tax: "",
       },
       {
         quantity: "4",
         description: "Test2",
-        tax: 21,
         price: 10.45,
+        tax: "",
       },
     ],
-    bottomNotice: "Kindly pay your invoice within 15 days.",
+    bottomNotice: "Our Delivery boy will be there within 3 days. Thanks",
   };
 
   const result = await easyinvoice.createInvoice(data);
