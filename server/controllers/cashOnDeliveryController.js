@@ -10,7 +10,6 @@ dotenv.config();
 // @routes POST/api/config/cashOnDelivery
 // @access public
 const imagePath = path.resolve("img", "invoice.png");
-const draftPath = path.resolve("img", "draft.png");
 
 const base64_encode = (img) => {
   const png = fs.readFileSync(img);
@@ -29,7 +28,6 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
     marginLeft: 25,
     marginBottom: 25,
     logo: base64_encode(imagePath),
-    background: base64_encode(draftPath),
     sender: {
       company: "NEXT-LENSE",
       address: "MIRPUR-1 DHAKA",
