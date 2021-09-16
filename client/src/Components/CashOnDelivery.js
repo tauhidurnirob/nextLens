@@ -19,6 +19,7 @@ const CashOnDelivery = ({ ...otherProps }) => {
 
   const makePayment = async () => {
     const body = {
+      name: shippingInfo.name,
       email: shippingInfo.email,
       shipping: shippingInfo.state,
       address: shippingInfo.address,
