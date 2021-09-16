@@ -2,6 +2,9 @@ import asyncHandler from "express-async-handler";
 import easyinvoice from "easyinvoice";
 import fs from "fs";
 import path from "path";
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+dotenv.config();
 
 // @Description invoice
 // @routes POST/api/config/cashOnDelivery
@@ -14,8 +17,9 @@ const base64_encode = (img) => {
 };
 
 export const createCashOnDelivery = asyncHandler(async (req, res) => {
-  const { shipping, address, cart } = req.body;
+  const { email, shipping, address, cart } = req.body;
   const today = new Date();
+
   const data = {
     currency: "USD",
     taxNotation: "vat",
@@ -24,6 +28,7 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
     marginLeft: 25,
     marginBottom: 25,
     logo: base64_encode(imagePath),
+    background: "https://public.easyinvoice.cloud/img/watermark-draft.jpg",
     sender: {
       company: "NEXT-LENSE",
       address: "MIRPUR-1 DHAKA",
@@ -55,6 +60,36 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
   const result = await easyinvoice.createInvoice(data);
   if (result) {
     res.send({ message: "Successfully invoice generated" });
+    const transporter = nodemailer.createTransport({
+      service: process.env.SERVICE,
+      auth: {
+        user: process.env.USER,
+        pass: process.env.PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.FORM,
+      to: email,
+      subject: "INVOICES",
+      text: "Thanks for choosing cash on delivery method.",
+      attachments: [
+        {
+          filename: `invoice${Date.now()}.pdf`,
+          content: "THISISAB64STRING",
+          encoding: "base64",
+        },
+      ],
+    };
+
+    transporter.sendMail(mailOptions, function (error) {
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(200);
+      }
+    });
     fs.writeFileSync(
       `./invoice/invoice${Date.now()}.pdf`,
       result.pdf,
