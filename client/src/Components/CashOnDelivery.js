@@ -26,9 +26,7 @@ const CashOnDelivery = ({ ...otherProps }) => {
     };
     const { data, ok } = await paymentApi.createCashOnDelivery(body);
     if (ok) {
-      toast.success(
-        "Thanks for choosing cash on delivery. kindly check your Email."
-      );
+      toast.success("Kindly check your Email.");
       dispatch(payOrderAction(data));
       dispatch(resetCartAction());
     }
@@ -36,7 +34,6 @@ const CashOnDelivery = ({ ...otherProps }) => {
   return (
     <>
       <ToastContainer />
-
       <Button {...otherProps} onClick={makePayment}>
         Cash On
       </Button>
