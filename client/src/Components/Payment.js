@@ -21,6 +21,7 @@ import colors from "../../config/colors";
 import { productSelector } from "../redux/slices/productSlice";
 import PayPalPayment from "./PayPalPayment";
 import StripePayment from "./StripePayment";
+import CashOnDelivery from "./CashOnDelivery";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -83,14 +84,12 @@ const Payment = ({ billing }) => {
               />
             </Grid>
             <Grid item container justifyContent="center">
-              <Button
+              <CashOnDelivery
                 startIcon={<PanToolIcon />}
                 variant="contained"
                 color="primary"
                 className={clsx(classes.btn)}
-              >
-                Cash On
-              </Button>
+              />
             </Grid>
           </>
         ) : (

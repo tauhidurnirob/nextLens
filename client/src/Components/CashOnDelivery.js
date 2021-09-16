@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import StripeCheckout from "react-stripe-checkout";
 import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,22 +12,18 @@ import {
 } from "./../redux/slices/productSlice";
 import { payOrderAction } from "../redux/slices/paySlice";
 
-const StripePayment = ({ ...otherProps }) => {
+const CashOnDelivery = ({ ...otherProps }) => {
   const dispatch = useDispatch();
   const { shippingInfo } = useSelector(shippingSelector);
   const { cart } = useSelector(productSelector);
-  const totalAmount = cart
-    .map((item) => item.totalPrice)
-    .reduce((acc, cc) => acc + cc, 0);
 
-  const makePayment = async (token) => {
+  const makePayment = async () => {
     const body = {
-      token,
       shipping: shippingInfo.state,
       address: shippingInfo.address,
-      price: totalAmount,
+      cart,
     };
-    const { data, ok } = await paymentApi.createPaymentStripe(body);
+    const { data, ok } = await paymentApi.createCashOnDelivery(body);
     if (ok) {
       toast.success("Thanks for purchasing");
       dispatch(payOrderAction(data));
@@ -38,18 +33,12 @@ const StripePayment = ({ ...otherProps }) => {
   return (
     <>
       <ToastContainer />
-      <StripeCheckout
-        stripeKey={process.env.NEXT_PUBLIC_PUBLISH_KEY}
-        token={makePayment}
-        name={shippingInfo?.name?.split(" ")[0]}
-        amount={totalAmount * 100}
-        email={shippingInfo?.email}
-        panelLabel="Pay"
-      >
-        <Button {...otherProps}>Stripe</Button>
-      </StripeCheckout>
+
+      <Button {...otherProps} onClick={makePayment}>
+        Cash On
+      </Button>
     </>
   );
 };
 
-export default StripePayment;
+export default CashOnDelivery;

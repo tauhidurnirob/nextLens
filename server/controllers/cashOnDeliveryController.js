@@ -14,10 +14,9 @@ const base64_encode = (img) => {
 };
 
 export const createCashOnDelivery = asyncHandler(async (req, res) => {
-  console.log(req.body);
+  const { shipping, address, cart } = req.body;
   const today = new Date();
   const data = {
-    documentTitle: "RECEIPT",
     currency: "USD",
     taxNotation: "vat",
     marginTop: 25,
@@ -34,27 +33,22 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
     },
     client: {
       company: "Shipping Address",
-      address: "Clientstreet 456",
-      zip: "4567 CD",
-      city: "Clientcity",
-      country: "Clientcountry",
+      address: address,
+      zip: `${shipping.postalCode} ${shipping.shortName}`,
+      city: shipping.city,
+      country: "",
     },
     invoiceNumber: `NEXT-${Math.floor(1000 + Math.random() * 9000)}`,
     invoiceDate: today.toLocaleDateString("en-US"),
-    products: [
-      {
-        quantity: "2",
-        description: "Test1",
-        price: 33.87,
+
+    products: cart.map((item) => {
+      return {
+        quantity: item.quantity,
+        price: item.price,
+        description: item.title,
         tax: "",
-      },
-      {
-        quantity: "4",
-        description: "Test2",
-        price: 10.45,
-        tax: "",
-      },
-    ],
+      };
+    }),
     bottomNotice: "Our Delivery boy will be there within 3 days. Thanks",
   };
 
