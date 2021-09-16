@@ -22,7 +22,7 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
     marginRight: 25,
     marginLeft: 25,
     marginBottom: 25,
-    logo: `${base64_encode(imagePath)}`,
+    logo: base64_encode(imagePath),
     sender: {
       company: "Buy Me A Gradient",
       address: "Corso Italia 13",
@@ -57,9 +57,15 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
   };
 
   const result = await easyinvoice.createInvoice(data);
-  return fs.writeFileSync(
-    `./invoice/invoice${Date.now()}.pdf`,
-    result.pdf,
-    "base64"
-  );
+  if (result) {
+    res.send({ message: "Successfully invoice generated" });
+    fs.writeFileSync(
+      `./invoice/invoice${Date.now()}.pdf`,
+      result.pdf,
+      "base64"
+    );
+  } else {
+    res.sendStatus(500);
+    throw new Error("Something went wrong");
+  }
 });
