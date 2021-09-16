@@ -71,12 +71,13 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
     const mailOptions = {
       from: process.env.FORM,
       to: email,
-      subject: "INVOICES",
+      subject: "INVOICE",
       text: "Thanks for choosing cash on delivery method.",
       attachments: [
         {
-          filename: `invoice${Date.now()}.pdf`,
-          content: "THISISAB64STRING",
+          filename: "invoice.pdf",
+          content: new Buffer.from(result.pdf, "base64"),
+          contentType: "application/pdf",
           encoding: "base64",
         },
       ],
