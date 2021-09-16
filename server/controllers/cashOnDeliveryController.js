@@ -3,8 +3,8 @@ import easyinvoice from "easyinvoice";
 import fs from "fs";
 import path from "path";
 
-// @Description contact
-// @routes POST/api/contact
+// @Description invoice
+// @routes POST/api/config/cashOnDelivery
 // @access public
 const imagePath = path.resolve("img", "invoice.png");
 
