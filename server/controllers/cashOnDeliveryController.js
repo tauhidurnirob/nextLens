@@ -17,7 +17,7 @@ const base64_encode = (img) => {
 };
 
 export const createCashOnDelivery = asyncHandler(async (req, res) => {
-  const { email, shipping, address, cart } = req.body;
+  const { name, email, shipping, address, cart } = req.body;
   const today = new Date();
 
   const data = {
@@ -36,7 +36,7 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
       country: "",
     },
     client: {
-      company: "Shipping Address",
+      company: `Name : ${name}`,
       address: address,
       zip: `${shipping.postalCode} ${shipping.shortName}`,
       city: shipping.city,
