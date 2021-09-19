@@ -17,7 +17,7 @@ const base64_encode = (img) => {
 };
 
 export const createInvoice = asyncHandler(async (req, res) => {
-  const { title, name, email, shipping, address, cart } = req.body;
+  const { text, title, name, email, shipping, address, cart } = req.body;
   const today = new Date();
 
   const data = {
@@ -72,6 +72,7 @@ export const createInvoice = asyncHandler(async (req, res) => {
       from: process.env.FORM,
       to: email,
       subject: "INVOICE",
+      text: text,
       attachments: [
         {
           filename: "invoice.pdf",

@@ -20,6 +20,7 @@ const CashOnDelivery = ({ ...otherProps }) => {
   const makePayment = async () => {
     const body = {
       title: "UNPAID",
+      text: "Thanks for choosing cash on delivery method.",
       name: shippingInfo.name,
       email: shippingInfo.email,
       shipping: shippingInfo.state,
