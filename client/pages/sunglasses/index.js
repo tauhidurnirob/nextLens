@@ -2,31 +2,27 @@ import React from "react";
 import { Container } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 
-import {
-  CategoryBar,
-  Layout,
-  CategoryBanner,
-  CategoryEyeGlassProducts,
-} from "./../../src/Re_components";
+import { CategoryBar, Layout, CategoryBanner } from "./../../src/Re_components";
+// import CategoryEyeGlassProducts from "./CategoryEyeGlassProducts";
 import { fetchedProducts } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
-const EyeGlasses = ({ data }) => {
+const Sunglasses = ({ data }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
   return (
-    <Layout title="Eye Glasses">
+    <Layout title="Sunglasses">
       <Container maxWidth={false}>
-        <CategoryBar categoryTitle="EYE GLASSES" />
-        <CategoryBanner categoryTitle="EYE GLASSES" />
+        <CategoryBar categoryTitle="Sunglasses" />
+        <CategoryBanner categoryTitle="Sunglasses" />
         <CategoryEyeGlassProducts />
       </Container>
     </Layout>
   );
 };
 
-export default EyeGlasses;
+export default Sunglasses;
 
 export async function getStaticProps() {
   const { data } = await productApi.getAllProduct();

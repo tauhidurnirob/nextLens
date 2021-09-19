@@ -1,9 +1,8 @@
 import React from "react";
 import { Grid, makeStyles, Container } from "@material-ui/core";
 import clsx from "clsx";
-
-import { Cards } from "../../src/Re_components";
 import { useSelector } from "react-redux";
+
 import RangeSlider from "./RangeSlider";
 import FilterByColor from "./FilterByColor";
 import FilterByGender from "./FilterByGender";
@@ -11,7 +10,8 @@ import FilterByLensType from "./FilterByLenseType";
 import FilterByFrameShape from "./FilterByFrameShape";
 import FilterByFrameStyle from "./FilterByFrameStyle";
 import FilterByShopCollection from "./FilterByShopCollection";
-import { productSelector } from "./../../src/redux/slices/productSlice";
+import Cards from "./Cards";
+import { productSelector } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
