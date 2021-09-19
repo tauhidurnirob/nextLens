@@ -18,8 +18,8 @@ const Sunglasses = ({ data }) => {
   return (
     <Layout title="Sunglasses">
       <Container maxWidth={false}>
-        <CategoryBar categoryTitle="Sunglasses" />
-        <CategoryBanner categoryTitle="Sunglasses" />
+        <CategoryBar categoryTitle="SUN GLASSES" />
+        <CategoryBanner categoryTitle="SUN GLASSES" />
         <CategoryProducts />
       </Container>
     </Layout>
