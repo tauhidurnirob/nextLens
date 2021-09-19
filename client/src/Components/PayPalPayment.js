@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { payOrderAction } from "../redux/slices/paySlice";
 import { resetCartAction, productSelector } from "../redux/slices/productSlice";
 import { shippingSelector } from "./../redux/slices/shippingSlice";
+import paymentApi from "../../pages/api/payments";
 
 const PayPalPayment = () => {
   const dispatch = useDispatch();
@@ -48,9 +49,19 @@ const PayPalPayment = () => {
     });
   };
 
-  const onApprove = (data, actions) => {
+  const onApprove = async (data, actions) => {
     const paymentResult = actions.order.capture();
     if (paymentResult) {
+      const body = {
+        title: "PAID",
+        text: "Thanks for Paying via PayPal",
+        name: shippingInfo.name,
+        email: shippingInfo.email,
+        shipping: shippingInfo.state,
+        address: shippingInfo.address,
+        cart,
+      };
+      await paymentApi.createInvoice(body);
       toast.success("Thanks for purchasing");
       dispatch(payOrderAction(paymentResult));
       dispatch(resetCartAction());

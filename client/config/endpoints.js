@@ -6,5 +6,5 @@ export default {
   contact: "api/contact",
   shipping: "api/shipping",
   stripeClient: "api/config/stripe",
-  cashOnDelivery: "api/config/cashOnDelivery",
+  cashOnDelivery: "api/invoice",
 };

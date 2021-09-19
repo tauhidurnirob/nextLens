@@ -16,11 +16,12 @@ const base64_encode = (img) => {
   return new Buffer.from(png).toString("base64");
 };
 
-export const createCashOnDelivery = asyncHandler(async (req, res) => {
-  const { name, email, shipping, address, cart } = req.body;
+export const createInvoice = asyncHandler(async (req, res) => {
+  const { text, title, name, email, shipping, address, cart } = req.body;
   const today = new Date();
 
   const data = {
+    documentTitle: title,
     currency: "USD",
     taxNotation: "vat",
     marginTop: 25,
@@ -71,7 +72,7 @@ export const createCashOnDelivery = asyncHandler(async (req, res) => {
       from: process.env.FORM,
       to: email,
       subject: "INVOICE",
-      text: "Thanks for choosing cash on delivery method.",
+      text: text,
       attachments: [
         {
           filename: "invoice.pdf",
