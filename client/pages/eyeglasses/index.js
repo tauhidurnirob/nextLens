@@ -6,7 +6,7 @@ import {
   CategoryBar,
   Layout,
   CategoryBanner,
-  CategoryEyeGlassProducts,
+  CategoryProducts,
 } from "./../../src/Re_components";
 import { fetchedProducts } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
@@ -20,7 +20,7 @@ const EyeGlasses = ({ data }) => {
       <Container maxWidth={false}>
         <CategoryBar categoryTitle="EYE GLASSES" />
         <CategoryBanner categoryTitle="EYE GLASSES" />
-        <CategoryEyeGlassProducts />
+        <CategoryProducts />
       </Container>
     </Layout>
   );

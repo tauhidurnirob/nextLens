@@ -6,7 +6,7 @@ import {
   CategoryBar,
   Layout,
   CategoryBanner,
-  CategoryEyeGlassProducts,
+  CategoryProducts,
 } from "../../../src/Re_components";
 
 const Category = () => {
@@ -19,7 +19,7 @@ const Category = () => {
       <Container maxWidth={false}>
         <CategoryBar categoryTitle={bannerTitle} />
         <CategoryBanner categoryTitle={bannerTitle} />
-        <CategoryEyeGlassProducts />
+        <CategoryProducts />
       </Container>
     </Layout>
   );
