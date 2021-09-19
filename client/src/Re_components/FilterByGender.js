@@ -32,7 +32,7 @@ const useStyles = makeStyles({
 
 });
 
-const FilterByGender = () => {
+const FilterByGender = ({}) => {
   const classes = useStyles();
 
   const [expand, setExpand] = useState("expandBar");

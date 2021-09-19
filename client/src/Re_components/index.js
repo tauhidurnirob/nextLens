@@ -14,4 +14,4 @@ export { default as FilterByGender } from "./FilterByGender";
 export { default as FilterByFrameStyle } from "./FilterByFrameStyle";
 export { default as FilterByColor } from "./FilterByColor";
 export { default as FilterByFrameShape } from "./FilterByFrameShape";
-export { default as CategoryEyeGlassProducts } from "./CategoryEyeGlassProducts";
+export { default as CategoryProducts } from "./CategoryProducts";
