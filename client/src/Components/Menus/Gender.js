@@ -11,6 +11,7 @@ import {
   Grid,
 } from "@material-ui/core";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import clsx from "clsx";
 import EmojiPeopleOutlinedIcon from "@material-ui/icons/EmojiPeopleOutlined";
 import PregnantWomanOutlinedIcon from "@material-ui/icons/PregnantWomanOutlined";
@@ -31,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
 const Gender = ({ title }) => {
   const classes = useStyles();
 
+  const router = useRouter();
+  const isRoute = router.asPath.split("/")[1];
+
   return (
     <Grid item container md={3}>
       <List
@@ -44,14 +48,27 @@ const Gender = ({ title }) => {
         }
         className={clsx(classes.root)}
       >
-        {genders.map((item) => (
-          <Link href={item.route} key={item.id}>
-            <ListItem button>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={<Box fontWeight={600}>{item.name}</Box>} />
-            </ListItem>
-          </Link>
-        ))}
+        {isRoute === "eyeglasses"
+          ? genders.map((item) => (
+              <Link href={item.eyeglasses} key={item.id}>
+                <ListItem button>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText
+                    primary={<Box fontWeight={600}>{item.name}</Box>}
+                  />
+                </ListItem>
+              </Link>
+            ))
+          : genders.map((item) => (
+              <Link href={item.sunglasses} key={item.id}>
+                <ListItem button>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText
+                    primary={<Box fontWeight={600}>{item.name}</Box>}
+                  />
+                </ListItem>
+              </Link>
+            ))}
       </List>
     </Grid>
   );
@@ -64,18 +81,21 @@ const genders = [
     id: 1,
     name: "MEN",
     icon: <EmojiPeopleOutlinedIcon />,
-    route: "/eyeglasses/category/men",
+    eyeglasses: "/eyeglasses/category/men",
+    sunglasses: "/sunglasses/category/men",
   },
   {
     id: 2,
     name: "WOMEN",
     icon: <PregnantWomanOutlinedIcon />,
-    route: "/eyeglasses/category/women",
+    eyeglasses: "/eyeglasses/category/women",
+    sunglasses: "/sunglasses/category/women",
   },
   {
     id: 3,
     name: "KIDS",
     icon: <ChildCareOutlinedIcon />,
-    route: "/eyeglasses/category/kid",
+    eyeglasses: "/eyeglasses/category/kid",
+    sunglasses: "/sunglasses/category/kid",
   },
 ];
