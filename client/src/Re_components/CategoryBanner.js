@@ -34,7 +34,7 @@ const CategoryBanner = ({ categoryTitle, title }) => {
     >
       <Typography align="center" variant="h2" className={clsx(classes.title)}>
         <Box fontWeight="fontWeightBold">
-          {route === "eyeglasses"
+          {route === "eyeglasses" || route === "sunglasses"
             ? categoryTitle
             : ShouldBeCapital(productById.title)}
         </Box>

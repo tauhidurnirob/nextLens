@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CategoryBar = ({ categoryTitle }) => {
+const CategoryBar = ({ categoryTitle , }) => {
   const classes = useStyles();
 
   return (
@@ -42,7 +42,7 @@ const CategoryBar = ({ categoryTitle }) => {
         </AccordionSummary>
         <AccordionDetails>
           <Grid container direction="row">
-            <Gender title="GENDER" />
+            <Gender  title="GENDER" />
             <FrameShare title="FRAME SHARE" />
             <FrameStyles title="FRAME STYLES" />
             <Shope title="SHOPE BY COLLECTION" />
