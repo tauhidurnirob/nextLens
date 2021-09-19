@@ -19,13 +19,14 @@ const CashOnDelivery = ({ ...otherProps }) => {
 
   const makePayment = async () => {
     const body = {
+      title: "UNPAID",
       name: shippingInfo.name,
       email: shippingInfo.email,
       shipping: shippingInfo.state,
       address: shippingInfo.address,
       cart,
     };
-    const { data, ok } = await paymentApi.createCashOnDelivery(body);
+    const { data, ok } = await paymentApi.createInvoice(body);
     if (ok) {
       toast.success("Kindly check your Email.");
       dispatch(payOrderAction(data));
