@@ -6,8 +6,8 @@ import {
   CategoryBar,
   Layout,
   CategoryBanner,
+  CategoryEyeGlassProducts,
 } from "../../../src/Re_components";
-import CategoryEyeGlassProducts from "../CategoryEyeGlassProducts";
 
 const Category = () => {
   const router = useRouter();
