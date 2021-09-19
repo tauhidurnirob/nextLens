@@ -29,7 +29,7 @@ const CashOnDelivery = ({ ...otherProps }) => {
     };
     const { data, ok } = await paymentApi.createInvoice(body);
     if (ok) {
-      toast.success("Kindly check your Email.");
+      toast.success("Successfully submitted. Check them Email!");
       dispatch(payOrderAction(data));
       dispatch(resetCartAction());
     }

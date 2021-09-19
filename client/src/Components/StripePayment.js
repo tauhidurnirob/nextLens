@@ -30,6 +30,16 @@ const StripePayment = ({ ...otherProps }) => {
     };
     const { data, ok } = await paymentApi.createPaymentStripe(body);
     if (ok) {
+      const body = {
+        title: "PAID",
+        text: "Thanks for Paying via Stripe",
+        name: shippingInfo.name,
+        email: shippingInfo.email,
+        shipping: shippingInfo.state,
+        address: shippingInfo.address,
+        cart,
+      };
+      await paymentApi.createInvoice(body);
       toast.success("Thanks for purchasing");
       dispatch(payOrderAction(data));
       dispatch(resetCartAction());
