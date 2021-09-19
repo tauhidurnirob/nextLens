@@ -20,8 +20,8 @@ const useStyles = makeStyles(() => ({
 const Home = ({ data }) => {
   const dispatch = useDispatch();
 
-  dispatch(fetchedProducts(data.products));
-  dispatch(topProducts(data.topProduct));
+  dispatch(fetchedProducts(data?.products));
+  dispatch(topProducts(data?.topProduct));
 
   const classes = useStyles();
   return (
