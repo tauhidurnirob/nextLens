@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, makeStyles, Container } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
@@ -21,13 +21,21 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  const { products } = useSelector(productSelector);
+  let { products } = useSelector(productSelector);
+
+  const arr = products?.map(({ price }) => price);
+
+  const maxPrice = Math.max(...arr);
+
+  const [range, setRange] = useState([0, maxPrice]);
+
+  products = products.filter((f) => f.price >= range[0] && f.price <= range[1]);
 
   return (
     <Container maxWidth="lg">
       <Grid container direction="row" className={clsx(classes.container)}>
         <Grid item container md={4}>
-          <RangeSlider />
+          <RangeSlider updateRangeSlider={(val) => setRange(val)} />
           <FilterByColor />
           <FilterByGender />
           <FilterByLensType />
