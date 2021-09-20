@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import {
@@ -28,20 +28,18 @@ const useStyles = makeStyles({
 });
 
 function priceValue(value) {
-  return value;
+  return `${value}$`;
 }
 
-const RangeSlider = () => {
+const RangeSlider = ({ updateRangeSlider }) => {
   const classes = useStyles();
-  const dispatch = useDispatch();
   const { products } = useSelector(productSelector);
 
   const arr = products?.map(({ price }) => price);
 
-  // const minPrice = Math.min(...arr);
-  // const maxPrice = Math.max(...arr);
+  const maxPrice = Math.max(...arr);
 
-  const [value, setValue] = useState([0, 1000]);
+  const [value, setValue] = useState([0, maxPrice]);
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -50,13 +48,8 @@ const RangeSlider = () => {
   };
 
   const handleChange = (event, newValue) => {
-    // setValue(newValue);
-    dispatch(
-      MinMaxFilter({
-        lowerNum: newValue[0],
-        upperNum: newValue[1],
-      })
-    );
+    setValue(newValue);
+    updateRangeSlider(newValue);
   };
 
   return (
@@ -73,20 +66,19 @@ const RangeSlider = () => {
           >
             <Typography className={clsx(classes.heading)}>
               <Box fontWeight="fontWeightBold">
-                Filter By Price `${value[0]} - ${value[1]}`
+                Filter By Price (${value[0]} - ${value[1]})
               </Box>
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Slider
+              getAriaLabel={() => "Next Lense Price"}
               value={value}
-              // defaultValue={value}
+              min={0}
+              max={maxPrice}
               onChange={handleChange}
               valueLabelDisplay="auto"
-              aria-labelledby="range-slider"
-              // getAriaValueText={priceValue}
-              // min={minPrice}
-              // max={maxPrice}
+              getAriaValueText={priceValue}
             />
           </AccordionDetails>
         </Accordion>

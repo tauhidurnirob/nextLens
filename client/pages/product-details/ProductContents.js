@@ -91,11 +91,11 @@ const ProductContents = () => {
             component="span"
             ml={1}
             className={clsx({
-              [classes.available]: productById?.ability === "In stock",
-              [classes.availableNot]: productById?.ability === "Stock Out",
+              [classes.available]: productById?.availability === "In stock",
+              [classes.availableNot]: productById?.availability === "Stock Out",
             })}
           >
-            {productById?.ability}
+            {productById?.availability}
           </Box>
         </Typography>
         <Typography gutterBottom variant="subtitle1">

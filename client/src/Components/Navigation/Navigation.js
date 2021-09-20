@@ -145,10 +145,10 @@ const Navigation = () => {
 };
 
 const router = [
-  { routeName: "Home", route: "/home" },
+  { routeName: "Home", route: "/" },
   { routeName: "Eyeglasses", route: "/eyeglasses" },
   { routeName: "sunglasses", route: "/sunglasses" },
-  { routeName: "blue light block glass", route: "/home" },
+  { routeName: "blue light block glass", route: "/" },
   { routeName: "Contact", route: "/contact" },
 ];
 

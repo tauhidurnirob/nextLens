@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, makeStyles, Container } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
@@ -16,18 +16,34 @@ import { productSelector } from "../redux/slices/productSlice";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: `${theme.spacing(4)}px 0 10px 0`,
+    position: "relative",
+  },
+  product: {
+    position: "absolute",
+    right: 0,
+    [theme.breakpoints.down("md")]: {
+      position: "static",
+    },
   },
 }));
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  const { products } = useSelector(productSelector);
+  let { products } = useSelector(productSelector);
+
+  const arr = products?.map(({ price }) => price);
+
+  const maxPrice = Math.max(...arr);
+
+  const [range, setRange] = useState([0, maxPrice]);
+
+  products = products.filter((f) => f.price >= range[0] && f.price <= range[1]);
 
   return (
-    <Container maxWidth="lg">
-      <Grid container direction="row" className={clsx(classes.container)}>
-        <Grid item container md={4}>
-          <RangeSlider />
+    <Container maxWidth="lg" className={clsx(classes.container)}>
+      <Grid container direction="row">
+        <Grid container md={4}>
+          <RangeSlider updateRangeSlider={(val) => setRange(val)} />
           <FilterByColor />
           <FilterByGender />
           <FilterByLensType />
@@ -35,10 +51,10 @@ const CategoryEyeGlassProducts = () => {
           <FilterByFrameShape />
           <FilterByShopCollection />
         </Grid>
-        <Grid item container md={8}>
+        <Grid container md={8} className={clsx(classes.product)}>
           {products?.map((item) => (
             <Grid item key={item.id} container md={4} justifyContent="center">
-              <Cards item={item} isProduct width={300} height={300} />
+              <Cards item={item} isProduct width={400} height={400} />
             </Grid>
           ))}
         </Grid>
