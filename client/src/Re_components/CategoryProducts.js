@@ -41,25 +41,6 @@ const CategoryEyeGlassProducts = () => {
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
-      {/* <Grid container direction="row">
-        <Grid container md={4}>
-          <RangeSlider updateRangeSlider={(val) => setRange(val)} />
-          <FilterByColor />
-          <FilterByGender />
-          <FilterByLensType />
-          <FilterByFrameStyle />
-          <FilterByFrameShape />
-          <FilterByShopCollection />
-        </Grid>
-        <Grid container md={8}>
-          {products?.map((item) => (
-            <Grid item key={item.id} item md={4} justifyContent="center">
-              <Cards item={item} isProduct width={300} height={300} />
-            </Grid>
-          ))}
-        </Grid>
-      </Grid> */}
-
       <Grid container direction="row">
         <Grid container md={4}>
           <RangeSlider updateRangeSlider={(val) => setRange(val)} />
@@ -73,7 +54,7 @@ const CategoryEyeGlassProducts = () => {
         <Grid container md={8} className={clsx(classes.product)}>
           {products?.map((item) => (
             <Grid item key={item.id} container md={4} justifyContent="center">
-              <Cards item={item} isProduct width={300} height={300} />
+              <Cards item={item} isProduct width={400} height={400} />
             </Grid>
           ))}
         </Grid>
