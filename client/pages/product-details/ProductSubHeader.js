@@ -1,5 +1,11 @@
 import React from "react";
-import { Container, makeStyles, Grid } from "@material-ui/core";
+import {
+  Container,
+  makeStyles,
+  Grid,
+  Box,
+  Typography,
+} from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 
@@ -20,10 +26,13 @@ const ProductSubHeader = () => {
 
   return (
     <Container maxWidth={false} className={clsx(classes.container)}>
-      <Grid container justifyContent="flex-start">
-        <Grid item>
-          Home {`>`} {productById?.title}
-        </Grid>
+      <Grid container justifyContent="flex-start" alignItems="center">
+        <Typography variant="subtitle2">
+          <Box fontWeight="fontWeightBold">
+            Home {`>`} {productById?.category} {`>`}
+            {productById?.title}
+          </Box>
+        </Typography>
       </Grid>
     </Container>
   );
