@@ -16,6 +16,14 @@ import { productSelector } from "../redux/slices/productSlice";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: `${theme.spacing(4)}px 0 10px 0`,
+    position: "relative",
+  },
+  product: {
+    position: "absolute",
+    right: 0,
+    [theme.breakpoints.down("md")]: {
+      position: "static",
+    },
   },
 }));
 
@@ -32,9 +40,9 @@ const CategoryEyeGlassProducts = () => {
   products = products.filter((f) => f.price >= range[0] && f.price <= range[1]);
 
   return (
-    <Container maxWidth="lg">
-      <Grid container direction="row" className={clsx(classes.container)}>
-        <Grid item container md={4}>
+    <Container maxWidth="lg" className={clsx(classes.container)}>
+      {/* <Grid container direction="row">
+        <Grid container md={4}>
           <RangeSlider updateRangeSlider={(val) => setRange(val)} />
           <FilterByColor />
           <FilterByGender />
@@ -43,7 +51,26 @@ const CategoryEyeGlassProducts = () => {
           <FilterByFrameShape />
           <FilterByShopCollection />
         </Grid>
-        <Grid item container md={8}>
+        <Grid container md={8}>
+          {products?.map((item) => (
+            <Grid item key={item.id} item md={4} justifyContent="center">
+              <Cards item={item} isProduct width={300} height={300} />
+            </Grid>
+          ))}
+        </Grid>
+      </Grid> */}
+
+      <Grid container direction="row">
+        <Grid container md={4}>
+          <RangeSlider updateRangeSlider={(val) => setRange(val)} />
+          <FilterByColor />
+          <FilterByGender />
+          <FilterByLensType />
+          <FilterByFrameStyle />
+          <FilterByFrameShape />
+          <FilterByShopCollection />
+        </Grid>
+        <Grid container md={8} className={clsx(classes.product)}>
           {products?.map((item) => (
             <Grid item key={item.id} container md={4} justifyContent="center">
               <Cards item={item} isProduct width={300} height={300} />
