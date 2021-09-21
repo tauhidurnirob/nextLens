@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, makeStyles, Container, Button } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
@@ -6,8 +6,8 @@ import Image from "next/image";
 import HistoryIcon from "@material-ui/icons/History";
 import { useRouter } from "next/router";
 
-import { Cards } from "./../Re_components";
-import { productSelector } from "./../redux/slices/productSlice";
+import { Cards, Scroll } from "../Re_components";
+import { productSelector } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -19,14 +19,30 @@ const Products = () => {
   const { products } = useSelector(productSelector);
   const { back } = useRouter();
   const classes = useStyles();
+  const [state, setState] = useState(products);
+
   return (
     <Grid container direction="row" className={clsx(classes.container)}>
       {products.length !== 0 ? (
-        products.map((item) => (
-          <Grid item key={item.id} container md={4} justifyContent="center">
-            <Cards item={item} isProduct width={500} height={500} />
-          </Grid>
-        ))
+        <Scroll
+          state={state}
+          setState={setState}
+          scrollView={
+            <Grid container direction="row">
+              {state?.map((item) => (
+                <Grid
+                  item
+                  key={item.id}
+                  container
+                  md={3}
+                  justifyContent="center"
+                >
+                  <Cards item={item} isProduct width={500} height={500} />
+                </Grid>
+              ))}
+            </Grid>
+          }
+        />
       ) : (
         <Container maxWidth="lg">
           <Grid container justifyContent="center">
