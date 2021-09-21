@@ -22,12 +22,15 @@ export const getProducts = asyncHandler(async (req, res) => {
 
   const products = await Product.find({
     ...keyword,
-  }).where({ ...category });
+  })
+    .limit(+req.query.limit)
+    .skip(+req.query.start)
+    .where({ ...category });
 
-  const topProduct = await Product.find({}).sort({ rating: -1 }).limit(3);
+  // const topProduct = await Product.find({}).sort({ rating: -1 }).limit(3);
   res.json({
     products,
-    topProduct,
+    // topProduct,
   });
 });
 
