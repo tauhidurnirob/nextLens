@@ -15,3 +15,4 @@ export { default as FilterByFrameStyle } from "./FilterByFrameStyle";
 export { default as FilterByColor } from "./FilterByColor";
 export { default as FilterByFrameShape } from "./FilterByFrameShape";
 export { default as CategoryProducts } from "./CategoryProducts";
+export { default as Scroll } from "./Scroll";
