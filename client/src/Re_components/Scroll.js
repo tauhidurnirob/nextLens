@@ -5,13 +5,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import productApi from "../../pages/api/products";
 
-const Scroll = ({ scrollView, state, setState }) => {
+const Scroll = ({ scrollView, state, setState, limit = 14 }) => {
   const [hasMore, setHasMore] = useState(true);
 
   const getMoreProduct = async () => {
     const {
       data: { products },
-    } = await productApi.getMoreProducts(state.length, 14);
+    } = await productApi.getMoreProducts(state.length, limit);
     setState((product) => [...product, ...products]);
     if (state.length >= 42) {
       setHasMore(false);
