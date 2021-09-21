@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Grid, makeStyles, Container, Button, Box } from "@material-ui/core";
+import {
+  Grid,
+  makeStyles,
+  Container,
+  Button,
+  Box,
+  Typography,
+} from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 import Image from "next/image";
@@ -31,21 +38,24 @@ const Products = () => {
       data: { products },
     } = await productApi.getMoreProducts(moreProduct.length, 4);
     setMoreProduct((product) => [...product, ...products]);
-    // setHasMore(false);
+    if (moreProduct.length >= 42) {
+      setHasMore(false);
+    }
   };
   return (
     <Grid container direction="row" className={clsx(classes.container)}>
       {products.length !== 0 ? (
-        // products.map((item) => (
-        //   <Grid item key={item.id} container md={3} justifyContent="center">
-        //     <Cards item={item} isProduct width={500} height={500} />
-        //   </Grid>
-        // ))
         <InfiniteScroll
           dataLength={moreProduct.length}
           next={getMoreProduct}
           hasMore={hasMore}
-          endMessage={<h4>Nothing more to show</h4>}
+          endMessage={
+            <Grid container justifyContent="center">
+              <Typography variant="subtitle2">
+                <Box fontWeight="fontWeightBold">Nothing more to show</Box>
+              </Typography>
+            </Grid>
+          }
           loader={
             <Grid container justifyContent="center">
               <Box mt={2} mb={2}>
