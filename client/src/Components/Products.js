@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, makeStyles, Container, Button } from "@material-ui/core";
+import { Grid, makeStyles, Container, Button, Box } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 import Image from "next/image";
@@ -7,9 +7,10 @@ import HistoryIcon from "@material-ui/icons/History";
 import { useRouter } from "next/router";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import { Cards } from "./../Re_components";
-import { productSelector } from "./../redux/slices/productSlice";
+import { Cards } from "../Re_components";
+import { productSelector } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -22,14 +23,15 @@ const Products = () => {
   const { back } = useRouter();
   const classes = useStyles();
 
-  const [posts, setPosts] = useState(products);
+  const [moreProduct, setMoreProduct] = useState(products);
   const [hasMore, setHasMore] = useState(true);
 
   const getMoreProduct = async () => {
     const {
       data: { products },
-    } = await productApi.getMoreProducts(posts.length, 4);
-    setPosts((post) => [...post, ...products]);
+    } = await productApi.getMoreProducts(moreProduct.length, 4);
+    setMoreProduct((product) => [...product, ...products]);
+    // setHasMore(false);
   };
   return (
     <Grid container direction="row" className={clsx(classes.container)}>
@@ -40,17 +42,25 @@ const Products = () => {
         //   </Grid>
         // ))
         <InfiniteScroll
-          dataLength={posts?.length}
+          dataLength={moreProduct.length}
           next={getMoreProduct}
           hasMore={hasMore}
-          loader={<h3> Loading...</h3>}
           endMessage={<h4>Nothing more to show</h4>}
-        >
-          {posts.map((item) => (
-            <Grid item key={item.id} container md={3} justifyContent="center">
-              <Cards item={item} isProduct width={500} height={500} />
+          loader={
+            <Grid container justifyContent="center">
+              <Box mt={2} mb={2}>
+                <CircularProgress />
+              </Box>
             </Grid>
-          ))}
+          }
+        >
+          <Grid container direction="row">
+            {moreProduct.map((item) => (
+              <Grid item key={item.id} container md={3} justifyContent="center">
+                <Cards item={item} isProduct width={500} height={500} />
+              </Grid>
+            ))}
+          </Grid>
         </InfiniteScroll>
       ) : (
         <Container maxWidth="lg">
