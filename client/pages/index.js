@@ -34,7 +34,7 @@ const Home = ({ data }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getAllProduct(4);
+  const { data } = await productApi.getAllProduct(12);
 
   return {
     props: { data, revalidate: 1 },

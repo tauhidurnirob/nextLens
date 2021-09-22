@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Grid, makeStyles, Container, Button } from "@material-ui/core";
 import clsx from "clsx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import HistoryIcon from "@material-ui/icons/History";
 import { useRouter } from "next/router";
 
 import { Cards, Scroll } from "../Re_components";
 import { productSelector } from "../redux/slices/productSlice";
+import productApi from "../../pages/api/products";
+import {setProducts} from '../redux/slices/productSlice';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -19,17 +21,34 @@ const Products = () => {
   const { products } = useSelector(productSelector);
   const { back } = useRouter();
   const classes = useStyles();
-  const [state, setState] = useState(products);
+  const dispatch = useDispatch();
+  // const [state, setState] = useState(products);
+  const [hasMore, setHasMore] = useState(true);
+
+  const getMoreProduct = async () => {
+    const {data} = await productApi.getMoreProducts(products.length, 12);
+    dispatch(setProducts(data?.products));
+
+    if(data?.products.length === 0) {
+      setHasMore(false);
+    }
+
+    // setState((product) => [...product, ...prod]);
+    // if (state.length >= 42) {
+    //   setHasMore(false);
+    // }
+  };
 
   return (
     <Grid container direction="row" className={clsx(classes.container)}>
       {products.length !== 0 ? (
         <Scroll
-          state={state}
-          setState={setState}
+          pLength = {products.length}
+          getMoreProduct = {getMoreProduct}
+          hasMore = {hasMore}
           scrollView={
             <Grid container direction="row">
-              {state?.map((item) => (
+              {products?.map((item) => (
                 <Grid
                   item
                   key={item.id}
