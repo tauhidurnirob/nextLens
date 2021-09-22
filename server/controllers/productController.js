@@ -14,6 +14,10 @@ export const getProducts = asyncHandler(async (req, res) => {
       }
     : {};
 
+    const color = req.query.color ? {
+      color: req.query.color
+    } : {}
+
   const keyword = req.query.keyword
     ? {
         title: { $regex: req.query.keyword, $options: "i" },
@@ -24,7 +28,7 @@ export const getProducts = asyncHandler(async (req, res) => {
     ...keyword,
   })
     .where({ ...category })
-    .where({ color: req.query.color })
+    .where({ ...color })
     .limit(+req.query.limit)
     .skip(+req.query.start);
 

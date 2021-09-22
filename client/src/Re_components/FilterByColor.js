@@ -15,6 +15,8 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 import productApi from "../../pages/api/products";
 
@@ -33,12 +35,12 @@ const useStyles = makeStyles({
 
 const FilterByColor = () => {
   const classes = useStyles();
-
+  const router = useRouter();
   const [expand, setExpand] = useState("expandBar");
-
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
   };
+
   const [state, setState] = React.useState({
     black: false,
     white: false,
@@ -50,9 +52,15 @@ const FilterByColor = () => {
 
   useEffect(() => {
     const getColorProduct = async () => {
-      const color =
-        (state.black ? "black" : "") || (state.white ? "white" : "");
+      const color = (state.black && "black") || (state.white && "white");
       await productApi.getProductsByColor(color);
+
+      if (color) {
+        router.push({
+          pathname: "/eyeglasses/keyword/[keyword]",
+          query: { keyword: color },
+        });
+      }
     };
     getColorProduct();
   }, [state]);
