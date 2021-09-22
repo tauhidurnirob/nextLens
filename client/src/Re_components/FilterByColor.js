@@ -15,10 +15,7 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
-
-import productApi from "../../pages/api/products";
 
 const useStyles = makeStyles({
   root: {
@@ -53,7 +50,6 @@ const FilterByColor = () => {
   useEffect(() => {
     const getColorProduct = async () => {
       const color = (state.black && "black") || (state.white && "white");
-      await productApi.getProductsByColor(color);
 
       if (color) {
         router.push({

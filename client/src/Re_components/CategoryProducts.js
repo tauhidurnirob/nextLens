@@ -61,7 +61,12 @@ const CategoryEyeGlassProducts = () => {
           <FilterByShopCollection />
         </Grid>
         {products.length <= 12 ? (
-          <Grid direction="row" container md={8}>
+          <Grid
+            direction="row"
+            container
+            md={8}
+            className={clsx({ [classes.product]: products?.length <= 9 })}
+          >
             {products?.map((item) => (
               <Grid item key={item.id} container md={4}>
                 <Cards item={item} isProduct width={400} height={400} />
