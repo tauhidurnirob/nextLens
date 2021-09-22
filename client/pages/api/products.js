@@ -10,6 +10,13 @@ const getSearchProduct = (keyword) =>
 const getProductById = (id) => client.get(endpoint.productById + `/${id}`);
 const getProductByCategory = (category) =>
   client.get(endpoint.allProducts + `?category=${category}`);
+const getProductsPriceRange = (lowPrice, highPrice) =>
+  client.get(
+    endpoint.allProducts + `?lowPrice=${lowPrice}&highPrice=${highPrice}`
+  );
+
+const getProductsByColor = (color) =>
+  client.get(endpoint.allProducts + `?color=${color}`);
 
 export default {
   getAllProduct,
@@ -17,4 +24,6 @@ export default {
   getProductByCategory,
   getSearchProduct,
   getMoreProducts,
+  getProductsPriceRange,
+  getProductsByColor,
 };

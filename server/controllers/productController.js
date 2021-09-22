@@ -23,9 +23,10 @@ export const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({
     ...keyword,
   })
+    .where({ ...category })
+    .where({ color: req.query.color })
     .limit(+req.query.limit)
-    .skip(+req.query.start)
-    .where({ ...category });
+    .skip(+req.query.start);
 
   // const topProduct = await Product.find({}).sort({ rating: -1 }).limit(3);
   res.json({

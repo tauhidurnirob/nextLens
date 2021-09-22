@@ -39,6 +39,11 @@ const productSchema = mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    color: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
     description: {
       type: String,
       required: true,

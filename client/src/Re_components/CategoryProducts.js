@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, makeStyles, Container } from "@material-ui/core";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
@@ -13,6 +13,7 @@ import FilterByShopCollection from "./FilterByShopCollection";
 import Scroll from "./Scroll";
 import Cards from "./Cards";
 import { productSelector } from "../redux/slices/productSlice";
+import productApi from "../../pages/api/products";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -37,6 +38,13 @@ const CategoryEyeGlassProducts = () => {
   const maxPrice = Math.max(...arr);
 
   const [range, setRange] = useState([0, maxPrice]);
+
+  useEffect(() => {
+    const priceRangeFilter = async () => {
+      await productApi.getProductsPriceRange(range[0], range[1]);
+    };
+    priceRangeFilter();
+  }, [range]);
 
   products = products.filter((f) => f.price >= range[0] && f.price <= range[1]);
 

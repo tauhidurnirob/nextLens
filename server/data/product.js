@@ -1555,7 +1555,7 @@ const products = [
     title: "Logitech G-Series Gaming Mouse6",
     image: "https://i.ibb.co/YkLym60/mouse.jpg",
     slug: "Logitech_G-Series_Gaming_Mouse6_DKE04461",
-
+    color: "black",
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
     brand: "Logitech",
@@ -1606,6 +1606,7 @@ const products = [
     numReviews: 12,
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    color: "white",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
       { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },

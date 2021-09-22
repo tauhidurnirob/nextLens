@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   makeStyles,
   Accordion,
@@ -15,6 +15,8 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
+import productApi from "../../pages/api/products";
 
 const useStyles = makeStyles({
   root: {
@@ -45,6 +47,15 @@ const FilterByColor = () => {
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+
+  useEffect(() => {
+    const getColorProduct = async () => {
+      const color =
+        (state.black ? "black" : "") || (state.white ? "white" : "");
+      await productApi.getProductsByColor(color);
+    };
+    getColorProduct();
+  }, [state]);
 
   const { black, white } = state;
 
