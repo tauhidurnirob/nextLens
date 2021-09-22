@@ -1,21 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Typography, Grid } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import productApi from "../../pages/api/products";
-
 const Scroll = ({ scrollView, pLength, getMoreProduct, hasMore }) => {
-
-  // const getMoreProduct = async () => {
-  //   const {
-  //     data: { products },
-  //   } = await productApi.getMoreProducts(state.length, limit);
-  //   setState((product) => [...product, ...products]);
-  //   if (state.length >= 42) {
-  //     setHasMore(false);
-  //   }
-  // };
   return (
     <InfiniteScroll
       dataLength={pLength}
