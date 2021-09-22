@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import clsx from "clsx";
 import {
   makeStyles,
@@ -26,8 +26,7 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import CategoryIcon from "@material-ui/icons/Category";
 import StoreIcon from "@material-ui/icons/Store";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
-// import PostAddIcon from "@material-ui/icons/PostAdd";
-// import SettingsIcon from "@material-ui/icons/Settings";
+
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { NavLink, useLocation } from "react-router-dom";
@@ -217,10 +216,9 @@ const Layout = ({ title, children }) => {
         <Divider />
         <List>
           {dashboards.map((items, index) => (
-            <>
+            <Fragment key={index}>
               <ListItem
                 button
-                key={index}
                 className={clsx(classes.listItem)}
                 component={NavLink}
                 to={items.route}
@@ -235,7 +233,7 @@ const Layout = ({ title, children }) => {
                 />
               </ListItem>
               <Divider className={clsx(classes.divider)} />
-            </>
+            </Fragment>
           ))}
         </List>
       </Drawer>
