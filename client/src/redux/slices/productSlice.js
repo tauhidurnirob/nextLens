@@ -43,6 +43,9 @@ const productSlice = createSlice({
     fetchedProducts(state, { payload }) {
       state.products = payload;
     },
+    setProducts(state, { payload }) {
+      state.products.push(...payload);
+    },
     topProducts(state, { payload }) {
       state.topProduct = payload;
     },
@@ -60,6 +63,7 @@ export const {
   topProducts,
   fetchedProducts,
   resetCartAction,
+  setProducts
 } = productSlice.actions;
 
 export default productSlice.reducer;
