@@ -29,7 +29,7 @@ const EyeGlasses = ({ data }) => {
 export default EyeGlasses;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getAllProduct();
+  const { data } = await productApi.getAllProduct(12);
 
   return {
     props: { data, revalidate: 1 },

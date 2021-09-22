@@ -10,6 +10,7 @@ import FilterByLensType from "./FilterByLenseType";
 import FilterByFrameShape from "./FilterByFrameShape";
 import FilterByFrameStyle from "./FilterByFrameStyle";
 import FilterByShopCollection from "./FilterByShopCollection";
+import Scroll from "./Scroll";
 import Cards from "./Cards";
 import { productSelector } from "../redux/slices/productSlice";
 
@@ -57,11 +58,18 @@ const CategoryEyeGlassProducts = () => {
           md={8}
           className={clsx({ [classes.product]: products?.length <= 9 })}
         >
-          {products?.map((item) => (
-            <Grid item key={item.id} container md={4}>
-              <Cards item={item} isProduct width={400} height={400} />
-            </Grid>
-          ))}
+          <Scroll
+            pLength={products.length}
+            scrollView={
+              <Grid container direction="row">
+                {products?.map((item) => (
+                  <Grid item key={item.id} container md={4}>
+                    <Cards item={item} isProduct width={400} height={400} />
+                  </Grid>
+                ))}
+              </Grid>
+            }
+          />
         </Grid>
       </Grid>
     </Container>
