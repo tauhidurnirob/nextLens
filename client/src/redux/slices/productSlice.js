@@ -50,7 +50,7 @@ const productSlice = createSlice({
     setProducts(state, { payload }) {
       state.products.push(...payload);
     },
-    topProducts(state, { payload }) {
+    topMaxProduct(state, { payload }) {
       state.topProduct = payload;
     },
     resetCartAction(state) {
@@ -64,7 +64,7 @@ export const {
   removeCart,
   qty,
   findById,
-  topProducts,
+  topMaxProduct,
   fetchedProducts,
   resetCartAction,
   setProducts,

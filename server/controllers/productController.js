@@ -40,10 +40,10 @@ export const getProducts = asyncHandler(async (req, res) => {
     .limit(+req.query.limit)
     .skip(+req.query.start);
 
-  // const topProduct = await Product.find({}).sort({ rating: -1 }).limit(3);
+  const topMaxProduct = await Product.find({}).sort({ price: -1 }).limit(1);
   res.json({
     products,
-    // topProduct,
+    topMaxProduct,
   });
 });
 

@@ -32,13 +32,12 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  const { products, allProducts } = useSelector(productSelector);
+  const { products, topProduct } = useSelector(productSelector);
   const dispatch = useDispatch();
-  const arr = allProducts?.map(({ price }) => price);
 
-  const maxPrice = Math.max(...arr);
+  const { price } = Object.assign({}, ...topProduct);
 
-  const [range, setRange] = useState([0, maxPrice]);
+  const [range, setRange] = useState([0, price]);
 
   useEffect(() => {
     const priceRangeFilter = async () => {

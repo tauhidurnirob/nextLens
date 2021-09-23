@@ -11,6 +11,7 @@ import {
 import {
   allProductsAction,
   fetchedProducts,
+  topMaxProduct,
 } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
@@ -18,6 +19,7 @@ const EyeGlasses = ({ data, allProduct }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
+  dispatch(topMaxProduct(data?.topMaxProduct));
   dispatch(allProductsAction(allProduct?.products));
   return (
     <Layout title="Eye Glasses">

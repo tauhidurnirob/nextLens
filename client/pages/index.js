@@ -8,7 +8,7 @@ import productApi from "./api/products";
 import {
   allProductsAction,
   fetchedProducts,
-  topProducts,
+  topMaxProduct,
 } from "../src/redux/slices/productSlice";
 
 const useStyles = makeStyles(() => ({
@@ -25,7 +25,7 @@ const Home = ({ data, allProduct }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
-  dispatch(topProducts(data?.topProduct));
+  dispatch(topMaxProduct(data?.topMaxProduct));
   dispatch(allProductsAction(allProduct?.products));
 
   const classes = useStyles();
