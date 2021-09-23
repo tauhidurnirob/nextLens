@@ -8,7 +8,7 @@ import {
   CategoryProducts,
 } from "../../../src/Re_components";
 
-const Category = () => {
+const Color = () => {
   return (
     <Layout title="Eye Glasses">
       <Container maxWidth={false}>
@@ -20,4 +20,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Color;

@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { fetchedProducts } from "../../../src/redux/slices/productSlice";
 
 import productApi from "../../api/products";
-import Keyword from "./Keyword";
+import Keyword from "./Color";
 
-const ProductByKeyword = ({ data }) => {
+const ProductByColor = ({ data }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data.products));
@@ -13,10 +13,11 @@ const ProductByKeyword = ({ data }) => {
   return <Keyword />;
 };
 
-export default ProductByKeyword;
+export default ProductByColor;
 
 export async function getServerSideProps({ query }) {
-  const { keyword } = query;
-  const { data } = await productApi.getProductsByColor(keyword);
+  const { color } = query;
+
+  const { data } = await productApi.getProductsByColor(color);
   return { props: { data } };
 }

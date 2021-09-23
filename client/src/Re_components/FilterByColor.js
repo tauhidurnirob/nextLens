@@ -53,8 +53,9 @@ const FilterByColor = () => {
 
       if (color) {
         router.push({
-          pathname: "/eyeglasses/keyword/[keyword]",
-          query: { keyword: color },
+          // pathname: "/eyeglasses/keyword/[keyword]",
+          // pathname: "/post?foo=bar",
+          query: { color: color },
         });
       }
     };
