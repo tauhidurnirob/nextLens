@@ -63,7 +63,6 @@ const CategoryEyeGlassProducts = () => {
           <FilterByFrameShape />
           <FilterByShopCollection />
         </Grid>
-        {/* {products.length <= 6 ? ( */}
         <Grid
           direction="row"
           container
@@ -76,8 +75,21 @@ const CategoryEyeGlassProducts = () => {
             </Grid>
           ))}
         </Grid>
-        {/* // ) : ( */}
-        {/* <Grid
+        {/* {products.length <= 6 ? (
+        <Grid
+          direction="row"
+          container
+          md={8}
+          className={clsx({ [classes.product]: products?.length <= 9 })}
+        >
+          {products?.map((item) => (
+            <Grid item key={item.id} container md={4}>
+              <Cards item={item} isProduct width={400} height={400} />
+            </Grid>
+          ))}
+        </Grid>
+        ) : ( 
+         <Grid
           direction="row"
           container
           md={8}
@@ -95,8 +107,8 @@ const CategoryEyeGlassProducts = () => {
               </Grid>
             }
           />
-        </Grid> */}
-        {/* )} */}
+        </Grid> 
+        )}  */}
       </Grid>
     </Container>
   );
