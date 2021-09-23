@@ -6,7 +6,6 @@ import { default as MainHome } from "../src/Components/Home";
 import clsx from "clsx";
 import productApi from "./api/products";
 import {
-  allProductsAction,
   fetchedProducts,
   topMaxProduct,
 } from "../src/redux/slices/productSlice";
@@ -21,12 +20,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Home = ({ data, allProduct }) => {
+const Home = ({ data }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
   dispatch(topMaxProduct(data?.topMaxProduct));
-  dispatch(allProductsAction(allProduct?.products));
 
   const classes = useStyles();
   return (
@@ -40,9 +38,8 @@ export default Home;
 
 export async function getStaticProps() {
   const { data } = await productApi.getAllProductByLimit(12);
-  const { data: allProduct } = await productApi.getAllProduct();
 
   return {
-    props: { data, allProduct, revalidate: 1 },
+    props: { data, revalidate: 1 },
   };
 }
