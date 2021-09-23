@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  let { products, allProducts } = useSelector(productSelector);
+  const { products, allProducts } = useSelector(productSelector);
   const dispatch = useDispatch();
   const arr = allProducts?.map(({ price }) => price);
 
@@ -50,8 +50,6 @@ const CategoryEyeGlassProducts = () => {
     };
     priceRangeFilter();
   }, [range]);
-
-  // products = products.filter((f) => f.price >= range[0] && f.price <= range[1]);
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>

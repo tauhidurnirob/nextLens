@@ -33,8 +33,8 @@ export const getProducts = asyncHandler(async (req, res) => {
     .where({ ...color })
     .where({
       price: {
-        $gt: Number(req.query.lowPrice) || 0,
-        $lt: Number(req.query.highPrice) || 200000,
+        $gte: +req.query.lowPrice || 0,
+        $lte: +req.query.highPrice || 2000000,
       },
     })
     .limit(+req.query.limit)
