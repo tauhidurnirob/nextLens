@@ -50,12 +50,16 @@ const FilterByColor = () => {
   useEffect(() => {
     const getColorProduct = async () => {
       const color = (state.black && "black") || (state.white && "white");
-
       if (color) {
         router.push({
-          // pathname: "/eyeglasses/keyword/[keyword]",
-          // pathname: "/post?foo=bar",
+          pathname: "/eyeglasses/color/[...color]",
           query: { color: color },
+        });
+      }
+      if (state.black && state.white) {
+        router.push({
+          pathname: "/eyeglasses/color/[...color]",
+          query: { color: [state.black && "black", state.white && "white"] },
         });
       }
     };

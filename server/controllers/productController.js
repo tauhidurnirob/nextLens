@@ -14,9 +14,11 @@ export const getProducts = asyncHandler(async (req, res) => {
       }
     : {};
 
-    const color = req.query.color ? {
-      color: req.query.color
-    } : {}
+  const color = req.query.color
+    ? {
+        color: req.query.color.split(",")[0] || req.query.color.split(",")[1],
+      }
+    : {};
 
   const keyword = req.query.keyword
     ? {
