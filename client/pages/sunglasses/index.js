@@ -29,7 +29,7 @@ const Sunglasses = ({ data }) => {
 export default Sunglasses;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getAllProduct();
+  const { data } = await productApi.getAllProductByLimit();
 
   return {
     props: { data, revalidate: 1 },

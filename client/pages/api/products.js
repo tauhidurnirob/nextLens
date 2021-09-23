@@ -1,7 +1,8 @@
 import client from "./client";
 import endpoint from "../../config/endpoints";
 
-const getAllProduct = (limit) =>
+const getAllProduct = () => client.get(endpoint.allProducts);
+const getAllProductByLimit = (limit) =>
   client.get(endpoint.allProducts + `?limit=${limit}`);
 const getMoreProducts = (start, limit) =>
   client.get(endpoint.allProducts + `?start=${start}&limit=${limit}`);
@@ -20,6 +21,7 @@ const getProductsByColor = (color) =>
 
 export default {
   getAllProduct,
+  getAllProductByLimit,
   getProductById,
   getProductByCategory,
   getSearchProduct,

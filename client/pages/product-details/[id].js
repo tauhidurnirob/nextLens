@@ -20,7 +20,7 @@ export default ProductId;
 export async function getStaticPaths() {
   const {
     data: { products },
-  } = await productApi.getAllProduct();
+  } = await productApi.getAllProductByLimit();
   const paths = products?.map((item) => ({
     params: {
       id: item.slug,

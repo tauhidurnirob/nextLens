@@ -32,21 +32,24 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  let { products } = useSelector(productSelector);
+  let { products, allProducts } = useSelector(productSelector);
   const dispatch = useDispatch();
-  const arr = products?.map(({ price }) => price);
+  const arr = allProducts?.map(({ price }) => price);
 
   const maxPrice = Math.max(...arr);
 
   const [range, setRange] = useState([0, maxPrice]);
 
-  // useEffect(() => {
-  const priceRangeFilter = async () => {
-    const { data } = await productApi.getProductsPriceRange(range[0], range[1]);
-    dispatch(fetchedProducts(data?.products));
-  };
-  priceRangeFilter();
-  // }, [range]);
+  useEffect(() => {
+    const priceRangeFilter = async () => {
+      const { data } = await productApi.getProductsPriceRange(
+        range[0],
+        range[1]
+      );
+      dispatch(fetchedProducts(data?.products));
+    };
+    priceRangeFilter();
+  }, [range]);
 
   // products = products.filter((f) => f.price >= range[0] && f.price <= range[1]);
 

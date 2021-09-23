@@ -5,7 +5,11 @@ import { useDispatch } from "react-redux";
 import { default as MainHome } from "../src/Components/Home";
 import clsx from "clsx";
 import productApi from "./api/products";
-import { fetchedProducts, topProducts } from "../src/redux/slices/productSlice";
+import {
+  allProductsAction,
+  fetchedProducts,
+  topProducts,
+} from "../src/redux/slices/productSlice";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -17,11 +21,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Home = ({ data }) => {
+const Home = ({ data, allProduct }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
   dispatch(topProducts(data?.topProduct));
+  dispatch(allProductsAction(allProduct?.products));
 
   const classes = useStyles();
   return (
@@ -34,9 +39,10 @@ const Home = ({ data }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getAllProduct(12);
+  const { data } = await productApi.getAllProductByLimit(12);
+  const { data: allProduct } = await productApi.getAllProduct();
 
   return {
-    props: { data, revalidate: 1 },
+    props: { data, allProduct, revalidate: 1 },
   };
 }

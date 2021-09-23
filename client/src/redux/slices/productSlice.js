@@ -7,6 +7,7 @@ const productSlice = createSlice({
     productById: {},
     topProduct: [],
     products: [],
+    allProducts: [],
   },
   reducers: {
     addCart(state, { payload }) {
@@ -43,6 +44,9 @@ const productSlice = createSlice({
     fetchedProducts(state, { payload }) {
       state.products = payload;
     },
+    allProductsAction(state, { payload }) {
+      state.allProducts = payload;
+    },
     setProducts(state, { payload }) {
       state.products.push(...payload);
     },
@@ -63,7 +67,8 @@ export const {
   topProducts,
   fetchedProducts,
   resetCartAction,
-  setProducts
+  setProducts,
+  allProductsAction,
 } = productSlice.actions;
 
 export default productSlice.reducer;

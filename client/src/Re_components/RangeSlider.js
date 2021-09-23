@@ -33,9 +33,9 @@ function priceValue(value) {
 
 const RangeSlider = ({ updateRangeSlider }) => {
   const classes = useStyles();
-  const { products } = useSelector(productSelector);
+  const { allProducts } = useSelector(productSelector);
 
-  const arr = products?.map(({ price }) => price);
+  const arr = allProducts?.map(({ price }) => price);
 
   const maxPrice = Math.max(...arr);
 
