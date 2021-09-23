@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   makeStyles,
   Accordion,
@@ -15,6 +15,9 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useRouter } from "next/router";
+import { productSelector } from "../redux/slices/productSlice";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles({
   root: {
@@ -31,12 +34,18 @@ const useStyles = makeStyles({
 
 const FilterByColor = () => {
   const classes = useStyles();
+  const router = useRouter();
+  const { products } = useSelector(productSelector);
+
+  const blackProduct = products.filter((p) => p.color === "black");
+  const whiteProduct = products.filter((p) => p.color === "white");
 
   const [expand, setExpand] = useState("expandBar");
 
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
   };
+
   const [state, setState] = React.useState({
     black: false,
     white: false,
@@ -45,6 +54,25 @@ const FilterByColor = () => {
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+
+  useEffect(() => {
+    const getColorProduct = async () => {
+      const color = (state.black && "black") || (state.white && "white");
+      if (color) {
+        router.push({
+          pathname: "/eyeglasses/color/[...color]",
+          query: { color: color },
+        });
+      }
+      if (state.black && state.white) {
+        router.push({
+          pathname: "/eyeglasses/color/[...color]",
+          query: { color: [state.black && "black", state.white && "white"] },
+        });
+      }
+    };
+    getColorProduct();
+  }, [state]);
 
   const { black, white } = state;
 
@@ -82,7 +110,7 @@ const FilterByColor = () => {
                       justifyContent="space-between"
                     >
                       <Box component="div">Black</Box>
-                      <Box component="div">(105)</Box>
+                      <Box component="div">({blackProduct.length})</Box>
                     </Grid>
                   }
                 />
@@ -102,7 +130,7 @@ const FilterByColor = () => {
                       justifyContent="space-between"
                     >
                       <Box component="div">White</Box>
-                      <Box component="div">(10)</Box>
+                      <Box component="div">({whiteProduct.length})</Box>
                     </Grid>
                   }
                 />

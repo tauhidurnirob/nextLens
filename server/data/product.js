@@ -2,6 +2,8 @@ const products = [
   {
     title: "Airpods Wireless Bluetooth Headphones",
     image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+    color: "black",
+
     availability: "In stock",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -41,6 +43,7 @@ const products = [
     title: "iPhone 11 Pro 256GB Memory",
     image: "https://i.ibb.co/XL8CX77/phone.jpg",
     availability: "In stock",
+    color: "black",
 
     slug: "iPhone_11_Pro_256GB_Memory_DKE04462",
     description:
@@ -80,6 +83,7 @@ const products = [
     title: "Cannon EOS 80D DSLR Camera",
     image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
     slug: "Cannon_EOS_80D_DSLR_Camera_DKE04463",
+    color: "black",
 
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
@@ -118,6 +122,7 @@ const products = [
   {
     title: "Sony Playstation 4 Pro White Version",
     image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    color: "black",
 
     availability: "In stock",
     slug: "Sony_Playstation_4_Pro_White_Version_DKE04464",
@@ -158,6 +163,7 @@ const products = [
     title: "Logitech G-Series Gaming Mouse",
     image: "https://i.ibb.co/YkLym60/mouse.jpg",
     slug: "Logitech_G-Series_Gaming_Mouse_DKE04461",
+    color: "black",
 
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
@@ -197,6 +203,7 @@ const products = [
     title: "Amazon Echo Dot 3rd Generation",
     image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     availability: "In stock",
+    color: "black",
 
     slug: "Amazon_Echo_Dot_3rd_Generation_DKE04461",
     description:
@@ -236,6 +243,8 @@ const products = [
     title: "Airpods Wireless Bluetooth Headphones1",
     image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
     availability: "In stock",
+    color: "black",
+
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
     brand: "Apple",
@@ -274,6 +283,7 @@ const products = [
     title: "iPhone 11 Pro 256GB Memory1",
     image: "https://i.ibb.co/XL8CX77/phone.jpg",
     availability: "In stock",
+    color: "black",
 
     slug: "iPhone_11_Pro_256GB_Memory1_DKE04462",
     description:
@@ -313,6 +323,7 @@ const products = [
     title: "Cannon EOS 80D DSLR Camera1",
     image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
     slug: "Cannon_EOS_80D_DSLR_Camera1_DKE04463",
+    color: "black",
 
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
@@ -351,6 +362,7 @@ const products = [
   {
     title: "Sony Playstation 4 Pro White Version1",
     image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    color: "black",
 
     availability: "In stock",
     slug: "Sony_Playstation_4_Pro_White_Version1_DKE04464",
@@ -391,6 +403,7 @@ const products = [
     title: "Logitech G-Series Gaming Mouse1",
     image: "https://i.ibb.co/YkLym60/mouse.jpg",
     slug: "Logitech_G-Series_Gaming_Mouse1_DKE04461",
+    color: "black",
 
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
@@ -430,6 +443,7 @@ const products = [
     title: "Amazon Echo Dot 3rd Generation1",
     image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     availability: "In stock",
+    color: "black",
 
     slug: "Amazon_Echo_Dot_3rd_Generation1_DKE04461",
     description:
@@ -469,6 +483,8 @@ const products = [
     title: "Airpods Wireless Bluetooth Headphones2",
     image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
     availability: "In stock",
+    color: "white",
+
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
     brand: "Apple",
@@ -507,6 +523,7 @@ const products = [
     title: "iPhone 11 Pro 256GB Memory2",
     image: "https://i.ibb.co/XL8CX77/phone.jpg",
     availability: "In stock",
+    color: "white",
 
     slug: "iPhone_11_Pro_256GB_Memory2_DKE04462",
     description:
@@ -546,6 +563,7 @@ const products = [
     title: "Cannon EOS 80D DSLR Camera2",
     image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
     slug: "Cannon_EOS_80D_DSLR_Camera2_DKE04463",
+    color: "white",
 
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
@@ -584,6 +602,7 @@ const products = [
   {
     title: "Sony Playstation 4 Pro White Version2",
     image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    color: "white",
 
     availability: "In stock",
     slug: "Sony_Playstation_4_Pro_White_Version2_DKE04464",
@@ -624,6 +643,7 @@ const products = [
     title: "Logitech G-Series Gaming Mouse2",
     image: "https://i.ibb.co/YkLym60/mouse.jpg",
     slug: "Logitech_G-Series_Gaming_Mouse2_DKE04461",
+    color: "white",
 
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
@@ -1362,6 +1382,7 @@ const products = [
     title: "Amazon Echo Dot 3rd Generation5",
     image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     availability: "In stock",
+    color: "white",
 
     slug: "Amazon_Echo_Dot_3rd_Generation5_DKE04461",
     description:
@@ -1400,6 +1421,8 @@ const products = [
   {
     title: "Airpods Wireless Bluetooth Headphones6",
     image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+    color: "white",
+
     availability: "In stock",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -1439,6 +1462,7 @@ const products = [
     title: "iPhone 11 Pro 256GB Memory6",
     image: "https://i.ibb.co/XL8CX77/phone.jpg",
     availability: "In stock",
+    color: "white",
 
     slug: "iPhone_11_Pro_256GB_Memory6_DKE04462",
     description:
@@ -1477,6 +1501,8 @@ const products = [
   {
     title: "Cannon EOS 80D DSLR Camera6",
     image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
+    color: "white",
+
     slug: "Cannon_EOS_80D_DSLR_Camera6_DKE04463",
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
@@ -1515,6 +1541,7 @@ const products = [
   {
     title: "Sony Playstation 4 Pro White Version6",
     image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    color: "white",
 
     availability: "In stock",
     slug: "Sony_Playstation_4_Pro_White_Version6_DKE04464",
@@ -1555,7 +1582,7 @@ const products = [
     title: "Logitech G-Series Gaming Mouse6",
     image: "https://i.ibb.co/YkLym60/mouse.jpg",
     slug: "Logitech_G-Series_Gaming_Mouse6_DKE04461",
-
+    color: "black",
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
     brand: "Logitech",
@@ -1594,6 +1621,7 @@ const products = [
     title: "Amazon Echo Dot 3rd Generation6",
     image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
     availability: "In stock",
+    color: "white",
 
     slug: "Amazon_Echo_Dot_3rd_Generation6_DKE04461",
     description:
@@ -1606,6 +1634,7 @@ const products = [
     numReviews: 12,
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
+    color: "white",
     detailsImage: [
       { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
       { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },

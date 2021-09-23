@@ -8,8 +8,6 @@ import { useRouter } from "next/router";
 
 import { Cards, Scroll } from "../Re_components";
 import { productSelector } from "../redux/slices/productSlice";
-import productApi from "../../pages/api/products";
-import {setProducts} from '../redux/slices/productSlice';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -21,31 +19,12 @@ const Products = () => {
   const { products } = useSelector(productSelector);
   const { back } = useRouter();
   const classes = useStyles();
-  const dispatch = useDispatch();
-  // const [state, setState] = useState(products);
-  const [hasMore, setHasMore] = useState(true);
-
-  const getMoreProduct = async () => {
-    const {data} = await productApi.getMoreProducts(products.length, 12);
-    dispatch(setProducts(data?.products));
-
-    if(data?.products.length === 0) {
-      setHasMore(false);
-    }
-
-    // setState((product) => [...product, ...prod]);
-    // if (state.length >= 42) {
-    //   setHasMore(false);
-    // }
-  };
 
   return (
     <Grid container direction="row" className={clsx(classes.container)}>
       {products.length !== 0 ? (
         <Scroll
-          pLength = {products.length}
-          getMoreProduct = {getMoreProduct}
-          hasMore = {hasMore}
+          pLength={products.length}
           scrollView={
             <Grid container direction="row">
               {products?.map((item) => (

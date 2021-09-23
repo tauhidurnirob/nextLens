@@ -8,13 +8,17 @@ import {
   CategoryBanner,
   CategoryProducts,
 } from "./../../src/Re_components";
-import { fetchedProducts } from "../../src/redux/slices/productSlice";
+import {
+  fetchedProducts,
+  topMaxProduct,
+} from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
 const EyeGlasses = ({ data }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
+  dispatch(topMaxProduct(data?.topMaxProduct));
   return (
     <Layout title="Eye Glasses">
       <Container maxWidth={false}>
@@ -29,7 +33,7 @@ const EyeGlasses = ({ data }) => {
 export default EyeGlasses;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getAllProduct();
+  const { data } = await productApi.getAllProductByLimit(12);
 
   return {
     props: { data, revalidate: 1 },

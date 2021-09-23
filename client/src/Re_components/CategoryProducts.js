@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, makeStyles, Container } from "@material-ui/core";
 import clsx from "clsx";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import RangeSlider from "./RangeSlider";
 import FilterByColor from "./FilterByColor";
@@ -10,8 +10,11 @@ import FilterByLensType from "./FilterByLenseType";
 import FilterByFrameShape from "./FilterByFrameShape";
 import FilterByFrameStyle from "./FilterByFrameStyle";
 import FilterByShopCollection from "./FilterByShopCollection";
+import Scroll from "./Scroll";
 import Cards from "./Cards";
 import { productSelector } from "../redux/slices/productSlice";
+import productApi from "../../pages/api/products";
+import { fetchedProducts } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -29,20 +32,28 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  let { products } = useSelector(productSelector);
+  const { products, topProduct } = useSelector(productSelector);
+  const dispatch = useDispatch();
 
-  const arr = products?.map(({ price }) => price);
+  const { price } = Object.assign({}, ...topProduct);
 
-  const maxPrice = Math.max(...arr);
+  const [range, setRange] = useState([0, price]);
 
-  const [range, setRange] = useState([0, maxPrice]);
-
-  products = products.filter((f) => f.price >= range[0] && f.price <= range[1]);
+  useEffect(() => {
+    const priceRangeFilter = async () => {
+      const { data } = await productApi.getProductsPriceRange(
+        range[0],
+        range[1]
+      );
+      dispatch(fetchedProducts(data?.products));
+    };
+    priceRangeFilter();
+  }, [range]);
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
       <Grid container direction="row">
-        <Grid container md={4}>
+        <Grid direction="column" container md={4}>
           <RangeSlider updateRangeSlider={(val) => setRange(val)} />
           <FilterByColor />
           <FilterByGender />
@@ -51,13 +62,52 @@ const CategoryEyeGlassProducts = () => {
           <FilterByFrameShape />
           <FilterByShopCollection />
         </Grid>
-        <Grid container md={8} className={clsx(classes.product)}>
+        <Grid
+          direction="row"
+          container
+          md={8}
+          className={clsx({ [classes.product]: products?.length <= 9 })}
+        >
           {products?.map((item) => (
-            <Grid item key={item.id} container md={4} justifyContent="center">
+            <Grid item key={item.id} container md={4}>
               <Cards item={item} isProduct width={400} height={400} />
             </Grid>
           ))}
         </Grid>
+        {/* {products.length <= 6 ? (
+          <Grid
+            direction="row"
+            container
+            md={8}
+            className={clsx({ [classes.product]: products?.length <= 9 })}
+          >
+            {products?.map((item) => (
+              <Grid item key={item.id} container md={4}>
+                <Cards item={item} isProduct width={400} height={400} />
+              </Grid>
+            ))}
+          </Grid>
+        ) : (
+          <Grid
+            direction="row"
+            container
+            md={8}
+            className={clsx({ [classes.product]: products?.length <= 9 })}
+          >
+            <Scroll
+              pLength={products.length}
+              scrollView={
+                <Grid container direction="row">
+                  {products?.map((item) => (
+                    <Grid item key={item.id} container md={4}>
+                      <Cards item={item} isProduct width={400} height={400} />
+                    </Grid>
+                  ))}
+                </Grid>
+              }
+            />
+          </Grid>
+        )} */}
       </Grid>
     </Container>
   );

@@ -13,10 +13,7 @@ import clsx from "clsx";
 import { useSelector } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import {
-  MinMaxFilter,
-  productSelector,
-} from "../../src/redux/slices/productSlice";
+import { productSelector } from "../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
   root: {
@@ -33,13 +30,11 @@ function priceValue(value) {
 
 const RangeSlider = ({ updateRangeSlider }) => {
   const classes = useStyles();
-  const { products } = useSelector(productSelector);
+  const { topProduct } = useSelector(productSelector);
 
-  const arr = products?.map(({ price }) => price);
+  const { price } = Object.assign({}, ...topProduct);
 
-  const maxPrice = Math.max(...arr);
-
-  const [value, setValue] = useState([0, maxPrice]);
+  const [value, setValue] = useState([0, price]);
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -66,7 +61,7 @@ const RangeSlider = ({ updateRangeSlider }) => {
           >
             <Typography className={clsx(classes.heading)}>
               <Box fontWeight="fontWeightBold">
-                Filter By Price (${value[0]} - ${value[1]})
+                Filter By Price <br /> (${value[0]} - ${value[1]})
               </Box>
             </Typography>
           </AccordionSummary>
@@ -75,7 +70,7 @@ const RangeSlider = ({ updateRangeSlider }) => {
               getAriaLabel={() => "Next Lense Price"}
               value={value}
               min={0}
-              max={maxPrice}
+              max={price}
               onChange={handleChange}
               valueLabelDisplay="auto"
               getAriaValueText={priceValue}

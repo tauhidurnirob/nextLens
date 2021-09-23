@@ -14,6 +14,12 @@ export const getProducts = asyncHandler(async (req, res) => {
       }
     : {};
 
+  const color = req.query.color
+    ? {
+        color: req.query.color.split(",")[0] && req.query.color.split(",")[1],
+      }
+    : {};
+
   const keyword = req.query.keyword
     ? {
         title: { $regex: req.query.keyword, $options: "i" },
@@ -23,14 +29,21 @@ export const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({
     ...keyword,
   })
+    .where({ ...category })
+    .where({ ...color })
+    .where({
+      price: {
+        $gte: +req.query.lowPrice || 0,
+        $lte: +req.query.highPrice || 2000000,
+      },
+    })
     .limit(+req.query.limit)
-    .skip(+req.query.start)
-    .where({ ...category });
+    .skip(+req.query.start);
 
-  // const topProduct = await Product.find({}).sort({ rating: -1 }).limit(3);
+  const topMaxProduct = await Product.find({}).sort({ price: -1 }).limit(1);
   res.json({
     products,
-    // topProduct,
+    topMaxProduct,
   });
 });
 
