@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, makeStyles, Container } from "@material-ui/core";
 import clsx from "clsx";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import RangeSlider from "./RangeSlider";
 import FilterByColor from "./FilterByColor";
@@ -14,6 +14,7 @@ import Scroll from "./Scroll";
 import Cards from "./Cards";
 import { productSelector } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
+import { fetchedProducts } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -32,21 +33,22 @@ const useStyles = makeStyles((theme) => ({
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
   let { products } = useSelector(productSelector);
-
+  const dispatch = useDispatch();
   const arr = products?.map(({ price }) => price);
 
   const maxPrice = Math.max(...arr);
 
   const [range, setRange] = useState([0, maxPrice]);
 
-  useEffect(() => {
-    const priceRangeFilter = async () => {
-      await productApi.getProductsPriceRange(range[0], range[1]);
-    };
-    priceRangeFilter();
-  }, [range]);
+  // useEffect(() => {
+  const priceRangeFilter = async () => {
+    const { data } = await productApi.getProductsPriceRange(range[0], range[1]);
+    dispatch(fetchedProducts(data?.products));
+  };
+  priceRangeFilter();
+  // }, [range]);
 
-  products = products.filter((f) => f.price >= range[0] && f.price <= range[1]);
+  // products = products.filter((f) => f.price >= range[0] && f.price <= range[1]);
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
