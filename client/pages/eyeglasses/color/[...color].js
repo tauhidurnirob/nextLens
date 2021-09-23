@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux";
 import { fetchedProducts } from "../../../src/redux/slices/productSlice";
 
 import productApi from "../../api/products";
-import Keyword from "./Color";
+import Color from "./Color";
 
 const ProductByColor = ({ data }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data.products));
 
-  return <Keyword />;
+  return <Color />;
 };
 
 export default ProductByColor;

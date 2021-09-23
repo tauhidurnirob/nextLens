@@ -16,6 +16,8 @@ import {
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useRouter } from "next/router";
+import { productSelector } from "../redux/slices/productSlice";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles({
   root: {
@@ -33,7 +35,13 @@ const useStyles = makeStyles({
 const FilterByColor = () => {
   const classes = useStyles();
   const router = useRouter();
+  const { products } = useSelector(productSelector);
+
+  const blackProduct = products.filter((p) => p.color === "black");
+  const whiteProduct = products.filter((p) => p.color === "white");
+
   const [expand, setExpand] = useState("expandBar");
+
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
   };
@@ -102,7 +110,7 @@ const FilterByColor = () => {
                       justifyContent="space-between"
                     >
                       <Box component="div">Black</Box>
-                      <Box component="div">(105)</Box>
+                      <Box component="div">({blackProduct.length})</Box>
                     </Grid>
                   }
                 />
@@ -122,7 +130,7 @@ const FilterByColor = () => {
                       justifyContent="space-between"
                     >
                       <Box component="div">White</Box>
-                      <Box component="div">(10)</Box>
+                      <Box component="div">({whiteProduct.length})</Box>
                     </Grid>
                   }
                 />
