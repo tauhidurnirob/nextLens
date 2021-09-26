@@ -61,7 +61,7 @@ export const getCountProducts = asyncHandler(async (req, res) => {
     countProducts: {
       black: blackProduct,
       white: whiteProduct,
-      man: menProduct,
+      men: menProduct,
       women: womenProduct,
       kid: kidProduct,
     },
