@@ -35,10 +35,7 @@ const useStyles = makeStyles({
 const FilterByColor = () => {
   const classes = useStyles();
   const router = useRouter();
-  const { products } = useSelector(productSelector);
-
-  const blackProduct = products.filter((p) => p.color === "black");
-  const whiteProduct = products.filter((p) => p.color === "white");
+  const { counts } = useSelector(productSelector);
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -110,7 +107,7 @@ const FilterByColor = () => {
                       justifyContent="space-between"
                     >
                       <Box component="div">Black</Box>
-                      <Box component="div">({blackProduct.length})</Box>
+                      <Box component="div">({counts.black})</Box>
                     </Grid>
                   }
                 />
@@ -130,7 +127,7 @@ const FilterByColor = () => {
                       justifyContent="space-between"
                     >
                       <Box component="div">White</Box>
-                      <Box component="div">({whiteProduct.length})</Box>
+                      <Box component="div">({counts.white})</Box>
                     </Grid>
                   }
                 />
