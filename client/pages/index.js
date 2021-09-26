@@ -21,10 +21,11 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Home = ({ data }) => {
+  console.log(data);
   const dispatch = useDispatch();
 
-  dispatch(fetchedProducts(data?.products));
   dispatch(topMaxProduct(data?.topMaxProduct));
+  dispatch(fetchedProducts(data?.products));
 
   const classes = useStyles();
   return (

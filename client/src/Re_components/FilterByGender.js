@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   makeStyles,
   Accordion,
@@ -11,12 +11,18 @@ import {
   Checkbox,
   Grid,
   Divider,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useSelector, useDispatch } from "react-redux";
 
-
+import {
+  productSelector,
+  setProducts,
+  fetchedProducts,
+} from "../redux/slices/productSlice";
+import productApi from "../../pages/api/products";
 
 const useStyles = makeStyles({
   root: {
@@ -29,13 +35,15 @@ const useStyles = makeStyles({
     width: "284px",
     height: "1px",
   },
-
 });
 
 const FilterByGender = ({}) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const [expand, setExpand] = useState("expandBar");
+
+  const { counts } = useSelector(productSelector);
 
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
@@ -43,14 +51,32 @@ const FilterByGender = ({}) => {
   const [state, setState] = React.useState({
     men: false,
     women: false,
+    kid: false,
   });
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const { men, women } = state;
+  const { men, women, kid } = state;
 
+  useEffect(() => {
+    const getGenderProduct = async () => {
+      if (men || women || kid) {
+        const { data } = await productApi.getProductsByGender(
+          men ? "men" : "",
+          women ? "women" : "",
+          kid ? "kid" : ""
+        );
+        dispatch(fetchedProducts(data?.products));
+      }
+      if (!men && !women && !kid) {
+        const { data } = await productApi.getAllProductByLimit(12);
+        dispatch(setProducts(data?.products));
+      }
+    };
+    getGenderProduct();
+  }, [men, women, kid]);
   return (
     <Grid item container justifyContent="center">
       <Box mb={3} className={clsx(classes.root)}>
@@ -85,7 +111,7 @@ const FilterByGender = ({}) => {
                       justifyContent="space-between"
                     >
                       <Box component="div">Men</Box>
-                      <Box component="div">(242)</Box>
+                      <Box component="div">({counts.men})</Box>
                     </Grid>
                   }
                 />
@@ -105,7 +131,27 @@ const FilterByGender = ({}) => {
                       justifyContent="space-between"
                     >
                       <Box component="div">Women</Box>
-                      <Box component="div">(9)</Box>
+                      <Box component="div">({counts.women})</Box>
+                    </Grid>
+                  }
+                />
+                <Divider className={clsx(classes.divider)} />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={kid}
+                      onChange={handleChange}
+                      name="kid"
+                    />
+                  }
+                  label={
+                    <Grid
+                      container
+                      direction="row"
+                      justifyContent="space-between"
+                    >
+                      <Box component="div">kid</Box>
+                      <Box component="div">({counts.kid})</Box>
                     </Grid>
                   }
                 />

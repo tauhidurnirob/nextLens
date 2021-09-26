@@ -2,35 +2,24 @@ import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
 import TestProduct from "../models/testModel.js";
 import cloudinary from "../utils/cloudinary.js";
+import { Color, Category, Keyword, Gender } from "../utils/queries.js";
 
 // @Description Fetch all products
 // @routes GET/api/products
 // @access public
 
 export const getProducts = asyncHandler(async (req, res) => {
-  const category = req.query.category
-    ? {
-        category: req.query.category,
-      }
-    : {};
-
-  const color = req.query.color
-    ? {
-        color: req.query.color.split(",")[0] && req.query.color.split(",")[1],
-      }
-    : {};
-
-  const keyword = req.query.keyword
-    ? {
-        title: { $regex: req.query.keyword, $options: "i" },
-      }
-    : {};
+  const keyword = Keyword(req);
+  const category = Category(req);
+  const color = Color(req);
+  const gender = Gender(req);
 
   const products = await Product.find({
     ...keyword,
   })
     .where({ ...category })
     .where({ ...color })
+    .where({ ...gender })
     .where({
       price: {
         $gte: +req.query.lowPrice || 0,
@@ -41,9 +30,41 @@ export const getProducts = asyncHandler(async (req, res) => {
     .skip(+req.query.start);
 
   const topMaxProduct = await Product.find({}).sort({ price: -1 }).limit(1);
+
   res.json({
     products,
     topMaxProduct,
+  });
+});
+
+// @Description Fetch all products count
+// @routes GET/api/products/count
+// @access public
+
+export const getCountProducts = asyncHandler(async (req, res) => {
+  const blackProduct = await Product.countDocuments({
+    color: "black",
+  });
+  const whiteProduct = await Product.countDocuments({
+    color: "white",
+  });
+  const menProduct = await Product.countDocuments({
+    category: "men",
+  });
+  const womenProduct = await Product.countDocuments({
+    category: "women",
+  });
+  const kidProduct = await Product.countDocuments({
+    category: "kid",
+  });
+  res.json({
+    countProducts: {
+      black: blackProduct,
+      white: whiteProduct,
+      men: menProduct,
+      women: womenProduct,
+      kid: kidProduct,
+    },
   });
 });
 

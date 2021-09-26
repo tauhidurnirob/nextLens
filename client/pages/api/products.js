@@ -15,8 +15,13 @@ const getProductsPriceRange = (lowPrice, highPrice) =>
     endpoint.allProducts + `?lowPrice=${lowPrice}&highPrice=${highPrice}`
   );
 
-const getProductsByColor = (color) =>
-  client.get(endpoint.allProducts + `?color=${color}`);
+const getProductsByColor = (black, white) =>
+  client.get(endpoint.allProducts + `?black=${black}&white=${white}`);
+
+const getProductsByGender = (men, women, kid) =>
+  client.get(endpoint.allProducts + `?men=${men}&women=${women}&kid=${kid}`);
+
+const getProductCount = () => client.get(endpoint.count);
 
 export default {
   getAllProductByLimit,
@@ -26,4 +31,6 @@ export default {
   getMoreProducts,
   getProductsPriceRange,
   getProductsByColor,
+  getProductCount,
+  getProductsByGender,
 };

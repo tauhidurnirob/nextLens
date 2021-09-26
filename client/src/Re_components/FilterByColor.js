@@ -14,10 +14,16 @@ import {
   Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { useRouter } from "next/router";
-import { productSelector } from "../redux/slices/productSlice";
 import { useSelector } from "react-redux";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useDispatch } from "react-redux";
+
+import {
+  productSelector,
+  fetchedProducts,
+  setProducts,
+} from "../redux/slices/productSlice";
+import productApi from "../../pages/api/products";
 
 const useStyles = makeStyles({
   root: {
@@ -34,11 +40,8 @@ const useStyles = makeStyles({
 
 const FilterByColor = () => {
   const classes = useStyles();
-  const router = useRouter();
-  const { products } = useSelector(productSelector);
-
-  const blackProduct = products.filter((p) => p.color === "black");
-  const whiteProduct = products.filter((p) => p.color === "white");
+  const dispatch = useDispatch();
+  const { counts } = useSelector(productSelector);
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -51,30 +54,27 @@ const FilterByColor = () => {
     white: false,
   });
 
-  const handleChange = (event) => {
+  const handleChange = async (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+  const { black, white } = state;
 
   useEffect(() => {
     const getColorProduct = async () => {
-      const color = (state.black && "black") || (state.white && "white");
-      if (color) {
-        router.push({
-          pathname: "/eyeglasses/color/[...color]",
-          query: { color: color },
-        });
+      if (black || white) {
+        const { data } = await productApi.getProductsByColor(
+          black ? "black" : "",
+          white ? "white" : ""
+        );
+        dispatch(fetchedProducts(data?.products));
       }
-      if (state.black && state.white) {
-        router.push({
-          pathname: "/eyeglasses/color/[...color]",
-          query: { color: [state.black && "black", state.white && "white"] },
-        });
+      if (!black && !white) {
+        const { data } = await productApi.getAllProductByLimit(12);
+        dispatch(setProducts(data?.products));
       }
     };
     getColorProduct();
-  }, [state]);
-
-  const { black, white } = state;
+  }, [black, white]);
 
   return (
     <Grid item container justifyContent="center">
@@ -110,7 +110,7 @@ const FilterByColor = () => {
                       justifyContent="space-between"
                     >
                       <Box component="div">Black</Box>
-                      <Box component="div">({blackProduct.length})</Box>
+                      <Box component="div">({counts.black})</Box>
                     </Grid>
                   }
                 />
@@ -130,7 +130,7 @@ const FilterByColor = () => {
                       justifyContent="space-between"
                     >
                       <Box component="div">White</Box>
-                      <Box component="div">({whiteProduct.length})</Box>
+                      <Box component="div">({counts.white})</Box>
                     </Grid>
                   }
                 />
