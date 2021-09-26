@@ -2,41 +2,24 @@ import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
 import TestProduct from "../models/testModel.js";
 import cloudinary from "../utils/cloudinary.js";
+import { Color, ColorCon, Category, Keyword } from "../utils/queries.js";
 
 // @Description Fetch all products
 // @routes GET/api/products
 // @access public
 
 export const getProducts = asyncHandler(async (req, res) => {
-  const category = req.query.category
-    ? {
-        category: req.query.category,
-      }
-    : {};
-
-  const color =
-    req.query.black || req.query.white
-      ? {
-          color: req.query.black || req.query.white,
-        }
-      : {};
-  const test =
-    req.query.black === "black" && req.query.white === "white"
-      ? { color: { $gte: "black", $lte: "white" } }
-      : {};
-
-  const keyword = req.query.keyword
-    ? {
-        title: { $regex: req.query.keyword, $options: "i" },
-      }
-    : {};
+  const category = Category(req);
+  const color = Color(req);
+  const colorCon = ColorCon(req);
+  const keyword = Keyword(req);
 
   const products = await Product.find({
     ...keyword,
   })
     .where({ ...category })
     .where({ ...color })
-    .where({ ...test })
+    .where({ ...colorCon })
     .where({
       price: {
         $gte: +req.query.lowPrice || 0,
@@ -65,8 +48,23 @@ export const getCountProducts = asyncHandler(async (req, res) => {
   const whiteProduct = await Product.countDocuments({
     color: "white",
   });
+  const menProduct = await Product.countDocuments({
+    category: "men",
+  });
+  const womenProduct = await Product.countDocuments({
+    category: "women",
+  });
+  const kidProduct = await Product.countDocuments({
+    category: "kid",
+  });
   res.json({
-    countProducts: { black: blackProduct, white: whiteProduct },
+    countProducts: {
+      black: blackProduct,
+      white: whiteProduct,
+      man: menProduct,
+      women: womenProduct,
+      kid: kidProduct,
+    },
   });
 });
 

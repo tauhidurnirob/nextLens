@@ -24,6 +24,7 @@ import {
   setProducts,
 } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
+import useApi from "./../../../admin-dashboard/src/hooks/useApi";
 
 const useStyles = makeStyles({
   root: {
@@ -67,7 +68,6 @@ const FilterByColor = () => {
         );
         dispatch(fetchedProducts(data?.products));
       }
-
       if (!state.black && !state.white) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));
