@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   makeStyles,
   Accordion,
@@ -15,8 +15,14 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { useSelector } from "react-redux";
-import { productSelector } from "./../redux/slices/productSlice";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  productSelector,
+  setProducts,
+  fetchedProducts,
+} from "../redux/slices/productSlice";
+import productApi from "../../pages/api/products";
 
 const useStyles = makeStyles({
   root: {
@@ -33,6 +39,7 @@ const useStyles = makeStyles({
 
 const FilterByGender = ({}) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -53,6 +60,23 @@ const FilterByGender = ({}) => {
 
   const { men, women, kid } = state;
 
+  useEffect(() => {
+    const getGenderProduct = async () => {
+      if (men || women || kid) {
+        const { data } = await productApi.getProductsByGender(
+          men ? "men" : "",
+          women ? "women" : "",
+          kid ? "kid" : ""
+        );
+        dispatch(fetchedProducts(data?.products));
+      }
+      if (!men && !women && !kid) {
+        const { data } = await productApi.getAllProductByLimit(12);
+        dispatch(setProducts(data?.products));
+      }
+    };
+    getGenderProduct();
+  }, [men, women, kid]);
   return (
     <Grid item container justifyContent="center">
       <Box mb={3} className={clsx(classes.root)}>

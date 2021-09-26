@@ -18,6 +18,9 @@ const getProductsPriceRange = (lowPrice, highPrice) =>
 const getProductsByColor = (black, white) =>
   client.get(endpoint.allProducts + `?black=${black}&white=${white}`);
 
+const getProductsByGender = (men, women, kid) =>
+  client.get(endpoint.allProducts + `?men=${men}&women=${women}&kid=${kid}`);
+
 const getProductCount = () => client.get(endpoint.count);
 
 export default {
@@ -29,4 +32,5 @@ export default {
   getProductsPriceRange,
   getProductsByColor,
   getProductCount,
+  getProductsByGender,
 };

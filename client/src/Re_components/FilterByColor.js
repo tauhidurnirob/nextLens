@@ -24,7 +24,6 @@ import {
   setProducts,
 } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
-import useApi from "./../../../admin-dashboard/src/hooks/useApi";
 
 const useStyles = makeStyles({
   root: {
@@ -58,25 +57,24 @@ const FilterByColor = () => {
   const handleChange = async (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+  const { black, white } = state;
 
   useEffect(() => {
     const getColorProduct = async () => {
-      if (state.black || state.white) {
+      if (black || white) {
         const { data } = await productApi.getProductsByColor(
-          state.black ? "black" : "",
-          state.white ? "white" : ""
+          black ? "black" : "",
+          white ? "white" : ""
         );
         dispatch(fetchedProducts(data?.products));
       }
-      if (!state.black && !state.white) {
+      if (!black && !white) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));
       }
     };
     getColorProduct();
-  }, [state.black, state.white]);
-
-  const { black, white } = state;
+  }, [black, white]);
 
   return (
     <Grid item container justifyContent="center">

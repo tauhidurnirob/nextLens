@@ -17,13 +17,15 @@ export const Keyword = (req) => {
 export const Color = (req) => {
   return req.query.black || req.query.white
     ? {
-        color: req.query.black || req.query.white,
+        color: [req.query.black, req.query.white],
       }
     : {};
 };
 
-export const ColorCon = (req) => {
-  req.query.black === "black" && req.query.white === "white"
-    ? { color: { $gte: "black", $lte: "white" } }
+export const Gender = (req) => {
+  return req.query.men || req.query.women || req.query.kid
+    ? {
+        category: [req.query.men, req.query.women, req.query.kid],
+      }
     : {};
 };
