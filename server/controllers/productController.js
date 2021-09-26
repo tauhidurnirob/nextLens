@@ -41,9 +41,32 @@ export const getProducts = asyncHandler(async (req, res) => {
     .skip(+req.query.start);
 
   const topMaxProduct = await Product.find({}).sort({ price: -1 }).limit(1);
+  const blackProduct = await Product.countDocuments({
+    color: "black",
+  });
+  const whiteProduct = await Product.countDocuments({
+    color: "white",
+  });
   res.json({
     products,
     topMaxProduct,
+    count: { black: blackProduct, white: whiteProduct },
+  });
+});
+
+// @Description Fetch all products
+// @routes GET/api/products
+// @access public
+
+export const getCountProducts = asyncHandler(async (req, res) => {
+  const blackProduct = await Product.countDocuments({
+    color: "black",
+  });
+  const whiteProduct = await Product.countDocuments({
+    color: "white",
+  });
+  res.json({
+    count: { black: blackProduct, white: whiteProduct },
   });
 });
 
