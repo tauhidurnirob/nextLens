@@ -11,14 +11,16 @@ import {
 import {
   fetchedProducts,
   topMaxProduct,
+  countAction,
 } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
-const EyeGlasses = ({ data }) => {
+const EyeGlasses = ({ data, counts }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
   dispatch(topMaxProduct(data?.topMaxProduct));
+  dispatch(countAction(counts.count));
   return (
     <Layout title="Eye Glasses">
       <Container maxWidth={false}>
@@ -34,8 +36,9 @@ export default EyeGlasses;
 
 export async function getStaticProps() {
   const { data } = await productApi.getAllProductByLimit(12);
+  const { data: counts } = await productApi.getProductCount();
 
   return {
-    props: { data, revalidate: 1 },
+    props: { data, counts, revalidate: 1 },
   };
 }

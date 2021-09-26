@@ -7,6 +7,7 @@ const productSlice = createSlice({
     productById: {},
     topProduct: [],
     products: [],
+    counts: {},
   },
   reducers: {
     addCart(state, { payload }) {
@@ -50,6 +51,9 @@ const productSlice = createSlice({
     topMaxProduct(state, { payload }) {
       state.topProduct = payload;
     },
+    countAction(state, { payload }) {
+      state.counts = payload;
+    },
     resetCartAction(state) {
       state.cart = [];
     },
@@ -65,6 +69,7 @@ export const {
   fetchedProducts,
   resetCartAction,
   setProducts,
+  countAction,
 } = productSlice.actions;
 
 export default productSlice.reducer;

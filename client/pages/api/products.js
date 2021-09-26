@@ -18,6 +18,8 @@ const getProductsPriceRange = (lowPrice, highPrice) =>
 const getProductsByColor = (color) =>
   client.get(endpoint.allProducts + `?color=${color}`);
 
+const getProductCount = () => client.get(endpoint.count);
+
 export default {
   getAllProductByLimit,
   getProductById,
@@ -26,4 +28,5 @@ export default {
   getMoreProducts,
   getProductsPriceRange,
   getProductsByColor,
+  getProductCount,
 };

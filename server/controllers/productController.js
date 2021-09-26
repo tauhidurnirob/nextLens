@@ -54,8 +54,8 @@ export const getProducts = asyncHandler(async (req, res) => {
   });
 });
 
-// @Description Fetch all products
-// @routes GET/api/products
+// @Description Fetch all products count
+// @routes GET/api/products/count
 // @access public
 
 export const getCountProducts = asyncHandler(async (req, res) => {
