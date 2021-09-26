@@ -2,22 +2,24 @@ import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
 import TestProduct from "../models/testModel.js";
 import cloudinary from "../utils/cloudinary.js";
-import { Color, Category, Keyword } from "../utils/queries.js";
+import { Color, Category, Keyword, Gender } from "../utils/queries.js";
 
 // @Description Fetch all products
 // @routes GET/api/products
 // @access public
 
 export const getProducts = asyncHandler(async (req, res) => {
+  const keyword = Keyword(req);
   const category = Category(req);
   const color = Color(req);
-  const keyword = Keyword(req);
+  const gender = Gender(req);
 
   const products = await Product.find({
     ...keyword,
   })
     .where({ ...category })
     .where({ ...color })
+    .where({ ...gender })
     .where({
       price: {
         $gte: +req.query.lowPrice || 0,
