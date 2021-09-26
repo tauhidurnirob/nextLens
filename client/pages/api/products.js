@@ -15,8 +15,8 @@ const getProductsPriceRange = (lowPrice, highPrice) =>
     endpoint.allProducts + `?lowPrice=${lowPrice}&highPrice=${highPrice}`
   );
 
-const getProductsByColor = (color) =>
-  client.get(endpoint.allProducts + `?color=${color}`);
+const getProductsByColor = (black, white) =>
+  client.get(endpoint.allProducts + `?black=${black}&white=${white}`);
 
 const getProductCount = () => client.get(endpoint.count);
 

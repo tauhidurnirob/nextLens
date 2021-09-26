@@ -14,10 +14,12 @@ import {
   Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { useRouter } from "next/router";
-import { productSelector } from "../redux/slices/productSlice";
 import { useSelector } from "react-redux";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useDispatch } from "react-redux";
+
+import { productSelector, fetchedProducts } from "../redux/slices/productSlice";
+import productApi from "../../pages/api/products";
 
 const useStyles = makeStyles({
   root: {
@@ -34,7 +36,7 @@ const useStyles = makeStyles({
 
 const FilterByColor = () => {
   const classes = useStyles();
-  const router = useRouter();
+  const dispatch = useDispatch();
   const { counts } = useSelector(productSelector);
 
   const [expand, setExpand] = useState("expandBar");
@@ -48,28 +50,27 @@ const FilterByColor = () => {
     white: false,
   });
 
-  const handleChange = (event) => {
+  const handleChange = async (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
   useEffect(() => {
     const getColorProduct = async () => {
-      const color = (state.black && "black") || (state.white && "white");
-      if (color) {
-        router.push({
-          pathname: "/eyeglasses/color/[...color]",
-          query: { color: color },
-        });
+      if (state.black || state.white) {
+        const { data } = await productApi.getProductsByColor(
+          state.black ? "black" : "",
+          state.white ? "white" : ""
+        );
+        dispatch(fetchedProducts(data?.products));
       }
-      if (state.black && state.white) {
-        router.push({
-          pathname: "/eyeglasses/color/[...color]",
-          query: { color: [state.black && "black", state.white && "white"] },
-        });
+
+      if (!state.black && !state.white) {
+        const { data } = await productApi.getAllProductByLimit(12);
+        dispatch(fetchedProducts(data?.products));
       }
     };
     getColorProduct();
-  }, [state]);
+  }, [state.black, state.white]);
 
   const { black, white } = state;
 

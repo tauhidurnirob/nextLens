@@ -14,11 +14,16 @@ export const getProducts = asyncHandler(async (req, res) => {
       }
     : {};
 
-  const color = req.query.color
-    ? {
-        color: req.query.color.split(",")[0] && req.query.color.split(",")[1],
-      }
-    : {};
+  const color =
+    req.query.black || req.query.white
+      ? {
+          color: req.query.black || req.query.white,
+        }
+      : {};
+  const test =
+    req.query.black === "black" && req.query.white === "white"
+      ? { color: { $gte: "black", $lte: "white" } }
+      : {};
 
   const keyword = req.query.keyword
     ? {
@@ -31,6 +36,7 @@ export const getProducts = asyncHandler(async (req, res) => {
   })
     .where({ ...category })
     .where({ ...color })
+    .where({ ...test })
     .where({
       price: {
         $gte: +req.query.lowPrice || 0,
@@ -41,16 +47,10 @@ export const getProducts = asyncHandler(async (req, res) => {
     .skip(+req.query.start);
 
   const topMaxProduct = await Product.find({}).sort({ price: -1 }).limit(1);
-  const blackProduct = await Product.countDocuments({
-    color: "black",
-  });
-  const whiteProduct = await Product.countDocuments({
-    color: "white",
-  });
+
   res.json({
     products,
     topMaxProduct,
-    count: { black: blackProduct, white: whiteProduct },
   });
 });
 
