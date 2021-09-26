@@ -66,7 +66,7 @@ export const getCountProducts = asyncHandler(async (req, res) => {
     color: "white",
   });
   res.json({
-    count: { black: blackProduct, white: whiteProduct },
+    countProducts: { black: blackProduct, white: whiteProduct },
   });
 });
 
