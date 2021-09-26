@@ -18,7 +18,11 @@ import { useSelector } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useDispatch } from "react-redux";
 
-import { productSelector, fetchedProducts } from "../redux/slices/productSlice";
+import {
+  productSelector,
+  fetchedProducts,
+  setProducts,
+} from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
 
 const useStyles = makeStyles({
@@ -66,7 +70,7 @@ const FilterByColor = () => {
 
       if (!state.black && !state.white) {
         const { data } = await productApi.getAllProductByLimit(12);
-        dispatch(fetchedProducts(data?.products));
+        dispatch(setProducts(data?.products));
       }
     };
     getColorProduct();
