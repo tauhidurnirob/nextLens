@@ -8,7 +8,7 @@ import {
   Keyword,
   Gender,
   Price,
-  MultipleQueries,
+  // MultipleQueries,
 } from "../utils/queries.js";
 
 // @Description Fetch all products
@@ -21,16 +21,16 @@ export const getProducts = asyncHandler(async (req, res) => {
   const color = Color(req);
   const gender = Gender(req);
   const price = Price(req);
-  const multipleQueries = MultipleQueries(req);
+  // const multipleQueries = MultipleQueries(req);
 
   const products = await Product.find({
     ...keyword,
   })
     .where({ ...category })
-    // .where({ ...color })
-    // .where({ ...gender })
+    .where({ ...color })
+    .where({ ...gender })
     .where({ ...price })
-    .where({ ...multipleQueries })
+    // .where({ ...multipleQueries })
 
     .limit(+req.query.limit)
     .skip(+req.query.start);

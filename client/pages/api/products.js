@@ -21,8 +21,6 @@ const getProductsByColor = (black, white) =>
 const getProductsByGender = (men, women, kid) =>
   client.get(endpoint.allProducts + `?men=${men}&women=${women}&kid=${kid}`);
 
-
-
 const getProductCount = () => client.get(endpoint.count);
 
 export default {

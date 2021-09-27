@@ -69,8 +69,8 @@ const FilterByGender = ({}) => {
           kid ? "kid" : ""
         );
         dispatch(fetchedProducts(data?.products));
-        console.log(data);
       }
+
       if (!men && !women && !kid) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));

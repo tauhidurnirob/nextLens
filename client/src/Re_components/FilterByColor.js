@@ -78,6 +78,7 @@ const FilterByColor = ({}) => {
         );
         dispatch(fetchedProducts(data?.products));
       }
+
       if (!black && !white) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));
