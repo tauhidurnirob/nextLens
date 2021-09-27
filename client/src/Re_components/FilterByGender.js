@@ -57,12 +57,15 @@ const FilterByGender = ({}) => {
 
   const handleChange = (event) => {
     setState({
-      ...queries,
       ...state,
       [event.target.name]: event.target.checked,
     });
     dispatch(
-      queriesAction({ ...state, [event.target.name]: event.target.checked })
+      queriesAction({
+        ...queries,
+        ...state,
+        [event.target.name]: event.target.checked,
+      })
     );
   };
 

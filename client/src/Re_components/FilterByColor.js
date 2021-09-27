@@ -42,7 +42,7 @@ const useStyles = makeStyles({
 const FilterByColor = ({}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { counts } = useSelector(productSelector);
+  const { counts, queries } = useSelector(productSelector);
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -69,7 +69,11 @@ const FilterByColor = ({}) => {
   const handleOnChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
     dispatch(
-      queriesAction({ ...state, [event.target.name]: event.target.checked })
+      queriesAction({
+        ...queries,
+        ...state,
+        [event.target.name]: event.target.checked,
+      })
     );
   };
 
