@@ -30,39 +30,6 @@ export const Gender = (req) => {
     : {};
 };
 
-// export const MultipleQueries = (req) => {
-//   return req.query.black ||
-//     req.query.white ||
-//     req.query.men ||
-//     req.query.women ||
-//     req.query.kid
-//     ? {
-//         $or: [
-//           {
-//             // color: [req.query.black, req.query.white],
-//             color: req.query.black ? "black" : "",
-//           },
-//           {
-//             // color: [req.query.black, req.query.white],
-//             color: req.query.white ? "white" : "",
-//           },
-//           {
-//             // category: [req.query.men, req.query.women, req.query.kid],
-//             category: req.query.men ? "men" : "",
-//           },
-//           {
-//             // category: [req.query.men, req.query.women, req.query.kid],
-//             category: req.query.women ? "women" : "",
-//           },
-//           {
-//             // category: [req.query.men, req.query.women, req.query.kid],
-//             category: req.query.kid ? "kid" : "",
-//           },
-//         ],
-//       }
-//     : {};
-// };
-
 export const Price = (req) => {
   return req.query.lowPrice || req.query.highPrice
     ? {
