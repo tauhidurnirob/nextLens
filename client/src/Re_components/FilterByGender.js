@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, Fragment } from "react";
 import {
   makeStyles,
   Accordion,
@@ -21,6 +21,7 @@ import {
   productSelector,
   setProducts,
   fetchedProducts,
+  queriesAction,
 } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
 
@@ -43,7 +44,7 @@ const FilterByGender = ({}) => {
 
   const [expand, setExpand] = useState("expandBar");
 
-  const { counts } = useSelector(productSelector);
+  const { counts, queries } = useSelector(productSelector);
 
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
@@ -55,28 +56,25 @@ const FilterByGender = ({}) => {
   });
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    });
+    dispatch(
+      queriesAction({
+        ...queries,
+        ...state,
+        [event.target.name]: event.target.checked,
+      })
+    );
   };
 
-  const { men, women, kid } = state;
+  const gender = [
+    { name: "Men", checked: "men", totalProduct: counts.men },
+    { name: "Women", checked: "women", totalProduct: counts.women },
+    { name: "Kid", checked: "kid", totalProduct: counts.kid },
+  ];
 
-  useEffect(() => {
-    const getGenderProduct = async () => {
-      if (men || women || kid) {
-        const { data } = await productApi.getProductsByGender(
-          men ? "men" : "",
-          women ? "women" : "",
-          kid ? "kid" : ""
-        );
-        dispatch(fetchedProducts(data?.products));
-      }
-      if (!men && !women && !kid) {
-        const { data } = await productApi.getAllProductByLimit(12);
-        dispatch(setProducts(data?.products));
-      }
-    };
-    getGenderProduct();
-  }, [men, women, kid]);
   return (
     <Grid item container justifyContent="center">
       <Box mb={3} className={clsx(classes.root)}>
@@ -96,66 +94,30 @@ const FilterByGender = ({}) => {
           <AccordionDetails>
             <FormControl component="fieldset">
               <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={men}
-                      onChange={handleChange}
-                      name="men"
+                {gender.map((item, index) => (
+                  <Fragment key={index}>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={state[index]}
+                          onChange={handleChange}
+                          name={item.checked}
+                        />
+                      }
+                      label={
+                        <Grid
+                          container
+                          direction="row"
+                          justifyContent="space-between"
+                        >
+                          <Box component="div">{item.name}</Box>
+                          <Box component="div">({item.totalProduct})</Box>
+                        </Grid>
+                      }
                     />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">Men</Box>
-                      <Box component="div">({counts.men})</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={women}
-                      onChange={handleChange}
-                      name="women"
-                    />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">Women</Box>
-                      <Box component="div">({counts.women})</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={kid}
-                      onChange={handleChange}
-                      name="kid"
-                    />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">kid</Box>
-                      <Box component="div">({counts.kid})</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
+                    <Divider className={clsx(classes.divider)} />
+                  </Fragment>
+                ))}
               </FormGroup>
             </FormControl>
           </AccordionDetails>

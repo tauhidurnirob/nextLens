@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   makeStyles,
   Accordion,
@@ -18,12 +18,7 @@ import { useSelector } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useDispatch } from "react-redux";
 
-import {
-  productSelector,
-  fetchedProducts,
-  setProducts,
-} from "../redux/slices/productSlice";
-import productApi from "../../pages/api/products";
+import { productSelector, queriesAction } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles({
   root: {
@@ -38,10 +33,10 @@ const useStyles = makeStyles({
   },
 });
 
-const FilterByColor = () => {
+const FilterByColor = ({}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { counts } = useSelector(productSelector);
+  const { counts, queries } = useSelector(productSelector);
 
   const [expand, setExpand] = useState("expandBar");
 
@@ -49,32 +44,22 @@ const FilterByColor = () => {
     setExpand(newExpanded ? panel : false);
   };
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     black: false,
     white: false,
   });
-
-  const handleChange = async (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
   const { black, white } = state;
 
-  useEffect(() => {
-    const getColorProduct = async () => {
-      if (black || white) {
-        const { data } = await productApi.getProductsByColor(
-          black ? "black" : "",
-          white ? "white" : ""
-        );
-        dispatch(fetchedProducts(data?.products));
-      }
-      if (!black && !white) {
-        const { data } = await productApi.getAllProductByLimit(12);
-        dispatch(setProducts(data?.products));
-      }
-    };
-    getColorProduct();
-  }, [black, white]);
+  const handleOnChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+    dispatch(
+      queriesAction({
+        ...queries,
+        ...state,
+        [event.target.name]: event.target.checked,
+      })
+    );
+  };
 
   return (
     <Grid item container justifyContent="center">
@@ -99,7 +84,7 @@ const FilterByColor = () => {
                   control={
                     <Checkbox
                       checked={black}
-                      onChange={handleChange}
+                      onChange={handleOnChange}
                       name="black"
                     />
                   }
@@ -119,7 +104,7 @@ const FilterByColor = () => {
                   control={
                     <Checkbox
                       checked={white}
-                      onChange={handleChange}
+                      onChange={handleOnChange}
                       name="white"
                     />
                   }

@@ -14,7 +14,7 @@ import Scroll from "./Scroll";
 import Cards from "./Cards";
 import { productSelector } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
-import { fetchedProducts } from "../redux/slices/productSlice";
+import { fetchedProducts, setProducts } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -32,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  const { products, topProduct } = useSelector(productSelector);
+  const { products, topProduct, queries } = useSelector(productSelector);
+
   const dispatch = useDispatch();
 
   const { price } = Object.assign({}, ...topProduct);
@@ -49,6 +50,54 @@ const CategoryEyeGlassProducts = () => {
     };
     priceRangeFilter();
   }, [range]);
+
+  useEffect(() => {
+    const getAllQueryProduct = async () => {
+      if (
+        queries?.black ||
+        queries?.white ||
+        queries?.men ||
+        queries?.women ||
+        queries?.kid ||
+        queries?.frameOnly ||
+        queries?.basicLens ||
+        queries?.standardLense ||
+        queries?.premiumStandardLens ||
+        queries?.blueLightBlockGlass
+      ) {
+        const { data } = await productApi.getAllQueries(
+          queries?.black ? "black" : "",
+          queries?.white ? "white" : "",
+          queries?.men ? "men" : "",
+          queries?.women ? "women" : "",
+          queries?.kid ? "kid" : "",
+          queries?.frameOnly ? "frame" : "",
+          queries?.basicLens ? "basic" : "",
+          queries?.standardLense ? "standard" : "",
+          queries?.premiumStandardLens ? "premium" : "",
+          queries?.blueLightBlockGlass ? "blue" : ""
+        );
+        dispatch(fetchedProducts(data?.products));
+      }
+
+      if (
+        !queries?.black &&
+        !queries?.white &&
+        !queries?.men &&
+        !queries?.women &&
+        !queries?.kid &&
+        !queries?.frameOnly &&
+        !queries?.basicLens &&
+        !queries?.standardLense &&
+        !queries?.premiumStandardLens &&
+        !queries?.blueLightBlockGlass
+      ) {
+        const { data } = await productApi.getAllProductByLimit(12);
+        dispatch(setProducts(data?.products));
+      }
+    };
+    getAllQueryProduct();
+  }, [queries]);
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>

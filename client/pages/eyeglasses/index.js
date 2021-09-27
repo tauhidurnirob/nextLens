@@ -20,7 +20,7 @@ const EyeGlasses = ({ data, counts }) => {
 
   dispatch(fetchedProducts(data?.products));
   dispatch(topMaxProduct(data?.topMaxProduct));
-  dispatch(countAction(counts.countProducts));
+  dispatch(countAction(counts?.countProducts));
   return (
     <Layout title="Eye Glasses">
       <Container maxWidth={false}>

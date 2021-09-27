@@ -8,6 +8,7 @@ const productSlice = createSlice({
     topProduct: [],
     products: [],
     counts: {},
+    queries: {},
   },
   reducers: {
     addCart(state, { payload }) {
@@ -57,6 +58,9 @@ const productSlice = createSlice({
     resetCartAction(state) {
       state.cart = [];
     },
+    queriesAction(state, { payload }) {
+      state.queries = payload;
+    },
   },
 });
 
@@ -70,6 +74,7 @@ export const {
   resetCartAction,
   setProducts,
   countAction,
+  queriesAction,
 } = productSlice.actions;
 
 export default productSlice.reducer;

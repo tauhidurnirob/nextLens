@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import {
   makeStyles,
   Accordion,
@@ -15,6 +15,8 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useDispatch, useSelector } from "react-redux";
+import { productSelector, queriesAction } from "./../redux/slices/productSlice";
 
 const useStyles = makeStyles({
   root: {
@@ -31,21 +33,51 @@ const useStyles = makeStyles({
 
 const FilterByLensType = () => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
+  const { queries, counts } = useSelector(productSelector);
   const [expand, setExpand] = useState("expandBar");
 
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
   };
-  const [state, setState] = React.useState({
-    black: false,
+  const [state, setState] = useState({
+    frameOnly: false,
+    basicLens: false,
+    standardLense: false,
+    premiumStandardLens: false,
+    blueLightBlockGlass: false,
   });
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+    dispatch(
+      queriesAction({
+        ...queries,
+        ...state,
+        [event.target.name]: event.target.checked,
+      })
+    );
   };
 
-  const { black } = state;
+  const filters = [
+    { name: "Frame Only", checked: "frameOnly", totalProduct: counts.frame },
+    { name: "Basic Lens", checked: "basicLens", totalProduct: counts.basic },
+    {
+      name: "Standard Lens",
+      checked: "standardLense",
+      totalProduct: counts.standard,
+    },
+    {
+      name: "Premium Standard Lens",
+      checked: "premiumStandardLens",
+      totalProduct: counts.premium,
+    },
+    {
+      name: "Blue Light Block Glass",
+      checked: "blueLightBlockGlass",
+      totalProduct: counts.blue,
+    },
+  ];
 
   return (
     <Grid item container justifyContent="center">
@@ -67,16 +99,15 @@ const FilterByLensType = () => {
             <FormControl component="fieldset">
               <FormGroup>
                 {filters.map((item, index) => (
-                  <>
+                  <Fragment key={index}>
                     <FormControlLabel
                       control={
                         <Checkbox
-                          checked={black}
+                          checked={state[index]}
                           onChange={handleChange}
-                          name="black"
+                          name={item.checked}
                         />
                       }
-                      key={index}
                       label={
                         <Grid
                           container
@@ -84,12 +115,12 @@ const FilterByLensType = () => {
                           justifyContent="space-between"
                         >
                           <Box component="div">{item.name}</Box>
-                          <Box component="div">({item.total})</Box>
+                          <Box component="div">({item.totalProduct})</Box>
                         </Grid>
                       }
                     />
                     <Divider className={clsx(classes.divider)} />
-                  </>
+                  </Fragment>
                 ))}
               </FormGroup>
             </FormControl>
@@ -101,12 +132,3 @@ const FilterByLensType = () => {
 };
 
 export default FilterByLensType;
-
-const filters = [
-  { name: "Frame Only", total: 250 },
-  { name: "Basic Lens", total: 248 },
-  { name: "Standard Lens", total: 248 },
-  { name: "Premium Standard Lens", total: 163 },
-  { name: "Blue Light Block Glass", total: 250 },
-  { name: "Anti Fog Lens", total: 250 },
-];

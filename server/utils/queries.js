@@ -29,3 +29,32 @@ export const Gender = (req) => {
       }
     : {};
 };
+
+export const LenseType = (req) => {
+  return req.query.frame ||
+    req.query.basic ||
+    req.query.standard ||
+    req.query.premium ||
+    req.query.blue
+    ? {
+        typeLense: [
+          req.query.frame,
+          req.query.basic,
+          req.query.standard,
+          req.query.premium,
+          req.query.blue,
+        ],
+      }
+    : {};
+};
+
+export const Price = (req) => {
+  return req.query.lowPrice || req.query.highPrice
+    ? {
+        price: {
+          $gte: +req.query.lowPrice,
+          $lte: +req.query.highPrice,
+        },
+      }
+    : {};
+};

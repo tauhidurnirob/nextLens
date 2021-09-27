@@ -21,6 +21,23 @@ const getProductsByColor = (black, white) =>
 const getProductsByGender = (men, women, kid) =>
   client.get(endpoint.allProducts + `?men=${men}&women=${women}&kid=${kid}`);
 
+const getAllQueries = (
+  black,
+  white,
+  men,
+  women,
+  kid,
+  frame,
+  basic,
+  standard,
+  premium,
+  blue
+) =>
+  client.get(
+    endpoint.allProducts +
+      `?black=${black}&white=${white}&men=${men}&women=${women}&kid=${kid}&frame=${frame}&basic=${basic}&standard=${standard}&premium=${premium}&blue=${blue}`
+  );
+
 const getProductCount = () => client.get(endpoint.count);
 
 export default {
@@ -33,4 +50,5 @@ export default {
   getProductsByColor,
   getProductCount,
   getProductsByGender,
+  getAllQueries,
 };
