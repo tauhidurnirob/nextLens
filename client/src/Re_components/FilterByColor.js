@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const FilterByColor = () => {
+const FilterByColor = ({}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { counts } = useSelector(productSelector);
@@ -49,15 +49,25 @@ const FilterByColor = () => {
     setExpand(newExpanded ? panel : false);
   };
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     black: false,
     white: false,
   });
+  const { black, white } = state;
 
-  const handleChange = async (event) => {
+  const blackOnChange = async (event) => {
+    // setState({ ...state, [event.target.name]: event.target.checked });
+    black(event.target.checked);
+  };
+
+  const whiteOnChange = async (event) => {
+    // setState({ ...state, [event.target.name]: event.target.checked });
+    white(event.target.checked);
+  };
+
+  const handleOnChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-  const { black, white } = state;
 
   useEffect(() => {
     const getColorProduct = async () => {
@@ -99,7 +109,7 @@ const FilterByColor = () => {
                   control={
                     <Checkbox
                       checked={black}
-                      onChange={handleChange}
+                      onChange={handleOnChange}
                       name="black"
                     />
                   }
@@ -119,7 +129,7 @@ const FilterByColor = () => {
                   control={
                     <Checkbox
                       checked={white}
-                      onChange={handleChange}
+                      onChange={handleOnChange}
                       name="white"
                     />
                   }

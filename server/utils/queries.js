@@ -29,3 +29,33 @@ export const Gender = (req) => {
       }
     : {};
 };
+
+export const MultipleQueries = (req) => {
+  return req.query.black ||
+    req.query.white ||
+    req.query.men ||
+    req.query.women ||
+    req.query.kid
+    ? {
+        $and: [
+          {
+            $or: [
+              { color: [req.query.black, req.query.white] },
+              { category: [req.query.men, req.query.women, req.query.kid] },
+            ],
+          },
+        ],
+      }
+    : {};
+};
+
+export const Price = (req) => {
+  return req.query.lowPrice || req.query.highPrice
+    ? {
+        price: {
+          $gte: +req.query.lowPrice,
+          $lte: +req.query.highPrice,
+        },
+      }
+    : {};
+};

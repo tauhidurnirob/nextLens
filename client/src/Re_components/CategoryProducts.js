@@ -33,12 +33,24 @@ const useStyles = makeStyles((theme) => ({
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
   const { products, topProduct } = useSelector(productSelector);
+  const [blackColor, setBlackColor] = useState(false);
+  const [whiteColor, setWhiteColor] = useState(false);
+
+  console.log(blackColor);
+  console.log(whiteColor);
+
   const dispatch = useDispatch();
 
   const { price } = Object.assign({}, ...topProduct);
 
   const [range, setRange] = useState([0, price]);
 
+  const blackOnChange = (black) => {
+    setBlackColor(black);
+  };
+  const whiteOnChange = (white) => {
+    setWhiteColor(white);
+  };
   useEffect(() => {
     const priceRangeFilter = async () => {
       const { data } = await productApi.getProductsPriceRange(
@@ -55,7 +67,7 @@ const CategoryEyeGlassProducts = () => {
       <Grid container direction="row">
         <Grid direction="column" container md={4}>
           <RangeSlider updateRangeSlider={(val) => setRange(val)} />
-          <FilterByColor />
+          <FilterByColor black={blackOnChange} white={whiteOnChange} />
           <FilterByGender />
           <FilterByLensType />
           <FilterByFrameStyle />
