@@ -58,19 +58,40 @@ const CategoryEyeGlassProducts = () => {
         queries?.white ||
         queries?.men ||
         queries?.women ||
-        queries?.kid
+        queries?.kid ||
+        queries?.frame ||
+        queries?.basic ||
+        queries?.standard ||
+        queries?.premium ||
+        queries?.blue
       ) {
         const { data } = await productApi.getAllQueries(
           queries?.black ? "black" : "",
           queries?.white ? "white" : "",
           queries?.men ? "men" : "",
           queries?.women ? "women" : "",
-          queries?.kid ? "kid" : ""
+          queries?.kid ? "kid" : "",
+          queries?.frame ? "frame" : "",
+          queries?.basic ? "basic" : "",
+          queries?.standard ? "standard" : "",
+          queries?.premium ? "premium" : "",
+          queries?.blue ? "blue" : ""
         );
         dispatch(fetchedProducts(data?.products));
       }
 
-      if (!queries?.black && !queries?.white) {
+      if (
+        !queries?.black &&
+        !queries?.white &&
+        !queries?.men &&
+        !queries?.women &&
+        !queries?.kid &&
+        !queries?.frame &&
+        !queries?.basic &&
+        !queries?.standard &&
+        !queries?.premium &&
+        !queries?.blue
+      ) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));
       }

@@ -59,7 +59,6 @@ const productSlice = createSlice({
       state.cart = [];
     },
     queriesAction(state, { payload }) {
-      console.log("payload", payload);
       state.queries = payload;
     },
   },
