@@ -77,23 +77,23 @@ const FilterByColor = ({}) => {
     );
   };
 
-  useEffect(() => {
-    const getColorProduct = async () => {
-      if (black || white) {
-        const { data } = await productApi.getProductsByColor(
-          black ? "black" : "",
-          white ? "white" : ""
-        );
-        dispatch(fetchedProducts(data?.products));
-      }
+  // useEffect(() => {
+  //   const getColorProduct = async () => {
+  //     if (black || white) {
+  //       const { data } = await productApi.getProductsByColor(
+  //         black ? "black" : "",
+  //         white ? "white" : ""
+  //       );
+  //       dispatch(fetchedProducts(data?.products));
+  //     }
 
-      if (!black && !white) {
-        const { data } = await productApi.getAllProductByLimit(12);
-        dispatch(setProducts(data?.products));
-      }
-    };
-    getColorProduct();
-  }, [black, white]);
+  //     if (!black && !white) {
+  //       const { data } = await productApi.getAllProductByLimit(12);
+  //       dispatch(setProducts(data?.products));
+  //     }
+  //   };
+  //   getColorProduct();
+  // }, [black, white]);
 
   return (
     <Grid item container justifyContent="center">

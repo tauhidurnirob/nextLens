@@ -71,24 +71,24 @@ const FilterByGender = ({}) => {
 
   const { men, women, kid } = state;
 
-  useEffect(() => {
-    const getGenderProduct = async () => {
-      if (men || women || kid) {
-        const { data } = await productApi.getProductsByGender(
-          men ? "men" : "",
-          women ? "women" : "",
-          kid ? "kid" : ""
-        );
-        dispatch(fetchedProducts(data?.products));
-      }
+  // useEffect(() => {
+  //   const getGenderProduct = async () => {
+  //     if (men || women || kid) {
+  //       const { data } = await productApi.getProductsByGender(
+  //         men ? "men" : "",
+  //         women ? "women" : "",
+  //         kid ? "kid" : ""
+  //       );
+  //       dispatch(fetchedProducts(data?.products));
+  //     }
 
-      if (!men && !women && !kid) {
-        const { data } = await productApi.getAllProductByLimit(12);
-        dispatch(setProducts(data?.products));
-      }
-    };
-    getGenderProduct();
-  }, [men, women, kid]);
+  //     if (!men && !women && !kid) {
+  //       const { data } = await productApi.getAllProductByLimit(12);
+  //       dispatch(setProducts(data?.products));
+  //     }
+  //   };
+  //   getGenderProduct();
+  // }, [men, women, kid]);
   return (
     <Grid item container justifyContent="center">
       <Box mb={3} className={clsx(classes.root)}>

@@ -14,7 +14,7 @@ import Scroll from "./Scroll";
 import Cards from "./Cards";
 import { productSelector } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
-import { fetchedProducts } from "../redux/slices/productSlice";
+import { fetchedProducts, setProducts } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -32,9 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
-  const { products, topProduct } = useSelector(productSelector);
-  const [blackColor, setBlackColor] = useState(false);
-  const [whiteColor, setWhiteColor] = useState(false);
+  const { products, topProduct, queries } = useSelector(productSelector);
 
   const dispatch = useDispatch();
 
@@ -42,12 +40,6 @@ const CategoryEyeGlassProducts = () => {
 
   const [range, setRange] = useState([0, price]);
 
-  const blackOnChange = (black) => {
-    setBlackColor(black);
-  };
-  const whiteOnChange = (white) => {
-    setWhiteColor(white);
-  };
   useEffect(() => {
     const priceRangeFilter = async () => {
       const { data } = await productApi.getProductsPriceRange(
@@ -59,12 +51,39 @@ const CategoryEyeGlassProducts = () => {
     priceRangeFilter();
   }, [range]);
 
+  useEffect(() => {
+    const getAllQueryProduct = async () => {
+      if (
+        queries?.black ||
+        queries?.white ||
+        queries?.men ||
+        queries?.women ||
+        queries?.kid
+      ) {
+        const { data } = await productApi.getAllQueries(
+          queries?.black ? "black" : "",
+          queries?.white ? "white" : "",
+          queries?.men ? "men" : "",
+          queries?.women ? "women" : "",
+          queries?.kid ? "kid" : ""
+        );
+        dispatch(fetchedProducts(data?.products));
+      }
+
+      if (!queries?.black && !queries?.white) {
+        const { data } = await productApi.getAllProductByLimit(12);
+        dispatch(setProducts(data?.products));
+      }
+    };
+    getAllQueryProduct();
+  }, [queries]);
+
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
       <Grid container direction="row">
         <Grid direction="column" container md={4}>
           <RangeSlider updateRangeSlider={(val) => setRange(val)} />
-          <FilterByColor black={blackOnChange} white={whiteOnChange} />
+          <FilterByColor />
           <FilterByGender />
           <FilterByLensType />
           <FilterByFrameStyle />
