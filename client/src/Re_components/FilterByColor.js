@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   makeStyles,
   Accordion,
@@ -18,13 +18,7 @@ import { useSelector } from "react-redux";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useDispatch } from "react-redux";
 
-import {
-  productSelector,
-  fetchedProducts,
-  setProducts,
-  queriesAction,
-} from "../redux/slices/productSlice";
-import productApi from "../../pages/api/products";
+import { productSelector, queriesAction } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles({
   root: {
@@ -56,16 +50,6 @@ const FilterByColor = ({}) => {
   });
   const { black, white } = state;
 
-  const blackOnChange = async (event) => {
-    // setState({ ...state, [event.target.name]: event.target.checked });
-    black(event.target.checked);
-  };
-
-  const whiteOnChange = async (event) => {
-    // setState({ ...state, [event.target.name]: event.target.checked });
-    white(event.target.checked);
-  };
-
   const handleOnChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
     dispatch(
@@ -76,24 +60,6 @@ const FilterByColor = ({}) => {
       })
     );
   };
-
-  // useEffect(() => {
-  //   const getColorProduct = async () => {
-  //     if (black || white) {
-  //       const { data } = await productApi.getProductsByColor(
-  //         black ? "black" : "",
-  //         white ? "white" : ""
-  //       );
-  //       dispatch(fetchedProducts(data?.products));
-  //     }
-
-  //     if (!black && !white) {
-  //       const { data } = await productApi.getAllProductByLimit(12);
-  //       dispatch(setProducts(data?.products));
-  //     }
-  //   };
-  //   getColorProduct();
-  // }, [black, white]);
 
   return (
     <Grid item container justifyContent="center">
