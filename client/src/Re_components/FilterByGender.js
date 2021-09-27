@@ -54,7 +54,6 @@ const FilterByGender = ({}) => {
     women: false,
     kid: false,
   });
-  console.log(state);
 
   const handleChange = (event) => {
     setState({

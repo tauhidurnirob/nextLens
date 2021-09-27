@@ -107,20 +107,20 @@ const FilterByLensType = () => {
 export default FilterByLensType;
 
 const filters = [
-  { id: 1, name: "Frame Only", checked: "frameOnly", total: 250 },
-  { id: 2, name: "Basic Lens", checked: "basicLens", total: 248 },
-  { id: 3, name: "Standard Lens", checked: "standardLense", total: 248 },
+  { id: 1, name: "Frame Only", checked: "frameOnly", totalProduct: 250 },
+  { id: 2, name: "Basic Lens", checked: "basicLens", totalProduct: 248 },
+  { id: 3, name: "Standard Lens", checked: "standardLense", totalProduct: 248 },
   {
     id: 4,
     name: "Premium Standard Lens",
     checked: "premiumStandardLens",
-    total: 163,
+    totalProduct: 163,
   },
   {
     id: 5,
     name: "Blue Light Block Glass",
     checked: "blueLightBlockGlass",
-    total: 250,
+    totalProduct: 250,
   },
-  { id: 6, name: "Anti Fog Lens", checked: "antiFogLens", total: 250 },
+  { id: 6, name: "Anti Fog Lens", checked: "antiFogLens", totalProduct: 250 },
 ];
