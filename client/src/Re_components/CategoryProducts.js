@@ -59,11 +59,11 @@ const CategoryEyeGlassProducts = () => {
         queries?.men ||
         queries?.women ||
         queries?.kid ||
-        queries?.frame ||
-        queries?.basic ||
-        queries?.standard ||
-        queries?.premium ||
-        queries?.blue
+        queries?.frameOnly ||
+        queries?.basicLens ||
+        queries?.standardLense ||
+        queries?.premiumStandardLens ||
+        queries?.blueLightBlockGlass
       ) {
         const { data } = await productApi.getAllQueries(
           queries?.black ? "black" : "",
@@ -71,11 +71,11 @@ const CategoryEyeGlassProducts = () => {
           queries?.men ? "men" : "",
           queries?.women ? "women" : "",
           queries?.kid ? "kid" : "",
-          queries?.frame ? "frame" : "",
-          queries?.basic ? "basic" : "",
-          queries?.standard ? "standard" : "",
-          queries?.premium ? "premium" : "",
-          queries?.blue ? "blue" : ""
+          queries?.frameOnly ? "frame" : "",
+          queries?.basicLens ? "basic" : "",
+          queries?.standardLense ? "standard" : "",
+          queries?.premiumStandardLens ? "premium" : "",
+          queries?.blueLightBlockGlass ? "blue" : ""
         );
         dispatch(fetchedProducts(data?.products));
       }
@@ -86,11 +86,11 @@ const CategoryEyeGlassProducts = () => {
         !queries?.men &&
         !queries?.women &&
         !queries?.kid &&
-        !queries?.frame &&
-        !queries?.basic &&
-        !queries?.standard &&
-        !queries?.premium &&
-        !queries?.blue
+        !queries?.frameOnly &&
+        !queries?.basicLens &&
+        !queries?.standardLense &&
+        !queries?.premiumStandardLens &&
+        !queries?.blueLightBlockGlass
       ) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));

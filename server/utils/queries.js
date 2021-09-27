@@ -37,7 +37,7 @@ export const LenseType = (req) => {
     req.query.premium ||
     req.query.blue
     ? {
-        category: [
+        typeLense: [
           req.query.frame,
           req.query.basic,
           req.query.standard,
