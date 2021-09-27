@@ -21,6 +21,7 @@ import {
   productSelector,
   setProducts,
   fetchedProducts,
+  queriesAction,
 } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
 
@@ -43,7 +44,7 @@ const FilterByGender = ({}) => {
 
   const [expand, setExpand] = useState("expandBar");
 
-  const { counts } = useSelector(productSelector);
+  const { counts, queries } = useSelector(productSelector);
 
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
@@ -55,7 +56,14 @@ const FilterByGender = ({}) => {
   });
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setState({
+      ...queries,
+      ...state,
+      [event.target.name]: event.target.checked,
+    });
+    dispatch(
+      queriesAction({ ...state, [event.target.name]: event.target.checked })
+    );
   };
 
   const { men, women, kid } = state;

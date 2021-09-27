@@ -37,12 +37,26 @@ export const Gender = (req) => {
 //     req.query.women ||
 //     req.query.kid
 //     ? {
-//         $and: [
+//         $or: [
 //           {
-//             color: [req.query.black, req.query.white],
+//             // color: [req.query.black, req.query.white],
+//             color: req.query.black ? "black" : "",
 //           },
 //           {
-//             category: [req.query.men, req.query.women, req.query.kid],
+//             // color: [req.query.black, req.query.white],
+//             color: req.query.white ? "white" : "",
+//           },
+//           {
+//             // category: [req.query.men, req.query.women, req.query.kid],
+//             category: req.query.men ? "men" : "",
+//           },
+//           {
+//             // category: [req.query.men, req.query.women, req.query.kid],
+//             category: req.query.women ? "women" : "",
+//           },
+//           {
+//             // category: [req.query.men, req.query.women, req.query.kid],
+//             category: req.query.kid ? "kid" : "",
 //           },
 //         ],
 //       }

@@ -22,6 +22,7 @@ import {
   productSelector,
   fetchedProducts,
   setProducts,
+  queriesAction,
 } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
 
@@ -67,6 +68,9 @@ const FilterByColor = ({}) => {
 
   const handleOnChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+    dispatch(
+      queriesAction({ ...state, [event.target.name]: event.target.checked })
+    );
   };
 
   useEffect(() => {

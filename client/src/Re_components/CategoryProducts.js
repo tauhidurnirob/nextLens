@@ -36,9 +36,6 @@ const CategoryEyeGlassProducts = () => {
   const [blackColor, setBlackColor] = useState(false);
   const [whiteColor, setWhiteColor] = useState(false);
 
-  console.log(blackColor);
-  console.log(whiteColor);
-
   const dispatch = useDispatch();
 
   const { price } = Object.assign({}, ...topProduct);
