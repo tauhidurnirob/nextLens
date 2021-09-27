@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import {
   makeStyles,
   Accordion,
@@ -54,6 +54,7 @@ const FilterByGender = ({}) => {
     women: false,
     kid: false,
   });
+  console.log(state);
 
   const handleChange = (event) => {
     setState({
@@ -69,7 +70,11 @@ const FilterByGender = ({}) => {
     );
   };
 
-  const { men, women, kid } = state;
+  const gender = [
+    { name: "Men", checked: "men", totalProduct: counts.men },
+    { name: "Women", checked: "women", totalProduct: counts.women },
+    { name: "Kid", checked: "kid", totalProduct: counts.kid },
+  ];
 
   return (
     <Grid item container justifyContent="center">
@@ -90,66 +95,30 @@ const FilterByGender = ({}) => {
           <AccordionDetails>
             <FormControl component="fieldset">
               <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={men}
-                      onChange={handleChange}
-                      name="men"
+                {gender.map((item, index) => (
+                  <Fragment key={index}>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={state[index]}
+                          onChange={handleChange}
+                          name={item.checked}
+                        />
+                      }
+                      label={
+                        <Grid
+                          container
+                          direction="row"
+                          justifyContent="space-between"
+                        >
+                          <Box component="div">{item.name}</Box>
+                          <Box component="div">({item.totalProduct})</Box>
+                        </Grid>
+                      }
                     />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">Men</Box>
-                      <Box component="div">({counts.men})</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={women}
-                      onChange={handleChange}
-                      name="women"
-                    />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">Women</Box>
-                      <Box component="div">({counts.women})</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={kid}
-                      onChange={handleChange}
-                      name="kid"
-                    />
-                  }
-                  label={
-                    <Grid
-                      container
-                      direction="row"
-                      justifyContent="space-between"
-                    >
-                      <Box component="div">kid</Box>
-                      <Box component="div">({counts.kid})</Box>
-                    </Grid>
-                  }
-                />
-                <Divider className={clsx(classes.divider)} />
+                    <Divider className={clsx(classes.divider)} />
+                  </Fragment>
+                ))}
               </FormGroup>
             </FormControl>
           </AccordionDetails>

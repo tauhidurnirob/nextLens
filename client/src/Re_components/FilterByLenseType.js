@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import {
   makeStyles,
   Accordion,
@@ -38,14 +38,19 @@ const FilterByLensType = () => {
     setExpand(newExpanded ? panel : false);
   };
   const [state, setState] = React.useState({
-    black: false,
+    frameOnly: false,
+    basicLens: false,
+    standardLense: false,
+    premiumStandardLens: false,
+    blueLightBlockGlass: false,
+    antiFogLens: false,
   });
+
+  console.log(state);
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-
-  const { black } = state;
 
   return (
     <Grid item container justifyContent="center">
@@ -66,17 +71,16 @@ const FilterByLensType = () => {
           <AccordionDetails>
             <FormControl component="fieldset">
               <FormGroup>
-                {filters.map((item, index) => (
-                  <>
+                {filters.map((item) => (
+                  <Fragment key={item.id}>
                     <FormControlLabel
                       control={
                         <Checkbox
-                          checked={black}
+                          checked={state[item.id]}
                           onChange={handleChange}
-                          name="black"
+                          name={item.checked}
                         />
                       }
-                      key={index}
                       label={
                         <Grid
                           container
@@ -89,7 +93,7 @@ const FilterByLensType = () => {
                       }
                     />
                     <Divider className={clsx(classes.divider)} />
-                  </>
+                  </Fragment>
                 ))}
               </FormGroup>
             </FormControl>
@@ -103,10 +107,20 @@ const FilterByLensType = () => {
 export default FilterByLensType;
 
 const filters = [
-  { name: "Frame Only", total: 250 },
-  { name: "Basic Lens", total: 248 },
-  { name: "Standard Lens", total: 248 },
-  { name: "Premium Standard Lens", total: 163 },
-  { name: "Blue Light Block Glass", total: 250 },
-  { name: "Anti Fog Lens", total: 250 },
+  { id: 1, name: "Frame Only", checked: "frameOnly", total: 250 },
+  { id: 2, name: "Basic Lens", checked: "basicLens", total: 248 },
+  { id: 3, name: "Standard Lens", checked: "standardLense", total: 248 },
+  {
+    id: 4,
+    name: "Premium Standard Lens",
+    checked: "premiumStandardLens",
+    total: 163,
+  },
+  {
+    id: 5,
+    name: "Blue Light Block Glass",
+    checked: "blueLightBlockGlass",
+    total: 250,
+  },
+  { id: 6, name: "Anti Fog Lens", checked: "antiFogLens", total: 250 },
 ];
