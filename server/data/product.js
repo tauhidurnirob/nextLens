@@ -32,7 +32,7 @@ const products = [
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
     typeLense: "frame",
-    frameStyle: "half",
+    frameStyle: "halfFrame",
     frameShape: "round",
     shopCollection: "economy",
     listType: [
@@ -76,7 +76,7 @@ const products = [
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
     typeLense: "basic",
-    frameStyle: "full",
+    frameStyle: "fullFrame",
     frameShape: "retroSquare",
 
     listType: [
