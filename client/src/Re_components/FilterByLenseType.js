@@ -34,10 +34,9 @@ const useStyles = makeStyles({
 const FilterByLensType = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { queries } = useSelector(productSelector);
+  const { queries, counts } = useSelector(productSelector);
   const [expand, setExpand] = useState("expandBar");
 
-  console.log(queries);
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
   };
@@ -47,7 +46,6 @@ const FilterByLensType = () => {
     standardLense: false,
     premiumStandardLens: false,
     blueLightBlockGlass: false,
-    antiFogLens: false,
   });
 
   const handleChange = (event) => {
@@ -62,20 +60,23 @@ const FilterByLensType = () => {
   };
 
   const filters = [
-    { name: "Frame Only", checked: "frameOnly", totalProduct: 250 },
-    { name: "Basic Lens", checked: "basicLens", totalProduct: 248 },
-    { name: "Standard Lens", checked: "standardLense", totalProduct: 248 },
+    { name: "Frame Only", checked: "frameOnly", totalProduct: counts.frame },
+    { name: "Basic Lens", checked: "basicLens", totalProduct: counts.basic },
+    {
+      name: "Standard Lens",
+      checked: "standardLense",
+      totalProduct: counts.standard,
+    },
     {
       name: "Premium Standard Lens",
       checked: "premiumStandardLens",
-      totalProduct: 163,
+      totalProduct: counts.premium,
     },
     {
       name: "Blue Light Block Glass",
       checked: "blueLightBlockGlass",
-      totalProduct: 250,
+      totalProduct: counts.blue,
     },
-    { name: "Anti Fog Lens", checked: "antiFogLens", totalProduct: 250 },
   ];
 
   return (

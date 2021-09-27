@@ -44,6 +44,11 @@ const productSchema = mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    typeLense: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
     description: {
       type: String,
       required: true,

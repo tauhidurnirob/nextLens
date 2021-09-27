@@ -39,28 +39,48 @@ export const getProducts = asyncHandler(async (req, res) => {
 // @access public
 
 export const getCountProducts = asyncHandler(async (req, res) => {
-  const blackProduct = await Product.countDocuments({
+  const black = await Product.countDocuments({
     color: "black",
   });
-  const whiteProduct = await Product.countDocuments({
+  const white = await Product.countDocuments({
     color: "white",
   });
-  const menProduct = await Product.countDocuments({
+  const men = await Product.countDocuments({
     category: "men",
   });
-  const womenProduct = await Product.countDocuments({
+  const women = await Product.countDocuments({
     category: "women",
   });
-  const kidProduct = await Product.countDocuments({
+  const kid = await Product.countDocuments({
     category: "kid",
+  });
+  const frame = await Product.countDocuments({
+    typeLense: "frame",
+  });
+  const basic = await Product.countDocuments({
+    typeLense: "basic",
+  });
+  const standard = await Product.countDocuments({
+    typeLense: "standard",
+  });
+  const premium = await Product.countDocuments({
+    typeLense: "premium",
+  });
+  const blue = await Product.countDocuments({
+    typeLense: "blue",
   });
   res.json({
     countProducts: {
-      black: blackProduct,
-      white: whiteProduct,
-      men: menProduct,
-      women: womenProduct,
-      kid: kidProduct,
+      black,
+      white,
+      men,
+      women,
+      kid,
+      frame,
+      basic,
+      standard,
+      premium,
+      blue,
     },
   });
 });

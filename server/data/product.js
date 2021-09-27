@@ -31,6 +31,7 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "frame",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -71,6 +72,8 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "basic",
+
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -111,6 +114,8 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "standard",
+
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -151,6 +156,8 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "premium",
+
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -191,6 +198,8 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "blue",
+
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -1450,6 +1459,7 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "frame",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -1490,6 +1500,8 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "basic",
+
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -1530,6 +1542,8 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "standard",
+
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -1570,6 +1584,8 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "premium",
+
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -1609,6 +1625,7 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
+    typeLense: "blue",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
