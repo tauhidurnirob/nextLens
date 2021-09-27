@@ -78,6 +78,40 @@ export const getCountProducts = asyncHandler(async (req, res) => {
   const blue = await Product.countDocuments({
     typeLense: "blue",
   });
+  const halfFrame = await Product.countDocuments({
+    frameStyle: "halfframe",
+  });
+  const fullFrame = await Product.countDocuments({
+    frameStyle: "fullframe",
+  });
+  const rimless = await Product.countDocuments({
+    frameStyle: "rimless",
+  });
+  const round = await Product.countDocuments({
+    frameShape: "round",
+  });
+  const retroSquare = await Product.countDocuments({
+    frameShape: "retrosquare",
+  });
+  const clubMaster = await Product.countDocuments({
+    frameShape: "clubmaster",
+  });
+  const oval = await Product.countDocuments({
+    frameShape: "oval",
+  });
+  const rectangle = await Product.countDocuments({
+    frameShape: "rectangle",
+  });
+  const catEye = await Product.countDocuments({
+    frameShape: "cateye",
+  });
+
+  const shopEconomy = await Product.countDocuments({
+    shopCollection: "economy",
+  });
+  const shopPremium = await Product.countDocuments({
+    shopCollection: "premium",
+  });
   res.json({
     countProducts: {
       black,
@@ -90,6 +124,17 @@ export const getCountProducts = asyncHandler(async (req, res) => {
       standard,
       premium,
       blue,
+      halfFrame,
+      fullFrame,
+      rimless,
+      round,
+      retroSquare,
+      clubMaster,
+      oval,
+      rectangle,
+      catEye,
+      shopEconomy,
+      shopPremium,
     },
   });
 });

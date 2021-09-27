@@ -32,7 +32,7 @@ const products = [
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
     typeLense: "frame",
-    frameStyle: "halfFrame",
+    frameStyle: "halfframe",
     frameShape: "round",
     shopCollection: "economy",
     listType: [
@@ -76,7 +76,7 @@ const products = [
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
     typeLense: "basic",
-    frameStyle: "fullFrame",
+    frameStyle: "fullframe",
     frameShape: "retroSquare",
 
     listType: [
@@ -121,7 +121,7 @@ const products = [
     },
     typeLense: "standard",
     frameStyle: "rimless",
-    frameShape: "clubMaster",
+    frameShape: "clubmaster",
     shopCollection: "premium",
     listType: [
       { list: "Frame Only" },
@@ -249,7 +249,7 @@ const products = [
       lensFunction:
         "UV400, Anti Reflection,Anti Blue Ray & more functions depending on Lens types.",
     },
-    frameShape: "cateEye",
+    frameShape: "cateye",
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
