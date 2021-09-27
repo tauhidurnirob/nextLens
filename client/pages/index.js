@@ -21,7 +21,6 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Home = ({ data }) => {
-  console.log(data);
   const dispatch = useDispatch();
 
   dispatch(topMaxProduct(data?.topMaxProduct));

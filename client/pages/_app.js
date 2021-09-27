@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Provider } from "react-redux";
@@ -11,7 +11,7 @@ import Footer from "./../src/Components/Footer/Footer";
 import Navigation from "./../src/Components/Navigation/Navigation";
 
 export default function MyApp({ Component, pageProps }) {
-  React.useEffect(() => {
+  useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
