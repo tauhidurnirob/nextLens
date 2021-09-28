@@ -157,7 +157,7 @@ const CategoryEyeGlassProducts = () => {
             direction="row"
             container
             md={8}
-            className={clsx({ [classes.product]: products?.length <= 9 })}
+            className={clsx(classes.product)}
           >
             <Grid container justifyContent="center">
               <Image
