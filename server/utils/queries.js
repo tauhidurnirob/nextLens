@@ -1,3 +1,14 @@
+export const Price = (req) => {
+  return req.query.lowPrice || req.query.highPrice
+    ? {
+        price: {
+          $gte: +req.query.lowPrice,
+          $lte: +req.query.highPrice,
+        },
+      }
+    : {};
+};
+
 export const Category = (req) => {
   req.query.category
     ? {
@@ -48,13 +59,42 @@ export const LenseType = (req) => {
     : {};
 };
 
-export const Price = (req) => {
-  return req.query.lowPrice || req.query.highPrice
+export const FrameStyle = (req) => {
+  return req.query.halfFrame || req.query.fullFrame || req.query.rimless
     ? {
-        price: {
-          $gte: +req.query.lowPrice,
-          $lte: +req.query.highPrice,
-        },
+        frameStyle: [
+          req.query.halfFrame,
+          req.query.fullFrame,
+          req.query.rimless,
+        ],
+      }
+    : {};
+};
+
+export const FrameShape = (req) => {
+  return req.query.round ||
+    req.query.retroSquare ||
+    req.query.clubMaster ||
+    req.query.oval ||
+    req.query.rectangle ||
+    req.query.catEye
+    ? {
+        frameShape: [
+          req.query.round,
+          req.query.retroSquare,
+          req.query.clubMaster,
+          req.query.oval,
+          req.query.rectangle,
+          req.query.catEye,
+        ],
+      }
+    : {};
+};
+
+export const ShopCollection = (req) => {
+  return req.query.shopEconomy || req.query.shopPremium
+    ? {
+        shopCollection: [req.query.shopEconomy, req.query.shopPremium],
       }
     : {};
 };

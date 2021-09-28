@@ -49,6 +49,21 @@ const productSchema = mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    frameStyle: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    frameShape: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    shopCollection: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
     description: {
       type: String,
       required: true,

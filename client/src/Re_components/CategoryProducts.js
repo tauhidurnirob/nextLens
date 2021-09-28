@@ -15,6 +15,7 @@ import Cards from "./Cards";
 import { productSelector } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
 import { fetchedProducts, setProducts } from "../redux/slices/productSlice";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -63,7 +64,18 @@ const CategoryEyeGlassProducts = () => {
         queries?.basicLens ||
         queries?.standardLense ||
         queries?.premiumStandardLens ||
-        queries?.blueLightBlockGlass
+        queries?.blueLightBlockGlass ||
+        queries?.halfFrame ||
+        queries?.fullFrame ||
+        queries?.rimless ||
+        queries?.round ||
+        queries?.retroSquare ||
+        queries?.clubMaster ||
+        queries?.oval ||
+        queries?.rectangle ||
+        queries?.catEye ||
+        queries?.shopEconomy ||
+        queries?.shopPremium
       ) {
         const { data } = await productApi.getAllQueries(
           queries?.black ? "black" : "",
@@ -75,7 +87,18 @@ const CategoryEyeGlassProducts = () => {
           queries?.basicLens ? "basic" : "",
           queries?.standardLense ? "standard" : "",
           queries?.premiumStandardLens ? "premium" : "",
-          queries?.blueLightBlockGlass ? "blue" : ""
+          queries?.blueLightBlockGlass ? "blue" : "",
+          queries?.halfFrame ? "halfframe" : "",
+          queries?.fullFrame ? "fullframe" : "",
+          queries?.rimless ? "rimless" : "",
+          queries?.round ? "round" : "",
+          queries?.retroSquare ? "retrosquare" : "",
+          queries?.clubMaster ? "clubmaster" : "",
+          queries?.oval ? "oval" : "",
+          queries?.rectangle ? "rectangle" : "",
+          queries?.catEye ? "cateye" : "",
+          queries?.shopEconomy ? "economy" : "",
+          queries?.shopPremium ? "premium" : ""
         );
         dispatch(fetchedProducts(data?.products));
       }
@@ -90,7 +113,18 @@ const CategoryEyeGlassProducts = () => {
         !queries?.basicLens &&
         !queries?.standardLense &&
         !queries?.premiumStandardLens &&
-        !queries?.blueLightBlockGlass
+        !queries?.blueLightBlockGlass &&
+        !queries?.halfFrame &&
+        !queries?.fullFrame &&
+        !queries?.rimless &&
+        !queries?.round &&
+        !queries?.retroSquare &&
+        !queries?.clubMaster &&
+        !queries?.oval &&
+        !queries?.rectangle &&
+        !queries?.catEye &&
+        !queries?.shopEconomy &&
+        !queries?.shopPremium
       ) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));
@@ -111,18 +145,37 @@ const CategoryEyeGlassProducts = () => {
           <FilterByFrameShape />
           <FilterByShopCollection />
         </Grid>
-        <Grid
-          direction="row"
-          container
-          md={8}
-          className={clsx({ [classes.product]: products?.length <= 9 })}
-        >
-          {products?.map((item) => (
-            <Grid item key={item.id} container md={4}>
-              <Cards item={item} isProduct width={400} height={400} />
+        {products.length !== 0 ? (
+          <Grid
+            direction="row"
+            container
+            md={8}
+            className={clsx({ [classes.product]: products?.length <= 9 })}
+          >
+            {products?.map((item) => (
+              <Grid item key={item.id} container md={4}>
+                <Cards item={item} isProduct width={400} height={400} />
+              </Grid>
+            ))}
+          </Grid>
+        ) : (
+          <Grid
+            direction="row"
+            container
+            md={8}
+            className={clsx(classes.product)}
+          >
+            <Grid container justifyContent="center">
+              <Image
+                src="/images/oops.png"
+                alt="No product found"
+                width={500}
+                height={500}
+              />
             </Grid>
-          ))}
-        </Grid>
+          </Grid>
+        )}
+
         {/* {products.length <= 6 ? (
           <Grid
             direction="row"

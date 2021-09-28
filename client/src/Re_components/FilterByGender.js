@@ -49,7 +49,7 @@ const FilterByGender = ({}) => {
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
   };
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     men: false,
     women: false,
     kid: false,

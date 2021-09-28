@@ -31,11 +31,22 @@ const getAllQueries = (
   basic,
   standard,
   premium,
-  blue
+  blue,
+  halfFrame,
+  fullFrame,
+  rimless,
+  round,
+  retroSquare,
+  clubMaster,
+  oval,
+  rectangle,
+  catEye,
+  shopEconomy,
+  shopPremium
 ) =>
   client.get(
     endpoint.allProducts +
-      `?black=${black}&white=${white}&men=${men}&women=${women}&kid=${kid}&frame=${frame}&basic=${basic}&standard=${standard}&premium=${premium}&blue=${blue}`
+      `?black=${black}&white=${white}&men=${men}&women=${women}&kid=${kid}&frame=${frame}&basic=${basic}&standard=${standard}&premium=${premium}&blue=${blue}&halfFrame=${halfFrame}&fullFrame=${fullFrame}&rimless=${rimless}&round=${round}&retroSquare=${retroSquare}&clubMaster=${clubMaster}&oval=${oval}&rectangle=${rectangle}&catEye=${catEye}&shopEconomy=${shopEconomy}&shopPremium=${shopPremium}`
   );
 
 const getProductCount = () => client.get(endpoint.count);
