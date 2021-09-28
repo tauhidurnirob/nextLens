@@ -15,6 +15,7 @@ import Cards from "./Cards";
 import { productSelector } from "../redux/slices/productSlice";
 import productApi from "../../pages/api/products";
 import { fetchedProducts, setProducts } from "../redux/slices/productSlice";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -33,8 +34,6 @@ const useStyles = makeStyles((theme) => ({
 const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
   const { products, topProduct, queries } = useSelector(productSelector);
-
-  console.log(queries);
 
   const dispatch = useDispatch();
 
@@ -140,18 +139,37 @@ const CategoryEyeGlassProducts = () => {
           <FilterByFrameShape />
           <FilterByShopCollection />
         </Grid>
-        <Grid
-          direction="row"
-          container
-          md={8}
-          className={clsx({ [classes.product]: products?.length <= 9 })}
-        >
-          {products?.map((item) => (
-            <Grid item key={item.id} container md={4}>
-              <Cards item={item} isProduct width={400} height={400} />
+        {products.length !== 0 ? (
+          <Grid
+            direction="row"
+            container
+            md={8}
+            className={clsx({ [classes.product]: products?.length <= 9 })}
+          >
+            {products?.map((item) => (
+              <Grid item key={item.id} container md={4}>
+                <Cards item={item} isProduct width={400} height={400} />
+              </Grid>
+            ))}
+          </Grid>
+        ) : (
+          <Grid
+            direction="row"
+            container
+            md={8}
+            className={clsx({ [classes.product]: products?.length <= 9 })}
+          >
+            <Grid container justifyContent="center">
+              <Image
+                src="/images/oops.png"
+                alt="No product found"
+                width={500}
+                height={500}
+              />
             </Grid>
-          ))}
-        </Grid>
+          </Grid>
+        )}
+
         {/* {products.length <= 6 ? (
           <Grid
             direction="row"
