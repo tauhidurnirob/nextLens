@@ -73,7 +73,9 @@ const CategoryEyeGlassProducts = () => {
         queries?.clubMaster ||
         queries?.oval ||
         queries?.rectangle ||
-        queries?.catEye
+        queries?.catEye ||
+        queries?.shopEconomy ||
+        queries?.shopPremium
       ) {
         const { data } = await productApi.getAllQueries(
           queries?.black ? "black" : "",
@@ -94,7 +96,9 @@ const CategoryEyeGlassProducts = () => {
           queries?.clubMaster ? "clubmaster" : "",
           queries?.oval ? "oval" : "",
           queries?.rectangle ? "rectangle" : "",
-          queries?.catEye ? "cateye" : ""
+          queries?.catEye ? "cateye" : "",
+          queries?.shopEconomy ? "economy" : "",
+          queries?.shopPremium ? "premium" : ""
         );
         dispatch(fetchedProducts(data?.products));
       }
@@ -118,7 +122,9 @@ const CategoryEyeGlassProducts = () => {
         !queries?.clubMaster &&
         !queries?.oval &&
         !queries?.rectangle &&
-        !queries?.catEye
+        !queries?.catEye &&
+        !queries?.shopEconomy &&
+        !queries?.shopPremium
       ) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));

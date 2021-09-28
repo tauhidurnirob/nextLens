@@ -42,7 +42,7 @@ const FilterByFrameStyle = () => {
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
   };
-  const [state, setState] = React.useState({
+  const [state, setState] =useState({
     halfFrame: false,
     fullFrame: false,
     rimless: false,

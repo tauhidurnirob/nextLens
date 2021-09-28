@@ -90,3 +90,11 @@ export const FrameShape = (req) => {
       }
     : {};
 };
+
+export const ShopCollection = (req) => {
+  return req.query.shopEconomy || req.query.shopPremium
+    ? {
+        shopCollection: [req.query.shopEconomy, req.query.shopPremium],
+      }
+    : {};
+};
