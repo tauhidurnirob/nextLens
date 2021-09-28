@@ -63,7 +63,10 @@ const CategoryEyeGlassProducts = () => {
         queries?.basicLens ||
         queries?.standardLense ||
         queries?.premiumStandardLens ||
-        queries?.blueLightBlockGlass
+        queries?.blueLightBlockGlass ||
+        queries?.halfFrame ||
+        queries?.fullFrame ||
+        queries?.rimless
       ) {
         const { data } = await productApi.getAllQueries(
           queries?.black ? "black" : "",
@@ -75,7 +78,10 @@ const CategoryEyeGlassProducts = () => {
           queries?.basicLens ? "basic" : "",
           queries?.standardLense ? "standard" : "",
           queries?.premiumStandardLens ? "premium" : "",
-          queries?.blueLightBlockGlass ? "blue" : ""
+          queries?.blueLightBlockGlass ? "blue" : "",
+          queries?.halfFrame ? "halfframe" : "",
+          queries?.fullFrame ? "fullframe" : "",
+          queries?.rimless ? "rimless" : ""
         );
         dispatch(fetchedProducts(data?.products));
       }
@@ -90,7 +96,10 @@ const CategoryEyeGlassProducts = () => {
         !queries?.basicLens &&
         !queries?.standardLense &&
         !queries?.premiumStandardLens &&
-        !queries?.blueLightBlockGlass
+        !queries?.blueLightBlockGlass &&
+        !queries?.halfFrame &&
+        !queries?.fullFrame &&
+        !queries?.rimless
       ) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));

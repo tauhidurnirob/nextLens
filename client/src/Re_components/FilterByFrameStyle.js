@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import {
   makeStyles,
   Accordion,
@@ -15,6 +15,8 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useSelector, useDispatch } from "react-redux";
+import { productSelector, queriesAction } from "./../redux/slices/productSlice";
 
 const useStyles = makeStyles({
   root: {
@@ -31,21 +33,41 @@ const useStyles = makeStyles({
 
 const FilterByFrameStyle = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const [expand, setExpand] = useState("expandBar");
+
+  const { queries, counts } = useSelector(productSelector);
 
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
   };
   const [state, setState] = React.useState({
-    black: false,
+    halfFrame: false,
+    fullFrame: false,
+    rimless: false,
   });
-
+  console.log(queries);
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+    dispatch(
+      queriesAction({
+        ...queries,
+        ...state,
+        [event.target.name]: event.target.checked,
+      })
+    );
   };
-
-  const { black } = state;
+  const filters = [
+    { name: "Half Frame", checked: "halfFrame", total: counts.halfFrame },
+    {
+      name: "Full Frame",
+      checked: "fullFrame",
+      total: 211,
+      total: counts.fullFrame,
+    },
+    { name: "Rimless", checked: "rimless", total: counts.rimless },
+  ];
 
   return (
     <Grid item container justifyContent="center">
@@ -67,16 +89,15 @@ const FilterByFrameStyle = () => {
             <FormControl component="fieldset">
               <FormGroup>
                 {filters.map((item, index) => (
-                  <>
+                  <Fragment key={index}>
                     <FormControlLabel
                       control={
                         <Checkbox
-                          checked={black}
+                          checked={state[index]}
                           onChange={handleChange}
-                          name="black"
+                          name={item.checked}
                         />
                       }
-                      key={index}
                       label={
                         <Grid
                           container
@@ -89,7 +110,7 @@ const FilterByFrameStyle = () => {
                       }
                     />
                     <Divider className={clsx(classes.divider)} />
-                  </>
+                  </Fragment>
                 ))}
               </FormGroup>
             </FormControl>
@@ -101,9 +122,3 @@ const FilterByFrameStyle = () => {
 };
 
 export default FilterByFrameStyle;
-
-const filters = [
-  { name: "Half Frame", total: 21 },
-  { name: "Full Frame", total: 211 },
-  { name: "Rimless", total: 11 },
-];

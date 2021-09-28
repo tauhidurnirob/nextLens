@@ -48,6 +48,18 @@ export const LenseType = (req) => {
     : {};
 };
 
+export const FrameStyle = (req) => {
+  return req.query.halfFrame || req.query.fullFrame || req.query.rimless
+    ? {
+        frameStyle: [
+          req.query.halfFrame,
+          req.query.fullFrame,
+          req.query.rimless,
+        ],
+      }
+    : {};
+};
+
 export const Price = (req) => {
   return req.query.lowPrice || req.query.highPrice
     ? {
