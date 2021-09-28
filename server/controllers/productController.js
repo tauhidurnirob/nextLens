@@ -10,6 +10,7 @@ import {
   Price,
   LenseType,
   FrameStyle,
+  FrameShape,
 } from "../utils/queries.js";
 
 // @Description Fetch all products
@@ -28,16 +29,18 @@ export const getProducts = asyncHandler(async (req, res) => {
   const price = Price(req);
   const lenseType = LenseType(req);
   const frameStyle = FrameStyle(req);
+  const frameShape = FrameShape(req);
 
   const products = await Product.find({
     ...keyword,
   })
+    .where({ ...price })
     .where({ ...category })
     .where({ ...color })
     .where({ ...gender })
     .where({ ...lenseType })
     .where({ ...frameStyle })
-    .where({ ...price })
+    .where({ ...frameShape })
 
     .limit(+req.query.limit)
     .skip(+req.query.start);

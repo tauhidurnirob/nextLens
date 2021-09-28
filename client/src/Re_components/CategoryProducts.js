@@ -34,6 +34,8 @@ const CategoryEyeGlassProducts = () => {
   const classes = useStyles();
   const { products, topProduct, queries } = useSelector(productSelector);
 
+  console.log(queries);
+
   const dispatch = useDispatch();
 
   const { price } = Object.assign({}, ...topProduct);
@@ -66,7 +68,13 @@ const CategoryEyeGlassProducts = () => {
         queries?.blueLightBlockGlass ||
         queries?.halfFrame ||
         queries?.fullFrame ||
-        queries?.rimless
+        queries?.rimless ||
+        queries?.round ||
+        queries?.retroSquare ||
+        queries?.clubMaster ||
+        queries?.oval ||
+        queries?.rectangle ||
+        queries?.catEye
       ) {
         const { data } = await productApi.getAllQueries(
           queries?.black ? "black" : "",
@@ -81,7 +89,13 @@ const CategoryEyeGlassProducts = () => {
           queries?.blueLightBlockGlass ? "blue" : "",
           queries?.halfFrame ? "halfframe" : "",
           queries?.fullFrame ? "fullframe" : "",
-          queries?.rimless ? "rimless" : ""
+          queries?.rimless ? "rimless" : "",
+          queries?.round ? "round" : "",
+          queries?.retroSquare ? "retrosquare" : "",
+          queries?.clubMaster ? "clubmaster" : "",
+          queries?.oval ? "oval" : "",
+          queries?.rectangle ? "rectangle" : "",
+          queries?.catEye ? "cateye" : ""
         );
         dispatch(fetchedProducts(data?.products));
       }
@@ -99,7 +113,13 @@ const CategoryEyeGlassProducts = () => {
         !queries?.blueLightBlockGlass &&
         !queries?.halfFrame &&
         !queries?.fullFrame &&
-        !queries?.rimless
+        !queries?.rimless &&
+        !queries?.round &&
+        !queries?.retroSquare &&
+        !queries?.clubMaster &&
+        !queries?.oval &&
+        !queries?.rectangle &&
+        !queries?.catEye
       ) {
         const { data } = await productApi.getAllProductByLimit(12);
         dispatch(setProducts(data?.products));

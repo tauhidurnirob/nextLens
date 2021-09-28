@@ -48,7 +48,7 @@ const FilterByFrameShape = () => {
     clubMaster: false,
     oval: false,
     rectangle: false,
-    cateEye: false,
+    catEye: false,
   });
 
   const handleChange = (event) => {
@@ -62,15 +62,13 @@ const FilterByFrameShape = () => {
     );
   };
 
-  const { black } = state;
-
   const filters = [
     { name: "Round", checked: "round", total: counts.round },
     { name: "RetroSquare", checked: "retroSquare", total: counts.retroSquare },
     { name: "ClubMaster", checked: "clubMaster", total: counts.clubMaster },
     { name: "Oval", checked: "oval", total: counts.oval },
     { name: "Rectangle", checked: "rectangle", total: counts.rectangle },
-    { name: "CatEye", checked: "cateEye", total: counts.cateEye },
+    { name: "CatEye", checked: "catEye", total: counts.catEye },
   ];
 
   return (

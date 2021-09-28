@@ -1,3 +1,14 @@
+export const Price = (req) => {
+  return req.query.lowPrice || req.query.highPrice
+    ? {
+        price: {
+          $gte: +req.query.lowPrice,
+          $lte: +req.query.highPrice,
+        },
+      }
+    : {};
+};
+
 export const Category = (req) => {
   req.query.category
     ? {
@@ -60,13 +71,22 @@ export const FrameStyle = (req) => {
     : {};
 };
 
-export const Price = (req) => {
-  return req.query.lowPrice || req.query.highPrice
+export const FrameShape = (req) => {
+  return req.query.round ||
+    req.query.retroSquare ||
+    req.query.clubMaster ||
+    req.query.oval ||
+    req.query.rectangle ||
+    req.query.catEye
     ? {
-        price: {
-          $gte: +req.query.lowPrice,
-          $lte: +req.query.highPrice,
-        },
+        frameShape: [
+          req.query.round,
+          req.query.retroSquare,
+          req.query.clubMaster,
+          req.query.oval,
+          req.query.rectangle,
+          req.query.catEye,
+        ],
       }
     : {};
 };

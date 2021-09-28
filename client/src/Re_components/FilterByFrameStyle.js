@@ -47,7 +47,6 @@ const FilterByFrameStyle = () => {
     fullFrame: false,
     rimless: false,
   });
-  console.log(queries);
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
     dispatch(
