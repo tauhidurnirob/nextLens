@@ -38,7 +38,6 @@ const FilterByFrameShape = () => {
   const [expand, setExpand] = useState("expandBar");
 
   const { counts, queries } = useSelector(productSelector);
-  console.log(queries);
 
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
