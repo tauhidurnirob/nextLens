@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import {
   makeStyles,
   Accordion,
@@ -15,6 +15,9 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useDispatch, useSelector } from "react-redux";
+
+import { productSelector, queriesAction } from "../redux/slices/productSlice";
 
 const useStyles = makeStyles({
   root: {
@@ -31,21 +34,45 @@ const useStyles = makeStyles({
 
 const FilterByFrameShape = () => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
   const [expand, setExpand] = useState("expandBar");
+
+  const { counts, queries } = useSelector(productSelector);
+  console.log(queries);
 
   const handleChangeBar = (panel) => (event, newExpanded) => {
     setExpand(newExpanded ? panel : false);
   };
-  const [state, setState] = React.useState({
-    black: false,
+  const [state, setState] = useState({
+    round: false,
+    retroSquare: false,
+    clubMaster: false,
+    oval: false,
+    rectangle: false,
+    cateEye: false,
   });
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+    dispatch(
+      queriesAction({
+        ...queries,
+        ...state,
+        [event.target.name]: event.target.checked,
+      })
+    );
   };
 
   const { black } = state;
+
+  const filters = [
+    { name: "Round", checked: "round", total: counts.round },
+    { name: "RetroSquare", checked: "retroSquare", total: counts.retroSquare },
+    { name: "ClubMaster", checked: "clubMaster", total: counts.clubMaster },
+    { name: "Oval", checked: "oval", total: counts.oval },
+    { name: "Rectangle", checked: "rectangle", total: counts.rectangle },
+    { name: "CatEye", checked: "cateEye", total: counts.cateEye },
+  ];
 
   return (
     <Grid item container justifyContent="center">
@@ -67,16 +94,15 @@ const FilterByFrameShape = () => {
             <FormControl component="fieldset">
               <FormGroup>
                 {filters.map((item, index) => (
-                  <>
+                  <Fragment key={index}>
                     <FormControlLabel
                       control={
                         <Checkbox
-                          checked={black}
+                          checked={state[index]}
                           onChange={handleChange}
-                          name="black"
+                          name={item.checked}
                         />
                       }
-                      key={index}
                       label={
                         <Grid
                           container
@@ -89,7 +115,7 @@ const FilterByFrameShape = () => {
                       }
                     />
                     <Divider className={clsx(classes.divider)} />
-                  </>
+                  </Fragment>
                 ))}
               </FormGroup>
             </FormControl>
@@ -101,12 +127,3 @@ const FilterByFrameShape = () => {
 };
 
 export default FilterByFrameShape;
-
-const filters = [
-  { name: "Round", total: 23 },
-  { name: "RetroSquare", total: 164 },
-  { name: "ClubMaster", total: 9 },
-  { name: "Oval", total: 27 },
-  { name: "Rectangle", total: 17 },
-  { name: "CatEye", total: 3 },
-];

@@ -112,6 +112,7 @@ export const getCountProducts = asyncHandler(async (req, res) => {
   const shopPremium = await Product.countDocuments({
     shopCollection: "premium",
   });
+
   res.json({
     countProducts: {
       black,
