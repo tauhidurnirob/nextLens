@@ -1,21 +1,24 @@
 import { createTheme, responsiveFontSizes } from "@material-ui/core";
 
 // colors
-const primary = "#fff";
+const primary = "#3F51B5";
 const navigationColor = "#fff";
 const iconColor = "#757575";
 const secondary = "#04496e";
 const grey = "#F8F8F8";
 const black = "#343a40";
 const darkBlack = "rgb(36, 40, 44)";
-const background = "#f5f5f5";
+const background = "#fff";
 const warningLight = "rgba(253, 200, 69, .3)";
 const warningMain = "rgba(253, 200, 69, .5)";
 const warningDark = "rgba(253, 200, 69, .7)";
 
 // border
-const borderWidth = 3;
+const borderWidth = 2;
 const borderColor = "rgba(0, 0, 0, 0.13)";
+
+// Font family
+const font = "'Poppins', sans-serif";
 
 // breakpoints
 const xl = 1920;
@@ -55,7 +58,13 @@ const theme = createTheme({
     },
     spacing,
   },
-
+  typography: {
+    fontFamily: font,
+    color: black,
+    button: {
+      textTransform: "none",
+    },
+  },
   breakpoints: {
     values: {
       xl,

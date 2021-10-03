@@ -57,6 +57,7 @@ export default function MobileNavigation() {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      className={clsx(classes.mobileMenu)}
     >
       <List className={clsx(classes.list)}>
         {router.map((item, index) => (
@@ -81,7 +82,7 @@ export default function MobileNavigation() {
             aria-label="menu"
             onClick={toggleDrawer(anchor, true)}
           >
-            <MenuIcon />
+            <MenuIcon style={{ color: "black" }} />
           </IconButton>
           <Drawer
             anchor="left"
@@ -97,7 +98,7 @@ export default function MobileNavigation() {
 }
 
 const router = [
-  { routeName: "Home", route: "/home" },
+  { routeName: "Home", route: "/" },
   { routeName: "Eyeglasses", route: "/home" },
   { routeName: "sunglasses", route: "/home" },
   { routeName: "blue light block glass", route: "/home" },

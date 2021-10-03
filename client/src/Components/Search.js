@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   makeStyles,
@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles(() => ({
   form: {
@@ -19,6 +20,20 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Search = ({ setIsSearch }) => {
+  const [keyword, setKeyword] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (keyword) {
+      router.push({
+        pathname: "/search/[sid]",
+        query: { sid: keyword.split(" ").join("+") },
+      });
+    } else {
+      router.push("/");
+    }
+  }, [keyword]);
+
   const classes = useStyles();
 
   return (
@@ -38,6 +53,8 @@ const Search = ({ setIsSearch }) => {
               </IconButton>
             </InputAdornment>
           }
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
         />
       </FormControl>
     </Container>
