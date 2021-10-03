@@ -148,7 +148,7 @@ const router = [
   { routeName: "Home", route: "/" },
   { routeName: "Eyeglasses", route: "/eyeglasses" },
   { routeName: "sunglasses", route: "/sunglasses" },
-  { routeName: "blue light block glass", route: "/" },
+  { routeName: "blue light block glass", route: "/blue-light-block-glasses" },
   { routeName: "Contact", route: "/contact" },
 ];
 

@@ -15,24 +15,24 @@ import {
 } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
-const Sunglasses = ({ data, counts }) => {
+const BlueLightBlockGlass = ({ data, counts }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
   dispatch(topMaxProduct(data?.topMaxProduct));
   dispatch(countAction(counts?.countProducts));
   return (
-    <Layout title="Sunglasses">
+    <Layout title="Blue Light Block Glasses">
       <Container maxWidth={false}>
-        <CategoryBar categoryTitle="SUN GLASSES" />
-        <CategoryBanner categoryTitle="SUN GLASSES" />
+        <CategoryBar categoryTitle="Blue Light Block Glasses" />
+        <CategoryBanner categoryTitle="Blue Light Block Glasses" />
         <CategoryProducts />
       </Container>
     </Layout>
   );
 };
 
-export default Sunglasses;
+export default BlueLightBlockGlass;
 
 export async function getStaticProps() {
   const { data } = await productApi.getAllProductByLimit(12);
