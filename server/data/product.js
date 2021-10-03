@@ -1674,7 +1674,7 @@ const products = [
   },
   {
     title: "Modern Rimless Eyeglass",
-    image: "https://i.ibb.co/0j1fhXJ/dks02857-65-11-130-2900tk-4.jpg",
+    image: "https://i.ibb.co/0j1fhXJ/dks02857-65-11-130-2900tk-4.jpg ",
     availability: "In stock",
     color: "white",
 
