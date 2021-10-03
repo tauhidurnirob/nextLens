@@ -15,7 +15,7 @@ import {
 } from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
-const EyeGlasses = ({ data, counts }) => {
+const BlueLightBlockGlass = ({ data, counts }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
@@ -32,7 +32,7 @@ const EyeGlasses = ({ data, counts }) => {
   );
 };
 
-export default EyeGlasses;
+export default BlueLightBlockGlass;
 
 export async function getStaticProps() {
   const { data } = await productApi.getAllProductByLimit(12);

@@ -8,13 +8,19 @@ import {
   CategoryBanner,
   CategoryProducts,
 } from "./../../src/Re_components";
-import { fetchedProducts } from "../../src/redux/slices/productSlice";
+import {
+  fetchedProducts,
+  topMaxProduct,
+  countAction,
+} from "../../src/redux/slices/productSlice";
 import productApi from "../api/products";
 
-const Sunglasses = ({ data }) => {
+const Sunglasses = ({ data, counts }) => {
   const dispatch = useDispatch();
 
   dispatch(fetchedProducts(data?.products));
+  dispatch(topMaxProduct(data?.topMaxProduct));
+  dispatch(countAction(counts?.countProducts));
   return (
     <Layout title="Sunglasses">
       <Container maxWidth={false}>
@@ -29,9 +35,10 @@ const Sunglasses = ({ data }) => {
 export default Sunglasses;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getAllProductByLimit();
+  const { data } = await productApi.getAllProductByLimit(12);
+  const { data: counts } = await productApi.getProductCount();
 
   return {
-    props: { data, revalidate: 1 },
+    props: { data, counts, revalidate: 1 },
   };
 }
