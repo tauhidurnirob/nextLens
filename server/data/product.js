@@ -1,7 +1,7 @@
 const products = [
   {
-    title: "Airpods Wireless Bluetooth Headphones",
-    image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+    title: "Modern Style Cat Eye Frame",
+    image: "https://i.ibb.co/Jymfjzm/dke01709-54-18-140-1800tk-1.jpg",
     color: "black",
 
     availability: "In stock",
@@ -15,11 +15,11 @@ const products = [
     numReviews: 12,
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
-    slug: "Airpods_Wireless_Bluetooth_Headphones_DKE04461",
+    slug: "Modern_Style_Cat_Eye_Frame_DKE04461",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/Jymfjzm/dke01709-54-18-140-1800tk-1.jpg" },
+      { image: "https://i.ibb.co/pwxSwq7/dke01709-54-18-140-1800tk-2.jpg" },
+      { image: "https://i.ibb.co/Y8jXjR2/dke01709-54-18-140-1800tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -44,12 +44,12 @@ const products = [
     ],
   },
   {
-    title: "iPhone 11 Pro 256GB Memory",
-    image: "https://i.ibb.co/XL8CX77/phone.jpg",
+    title: "Clasic Brand Design Optical Sunglass",
+    image: "https://i.ibb.co/JtDWN78/dke02244-47-16-128-1500tk-1.jpg",
     availability: "In stock",
     color: "black",
 
-    slug: "iPhone_11_Pro_256GB_Memory_DKE04462",
+    slug: "Clasic_Brand_Design_Optical_Sunglass_DKE04462",
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
@@ -61,9 +61,9 @@ const products = [
     sku: "DKE04462",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/9NDbMyp/dke01709-54-18-140-1800tk-4.jpg" },
+      { image: "https://i.ibb.co/cgpdG7y/dke02244-47-16-128-1500tk-2.jpg" },
+      { image: "https://i.ibb.co/Tkqz7d4/dke02244-47-16-128-1500tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -88,11 +88,10 @@ const products = [
     ],
   },
   {
-    title: "Cannon EOS 80D DSLR Camera",
-    image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
-    slug: "Cannon_EOS_80D_DSLR_Camera_DKE04463",
+    title: "Polarized Aluminum Sunglasses",
+    image: "https://i.ibb.co/xS9zbPH/dke02447-50-16-135-1000tk-1.jpg",
+    slug: "Polarized_Aluminum_Sunglasses_DKE04463",
     color: "black",
-
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
     brand: "Cannon",
@@ -105,9 +104,9 @@ const products = [
     sku: "DKE04463",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/xS9zbPH/dke02447-50-16-135-1000tk-1.jpg" },
+      { image: "https://i.ibb.co/k3wQVz4/dke02447-50-16-135-1000tk-2.jpg" },
+      { image: "https://i.ibb.co/swY5Ks9/dke02447-50-16-135-1000tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -132,12 +131,12 @@ const products = [
     ],
   },
   {
-    title: "Sony Playstation 4 Pro White Version",
-    image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    title: "Modern Style Oval Ass Frame",
+    image: "https://i.ibb.co/qjt8qrM/dke02541-53-17-140-2450tk-1.jpg",
     color: "black",
 
     availability: "In stock",
-    slug: "Sony_Playstation_4_Pro_White_Version_DKE04464",
+    slug: "Modern_Style_Oval_Ass_Frame_DKE04464",
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
@@ -149,9 +148,9 @@ const products = [
     sku: "DKE04464",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/qjt8qrM/dke02541-53-17-140-2450tk-1.jpg" },
+      { image: "https://i.ibb.co/THw7ZyV/dke02541-53-17-140-2450tk-2.jpg" },
+      { image: "https://i.ibb.co/zhgs94G/dke02541-53-17-140-2450tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -175,9 +174,9 @@ const products = [
     ],
   },
   {
-    title: "Logitech G-Series Gaming Mouse",
-    image: "https://i.ibb.co/YkLym60/mouse.jpg",
-    slug: "Logitech_G-Series_Gaming_Mouse_DKE04461",
+    title: "Retro Polarized Sunglasses",
+    image: "https://i.ibb.co/qgxndmn/dke02703-53-17-138-2900tk-4.jpg",
+    slug: "Retro_Polarized_Sunglasses_DKE04461",
     color: "black",
 
     description:
@@ -192,9 +191,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/qgxndmn/dke02703-53-17-138-2900tk-4.jpg" },
+      { image: "https://i.ibb.co/QQV4THz/dke02703-53-17-138-2900tk-5.jpg" },
+      { image: "https://i.ibb.co/XDKDcWv/dke02703-53-17-138-2900tk-6.jpg" },
     ],
     details: {
       modelNumber: "DKE04465",
@@ -208,7 +207,6 @@ const products = [
     },
     typeLense: "blue",
     frameShape: "rectangle",
-
     listType: [
       { list: "Frame Only" },
       { list: "Basic Lens + $200" },
@@ -218,12 +216,13 @@ const products = [
     ],
   },
   {
-    title: "Amazon Echo Dot 3rd Generation",
-    image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
+    title: "Wayfarer Classic Sunglasses",
+    image:
+      "https://i.ibb.co/xgC4PDw/dke02747-50-18-135-1100tk-4-f-anti-blue.jpg",
     availability: "In stock",
     color: "black",
 
-    slug: "Amazon_Echo_Dot_3rd_Generation_DKE04461",
+    slug: "Wayfarer_Classic_Sunglasses_DKE04461",
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
@@ -235,9 +234,18 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      {
+        image:
+          "https://i.ibb.co/xgC4PDw/dke02747-50-18-135-1100tk-4-f-anti-blue.jpg",
+      },
+      {
+        image:
+          "https://i.ibb.co/xJChKnQ/dke02747-50-18-135-1100tk-5-f-anti-blue.jpg",
+      },
+      {
+        image:
+          "https://i.ibb.co/kD51vPL/dke02747-50-18-135-1100tk-6-f-anti-blue.jpg",
+      },
     ],
     details: {
       modelNumber: "DKE04466",
@@ -259,8 +267,8 @@ const products = [
     ],
   },
   {
-    title: "Airpods Wireless Bluetooth Headphones1",
-    image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+    title: "Stylish Brand Big Design Optical Frame Eyeglasses",
+    image: "https://i.ibb.co/NrNZhPk/dke02808-54-19-137-1000tk-1.jpg",
     availability: "In stock",
     color: "black",
 
@@ -274,11 +282,11 @@ const products = [
     numReviews: 12,
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
-    slug: "Airpods_Wireless_Bluetooth_Headphones1_DKE04461",
+    slug: "Stylish_Brand_Big_Design_Optical_Frame_Eyeglasses_DKE04461",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/NrNZhPk/dke02808-54-19-137-1000tk-1.jpg" },
+      { image: "https://i.ibb.co/W0vS5Lb/dke02940-52-21-140-2200tk-1.jpg" },
+      { image: "https://i.ibb.co/ZJCqS6Q/dke02940-52-21-140-2200tk-2.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -299,12 +307,12 @@ const products = [
     ],
   },
   {
-    title: "iPhone 11 Pro 256GB Memory1",
-    image: "https://i.ibb.co/XL8CX77/phone.jpg",
+    title: "Black Sparkle Eyeglass",
+    image: "https://i.ibb.co/yWcCjv7/dke02940-52-21-140-2200tk-3.jpg",
     availability: "In stock",
     color: "black",
 
-    slug: "iPhone_11_Pro_256GB_Memory1_DKE04462",
+    slug: "Black_Sparkle_Eyeglass_DKE04462",
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
@@ -316,9 +324,9 @@ const products = [
     sku: "DKE04462",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/GJqdrjJ/dks02829-54-19-140-1500tk-1.jpg" },
+      { image: "https://i.ibb.co/KNBwf6T/dks02829-54-19-140-1500tk-2.jpg" },
+      { image: "https://i.ibb.co/19Pn9yM/dks02829-54-19-140-1500tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -339,9 +347,9 @@ const products = [
     ],
   },
   {
-    title: "Cannon EOS 80D DSLR Camera1",
-    image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
-    slug: "Cannon_EOS_80D_DSLR_Camera1_DKE04463",
+    title: "Classic & Mordern Eyeglasses",
+    image: "https://i.ibb.co/0j1fhXJ/dks02857-65-11-130-2900tk-4.jpg",
+    slug: "Classic_&_Mordern_Eyeglasses_DKE04463",
     color: "black",
 
     description:
@@ -356,9 +364,9 @@ const products = [
     sku: "DKE04463",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/0j1fhXJ/dks02857-65-11-130-2900tk-4.jpg" },
+      { image: "https://i.ibb.co/8dxMPYG/dks02857-65-11-130-2900tk-5.jpg" },
+      { image: "https://i.ibb.co/Wv9nNkL/dks02857-65-11-130-2900tk-6.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -379,12 +387,12 @@ const products = [
     ],
   },
   {
-    title: "Sony Playstation 4 Pro White Version1",
-    image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    title: "Dukpion Morden Half Rim Eyeglasses",
+    image: "https://i.ibb.co/XF3nP22/dks04591-66-15-138-1900tk-1.jpg",
     color: "black",
 
     availability: "In stock",
-    slug: "Sony_Playstation_4_Pro_White_Version1_DKE04464",
+    slug: "Dukpion_Morden_Half_Rim_Eyeglasses_DKE04464",
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
@@ -396,9 +404,9 @@ const products = [
     sku: "DKE04464",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/XF3nP22/dks04591-66-15-138-1900tk-1.jpg" },
+      { image: "https://i.ibb.co/4VvKryZ/dks04591-66-15-138-1900tk-3.jpg" },
+      { image: "https://i.ibb.co/j3D09hs/dks04591-66-15-138-1900tk-4.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -419,9 +427,9 @@ const products = [
     ],
   },
   {
-    title: "Logitech G-Series Gaming Mouse1",
-    image: "https://i.ibb.co/YkLym60/mouse.jpg",
-    slug: "Logitech_G-Series_Gaming_Mouse1_DKE04461",
+    title: "Classic Most Stylish Eyeglasses",
+    image: "https://i.ibb.co/DrxgYzm/dks04592-54-21-140-6000tk-2.jpg",
+    slug: "Classic_Most_Stylish_Eyeglasses_DKE04461",
     color: "black",
 
     description:
@@ -436,9 +444,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/DrxgYzm/dks04592-54-21-140-6000tk-2.jpg" },
+      { image: "https://i.ibb.co/vjtqVxh/dks04592-54-21-140-6000tk-3.jpg" },
+      { image: "https://i.ibb.co/tBj11Xg/dks04592-54-21-140-6000tk-4.jpg" },
     ],
     details: {
       modelNumber: "DKE04465",
@@ -459,12 +467,12 @@ const products = [
     ],
   },
   {
-    title: "Amazon Echo Dot 3rd Generation1",
-    image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
+    title: "Full Rim Rectangular Spectacle Frame",
+    image: "https://i.ibb.co/7NYwKM2/dks04634-67-18-145-1000tk-1.jpg",
     availability: "In stock",
     color: "black",
 
-    slug: "Amazon_Echo_Dot_3rd_Generation1_DKE04461",
+    slug: "Full_Rim_Rectangular_Spectacle_Frame_DKE04461",
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
@@ -476,9 +484,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/7NYwKM2/dks04634-67-18-145-1000tk-1.jpg" },
+      { image: "https://i.ibb.co/v17161Z/dks04687-58-18-148-1200tk-1.jpg" },
+      { image: "https://i.ibb.co/N1q5L3H/dks04687-58-18-148-1200tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04466",
@@ -499,8 +507,8 @@ const products = [
     ],
   },
   {
-    title: "Airpods Wireless Bluetooth Headphones2",
-    image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+    title: "Designer Great Eyeglass",
+    image: "https://i.ibb.co/HVB7Sht/dks04687-58-18-148-1200tk-4.jpg",
     availability: "In stock",
     color: "white",
 
@@ -514,11 +522,11 @@ const products = [
     numReviews: 12,
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
-    slug: "Airpods_Wireless_Bluetooth_Headphones2_DKE04461",
+    slug: "Designer_Great_Eyeglass_DKE04461",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/bXNmz8H/dks05614-54-18-135-1800tk-1.jpg" },
+      { image: "https://i.ibb.co/6mfPNpQ/dks05614-54-18-135-1800tk-2.jpg" },
+      { image: "https://i.ibb.co/HgPYwJB/dks05614-54-18-135-1800tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -539,12 +547,12 @@ const products = [
     ],
   },
   {
-    title: "iPhone 11 Pro 256GB Memory2",
-    image: "https://i.ibb.co/XL8CX77/phone.jpg",
+    title: "Stylish almost fit every face type Eyewear",
+    image: "https://i.ibb.co/2ZPvzn3/dks05619-54-18-135-1250tk-1.jpg",
     availability: "In stock",
     color: "white",
 
-    slug: "iPhone_11_Pro_256GB_Memory2_DKE04462",
+    slug: "Stylish_almost_fit_very_face_type_Eyewear_DKE04462",
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
@@ -556,9 +564,9 @@ const products = [
     sku: "DKE04462",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/2ZPvzn3/dks05619-54-18-135-1250tk-1.jpg" },
+      { image: "https://i.ibb.co/bgVS8G6/dks05619-54-18-135-1250tk-3.jpg" },
+      { image: "https://i.ibb.co/Hnpqf8Q/dks05619-54-18-135-1250tk-4.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -579,9 +587,9 @@ const products = [
     ],
   },
   {
-    title: "Cannon EOS 80D DSLR Camera2",
-    image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
-    slug: "Cannon_EOS_80D_DSLR_Camera2_DKE04463",
+    title: "Rimless Glasses Frame",
+    image: "https://i.ibb.co/Jymfjzm/dke01709-54-18-140-1800tk-1.jpg",
+    slug: "Rimless_Glasses_Frame_DKE04463",
     color: "white",
 
     description:
@@ -596,9 +604,9 @@ const products = [
     sku: "DKE04463",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/Jymfjzm/dke01709-54-18-140-1800tk-1.jpg" },
+      { image: "https://i.ibb.co/pwxSwq7/dke01709-54-18-140-1800tk-2.jpg" },
+      { image: "https://i.ibb.co/Y8jXjR2/dke01709-54-18-140-1800tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -619,12 +627,12 @@ const products = [
     ],
   },
   {
-    title: "Sony Playstation 4 Pro White Version2",
-    image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    title: "Half Rim Unisex Eyeglasses Frame",
+    image: "https://i.ibb.co/JtDWN78/dke02244-47-16-128-1500tk-1.jpg",
     color: "white",
 
     availability: "In stock",
-    slug: "Sony_Playstation_4_Pro_White_Version2_DKE04464",
+    slug: "Half_Rim_Unisex_Eyeglasses_Frame_DKE04464",
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
@@ -636,9 +644,9 @@ const products = [
     sku: "DKE04464",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/9NDbMyp/dke01709-54-18-140-1800tk-4.jpg" },
+      { image: "https://i.ibb.co/cgpdG7y/dke02244-47-16-128-1500tk-2.jpg" },
+      { image: "https://i.ibb.co/Tkqz7d4/dke02244-47-16-128-1500tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -659,9 +667,9 @@ const products = [
     ],
   },
   {
-    title: "Logitech G-Series Gaming Mouse2",
-    image: "https://i.ibb.co/YkLym60/mouse.jpg",
-    slug: "Logitech_G-Series_Gaming_Mouse2_DKE04461",
+    title: "Dukpion Designer Glasses",
+    image: "https://i.ibb.co/Jymfjzm/dke01709-54-18-140-1800tk-1.jpg",
+    slug: "Dukpion_Designer_Glasses_DKE04461",
     color: "white",
 
     description:
@@ -676,9 +684,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/Jymfjzm/dke01709-54-18-140-1800tk-1.jpg" },
+      { image: "https://i.ibb.co/pwxSwq7/dke01709-54-18-140-1800tk-2.jpg" },
+      { image: "https://i.ibb.co/Y8jXjR2/dke01709-54-18-140-1800tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04465",
@@ -699,11 +707,11 @@ const products = [
     ],
   },
   {
-    title: "Amazon Echo Dot 3rd Generation2",
-    image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
+    title: "Dukpion Premium Eyeware",
+    image: "https://i.ibb.co/9NDbMyp/dke01709-54-18-140-1800tk-4.jpg",
     availability: "In stock",
 
-    slug: "Amazon_Echo_Dot_3rd_Generation2_DKE04461",
+    slug: "Dukpion_Premium_Eyeware_DKE04461",
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
@@ -715,9 +723,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/9NDbMyp/dke01709-54-18-140-1800tk-4.jpg" },
+      { image: "https://i.ibb.co/JtDWN78/dke02244-47-16-128-1500tk-1.jpg" },
+      { image: "https://i.ibb.co/cgpdG7y/dke02244-47-16-128-1500tk-2.jpg" },
     ],
     details: {
       modelNumber: "DKE04466",
@@ -738,8 +746,8 @@ const products = [
     ],
   },
   {
-    title: "Airpods Wireless Bluetooth Headphones3",
-    image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+    title: "Full rim Double bridge Black Eyeglass",
+    image: "https://i.ibb.co/Tkqz7d4/dke02244-47-16-128-1500tk-3.jpg",
     availability: "In stock",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -751,11 +759,11 @@ const products = [
     numReviews: 12,
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
-    slug: "Airpods_Wireless_Bluetooth_Headphones3_DKE04461",
+    slug: "Full_rim_Double_bridge_Black_Eyeglass_DKE04461",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/Tkqz7d4/dke02244-47-16-128-1500tk-3.jpg" },
+      { image: "https://i.ibb.co/xS9zbPH/dke02447-50-16-135-1000tk-1.jpg" },
+      { image: "https://i.ibb.co/k3wQVz4/dke02447-50-16-135-1000tk-2.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -776,11 +784,11 @@ const products = [
     ],
   },
   {
-    title: "iPhone 11 Pro 256GB Memory3",
-    image: "https://i.ibb.co/XL8CX77/phone.jpg",
+    title: "Full rim Double bridge Eyeglass",
+    image: "https://i.ibb.co/swY5Ks9/dke02447-50-16-135-1000tk-3.jpg",
     availability: "In stock",
 
-    slug: "iPhone_11_Pro_256GB_Memory3_DKE04462",
+    slug: "Full_rim_Double_bridge_Eyeglass_DKE04462",
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
@@ -792,9 +800,9 @@ const products = [
     sku: "DKE04462",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/swY5Ks9/dke02447-50-16-135-1000tk-3.jpg" },
+      { image: "https://i.ibb.co/qjt8qrM/dke02541-53-17-140-2450tk-1.jpg" },
+      { image: "https://i.ibb.co/THw7ZyV/dke02541-53-17-140-2450tk-2.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -815,9 +823,9 @@ const products = [
     ],
   },
   {
-    title: "Cannon EOS 80D DSLR Camera3",
-    image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
-    slug: "Cannon_EOS_80D_DSLR_Camera3_DKE04463",
+    title: "Flexibles Eyeglass",
+    image: "https://i.ibb.co/zhgs94G/dke02541-53-17-140-2450tk-3.jpg",
+    slug: "Flexibles_Eyeglass_DKE04463",
 
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
@@ -831,9 +839,9 @@ const products = [
     sku: "DKE04463",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/zhgs94G/dke02541-53-17-140-2450tk-3.jpg" },
+      { image: "https://i.ibb.co/qgxndmn/dke02703-53-17-138-2900tk-4.jpg" },
+      { image: "https://i.ibb.co/QQV4THz/dke02703-53-17-138-2900tk-5.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -854,11 +862,11 @@ const products = [
     ],
   },
   {
-    title: "Sony Playstation 4 Pro White Version3",
-    image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    title: "Black Full Rim Eyewear",
+    image: "https://i.ibb.co/XDKDcWv/dke02703-53-17-138-2900tk-6.jpg",
 
     availability: "In stock",
-    slug: "Sony_Playstation_4_Pro_White_Version3_DKE04464",
+    slug: "Black_Rim_Eyewear_DKE04464",
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
@@ -870,9 +878,9 @@ const products = [
     sku: "DKE04464",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/XDKDcWv/dke02703-53-17-138-2900tk-6.jpg" },
+      { image: "https://i.ibb.co/QQV4THz/dke02703-53-17-138-2900tk-5.jpg" },
+      { image: "https://i.ibb.co/qgxndmn/dke02703-53-17-138-2900tk-4.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -893,9 +901,10 @@ const products = [
     ],
   },
   {
-    title: "Logitech G-Series Gaming Mouse3",
-    image: "https://i.ibb.co/YkLym60/mouse.jpg",
-    slug: "Logitech_G-Series_Gaming_Mouse3_DKE04461",
+    title: "Trandy Stylish Eyeware",
+    image:
+      "https://i.ibb.co/xgC4PDw/dke02747-50-18-135-1100tk-4-f-anti-blue.jpg",
+    slug: "Trandy_Stylish_Eyeware_DKE04461",
 
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
@@ -909,9 +918,18 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      {
+        image:
+          "https://i.ibb.co/xgC4PDw/dke02747-50-18-135-1100tk-4-f-anti-blue.jpg",
+      },
+      {
+        image:
+          "https://i.ibb.co/xJChKnQ/dke02747-50-18-135-1100tk-5-f-anti-blue.jpg",
+      },
+      {
+        image:
+          "https://i.ibb.co/kD51vPL/dke02747-50-18-135-1100tk-6-f-anti-blue.jpg",
+      },
     ],
     details: {
       modelNumber: "DKE04465",
@@ -932,11 +950,11 @@ const products = [
     ],
   },
   {
-    title: "Amazon Echo Dot 3rd Generation3",
-    image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
+    title: "Low Bridge Fit EyeGlass",
+    image: "https://i.ibb.co/NrNZhPk/dke02808-54-19-137-1000tk-1.jpg",
     availability: "In stock",
 
-    slug: "Amazon_Echo_Dot_3rd_Generation3_DKE04461",
+    slug: "Low_Bridge_Fit_EyeGlass_DKE04461",
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
@@ -948,9 +966,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/NrNZhPk/dke02808-54-19-137-1000tk-1.jpg" },
+      { image: "https://i.ibb.co/pvmCvpV/dke02808-54-19-137-1000tk-2.jpg" },
+      { image: "https://i.ibb.co/W0vS5Lb/dke02940-52-21-140-2200tk-1.jpg" },
     ],
     details: {
       modelNumber: "DKE04466",
@@ -972,7 +990,7 @@ const products = [
   },
   {
     title: "Airpods Wireless Bluetooth Headphones4",
-    image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+    image: "https://i.ibb.co/ZJCqS6Q/dke02940-52-21-140-2200tk-2.jpg",
     availability: "In stock",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -986,9 +1004,9 @@ const products = [
     sizeGuide: "Delivery & Return",
     slug: "Airpods_Wireless_Bluetooth_Headphones4_DKE04461",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/ZJCqS6Q/dke02940-52-21-140-2200tk-2.jpg" },
+      { image: "https://i.ibb.co/yWcCjv7/dke02940-52-21-140-2200tk-3.jpg" },
+      { image: "https://i.ibb.co/GJqdrjJ/dks02829-54-19-140-1500tk-1.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1009,11 +1027,11 @@ const products = [
     ],
   },
   {
-    title: "iPhone 11 Pro 256GB Memory4",
-    image: "https://i.ibb.co/XL8CX77/phone.jpg",
+    title: "Full Rim sky blue Eyeglasses",
+    image: "https://i.ibb.co/KNBwf6T/dks02829-54-19-140-1500tk-2.jpg",
     availability: "In stock",
 
-    slug: "iPhone_11_Pro_256GB_Memory4_DKE04462",
+    slug: "Full_Rim_sky_blue_Eyeglasses_DKE04462",
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
@@ -1025,9 +1043,9 @@ const products = [
     sku: "DKE04462",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/KNBwf6T/dks02829-54-19-140-1500tk-2.jpg" },
+      { image: "https://i.ibb.co/0j1fhXJ/dks02857-65-11-130-2900tk-4.jpg" },
+      { image: "https://i.ibb.co/8dxMPYG/dks02857-65-11-130-2900tk-5.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1048,9 +1066,9 @@ const products = [
     ],
   },
   {
-    title: "Cannon EOS 80D DSLR Camera4",
-    image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
-    slug: "Cannon_EOS_80D_DSLR_Camera4_DKE04463",
+    title: "Stylish Latest Eyeglasses",
+    image: "https://i.ibb.co/Wv9nNkL/dks02857-65-11-130-2900tk-6.jpg",
+    slug: "Stylish_Latest_Eyeglasses_DKE04463",
 
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
@@ -1064,9 +1082,9 @@ const products = [
     sku: "DKE04463",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/Wv9nNkL/dks02857-65-11-130-2900tk-6.jpg" },
+      { image: "https://i.ibb.co/8dxMPYG/dks02857-65-11-130-2900tk-5.jpg" },
+      { image: "https://i.ibb.co/0j1fhXJ/dks02857-65-11-130-2900tk-4.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1087,11 +1105,11 @@ const products = [
     ],
   },
   {
-    title: "Sony Playstation 4 Pro White Version4",
-    image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    title: "Classic Darkle Eyewear",
+    image: "https://i.ibb.co/XF3nP22/dks04591-66-15-138-1900tk-1.jpg",
 
     availability: "In stock",
-    slug: "Sony_Playstation_4_Pro_White_Version4_DKE04464",
+    slug: "Classic_Darkle_Eyewear_DKE04464",
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
@@ -1103,9 +1121,9 @@ const products = [
     sku: "DKE04464",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/XF3nP22/dks04591-66-15-138-1900tk-1.jpg" },
+      { image: "https://i.ibb.co/4VvKryZ/dks04591-66-15-138-1900tk-3.jpg" },
+      { image: "https://i.ibb.co/j3D09hs/dks04591-66-15-138-1900tk-4.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1126,9 +1144,9 @@ const products = [
     ],
   },
   {
-    title: "Logitech G-Series Gaming Mouse4",
-    image: "https://i.ibb.co/YkLym60/mouse.jpg",
-    slug: "Logitech_G-Series_Gaming_Mouse4_DKE04461",
+    title: "Classic Eyewear",
+    image: "https://i.ibb.co/DrxgYzm/dks04592-54-21-140-6000tk-2.jpg",
+    slug: "Classic_Eyewear_DKE04461",
 
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
@@ -1142,9 +1160,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/DrxgYzm/dks04592-54-21-140-6000tk-2.jpg" },
+      { image: "https://i.ibb.co/vjtqVxh/dks04592-54-21-140-6000tk-3.jpg" },
+      { image: "https://i.ibb.co/tBj11Xg/dks04592-54-21-140-6000tk-4.jpg" },
     ],
     details: {
       modelNumber: "DKE04465",
@@ -1165,11 +1183,11 @@ const products = [
     ],
   },
   {
-    title: "Amazon Echo Dot 3rd Generation4",
-    image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
+    title: "Classic unique Eyeware",
+    image: "https://i.ibb.co/7NYwKM2/dks04634-67-18-145-1000tk-1.jpg",
     availability: "In stock",
 
-    slug: "Amazon_Echo_Dot_3rd_Generation4_DKE04461",
+    slug: "Classic_unique_Eyeware_DKE04461",
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
@@ -1181,9 +1199,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/7NYwKM2/dks04634-67-18-145-1000tk-1.jpg" },
+      { image: "https://i.ibb.co/v17161Z/dks04687-58-18-148-1200tk-1.jpg" },
+      { image: "https://i.ibb.co/N1q5L3H/dks04687-58-18-148-1200tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04466",
@@ -1204,8 +1222,8 @@ const products = [
     ],
   },
   {
-    title: "Airpods Wireless Bluetooth Headphones5",
-    image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+    title: "Latest Eyeglasses specs chasma",
+    image: "https://i.ibb.co/HVB7Sht/dks04687-58-18-148-1200tk-4.jpg",
     availability: "In stock",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -1217,11 +1235,11 @@ const products = [
     numReviews: 12,
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
-    slug: "Airpods_Wireless_Bluetooth_Headphones5_DKE04461",
+    slug: "Latest_Eyeglasses_specs_chasma_DKE04461",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/HVB7Sht/dks04687-58-18-148-1200tk-4.jpg" },
+      { image: "https://i.ibb.co/bXNmz8H/dks05614-54-18-135-1800tk-1.jpg" },
+      { image: "https://i.ibb.co/6mfPNpQ/dks05614-54-18-135-1800tk-2.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1242,11 +1260,11 @@ const products = [
     ],
   },
   {
-    title: "iPhone 11 Pro 256GB Memory5",
-    image: "https://i.ibb.co/XL8CX77/phone.jpg",
+    title: "Stylish Clear Eyeglasses",
+    image: "https://i.ibb.co/HgPYwJB/dks05614-54-18-135-1800tk-3.jpg",
     availability: "In stock",
 
-    slug: "iPhone_11_Pro_256GB_Memory5_DKE04462",
+    slug: "Stylish_Clear_Eyeglasses_DKE04462",
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
@@ -1258,9 +1276,9 @@ const products = [
     sku: "DKE04462",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/HgPYwJB/dks05614-54-18-135-1800tk-3.jpg" },
+      { image: "https://i.ibb.co/2ZPvzn3/dks05619-54-18-135-1250tk-1.jpg" },
+      { image: "https://i.ibb.co/bgVS8G6/dks05619-54-18-135-1250tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1281,9 +1299,9 @@ const products = [
     ],
   },
   {
-    title: "Cannon EOS 80D DSLR Camera5",
-    image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
-    slug: "Cannon_EOS_80D_DSLR_Camera5_DKE04463",
+    title: "Dukpion Stylish Eyeglass for Men",
+    image: "https://i.ibb.co/Jymfjzm/dke01709-54-18-140-1800tk-1.jpg",
+    slug: "Dukpion_Eyeglass_for_Men_DKE04463",
 
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
@@ -1297,9 +1315,9 @@ const products = [
     sku: "DKE04463",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/Jymfjzm/dke01709-54-18-140-1800tk-1.jpg" },
+      { image: "https://i.ibb.co/pwxSwq7/dke01709-54-18-140-1800tk-2.jpg" },
+      { image: "https://i.ibb.co/Y8jXjR2/dke01709-54-18-140-1800tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1320,11 +1338,11 @@ const products = [
     ],
   },
   {
-    title: "Sony Playstation 4 Pro White Version5",
-    image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    title: "Latest Stylish Frames",
+    image: "https://i.ibb.co/9NDbMyp/dke01709-54-18-140-1800tk-4.jpg",
 
     availability: "In stock",
-    slug: "Sony_Playstation_4_Pro_White_Version5_DKE04464",
+    slug: "Latest_Stylish_Frames_DKE04464",
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
@@ -1336,9 +1354,9 @@ const products = [
     sku: "DKE04464",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/9NDbMyp/dke01709-54-18-140-1800tk-4.jpg" },
+      { image: "https://i.ibb.co/JtDWN78/dke02244-47-16-128-1500tk-1.jpg" },
+      { image: "https://i.ibb.co/cgpdG7y/dke02244-47-16-128-1500tk-2.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1359,9 +1377,9 @@ const products = [
     ],
   },
   {
-    title: "Logitech G-Series Gaming Mouse5",
-    image: "https://i.ibb.co/YkLym60/mouse.jpg",
-    slug: "Logitech_G-Series_Gaming_Mouse5_DKE04461",
+    title: "Round Full Rim Latest Stylish Frames",
+    image: "https://i.ibb.co/Tkqz7d4/dke02244-47-16-128-1500tk-3.jpg",
+    slug: "Round_Full_Rim_Latest_Stylish_Frames_DKE04461",
 
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
@@ -1375,9 +1393,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/Tkqz7d4/dke02244-47-16-128-1500tk-3.jpg" },
+      { image: "https://i.ibb.co/xS9zbPH/dke02447-50-16-135-1000tk-1.jpg" },
+      { image: "https://i.ibb.co/k3wQVz4/dke02447-50-16-135-1000tk-2.jpg" },
     ],
     details: {
       modelNumber: "DKE04465",
@@ -1398,12 +1416,12 @@ const products = [
     ],
   },
   {
-    title: "Amazon Echo Dot 3rd Generation5",
-    image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
+    title: "Metal Classic eyeglasses",
+    image: "https://i.ibb.co/qjt8qrM/dke02541-53-17-140-2450tk-1.jpg",
     availability: "In stock",
     color: "white",
 
-    slug: "Amazon_Echo_Dot_3rd_Generation5_DKE04461",
+    slug: "Metal_Classic_eyeglasses_DKE04461",
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
@@ -1415,9 +1433,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/qjt8qrM/dke02541-53-17-140-2450tk-1.jpg" },
+      { image: "https://i.ibb.co/THw7ZyV/dke02541-53-17-140-2450tk-2.jpg" },
+      { image: "https://i.ibb.co/zhgs94G/dke02541-53-17-140-2450tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04466",
@@ -1438,8 +1456,8 @@ const products = [
     ],
   },
   {
-    title: "Airpods Wireless Bluetooth Headphones6",
-    image: "https://i.ibb.co/q9QZnkL/airpods.jpg",
+    title: "Trandy Eyeware",
+    image: "https://i.ibb.co/qgxndmn/dke02703-53-17-138-2900tk-4.jpg",
     color: "white",
 
     availability: "In stock",
@@ -1453,11 +1471,11 @@ const products = [
     numReviews: 12,
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
-    slug: "Airpods_Wireless_Bluetooth_Headphones6_DKE04461",
+    slug: "Trandy_Eyeware_DKE04461",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/qgxndmn/dke02703-53-17-138-2900tk-4.jpg" },
+      { image: "https://i.ibb.co/QQV4THz/dke02703-53-17-138-2900tk-5.jpg" },
+      { image: "https://i.ibb.co/XDKDcWv/dke02703-53-17-138-2900tk-6.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1479,12 +1497,13 @@ const products = [
     ],
   },
   {
-    title: "iPhone 11 Pro 256GB Memory6",
-    image: "https://i.ibb.co/XL8CX77/phone.jpg",
+    title: "Classic & Unique Eyeglass",
+    image:
+      "https://i.ibb.co/xgC4PDw/dke02747-50-18-135-1100tk-4-f-anti-blue.jpg",
     availability: "In stock",
     color: "white",
 
-    slug: "iPhone_11_Pro_256GB_Memory6_DKE04462",
+    slug: "Classic_&_Unique_Eyeglass_DKE04462",
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
@@ -1496,9 +1515,18 @@ const products = [
     sku: "DKE04462",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      {
+        image:
+          "https://i.ibb.co/xgC4PDw/dke02747-50-18-135-1100tk-4-f-anti-blue.jpg",
+      },
+      {
+        image:
+          "https://i.ibb.co/xJChKnQ/dke02747-50-18-135-1100tk-5-f-anti-blue.jpg",
+      },
+      {
+        image:
+          "https://i.ibb.co/kD51vPL/dke02747-50-18-135-1100tk-6-f-anti-blue.jpg",
+      },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1521,11 +1549,11 @@ const products = [
     ],
   },
   {
-    title: "Cannon EOS 80D DSLR Camera6",
-    image: "https://i.ibb.co/M6ZmGBw/camera.jpg",
+    title: "Classic Eyeware",
+    image: "https://i.ibb.co/NrNZhPk/dke02808-54-19-137-1000tk-1.jpg",
     color: "white",
 
-    slug: "Cannon_EOS_80D_DSLR_Camera6_DKE04463",
+    slug: "Classic_Eyeware_DKE04463",
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
     brand: "Cannon",
@@ -1538,9 +1566,9 @@ const products = [
     sku: "DKE04463",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/NrNZhPk/dke02808-54-19-137-1000tk-1.jpg" },
+      { image: "https://i.ibb.co/pvmCvpV/dke02808-54-19-137-1000tk-2.jpg" },
+      { image: "https://i.ibb.co/Tkqz7d4/dke02244-47-16-128-1500tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1563,12 +1591,12 @@ const products = [
     ],
   },
   {
-    title: "Sony Playstation 4 Pro White Version6",
-    image: "https://i.ibb.co/17pr13r/playstation.jpg",
+    title: "Slim Fit Rimless Eyeglass",
+    image: "https://i.ibb.co/W0vS5Lb/dke02940-52-21-140-2200tk-1.jpg",
     color: "white",
 
     availability: "In stock",
-    slug: "Sony_Playstation_4_Pro_White_Version6_DKE04464",
+    slug: "Slim_Fit_Rimless_Eyeglass_DKE04464",
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
@@ -1580,9 +1608,9 @@ const products = [
     sku: "DKE04464",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/W0vS5Lb/dke02940-52-21-140-2200tk-1.jpg" },
+      { image: "https://i.ibb.co/ZJCqS6Q/dke02940-52-21-140-2200tk-2.jpg" },
+      { image: "https://i.ibb.co/yWcCjv7/dke02940-52-21-140-2200tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04461",
@@ -1605,9 +1633,9 @@ const products = [
     ],
   },
   {
-    title: "Logitech G-Series Gaming Mouse6",
-    image: "https://i.ibb.co/YkLym60/mouse.jpg",
-    slug: "Logitech_G-Series_Gaming_Mouse6_DKE04461",
+    title: "Modern Pilot Eyeglass",
+    image: "https://i.ibb.co/GJqdrjJ/dks02829-54-19-140-1500tk-1.jpg",
+    slug: "Modern_Pilot_Eyeglass_DKE04461",
     color: "black",
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
@@ -1621,9 +1649,9 @@ const products = [
     sku: "DKE04461",
     sizeGuide: "Delivery & Return",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/GJqdrjJ/dks02829-54-19-140-1500tk-1.jpg" },
+      { image: "https://i.ibb.co/KNBwf6T/dks02829-54-19-140-1500tk-2.jpg" },
+      { image: "https://i.ibb.co/19Pn9yM/dks02829-54-19-140-1500tk-3.jpg" },
     ],
     details: {
       modelNumber: "DKE04465",
@@ -1645,12 +1673,12 @@ const products = [
     ],
   },
   {
-    title: "Amazon Echo Dot 3rd Generation6",
-    image: "https://i.ibb.co/zm0ZmFW/alexa.jpg",
+    title: "Modern Rimless Eyeglass",
+    image: "https://i.ibb.co/0j1fhXJ/dks02857-65-11-130-2900tk-4.jpg",
     availability: "In stock",
     color: "white",
 
-    slug: "Amazon_Echo_Dot_3rd_Generation6_DKE04461",
+    slug: "Modern_Rimless_Eyeglass_DKE04461",
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
@@ -1663,9 +1691,9 @@ const products = [
     sizeGuide: "Delivery & Return",
     color: "white",
     detailsImage: [
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
-      { image: "https://i.ibb.co/zm0ZmFW/alexa.jpg" },
-      { image: "https://i.ibb.co/YkLym60/mouse.jpg" },
+      { image: "https://i.ibb.co/0j1fhXJ/dks02857-65-11-130-2900tk-4.jpg" },
+      { image: "https://i.ibb.co/8dxMPYG/dks02857-65-11-130-2900tk-5.jpg" },
+      { image: "https://i.ibb.co/Wv9nNkL/dks02857-65-11-130-2900tk-6.jpg" },
     ],
     details: {
       modelNumber: "DKE04466",
