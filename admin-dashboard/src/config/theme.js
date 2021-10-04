@@ -1,7 +1,7 @@
 import { createTheme, responsiveFontSizes } from "@material-ui/core";
 
 // colors
-const primary = "#161F6A";
+const primary = "#273c75";
 const navigationColor = "#fff";
 const iconColor = "#757575";
 const secondary = "#04496e";

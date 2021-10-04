@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    background: "#161F6A",
+    background: "#273c75",
     overflow: "hidden",
   },
   drawerClose: {
@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9) + 1,
     },
-    background: "#161F6A",
+    background: "#273c75",
   },
   toolbar: {
     display: "flex",
