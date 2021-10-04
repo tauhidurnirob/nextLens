@@ -33,214 +33,216 @@ const useStyles = makeStyles((theme) => ({
 const ProductTypes = ({ register, errors }) => {
   const classes = useStyles();
   return (
-    <Accordion>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-      >
-        <Typography className={clsx(classes.heading)}>
-          <Box fontWeight="fontWeightBold">Product Types</Box>
-        </Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Grid container direction="row" spacing={2} justifyContent="center">
-          <Grid item md={4} className={clsx(classes.gridItem)}>
-            <Box mb={2}>
-              <FormControl
-                variant="outlined"
-                className={clsx(classes.formControl)}
-              >
-                <InputLabel id="availability">Availability</InputLabel>
-                <Select
-                  labelId="availability"
-                  id="availability"
-                  label="availability"
-                  inputProps={{ ...register("availability") }}
+    <Box mb={2}>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={clsx(classes.heading)}>
+            <Box fontWeight="fontWeightBold">Product Types</Box>
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Grid container direction="row" spacing={2} justifyContent="center">
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {availability?.map((item, index) => (
-                    <MenuItem key={index} value={item.name}>
-                      {item.name}
+                  <InputLabel id="availability">Availability</InputLabel>
+                  <Select
+                    labelId="availability"
+                    id="availability"
+                    label="availability"
+                    inputProps={{ ...register("availability") }}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              {errors.availability && (
-                <FormHelperText>
-                  <Typography style={{ color: "red" }} variant="subtitle2">
-                    {errors.availability?.message}
-                  </Typography>
-                </FormHelperText>
-              )}
-            </Box>
-          </Grid>
-          <Grid item md={4} className={clsx(classes.gridItem)}>
-            <Box mb={2}>
-              <FormControl
-                variant="outlined"
-                className={clsx(classes.formControl)}
-              >
-                <InputLabel id="type">Type</InputLabel>
+                    {availability?.map((item, index) => (
+                      <MenuItem key={index} value={item.name}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                {errors.availability && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.availability?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
+                >
+                  <InputLabel id="type">Type</InputLabel>
 
-                <Select
-                  inputProps={{ ...register("type") }}
-                  labelId="type"
-                  id="type"
-                  label="Type"
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {types?.map((item, index) => (
-                    <MenuItem key={index} value={item.name}>
-                      {item.name}
+                  <Select
+                    inputProps={{ ...register("type") }}
+                    labelId="type"
+                    id="type"
+                    label="Type"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              {errors.type && (
-                <FormHelperText>
-                  <Typography style={{ color: "red" }} variant="subtitle2">
-                    {errors.type?.message}
-                  </Typography>
-                </FormHelperText>
-              )}
-            </Box>
-          </Grid>
-          <Grid item md={4} className={clsx(classes.gridItem)}>
-            <Box mb={2}>
-              <FormControl
-                variant="outlined"
-                className={clsx(classes.formControl)}
-              >
-                <InputLabel id="category">Category</InputLabel>
-                <Select
-                  inputProps={{ ...register("category") }}
-                  labelId="category"
-                  id="category"
-                  label="Category"
+                    {types?.map((item, index) => (
+                      <MenuItem key={index} value={item.name}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                {errors.type && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.type?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {categories?.map((item, index) => (
-                    <MenuItem key={index} value={item.name}>
-                      {item.name}
+                  <InputLabel id="category">Category</InputLabel>
+                  <Select
+                    inputProps={{ ...register("category") }}
+                    labelId="category"
+                    id="category"
+                    label="Category"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              {errors.category && (
-                <FormHelperText>
-                  <Typography style={{ color: "red" }} variant="subtitle2">
-                    {errors.category?.message}
-                  </Typography>
-                </FormHelperText>
-              )}
-            </Box>
-          </Grid>
-          <Grid item md={4} className={clsx(classes.gridItem)}>
-            <Box mb={2}>
-              <FormControl
-                variant="outlined"
-                className={clsx(classes.formControl)}
-              >
-                <InputLabel id="category">Frame Shape</InputLabel>
-                <Select
-                  inputProps={{ ...register("frameShape") }}
-                  labelId="frameShape"
-                  id="frameShape"
-                  label="frameShape"
+                    {categories?.map((item, index) => (
+                      <MenuItem key={index} value={item.name}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                {errors.category && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.category?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {frameShape?.map((item, index) => (
-                    <MenuItem key={index} value={item.name}>
-                      {item.name}
+                  <InputLabel id="category">Frame Shape</InputLabel>
+                  <Select
+                    inputProps={{ ...register("frameShape") }}
+                    labelId="frameShape"
+                    id="frameShape"
+                    label="frameShape"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              {errors.frameShape && (
-                <FormHelperText>
-                  <Typography style={{ color: "red" }} variant="subtitle2">
-                    {errors.frameShape?.message}
-                  </Typography>
-                </FormHelperText>
-              )}
-            </Box>
-          </Grid>
-          <Grid item md={4} className={clsx(classes.gridItem)}>
-            <Box mb={2}>
-              <FormControl
-                variant="outlined"
-                className={clsx(classes.formControl)}
-              >
-                <InputLabel id="category">Frame Styles</InputLabel>
-                <Select
-                  inputProps={{ ...register("frameStyles") }}
-                  labelId="frameStyles"
-                  id="frameStyles"
-                  label="frameStyles"
+                    {frameShape?.map((item, index) => (
+                      <MenuItem key={index} value={item.name}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                {errors.frameShape && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.frameShape?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {frameStyles?.map((item, index) => (
-                    <MenuItem key={index} value={item.name}>
-                      {item.name}
+                  <InputLabel id="category">Frame Styles</InputLabel>
+                  <Select
+                    inputProps={{ ...register("frameStyles") }}
+                    labelId="frameStyles"
+                    id="frameStyles"
+                    label="frameStyles"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              {errors.frameStyles && (
-                <FormHelperText>
-                  <Typography style={{ color: "red" }} variant="subtitle2">
-                    {errors.frameStyles?.message}
-                  </Typography>
-                </FormHelperText>
-              )}
-            </Box>
-          </Grid>
-          <Grid item md={4} className={clsx(classes.gridItem)}>
-            <Box mb={2}>
-              <FormControl
-                variant="outlined"
-                className={clsx(classes.formControl)}
-              >
-                <InputLabel id="category">Shop Collection</InputLabel>
-                <Select
-                  inputProps={{ ...register("shopCollection") }}
-                  labelId="shopCollection"
-                  id="shopCollection"
-                  label="shopCollection"
+                    {frameStyles?.map((item, index) => (
+                      <MenuItem key={index} value={item.name}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                {errors.frameStyles && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.frameStyles?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
+              </Box>
+            </Grid>
+            <Grid item md={4} className={clsx(classes.gridItem)}>
+              <Box mb={2}>
+                <FormControl
+                  variant="outlined"
+                  className={clsx(classes.formControl)}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {shopCollection?.map((item, index) => (
-                    <MenuItem key={index} value={item.name}>
-                      {item.name}
+                  <InputLabel id="category">Shop Collection</InputLabel>
+                  <Select
+                    inputProps={{ ...register("shopCollection") }}
+                    labelId="shopCollection"
+                    id="shopCollection"
+                    label="shopCollection"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              {errors.shopCollection && (
-                <FormHelperText>
-                  <Typography style={{ color: "red" }} variant="subtitle2">
-                    {errors.shopCollection?.message}
-                  </Typography>
-                </FormHelperText>
-              )}
-            </Box>
+                    {shopCollection?.map((item, index) => (
+                      <MenuItem key={index} value={item.name}>
+                        {item.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                {errors.shopCollection && (
+                  <FormHelperText>
+                    <Typography style={{ color: "red" }} variant="subtitle2">
+                      {errors.shopCollection?.message}
+                    </Typography>
+                  </FormHelperText>
+                )}
+              </Box>
+            </Grid>
           </Grid>
-        </Grid>
-      </AccordionDetails>
-    </Accordion>
+        </AccordionDetails>
+      </Accordion>
+    </Box>
   );
 };
 
