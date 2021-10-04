@@ -6,9 +6,6 @@ import {
   Paper,
   FormControl,
   TextField,
-  InputLabel,
-  Select,
-  MenuItem,
   Grid,
   Button,
   FormHelperText,
@@ -27,6 +24,7 @@ import colors from "../../config/colors";
 import ImageUpload from "./ImageUpload";
 import ModelDetailsForm from "./ModelDetailsForm";
 import productSchema from "./../../schema/productSchema";
+import ProductTypes from "./ProductTypes";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -262,105 +260,8 @@ const AddProductForm = () => {
           {/*  */}
           <ModelDetailsForm register={register} errors={errors} />
           {/*  */}
-          <Grid container direction="row" spacing={2} justifyContent="center">
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  variant="outlined"
-                  className={clsx(classes.formControl)}
-                >
-                  <InputLabel id="availability">Availability</InputLabel>
-                  <Select
-                    labelId="availability"
-                    id="availability"
-                    label="availability"
-                    inputProps={{ ...register("availability") }}
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    {availability?.map((item, index) => (
-                      <MenuItem key={index} value={item.name}>
-                        {item.name}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-                {errors.availability && (
-                  <FormHelperText>
-                    <Typography style={{ color: "red" }} variant="subtitle2">
-                      {errors.availability?.message}
-                    </Typography>
-                  </FormHelperText>
-                )}
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  variant="outlined"
-                  className={clsx(classes.formControl)}
-                >
-                  <InputLabel id="type">Type</InputLabel>
-
-                  <Select
-                    inputProps={{ ...register("type") }}
-                    labelId="type"
-                    id="type"
-                    label="Type"
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    {types?.map((item, index) => (
-                      <MenuItem key={index} value={item.name}>
-                        {item.name}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-                {errors.type && (
-                  <FormHelperText>
-                    <Typography style={{ color: "red" }} variant="subtitle2">
-                      {errors.type?.message}
-                    </Typography>
-                  </FormHelperText>
-                )}
-              </Box>
-            </Grid>
-            <Grid item md={4} className={clsx(classes.gridItem)}>
-              <Box mb={2}>
-                <FormControl
-                  variant="outlined"
-                  className={clsx(classes.formControl)}
-                >
-                  <InputLabel id="category">Category</InputLabel>
-                  <Select
-                    inputProps={{ ...register("category") }}
-                    labelId="category"
-                    id="category"
-                    label="Category"
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    {categories?.map((item, index) => (
-                      <MenuItem key={index} value={item.name}>
-                        {item.name}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-                {errors.category && (
-                  <FormHelperText>
-                    <Typography style={{ color: "red" }} variant="subtitle2">
-                      {errors.category?.message}
-                    </Typography>
-                  </FormHelperText>
-                )}
-              </Box>
-            </Grid>
-          </Grid>
+          <ProductTypes register={register} errors={errors} />
+          {/*  */}
           <Box mt={2}>
             <Grid container justifyContent="center">
               <Button
@@ -380,13 +281,3 @@ const AddProductForm = () => {
 };
 
 export default AddProductForm;
-
-const types = [
-  { name: "Round Frame" },
-  { name: "Rectangle Frame" },
-  { name: "Rim Less Frame" },
-  { name: "Blue Frame" },
-];
-
-const categories = [{ name: "Men's" }, { name: "Women's" }, { name: "Kid's" }];
-const availability = [{ name: "In Stock " }, { name: "Stock Out" }];
