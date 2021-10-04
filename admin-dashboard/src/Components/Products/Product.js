@@ -1,11 +1,15 @@
 import React from "react";
 import { Container, Grid, Box } from "@material-ui/core";
+import { useSelector } from "react-redux";
 import ProductForm from "./ProductForm";
 import products from "../../fakeData/products";
 import { Cards } from "../../Re_components";
+import { adminProductSelector } from "./../../redux/slices/productSlice";
 
 const Product = () => {
   document.title = "Products";
+
+  // const { allProducts } = useSelector(adminProductSelector);
 
   return (
     <Container maxWidth="lg">
