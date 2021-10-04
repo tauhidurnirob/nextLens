@@ -8,7 +8,6 @@ import {
   adminProductSelector,
   allProductAction,
 } from "./../../redux/slices/productSlice";
-import useApi from "../../hooks/useApi";
 import productApi from "../../api/products";
 
 const Product = () => {
@@ -17,7 +16,7 @@ const Product = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const { data, ok } = await productApi.getAllProducts();
+      const { data, ok } = await productApi.getAllProductByLimit(12);
       if (ok) dispatch(allProductAction(data));
     };
     getProducts();

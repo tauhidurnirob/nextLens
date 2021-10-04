@@ -1,6 +1,7 @@
 import client from "./client";
 import endpoint from "./endpoints";
 
-const getAllProducts = () => client.get(endpoint.allProducts);
+const getAllProductByLimit = (limit) =>
+  client.get(endpoint.allProducts + `?limit=${limit}`);
 // eslint-disable-next-line
-export default { getAllProducts };
+export default { getAllProductByLimit };

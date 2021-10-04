@@ -5,9 +5,9 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  Box,
 } from "@material-ui/core";
 import clsx from "clsx";
-import TextTruncate from "react-text-truncate";
 
 const useStyles = makeStyles({
   media: {
@@ -32,6 +32,9 @@ const Cards = ({ items }) => {
       <CardContent>
         <Typography gutterBottom variant="subtitle1">
           {items.title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          <Box fontWeight="fontWeightBold">${items.price}</Box>
         </Typography>
       </CardContent>
     </Card>
