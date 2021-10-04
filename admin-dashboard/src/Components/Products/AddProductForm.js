@@ -162,13 +162,7 @@ const AddProductForm = () => {
               </FormHelperText>
             )}
           </Box>
-          {/*  */}
-          <ImageUpload
-            register={register}
-            errors={errors}
-            uploadFileHandler={uploadFileHandler}
-          />
-          {/*  */}
+
           <Grid
             item
             container
@@ -257,6 +251,13 @@ const AddProductForm = () => {
               </Box>
             </Grid>
           </Grid>
+          {/*  */}
+          <ImageUpload
+            register={register}
+            errors={errors}
+            uploadFileHandler={uploadFileHandler}
+          />
+          {/*  */}
           {/*  */}
           <ModelDetailsForm register={register} errors={errors} />
           {/*  */}
