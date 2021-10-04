@@ -9,13 +9,13 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   media: {
     height: "auto",
     cursor: "pointer",
     width: "100%",
   },
-});
+}));
 
 const Cards = ({ items }) => {
   const classes = useStyles();
