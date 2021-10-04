@@ -257,9 +257,9 @@ const types = [
 ];
 
 const categories = [
-  { name: "Men's" },
-  { name: "Women's" },
-  { name: "Kid's" },
+  { name: "Men" },
+  { name: "Women" },
+  { name: "Kid" },
   { name: "Eyeglasses" },
   { name: "Sunglasses" },
   { name: "Blue Light Block Glass" },

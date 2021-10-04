@@ -130,9 +130,9 @@ export default Product;
 const price = [{ name: "Highest to Lowest" }, { name: "Lowest to Highest" }];
 
 const categories = [
-  { name: "Men's" },
-  { name: "Women's" },
-  { name: "Kid's" },
+  { name: "Men" },
+  { name: "Women" },
+  { name: "Kid" },
   { name: "Eyeglasses" },
   { name: "Sunglasses" },
   { name: "Blue Light Block Glass" },
