@@ -130,10 +130,10 @@ export default Product;
 const price = [{ name: "Highest to Lowest" }, { name: "Lowest to Highest" }];
 
 const categories = [
-  { name: "Frame Only" },
-  { name: "Basic Lens" },
-  { name: "Standard Lens" },
-  { name: "Premium Standard Lens" },
+  { name: "Men's" },
+  { name: "Women's" },
+  { name: "Kid's" },
+  { name: "Eyeglasses" },
+  { name: "Sunglasses" },
   { name: "Blue Light Block Glass" },
-  { name: "Anti Fog Lens" },
 ];
