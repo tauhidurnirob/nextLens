@@ -1,8 +1,8 @@
 import client from "./client";
 import endpoint from "../../config/endpoints";
 
-const getAllProductByLimit = (limit) =>
-  client.get(endpoint.allProducts + `?limit=${limit}`);
+const getAllProductByLimit = (limit, start = 4) =>
+  client.get(endpoint.allProducts + `?limit=${limit}&start=${start}`);
 const getMoreProducts = (start, limit) =>
   client.get(endpoint.allProducts + `?start=${start}&limit=${limit}`);
 const getSearchProduct = (keyword) =>

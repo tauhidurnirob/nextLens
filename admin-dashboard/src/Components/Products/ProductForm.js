@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   makeStyles,
   Box,
@@ -14,8 +14,11 @@ import {
 import clsx from "clsx";
 import AddIcon from "@material-ui/icons/Add";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import colors from "../../config/colors";
+import productApi from "../../api/products";
+import { allProductAction } from "../../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -46,6 +49,38 @@ const useStyles = makeStyles((theme) => ({
 
 const Product = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+
+  useEffect(() => {
+    const getProductBySearch = async () => {
+      if (search || category) {
+        const { data } = await productApi.getSearchProduct(search, category);
+        dispatch(allProductAction(data));
+      }
+    };
+
+    if (!search && !category) {
+      const getProducts = async () => {
+        const { data, ok } = await productApi.getAllProductByLimit(12);
+        if (ok) dispatch(allProductAction(data));
+      };
+      getProducts();
+    }
+
+    getProductBySearch();
+  }, [dispatch, search, category]);
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+  const handlePriceChange = (e) => {
+    console.log(e.target.value);
+  };
 
   return (
     <>
@@ -78,12 +113,17 @@ const Product = () => {
                 className={clsx(classes.formControl)}
               >
                 <InputLabel id="category">Category</InputLabel>
-                <Select labelId="category" id="category" label="Category">
+                <Select
+                  onChange={handleCategoryChange}
+                  labelId="category"
+                  id="category"
+                  label="Category"
+                >
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
                   {categories?.map((item, index) => (
-                    <MenuItem key={index} value={index + 1}>
+                    <MenuItem key={index} value={item.name}>
                       {item.name}
                     </MenuItem>
                   ))}
@@ -96,8 +136,13 @@ const Product = () => {
                 className={clsx(classes.formControl)}
               >
                 <InputLabel id="price">Price</InputLabel>
-                <Select labelId="price" id="price" label="price">
-                  <MenuItem value="">
+                <Select
+                  onChange={handlePriceChange}
+                  labelId="price"
+                  id="price"
+                  label="price"
+                >
+                  <MenuItem value={0}>
                     <em>None</em>
                   </MenuItem>
                   {price?.map((item, index) => (
@@ -115,6 +160,8 @@ const Product = () => {
                   label="Search"
                   variant="outlined"
                   name="search"
+                  value={search}
+                  onChange={handleSearchChange}
                 />
               </FormControl>
             </Grid>
@@ -130,7 +177,7 @@ export default Product;
 const price = [{ name: "Highest to Lowest" }, { name: "Lowest to Highest" }];
 
 const categories = [
-  { name: "Men" },
+  { name: "Man" },
   { name: "Women" },
   { name: "Kid" },
   { name: "Eyeglasses" },

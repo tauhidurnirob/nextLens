@@ -22,16 +22,14 @@ const Product = () => {
     getProducts();
   }, [dispatch]);
 
-  const {
-    allProduct: { products },
-  } = useSelector(adminProductSelector);
+  const { allProduct } = useSelector(adminProductSelector);
 
   return (
     <Container maxWidth="lg">
       <ProductForm />
       <Box mt={4} mb={4}>
         <Grid container direction="row" spacing={4} justifyContent="center">
-          {products?.map((item, index) => (
+          {allProduct?.map((item, index) => (
             <Grid key={index} item container md={3}>
               <Cards items={item} />
             </Grid>

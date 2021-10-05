@@ -98,3 +98,21 @@ export const ShopCollection = (req) => {
       }
     : {};
 };
+
+// Admin
+
+export const AdminQuery = (req) => {
+  req.query.adminKeyword
+    ? {
+        title: { $regex: req.query.adminKeyword, $options: "i" },
+      }
+    : {};
+};
+
+export const AdminCategory = (req) => {
+  req.query.adminKeyword
+    ? {
+        category: { $regex: req.query.adminCategory, $options: "i" },
+      }
+    : {};
+};
