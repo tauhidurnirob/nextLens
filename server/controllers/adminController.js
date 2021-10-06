@@ -23,11 +23,5 @@ export const getAdminProducts = asyncHandler(async (req, res) => {
     .limit(+req.query.limit)
     .skip(+req.query.start);
 
-  const highToLow = await Product.find({})
-    .sort({ price: -1 })
-    .limit(12)
-    .skip(4);
-  const lowToHigh = await Product.find({}).sort({ price: 1 }).limit(12).skip(4);
-
-  res.json({ adminProducts, highToLow, lowToHigh });
+  res.json(adminProducts);
 });

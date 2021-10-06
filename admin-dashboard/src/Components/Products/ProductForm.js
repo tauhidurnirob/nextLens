@@ -57,26 +57,26 @@ const Product = () => {
   const [category, setCategory] = useState("");
 
   const {
-    allProduct: { adminProducts },
+    allProduct
   } = useSelector(adminProductSelector);
 
   useEffect(() => {
     const getProductBySearch = async () => {
       if (search || category) {
         const {
-          data: { adminProducts },
+          data
         } = await productApi.getSearchProduct(search, category);
-        dispatch(allProductAction(adminProducts));
+        dispatch(allProductAction(data));
       }
     };
 
     if (!search && !category) {
       const getProducts = async () => {
         const {
-          data: { adminProducts },
+          data,
           ok,
         } = await productApi.getAllProductByLimit(12);
-        if (ok) dispatch(allProductAction(adminProducts));
+        if (ok) dispatch(allProductAction(data));
       };
       getProducts();
     }
@@ -91,26 +91,20 @@ const Product = () => {
     setCategory(e.target.value);
   };
   const handlePriceChange = (e) => {
-    let product = [...adminProducts];
-
-    // if (e.target.value === 0) {
-    //   product?.sort(() => {
-    //     return 0;
-    //   });
-    //   dispatch(allProductAction(product));
-    // }
+    let product = [...allProduct]
     if (e.target.value === 1) {
       product?.sort((a, b) => {
         return b.price - a.price;
       });
       dispatch(allProductAction(product));
+
     }
     if (e.target.value === 2) {
       product?.sort((a, b) => {
         return a.price - b.price;
       });
       dispatch(allProductAction(product));
-    }
+
   };
 
   return (
