@@ -19,10 +19,6 @@ import {
 // @access public
 
 export const getProducts = asyncHandler(async (req, res) => {
-  // const url = req.url.replace(/%20/g, "");
-  // if (url) {
-  //   return res.redirect(url);
-  // }
   const keyword = Keyword(req);
   const category = Category(req);
   const color = Color(req);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   makeStyles,
   Box,
@@ -14,8 +14,14 @@ import {
 import clsx from "clsx";
 import AddIcon from "@material-ui/icons/Add";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import colors from "../../config/colors";
+import productApi from "../../api/products";
+import {
+  adminProductSelector,
+  allProductAction,
+} from "../../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -46,6 +52,59 @@ const useStyles = makeStyles((theme) => ({
 
 const Product = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
+
+  const { allProduct } = useSelector(adminProductSelector);
+
+  useEffect(() => {
+    const getProductBySearch = async () => {
+      if (search || category) {
+        const { data } = await productApi.getQueryProducts(search, category);
+        dispatch(allProductAction(data));
+      }
+    };
+
+    if (!search && !category) {
+      const getProducts = async () => {
+        const { data, ok } = await productApi.getAllProductByLimit(12);
+        if (ok) dispatch(allProductAction(data));
+      };
+      getProducts();
+    }
+
+    getProductBySearch();
+  }, [dispatch, search, category]);
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+  const handlePriceChange = (e) => {
+    let product = [...allProduct];
+    if (e.target.value === 0) {
+      let shuffled = product
+        .map((products) => ({ products, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ products }) => products);
+      dispatch(allProductAction(shuffled));
+    }
+    if (e.target.value === 1) {
+      product?.sort((a, b) => {
+        return b.price - a.price;
+      });
+      dispatch(allProductAction(product));
+    }
+    if (e.target.value === 2) {
+      product?.sort((a, b) => {
+        return a.price - b.price;
+      });
+      dispatch(allProductAction(product));
+    }
+  };
 
   return (
     <>
@@ -78,12 +137,17 @@ const Product = () => {
                 className={clsx(classes.formControl)}
               >
                 <InputLabel id="category">Category</InputLabel>
-                <Select labelId="category" id="category" label="Category">
+                <Select
+                  onChange={handleCategoryChange}
+                  labelId="category"
+                  id="category"
+                  label="Category"
+                >
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
                   {categories?.map((item, index) => (
-                    <MenuItem key={index} value={index + 1}>
+                    <MenuItem key={index} value={item.name}>
                       {item.name}
                     </MenuItem>
                   ))}
@@ -96,8 +160,13 @@ const Product = () => {
                 className={clsx(classes.formControl)}
               >
                 <InputLabel id="price">Price</InputLabel>
-                <Select labelId="price" id="price" label="price">
-                  <MenuItem value="">
+                <Select
+                  onChange={handlePriceChange}
+                  labelId="price"
+                  id="price"
+                  label="price"
+                >
+                  <MenuItem value={0}>
                     <em>None</em>
                   </MenuItem>
                   {price?.map((item, index) => (
@@ -115,6 +184,8 @@ const Product = () => {
                   label="Search"
                   variant="outlined"
                   name="search"
+                  value={search}
+                  onChange={handleSearchChange}
                 />
               </FormControl>
             </Grid>
@@ -130,10 +201,10 @@ export default Product;
 const price = [{ name: "Highest to Lowest" }, { name: "Lowest to Highest" }];
 
 const categories = [
-  { name: "Frame Only" },
-  { name: "Basic Lens" },
-  { name: "Standard Lens" },
-  { name: "Premium Standard Lens" },
+  { name: "Man" },
+  { name: "Women" },
+  { name: "Kid" },
+  { name: "Eyeglasses" },
+  { name: "Sunglasses" },
   { name: "Blue Light Block Glass" },
-  { name: "Anti Fog Lens" },
 ];

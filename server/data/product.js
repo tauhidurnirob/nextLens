@@ -8,7 +8,7 @@ const products = [
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 89,
     countInStock: 10,
     rating: 4.5,
@@ -53,7 +53,7 @@ const products = [
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 599,
     countInStock: 7,
     rating: 4.0,
@@ -275,7 +275,7 @@ const products = [
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 99,
     countInStock: 10,
     rating: 4.5,
@@ -316,7 +316,7 @@ const products = [
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 699,
     countInStock: 7,
     rating: 4.0,
@@ -515,7 +515,7 @@ const products = [
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 109,
     countInStock: 10,
     rating: 4.5,
@@ -556,7 +556,7 @@ const products = [
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 799,
     countInStock: 7,
     rating: 4.0,
@@ -752,7 +752,7 @@ const products = [
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 119,
     countInStock: 10,
     rating: 4.5,
@@ -792,7 +792,7 @@ const products = [
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 899,
     countInStock: 7,
     rating: 4.0,
@@ -995,7 +995,7 @@ const products = [
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 129,
     countInStock: 10,
     rating: 4.5,
@@ -1035,7 +1035,7 @@ const products = [
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 999,
     countInStock: 7,
     rating: 4.0,
@@ -1228,7 +1228,7 @@ const products = [
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
     brand: "Apple",
-    category: " Men ",
+    category: " Eyeglasses ",
     price: 229,
     countInStock: 10,
     rating: 4.5,
@@ -1268,7 +1268,7 @@ const products = [
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
-    category: " Men ",
+    category: " Sunglasses ",
     price: 1099,
     countInStock: 7,
     rating: 4.0,
@@ -1307,7 +1307,7 @@ const products = [
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
     brand: "Cannon",
     availability: "Stock Out",
-    category: " Women ",
+    category: " Eyeglasses ",
     price: 1429,
     countInStock: 5,
     rating: 3,
@@ -1346,7 +1346,7 @@ const products = [
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
-    category: " Women ",
+    category: " Sunglasses ",
     price: 899,
     countInStock: 11,
     rating: 5,
@@ -1464,7 +1464,7 @@ const products = [
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
     brand: "Apple",
-    category: " Men ",
+    category: " Blue Light Block Glass ",
     price: 329,
     countInStock: 10,
     rating: 4.5,
@@ -1507,7 +1507,7 @@ const products = [
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
-    category: " Men ",
+    category: " Man ",
     price: 1199,
     countInStock: 7,
     rating: 4.0,
@@ -1558,7 +1558,7 @@ const products = [
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
     brand: "Cannon",
     availability: "Stock Out",
-    category: " Women ",
+    category: " Blue Light Block Glass ",
     price: 1529,
     countInStock: 5,
     rating: 3,
@@ -1682,7 +1682,7 @@ const products = [
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
-    category: " Kid ",
+    category: " Eyeglasses ",
     price: 79,
     countInStock: 0,
     rating: 4,
@@ -1723,7 +1723,7 @@ const products = [
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
-    category: " Kid ",
+    category: " Sunglasses ",
     price: 79,
     countInStock: 0,
     rating: 4,
@@ -1763,7 +1763,7 @@ const products = [
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
-    category: " Kid ",
+    category: " Blue Light Block Glass ",
     price: 79,
     countInStock: 0,
     rating: 4,

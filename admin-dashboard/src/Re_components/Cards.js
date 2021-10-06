@@ -5,45 +5,36 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  Box,
 } from "@material-ui/core";
 import clsx from "clsx";
-import TextTruncate from "react-text-truncate";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   media: {
-    height: 250,
+    height: "auto",
     cursor: "pointer",
+    width: "100%",
   },
-});
+}));
 
-const Cards = ({ items, isTruncate, nameLine = 1, descLine = 1 }) => {
+const Cards = ({ items }) => {
   const classes = useStyles();
 
   return (
     <Card>
       <CardMedia
+        component="img"
         className={clsx(classes.media)}
         image={items.image}
-        title={items.name}
+        title={items.title}
+        height="500"
       />
       <CardContent>
-        <Typography gutterBottom variant="h6">
-          {isTruncate ? (
-            <TextTruncate line={nameLine} truncateText="…" text={items.name} />
-          ) : (
-            items.name
-          )}
+        <Typography gutterBottom variant="subtitle1">
+          {items.title}
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {isTruncate ? (
-            <TextTruncate
-              line={descLine}
-              truncateText="…"
-              text={items.description}
-            />
-          ) : (
-            items.description
-          )}
+        <Typography variant="body2" color="text.secondary">
+          <Box fontWeight="fontWeightBold">${items.price}</Box>
         </Typography>
       </CardContent>
     </Card>

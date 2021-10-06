@@ -14,6 +14,7 @@ import contactRoutes from "./routes/contactRoutes.js";
 import shippingRoutes from "./routes/shippingRoutes.js";
 import stripeRoutes from "./routes/stripeRoutes.js";
 import invoiceRoutes from "./routes/invoiceRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 const PORT = process.env.PORT || 5000;
 
@@ -41,6 +42,7 @@ app.use("/api/contact", contactRoutes);
 app.use("/api/shipping", shippingRoutes);
 app.use("/api/config/stripe", stripeRoutes);
 app.use("/api/invoice", invoiceRoutes);
+app.use("/api/admin", adminRoutes);
 
 // middleware
 app.use(notFound);
