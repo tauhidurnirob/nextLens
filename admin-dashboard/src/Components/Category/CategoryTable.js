@@ -12,8 +12,11 @@ import {
   Box,
 } from "@material-ui/core";
 import clsx from "clsx";
+import { useSelector } from "react-redux";
 
-const useStyles = makeStyles({
+import { adminProductSelector } from "../../redux/slices/productSlice";
+
+const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 650,
   },
@@ -24,52 +27,20 @@ const useStyles = makeStyles({
   tableContainer: {
     height: "500px",
   },
-});
-
-function createData(id, image, name, slug, type) {
-  return { id, image, name, slug, type };
-}
-
-const rows = [
-  createData(
-    15,
-    "https://i.ibb.co/zm0ZmFW/alexa.jpg",
-    "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
-  ),
-  createData(
-    15,
-    "https://i.ibb.co/zm0ZmFW/alexa.jpg",
-    "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
-  ),
-  createData(
-    15,
-    "https://i.ibb.co/zm0ZmFW/alexa.jpg",
-    "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
-  ),
-  createData(
-    15,
-    "https://i.ibb.co/zm0ZmFW/alexa.jpg",
-    "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
-  ),
-  createData(
-    15,
-    "https://i.ibb.co/zm0ZmFW/alexa.jpg",
-    "Frozen yoghurt",
-    "meat-and-fish",
-    "bag"
-  ),
-];
+  font: {
+    cursor: "pointer",
+    fontWeight: "bold",
+    "&:hover": {
+      fontWeight: "bold",
+      color: theme.palette.primary.main,
+    },
+  },
+}));
 
 const CategoryTable = () => {
   const classes = useStyles();
+
+  const { allProduct } = useSelector(adminProductSelector);
 
   return (
     <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
@@ -97,32 +68,42 @@ const CategoryTable = () => {
             </TableCell>
             <TableCell align="center">
               <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Slug</Box>
+                <Box fontWeight="fontWeightBold">Category</Box>
               </Typography>
             </TableCell>
             <TableCell align="center">
               <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Type</Box>
+                <Box fontWeight="fontWeightBold">Color</Box>
               </Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {allProduct.map((row) => (
+            <TableRow key={row._id}>
               <TableCell component="th" scope="row">
-                {row.id}
+                <Box fontWeight="fontWeightBold">{row.sku}</Box>
               </TableCell>
               <TableCell align="center">
                 <img
                   src={row.image}
-                  alt={row.name}
+                  alt={row.title}
                   className={clsx(classes.imageList)}
                 />
               </TableCell>
-              <TableCell align="center">{row.name}</TableCell>
-              <TableCell align="center">{row.slug}</TableCell>
-              <TableCell align="center">{row.type}</TableCell>
+              <TableCell align="center" className={clsx(classes.font)}>
+                {row.title}
+              </TableCell>
+              <TableCell align="center">
+                <Box fontWeight="fontWeightBold">
+                  {row?.category.toUpperCase()}
+                </Box>
+              </TableCell>
+              <TableCell align="center">
+                <Box fontWeight="fontWeightBold">
+                  {row?.color ? row?.color.toUpperCase() : "EMPTY"}
+                </Box>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

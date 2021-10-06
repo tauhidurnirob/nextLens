@@ -87,9 +87,9 @@ const Product = () => {
     let product = [...allProduct];
     if (e.target.value === 0) {
       let shuffled = product
-        .map((value) => ({ value, sort: Math.random() }))
+        .map((products) => ({ products, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
-        .map(({ value }) => value);
+        .map(({ products }) => products);
       dispatch(allProductAction(shuffled));
     }
     if (e.target.value === 1) {

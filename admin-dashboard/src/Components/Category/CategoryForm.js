@@ -44,8 +44,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CategoryForm = () => {
+const CategoryForm = ({ searchFunc, categoryFunc }) => {
   const classes = useStyles();
+
+  const handleSearchChange = (e) => {
+    searchFunc(e.target.value);
+  };
+  const handleCategoryChange = (e) => {
+    categoryFunc(e.target.value);
+  };
 
   return (
     <>
@@ -78,12 +85,17 @@ const CategoryForm = () => {
                 className={clsx(classes.formControl)}
               >
                 <InputLabel id="category">Category </InputLabel>
-                <Select labelId="category" id="category" label="Category">
+                <Select
+                  onChange={handleCategoryChange}
+                  labelId="category"
+                  id="category"
+                  label="Category"
+                >
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
                   {categories?.map((item, index) => (
-                    <MenuItem key={index} value={index + 1}>
+                    <MenuItem key={index} value={item.name}>
                       {item.name}
                     </MenuItem>
                   ))}
@@ -97,6 +109,7 @@ const CategoryForm = () => {
                   label="Search"
                   variant="outlined"
                   name="search"
+                  onChange={handleSearchChange}
                 />
               </FormControl>
             </Grid>
@@ -110,10 +123,10 @@ const CategoryForm = () => {
 export default CategoryForm;
 
 const categories = [
-  { name: "Frame Only" },
-  { name: "Basic Lens" },
-  { name: "Standard Lens" },
-  { name: "Premium Standard Lens" },
+  { name: "Man" },
+  { name: "Women" },
+  { name: "Kid" },
+  { name: "Eyeglasses" },
+  { name: "Sunglasses" },
   { name: "Blue Light Block Glass" },
-  { name: "Anti Fog Lens" },
 ];
