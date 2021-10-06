@@ -61,7 +61,7 @@ const Product = () => {
   useEffect(() => {
     const getProductBySearch = async () => {
       if (search || category) {
-        const { data } = await productApi.getSearchProduct(search, category);
+        const { data } = await productApi.getQueryProducts(search, category);
         dispatch(allProductAction(data));
       }
     };

@@ -27,6 +27,6 @@ export default Search;
 
 export async function getServerSideProps({ query }) {
   const { sid } = query;
-  const { data } = await productApi.getSearchProduct(sid);
+  const { data } = await productApi.getQueryProducts(sid);
   return { props: { data } };
 }
