@@ -14,11 +14,14 @@ import {
 import clsx from "clsx";
 import AddIcon from "@material-ui/icons/Add";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import colors from "../../config/colors";
 import productApi from "../../api/products";
-import { allProductAction } from "../../redux/slices/productSlice";
+import {
+  adminProductSelector,
+  allProductAction,
+} from "../../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
   root: { padding: theme.spacing(2) },
@@ -53,18 +56,27 @@ const Product = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
 
+  const {
+    allProduct: { adminProducts },
+  } = useSelector(adminProductSelector);
+
   useEffect(() => {
     const getProductBySearch = async () => {
       if (search || category) {
-        const { data } = await productApi.getSearchProduct(search, category);
-        dispatch(allProductAction(data));
+        const {
+          data: { adminProducts },
+        } = await productApi.getSearchProduct(search, category);
+        dispatch(allProductAction(adminProducts));
       }
     };
 
     if (!search && !category) {
       const getProducts = async () => {
-        const { data, ok } = await productApi.getAllProductByLimit(12);
-        if (ok) dispatch(allProductAction(data));
+        const {
+          data: { adminProducts },
+          ok,
+        } = await productApi.getAllProductByLimit(12);
+        if (ok) dispatch(allProductAction(adminProducts));
       };
       getProducts();
     }
@@ -79,7 +91,26 @@ const Product = () => {
     setCategory(e.target.value);
   };
   const handlePriceChange = (e) => {
-    console.log(e.target.value);
+    let product = [...adminProducts];
+
+    // if (e.target.value === 0) {
+    //   product?.sort(() => {
+    //     return 0;
+    //   });
+    //   dispatch(allProductAction(product));
+    // }
+    if (e.target.value === 1) {
+      product?.sort((a, b) => {
+        return b.price - a.price;
+      });
+      dispatch(allProductAction(product));
+    }
+    if (e.target.value === 2) {
+      product?.sort((a, b) => {
+        return a.price - b.price;
+      });
+      dispatch(allProductAction(product));
+    }
   };
 
   return (

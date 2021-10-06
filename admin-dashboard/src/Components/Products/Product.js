@@ -17,19 +17,22 @@ const Product = () => {
   useEffect(() => {
     const getProducts = async () => {
       const { data, ok } = await productApi.getAllProductByLimit(12);
+      console.log(data);
       if (ok) dispatch(allProductAction(data));
     };
     getProducts();
   }, [dispatch]);
 
-  const { allProduct } = useSelector(adminProductSelector);
+  const {
+    allProduct: { adminProducts },
+  } = useSelector(adminProductSelector);
 
   return (
     <Container maxWidth="lg">
       <ProductForm />
       <Box mt={4} mb={4}>
         <Grid container direction="row" spacing={4} justifyContent="center">
-          {allProduct?.map((item, index) => (
+          {adminProducts?.map((item, index) => (
             <Grid key={index} item container md={3}>
               <Cards items={item} />
             </Grid>
