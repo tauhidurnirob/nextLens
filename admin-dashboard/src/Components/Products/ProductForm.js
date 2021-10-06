@@ -56,26 +56,19 @@ const Product = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
 
-  const {
-    allProduct
-  } = useSelector(adminProductSelector);
+  const { allProduct } = useSelector(adminProductSelector);
 
   useEffect(() => {
     const getProductBySearch = async () => {
       if (search || category) {
-        const {
-          data
-        } = await productApi.getSearchProduct(search, category);
+        const { data } = await productApi.getSearchProduct(search, category);
         dispatch(allProductAction(data));
       }
     };
 
     if (!search && !category) {
       const getProducts = async () => {
-        const {
-          data,
-          ok,
-        } = await productApi.getAllProductByLimit(12);
+        const { data, ok } = await productApi.getAllProductByLimit(12);
         if (ok) dispatch(allProductAction(data));
       };
       getProducts();
@@ -91,20 +84,26 @@ const Product = () => {
     setCategory(e.target.value);
   };
   const handlePriceChange = (e) => {
-    let product = [...allProduct]
+    let product = [...allProduct];
+    if (e.target.value === 0) {
+      let shuffled = product
+        .map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
+      dispatch(allProductAction(shuffled));
+    }
     if (e.target.value === 1) {
       product?.sort((a, b) => {
         return b.price - a.price;
       });
       dispatch(allProductAction(product));
-
     }
     if (e.target.value === 2) {
       product?.sort((a, b) => {
         return a.price - b.price;
       });
       dispatch(allProductAction(product));
-
+    }
   };
 
   return (
