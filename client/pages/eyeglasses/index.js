@@ -17,7 +17,6 @@ import productApi from "../api/products";
 
 const EyeGlasses = ({ data, counts }) => {
   const dispatch = useDispatch();
-  console.log(data)
   dispatch(fetchedProducts(data?.products));
   dispatch(topMaxProduct(data?.topMaxProduct));
   dispatch(countAction(counts?.countProducts));
@@ -26,7 +25,7 @@ const EyeGlasses = ({ data, counts }) => {
       <Container maxWidth={false}>
         <CategoryBar categoryTitle="EYE GLASSES" />
         <CategoryBanner categoryTitle="EYE GLASSES" />
-        <CategoryProducts />
+        <CategoryProducts category="eyeglasses" />
       </Container>
     </Layout>
   );
@@ -35,7 +34,7 @@ const EyeGlasses = ({ data, counts }) => {
 export default EyeGlasses;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getProductByCategory('men', 12);
+  const { data } = await productApi.getProductByCategory("eyeglasses", 12);
   const { data: counts } = await productApi.getProductCount();
 
   return {
