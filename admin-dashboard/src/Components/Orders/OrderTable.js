@@ -13,10 +13,70 @@ import {
   TableRow,
   Typography,
 } from "@material-ui/core";
-
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import clsx from "clsx";
+import moment from "moment";
+
+import { useSelector } from "react-redux";
+import { adminOrderSelector } from "../../redux/slices/orderSlice";
+
+const useStyles = makeStyles(() => ({
+  table: {
+    minWidth: 1024,
+  },
+  tableContainer: {
+    height: "500px",
+  },
+}));
+
+const OrderTable = () => {
+  const classes = useStyles();
+  const { orders } = useSelector(adminOrderSelector);
+
+  return (
+    <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
+      <Table
+        stickyHeader
+        aria-label="sticky table"
+        className={clsx(classes.table)}
+      >
+        <TableHead>
+          <TableRow>
+            <TableCell />
+            <TableCell>
+              <Typography variant="subtitle2">
+                <Box fontWeight="fontWeightBold">ID</Box>
+              </Typography>
+            </TableCell>
+            <TableCell align="center">
+              <Typography variant="subtitle2">
+                <Box fontWeight="fontWeightBold">Delivery Address</Box>
+              </Typography>
+            </TableCell>
+            <TableCell align="center">
+              <Typography variant="subtitle2">
+                <Box fontWeight="fontWeightBold">Payment Method</Box>
+              </Typography>
+            </TableCell>
+            <TableCell align="center">
+              <Typography variant="subtitle2">
+                <Box fontWeight="fontWeightBold">Status</Box>
+              </Typography>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {orders?.map((row) => (
+            <Row key={row._id} row={row} />
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+};
+
+export default OrderTable;
 
 const useRowStyles = makeStyles({
   root: {
@@ -39,30 +99,6 @@ const useRowStyles = makeStyles({
 
   isPending: { color: "#2067FA", fontWeight: "bold" },
 });
-
-function createData(id, deliveryAddress, paymentMethod, status) {
-  return {
-    id,
-    deliveryAddress,
-    paymentMethod,
-    status,
-    history: [
-      {
-        date: "2020-01-05",
-        customerId: "11091700",
-        contact: "715-371-3507",
-        price: 399,
-      },
-      {
-        date: "2020-01-02",
-        customerId: "11091700",
-        contact: "715-371-3507",
-        price: 399,
-      },
-    ],
-  };
-}
-
 const Row = ({ row }) => {
   const [open, setOpen] = useState(false);
   const classes = useRowStyles();
@@ -80,7 +116,7 @@ const Row = ({ row }) => {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {row.id}
+          {row.order_id}
         </TableCell>
         <TableCell align="center">{row.deliveryAddress}</TableCell>
         <TableCell align="center">{row.paymentMethod}</TableCell>
@@ -116,7 +152,7 @@ const Row = ({ row }) => {
                   {row.history.map((historyRow) => (
                     <TableRow key={historyRow.date}>
                       <TableCell component="th" scope="row">
-                        {historyRow.date}
+                        {moment(historyRow.date).format("YYYY-MM-DD")}
                       </TableCell>
                       <TableCell>{historyRow.customerId}</TableCell>
                       <TableCell align="center">{historyRow.contact}</TableCell>
@@ -132,104 +168,3 @@ const Row = ({ row }) => {
     </>
   );
 };
-
-const rows = [
-  createData(
-    14,
-    "29 Eve Street, 543 Evenue Road, Ny 87876",
-    "Cash On Delivery",
-    "Failed"
-  ),
-  createData(
-    14,
-    "29 Eve Street, 543 Evenue Road, Ny 87876",
-    "Cash On Delivery",
-    "Processing"
-  ),
-  createData(
-    14,
-    "29 Eve Street, 543 Evenue Road, Ny 87876",
-    "Cash On Delivery",
-    "Pending"
-  ),
-  createData(
-    14,
-    "29 Eve Street, 543 Evenue Road, Ny 87876",
-    "Cash On Delivery",
-    "Delivered"
-  ),
-  createData(
-    14,
-    "29 Eve Street, 543 Evenue Road, Ny 87876",
-    "Cash On Delivery",
-    "Processing"
-  ),
-  createData(
-    14,
-    "29 Eve Street, 543 Evenue Road, Ny 87876",
-    "Cash On Delivery",
-    "Processing"
-  ),
-  createData(
-    14,
-    "29 Eve Street, 543 Evenue Road, Ny 87876",
-    "Cash On Delivery",
-    "Processing"
-  ),
-];
-
-const useStyles = makeStyles(() => ({
-  table: {
-    minWidth: 1024,
-  },
-  tableContainer: {
-    height: "500px",
-  },
-}));
-
-const OrderTable = () => {
-  const classes = useStyles();
-
-  return (
-    <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
-      <Table
-        stickyHeader
-        aria-label="sticky table"
-        className={clsx(classes.table)}
-      >
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell>
-              <Typography variant="subtitle2">
-                <Box fontWeight="fontWeightBold">ID</Box>
-              </Typography>
-            </TableCell>
-            <TableCell align="center">
-              <Typography variant="subtitle2">
-                <Box fontWeight="fontWeightBold">Delivery Address</Box>
-              </Typography>
-            </TableCell>
-            <TableCell align="center">
-              <Typography variant="subtitle2">
-                <Box fontWeight="fontWeightBold">Payment Method</Box>
-              </Typography>
-            </TableCell>
-            <TableCell align="center">
-              <Typography variant="subtitle2">
-                <Box fontWeight="fontWeightBold">Status</Box>
-              </Typography>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <Row key={row.id} row={row} />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
-};
-
-export default OrderTable;
