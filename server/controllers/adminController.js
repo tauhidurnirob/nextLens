@@ -46,8 +46,7 @@ export const getAdminOrder = asyncHandler(async (req, res) => {
 
   const orderProducts = await Order.find({ ...status })
     .where({ ...payment })
-    .limit(+req.query.limit)
-    .skip(+req.query.start);
+    .limit(+req.query.orderLimit);
 
   res.json(orderProducts);
 });

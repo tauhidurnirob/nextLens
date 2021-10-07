@@ -13,31 +13,37 @@ const Orders = () => {
 
   const [status, setStatus] = useState("");
   const [payment, setPayment] = useState("");
+  const [orderLimit, setOrderLimit] = useState("");
 
   useEffect(() => {
     const getProductBySearch = async () => {
-      if (status || payment) {
-        const { data } = await orderApi.getQueryOrderProducts(status, payment);
+      if (status || payment || orderLimit) {
+        const { data } = await orderApi.getQueryOrderProducts(
+          status,
+          payment,
+          orderLimit
+        );
         dispatch(orderAction(data));
       }
     };
 
-    if (!status && !payment) {
+    if (!status && !payment && !orderLimit) {
       const getAdminProducts = async () => {
-        const { data, ok } = await orderApi.getAllOrdersByLimits(12);
+        const { data, ok } = await orderApi.getAllAdminProduct();
         if (ok) dispatch(orderAction(data));
       };
       getAdminProducts();
     }
 
     getProductBySearch();
-  }, [dispatch, status, payment]);
+  }, [dispatch, status, payment, orderLimit]);
 
   return (
     <Container maxWidth="lg">
       <OrderForm
         statusFunc={(value) => setStatus(value)}
         paymentFunc={(value) => setPayment(value)}
+        orderLimitFunc={(value) => setOrderLimit(value)}
       />
       <Box mt={4} mb={4}>
         <OrderTable />

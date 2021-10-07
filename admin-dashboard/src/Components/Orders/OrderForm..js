@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const OrderForm = ({ statusFunc, paymentFunc }) => {
+const OrderForm = ({ statusFunc, paymentFunc, orderLimitFunc }) => {
   const classes = useStyles();
 
   const handleStatusChange = (e) => {
@@ -29,6 +29,20 @@ const OrderForm = ({ statusFunc, paymentFunc }) => {
   };
   const handlePaymentChange = (e) => {
     paymentFunc(e.target.value);
+  };
+  const handleOrderLimitChange = (e) => {
+    if (e.target.value === "") {
+      orderLimitFunc("");
+    }
+    if (e.target.value === "Last 7 Orders") {
+      orderLimitFunc(7);
+    }
+    if (e.target.value === "Last 15 Orders") {
+      orderLimitFunc(15);
+    }
+    if (e.target.value === "Last 30 Orders") {
+      orderLimitFunc(30);
+    }
   };
 
   return (
@@ -97,12 +111,13 @@ const OrderForm = ({ statusFunc, paymentFunc }) => {
                 labelId="order-limits"
                 id="order-limits"
                 label="order-limits"
+                onChange={handleOrderLimitChange}
               >
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
                 {orders?.map((item, index) => (
-                  <MenuItem key={index} value={index + 1}>
+                  <MenuItem key={index} value={item.name}>
                     {item.name}
                   </MenuItem>
                 ))}
