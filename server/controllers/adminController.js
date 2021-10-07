@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
-import { AdminQuery, AdminCategory } from "../utils/queries.js";
+import Order from "../models/orderModel.js";
 
 // @Description Fetch all products
 // @routes GET/api/admin/products
@@ -24,4 +24,13 @@ export const getAdminProducts = asyncHandler(async (req, res) => {
     .skip(+req.query.start);
 
   res.json(adminProducts);
+});
+
+// @Description Fetch all products
+// @routes GET/api/admin/order
+// @access private
+
+export const getAdminOrder = asyncHandler(async (req, res) => {
+  const orderProducts = await Order.find({});
+  res.json(orderProducts);
 });
