@@ -1,7 +1,7 @@
 import client from "./client";
 import endpoint from "../../config/endpoints";
 
-const getAllProductByLimit = (limit, start = 4) =>
+const getAllProductByLimit = (limit, start) =>
   client.get(endpoint.allProducts + `?limit=${limit}&start=${start}`);
 const getMoreProducts = (start, limit) =>
   client.get(endpoint.allProducts + `?start=${start}&limit=${limit}`);
@@ -11,7 +11,9 @@ const getProductById = (id) => client.get(endpoint.productById + `/${id}`);
 const getProductByCategory = (category, limit) =>
   client.get(endpoint.allProducts + `?category=${category}&limit=${limit}`);
 const getMoreProductByCategory = (category, start, limit) =>
-  client.get(endpoint.allProducts + `?category=${category}&start=${start}&limit=${limit}`);
+  client.get(
+    endpoint.allProducts + `?category=${category}&start=${start}&limit=${limit}`
+  );
 const getProductsPriceRange = (lowPrice, highPrice) =>
   client.get(
     endpoint.allProducts + `?lowPrice=${lowPrice}&highPrice=${highPrice}`

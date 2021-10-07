@@ -64,7 +64,7 @@ export const getCountProducts = asyncHandler(async (req, res) => {
     color: "white",
   });
   const men = await Product.countDocuments({
-    category: "men",
+    category: "man",
   });
   const women = await Product.countDocuments({
     category: "women",

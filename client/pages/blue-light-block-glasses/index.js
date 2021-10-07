@@ -26,7 +26,7 @@ const BlueLightBlockGlass = ({ data, counts }) => {
       <Container maxWidth={false}>
         <CategoryBar categoryTitle="Blue Light Block Glasses" />
         <CategoryBanner categoryTitle="Blue Light Block Glasses" />
-        <CategoryProducts />
+        <CategoryProducts category="blue light block glass" />
       </Container>
     </Layout>
   );
@@ -35,7 +35,10 @@ const BlueLightBlockGlass = ({ data, counts }) => {
 export default BlueLightBlockGlass;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getAllProductByLimit(12);
+  const { data } = await productApi.getProductByCategory(
+    "blue light block glass",
+    12
+  );
   const { data: counts } = await productApi.getProductCount();
 
   return {

@@ -31,12 +31,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CategoryEyeGlassProducts = () => {
+const CategoryEyeGlassProducts = ({ category }) => {
   const classes = useStyles();
   const { products, topProduct, queries } = useSelector(productSelector);
 
   const dispatch = useDispatch();
 
+  const [hasMore, setHasMore] = useState(true);
   const { price } = Object.assign({}, ...topProduct);
 
   const [range, setRange] = useState([0, price]);
@@ -80,7 +81,7 @@ const CategoryEyeGlassProducts = () => {
         const { data } = await productApi.getAllQueries(
           queries?.black ? "black" : "",
           queries?.white ? "white" : "",
-          queries?.men ? "men" : "",
+          queries?.men ? "man" : "",
           queries?.women ? "women" : "",
           queries?.kid ? "kid" : "",
           queries?.frameOnly ? "frame" : "",
@@ -101,6 +102,7 @@ const CategoryEyeGlassProducts = () => {
           queries?.shopPremium ? "premium" : ""
         );
         dispatch(fetchedProducts(data?.products));
+        setHasMore(false);
       }
 
       if (
@@ -126,18 +128,20 @@ const CategoryEyeGlassProducts = () => {
         !queries?.shopEconomy &&
         !queries?.shopPremium
       ) {
-        const { data } = await productApi.getProductByCategory();
+        const { data } = await productApi.getProductByCategory(category, 12);
         dispatch(setProducts(data?.products));
+        setHasMore(true);
       }
     };
     getAllQueryProduct();
   }, [queries]);
 
-  const [hasMore, setHasMore] = useState(true);
-
   const getMoreProduct = async () => {
-    const { data } = await productApi.getMoreProductByCategory('men', products.length, 12);
-    console.log(data)
+    const { data } = await productApi.getMoreProductByCategory(
+      category,
+      products.length,
+      12
+    );
     dispatch(setProducts(data.products));
     if (data.products?.length === 0) {
       setHasMore(false);
@@ -158,10 +162,10 @@ const CategoryEyeGlassProducts = () => {
         </Grid>
         {products.length !== 0 ? (
           // <Grid
-          // direction="row"
-          // container
-          // md={8}
-          // className={clsx({ [classes.product]: products?.length <= 9 })}
+          //   direction="row"
+          //   container
+          //   md={8}
+          //   className={clsx({ [classes.product]: products?.length <= 9 })}
           // >
           //   {products?.map((item) => (
           //     <Grid item key={item.id} container md={4}>
@@ -169,29 +173,26 @@ const CategoryEyeGlassProducts = () => {
           //     </Grid>
           //   ))}
           // </Grid>
-
           <Grid
-          direction="row"
-          container
-          md={8}
-          className={clsx({ [classes.product]: products?.length <= 9 })}
+            direction="row"
+            container
+            md={8}
+            className={clsx({ [classes.product]: products?.length <= 9 })}
           >
-          <Scroll
-          pLength = {products.length}
-          getMoreProduct = {getMoreProduct}
-          hasMore = {hasMore}
-          scrollView={
-          <Grid container direction="row">
-            {
-              products?.map((item) => (
-                <Grid item key={item.id} container md={4}>
-                  <Cards item={item} isProduct width={400} height={400} />
+            <Scroll
+              pLength={products.length}
+              getMoreProduct={getMoreProduct}
+              hasMore={hasMore}
+              scrollView={
+                <Grid container direction="row">
+                  {products?.map((item) => (
+                    <Grid item key={item.id} container md={4}>
+                      <Cards item={item} isProduct width={400} height={400} />
+                    </Grid>
+                  ))}
                 </Grid>
-              ))
-            }
-          </Grid>
-          }
-          />
+              }
+            />
           </Grid>
         ) : (
           <Grid

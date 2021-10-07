@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 
 import { allProductAction } from "../../redux/slices/productSlice";
 import productApi from "../../api/products";
+
 const Category = () => {
   document.title = "Category";
   const dispatch = useDispatch();

@@ -26,7 +26,7 @@ const Sunglasses = ({ data, counts }) => {
       <Container maxWidth={false}>
         <CategoryBar categoryTitle="SUN GLASSES" />
         <CategoryBanner categoryTitle="SUN GLASSES" />
-        <CategoryProducts />
+        <CategoryProducts category="sunglass" />
       </Container>
     </Layout>
   );
@@ -35,7 +35,7 @@ const Sunglasses = ({ data, counts }) => {
 export default Sunglasses;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getAllProductByLimit(12);
+  const { data } = await productApi.getProductByCategory("sunglass", 12);
   const { data: counts } = await productApi.getProductCount();
 
   return {

@@ -1268,7 +1268,7 @@ const products = [
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
-    category: " Sunglasses ",
+    category: " sunglass ",
     price: 1099,
     countInStock: 7,
     rating: 4.0,
@@ -1346,7 +1346,7 @@ const products = [
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
-    category: " Sunglasses ",
+    category: " sunglass ",
     price: 899,
     countInStock: 11,
     rating: 5,
@@ -1723,7 +1723,7 @@ const products = [
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
-    category: " Sunglasses ",
+    category: " sunglass ",
     price: 79,
     countInStock: 0,
     rating: 4,

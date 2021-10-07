@@ -3,7 +3,6 @@ import {
   makeStyles,
   Paper,
   FormControl,
-  TextField,
   InputLabel,
   Select,
   MenuItem,
@@ -22,8 +21,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const OrderForm = () => {
+const OrderForm = ({ statusFunc, paymentFunc, orderLimitFunc }) => {
   const classes = useStyles();
+
+  const handleStatusChange = (e) => {
+    statusFunc(e.target.value);
+  };
+  const handlePaymentChange = (e) => {
+    paymentFunc(e.target.value);
+  };
+  const handleOrderLimitChange = (e) => {
+    if (e.target.value === "") {
+      orderLimitFunc("");
+    }
+    if (e.target.value === "Last 7 Orders") {
+      orderLimitFunc(7);
+    }
+    if (e.target.value === "Last 15 Orders") {
+      orderLimitFunc(15);
+    }
+    if (e.target.value === "Last 30 Orders") {
+      orderLimitFunc(30);
+    }
+  };
 
   return (
     <Paper className={clsx(classes.root)}>
@@ -41,12 +61,40 @@ const OrderForm = () => {
               className={clsx(classes.formControl)}
             >
               <InputLabel id="status">Status</InputLabel>
-              <Select labelId="status" id="status" label="status">
+              <Select
+                onChange={handleStatusChange}
+                labelId="status"
+                id="status"
+                label="status"
+              >
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
                 {status?.map((item, index) => (
-                  <MenuItem key={index} value={index + 1}>
+                  <MenuItem key={index} value={item.name}>
+                    {item.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item md={4} className={clsx(classes.gridItem)}>
+            <FormControl
+              variant="outlined"
+              className={clsx(classes.formControl)}
+            >
+              <InputLabel id="payment-limits">Payment Method</InputLabel>
+              <Select
+                labelId="payment-limits"
+                id="payment-limits"
+                label="payment-limits"
+                onChange={handlePaymentChange}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                {payMethod?.map((item, index) => (
+                  <MenuItem key={index} value={item.name}>
                     {item.name}
                   </MenuItem>
                 ))}
@@ -63,26 +111,17 @@ const OrderForm = () => {
                 labelId="order-limits"
                 id="order-limits"
                 label="order-limits"
+                onChange={handleOrderLimitChange}
               >
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
                 {orders?.map((item, index) => (
-                  <MenuItem key={index} value={index + 1}>
+                  <MenuItem key={index} value={item.name}>
                     {item.name}
                   </MenuItem>
                 ))}
               </Select>
-            </FormControl>
-          </Grid>
-          <Grid item md={4} className={clsx(classes.gridItem)}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-search"
-                label="Search"
-                variant="outlined"
-                name="search"
-              />
             </FormControl>
           </Grid>
         </Grid>
@@ -97,6 +136,11 @@ const orders = [
   { name: "Last 7 Orders" },
   { name: "Last 15 Orders" },
   { name: "Last 30 Orders" },
+];
+const payMethod = [
+  { name: "PayPal" },
+  { name: "Stripe" },
+  { name: "Cash On Delivery" },
 ];
 
 const status = [
