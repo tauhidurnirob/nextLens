@@ -8,8 +8,10 @@ const getMoreProducts = (start, limit) =>
 const getSearchProduct = (keyword) =>
   client.get(endpoint.allProducts + `?keyword=${keyword}`);
 const getProductById = (id) => client.get(endpoint.productById + `/${id}`);
-const getProductByCategory = (category) =>
-  client.get(endpoint.allProducts + `?category=${category}`);
+const getProductByCategory = (category, limit) =>
+  client.get(endpoint.allProducts + `?category=${category}&limit=${limit}`);
+const getMoreProductByCategory = (category, start, limit) =>
+  client.get(endpoint.allProducts + `?category=${category}&start=${start}&limit=${limit}`);
 const getProductsPriceRange = (lowPrice, highPrice) =>
   client.get(
     endpoint.allProducts + `?lowPrice=${lowPrice}&highPrice=${highPrice}`
@@ -62,4 +64,5 @@ export default {
   getProductCount,
   getProductsByGender,
   getAllQueries,
+  getMoreProductByCategory,
 };

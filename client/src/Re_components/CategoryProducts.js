@@ -126,12 +126,23 @@ const CategoryEyeGlassProducts = () => {
         !queries?.shopEconomy &&
         !queries?.shopPremium
       ) {
-        const { data } = await productApi.getAllProductByLimit(12);
+        const { data } = await productApi.getProductByCategory();
         dispatch(setProducts(data?.products));
       }
     };
     getAllQueryProduct();
   }, [queries]);
+
+  const [hasMore, setHasMore] = useState(true);
+
+  const getMoreProduct = async () => {
+    const { data } = await productApi.getMoreProductByCategory('men', products.length, 12);
+    console.log(data)
+    dispatch(setProducts(data.products));
+    if (data.products?.length === 0) {
+      setHasMore(false);
+    }
+  };
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
@@ -146,17 +157,41 @@ const CategoryEyeGlassProducts = () => {
           <FilterByShopCollection />
         </Grid>
         {products.length !== 0 ? (
+          // <Grid
+          // direction="row"
+          // container
+          // md={8}
+          // className={clsx({ [classes.product]: products?.length <= 9 })}
+          // >
+          //   {products?.map((item) => (
+          //     <Grid item key={item.id} container md={4}>
+          //       <Cards item={item} isProduct width={400} height={400} />
+          //     </Grid>
+          //   ))}
+          // </Grid>
+
           <Grid
-            direction="row"
-            container
-            md={8}
-            className={clsx({ [classes.product]: products?.length <= 9 })}
+          direction="row"
+          container
+          md={8}
+          className={clsx({ [classes.product]: products?.length <= 9 })}
           >
-            {products?.map((item) => (
-              <Grid item key={item.id} container md={4}>
-                <Cards item={item} isProduct width={400} height={400} />
-              </Grid>
-            ))}
+          <Scroll
+          pLength = {products.length}
+          getMoreProduct = {getMoreProduct}
+          hasMore = {hasMore}
+          scrollView={
+          <Grid container direction="row">
+            {
+              products?.map((item) => (
+                <Grid item key={item.id} container md={4}>
+                  <Cards item={item} isProduct width={400} height={400} />
+                </Grid>
+              ))
+            }
+          </Grid>
+          }
+          />
           </Grid>
         ) : (
           <Grid
