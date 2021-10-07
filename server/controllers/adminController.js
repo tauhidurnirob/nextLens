@@ -31,6 +31,23 @@ export const getAdminProducts = asyncHandler(async (req, res) => {
 // @access private
 
 export const getAdminOrder = asyncHandler(async (req, res) => {
-  const orderProducts = await Order.find({});
+  console.log(req.query);
+  const status = req.query.status
+    ? {
+        status: [req.query.status],
+      }
+    : {};
+
+  const payment = req.query.payment
+    ? {
+        paymentMethod: [req.query.payment],
+      }
+    : {};
+
+  const orderProducts = await Order.find({ ...status })
+    .where({ ...payment })
+    .limit(+req.query.limit)
+    .skip(+req.query.start);
+
   res.json(orderProducts);
 });
