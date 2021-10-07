@@ -56,7 +56,7 @@ const OrderTable = () => {
             </TableCell>
             <TableCell align="center">
               <Typography variant="subtitle2">
-                <Box fontWeight="fontWeightBold">Payment Method</Box>
+                <Box fontWeight="fontWeightBold">Payment</Box>
               </Typography>
             </TableCell>
             <TableCell align="center">
@@ -67,8 +67,8 @@ const OrderTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {orders?.map((row) => (
-            <Row key={row._id} row={row} />
+          {orders?.map((item) => (
+            <Row key={item._id} item={item} />
           ))}
         </TableBody>
       </Table>
@@ -99,7 +99,7 @@ const useRowStyles = makeStyles({
 
   isPending: { color: "#2067FA", fontWeight: "bold" },
 });
-const Row = ({ row }) => {
+const Row = ({ item }) => {
   const [open, setOpen] = useState(false);
   const classes = useRowStyles();
 
@@ -116,20 +116,20 @@ const Row = ({ row }) => {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {row.order_id}
+          {item.order_id}
         </TableCell>
-        <TableCell align="center">{row.deliveryAddress}</TableCell>
-        <TableCell align="center">{row.paymentMethod}</TableCell>
+        <TableCell align="center">{item.deliveryAddress}</TableCell>
+        <TableCell align="center">{item.paymentMethod}</TableCell>
         <TableCell
           align="center"
           className={clsx({
-            [classes.isDelver]: row.status === "Delivered",
-            [classes.isProcessing]: row.status === "Processing",
-            [classes.isPending]: row.status === "Pending",
-            [classes.isFailed]: row.status === "Failed",
+            [classes.isDelver]: item.status === "Delivered",
+            [classes.isProcessing]: item.status === "Processing",
+            [classes.isPending]: item.status === "Pending",
+            [classes.isFailed]: item.status === "Failed",
           })}
         >
-          {row.status}
+          {item.status}
         </TableCell>
       </TableRow>
       <TableRow>
@@ -149,14 +149,16 @@ const Row = ({ row }) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
+                  {item.history.map((historyItem) => (
+                    <TableRow key={historyItem.date}>
                       <TableCell component="th" scope="row">
-                        {moment(historyRow.date).format("YYYY-MM-DD")}
+                        {moment(historyItem.date).format("YYYY-MM-DD")}
                       </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="center">{historyRow.contact}</TableCell>
-                      <TableCell align="center">${historyRow.price}</TableCell>
+                      <TableCell>{historyItem.customerId}</TableCell>
+                      <TableCell align="center">
+                        {historyItem.contact}
+                      </TableCell>
+                      <TableCell align="center">${historyItem.price}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

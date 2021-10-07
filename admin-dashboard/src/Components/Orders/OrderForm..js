@@ -3,7 +3,6 @@ import {
   makeStyles,
   Paper,
   FormControl,
-  TextField,
   InputLabel,
   Select,
   MenuItem,
@@ -58,6 +57,28 @@ const OrderForm = () => {
               variant="outlined"
               className={clsx(classes.formControl)}
             >
+              <InputLabel id="order-limits">Payment Method</InputLabel>
+              <Select
+                labelId="order-limits"
+                id="order-limits"
+                label="order-limits"
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                {payMethod?.map((item, index) => (
+                  <MenuItem key={index} value={index + 1}>
+                    {item.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item md={4} className={clsx(classes.gridItem)}>
+            <FormControl
+              variant="outlined"
+              className={clsx(classes.formControl)}
+            >
               <InputLabel id="order-limits">Order Limits</InputLabel>
               <Select
                 labelId="order-limits"
@@ -75,16 +96,6 @@ const OrderForm = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item md={4} className={clsx(classes.gridItem)}>
-            <FormControl className={clsx(classes.formControl)}>
-              <TextField
-                id="outlined-search"
-                label="Search"
-                variant="outlined"
-                name="search"
-              />
-            </FormControl>
-          </Grid>
         </Grid>
       </form>
     </Paper>
@@ -97,6 +108,11 @@ const orders = [
   { name: "Last 7 Orders" },
   { name: "Last 15 Orders" },
   { name: "Last 30 Orders" },
+];
+const payMethod = [
+  { name: "PayPal" },
+  { name: "Stripe" },
+  { name: "Cash On Delivery" },
 ];
 
 const status = [
