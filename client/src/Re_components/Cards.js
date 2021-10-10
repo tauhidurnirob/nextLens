@@ -10,13 +10,14 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import Image from "next/image";
-import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import Link from "next/link";
+import Rating from "@material-ui/lab/Rating";
 
 import styles from "../../styles/imageHover.module.scss";
 import colors from "../../config/colors";
 import { ShouldBeCapital } from "../../utils/utils";
 import AddToCartButton from "./AddToCartButton";
+import RatingComponent from "../Components/RatingComponent";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -163,12 +164,19 @@ const Cards = ({
       {isProduct && (
         <>
           <Grid container direction="column">
-            <Typography className={clsx(classes.font)}>
+            <Typography className={clsx(classes.font)} gutterBottom>
               {ShouldBeCapital(item?.title)}
             </Typography>
-            <Typography>
-              <Box fontWeight={500}>${item?.price}</Box>
-            </Typography>
+            <Grid container justifyContent="space-between" alignItems="center">
+              <Typography gutterBottom>
+                <Box fontWeight={500}>${item?.price}</Box>
+              </Typography>
+              <Typography>
+                <Box fontWeight={500}>
+                  <Rating name="simple-controlled" value={item?.rating} />
+                </Box>
+              </Typography>
+            </Grid>
           </Grid>
         </>
       )}
