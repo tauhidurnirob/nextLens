@@ -13,18 +13,24 @@ const Category = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getProductBySearch = async () => {
       if (search || category) {
+        setLoading(true);
         const { data } = await productApi.getQueryProducts(search, category);
+        setLoading(false);
+
         dispatch(allProductAction(data));
       }
     };
 
     if (!search && !category) {
       const getProducts = async () => {
+        setLoading(true);
         const { data, ok } = await productApi.getAllProductByLimit(12);
+        setLoading(false);
         if (ok) dispatch(allProductAction(data));
       };
       getProducts();
@@ -40,7 +46,7 @@ const Category = () => {
         categoryFunc={(value) => setCategory(value)}
       />
       <Box mt={4} mb={4}>
-        <CategoryTable />
+        <CategoryTable loading={loading} />
       </Box>
     </Container>
   );

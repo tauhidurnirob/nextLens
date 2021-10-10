@@ -31,7 +31,6 @@ export const getAdminProducts = asyncHandler(async (req, res) => {
 // @access private
 
 export const getAdminOrder = asyncHandler(async (req, res) => {
-  console.log(req.query);
   const status = req.query.status
     ? {
         status: [req.query.status],
