@@ -75,7 +75,7 @@ const RatingComponent = () => {
           <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>
         )}
       </Box>
-      <Grid container direction="row">
+      <Grid container direction="column">
         <FormControl>
           <TextField
             id="outlined-Comment"
