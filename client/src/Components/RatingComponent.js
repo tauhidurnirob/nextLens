@@ -76,16 +76,10 @@ const RatingComponent = () => {
         )}
       </Box>
       <Grid container direction="column">
-        <FormControl className={clsx(classes.form)} variant="filled">
-          <TextField id="outlined-Name" label="Name" variant="outlined" />
-        </FormControl>
-        <FormControl className={clsx(classes.form)} variant="filled">
-          <TextField id="outlined-Email" label="Email" variant="outlined" />
-        </FormControl>
         <FormControl>
           <TextField
-            id="outlined-Description"
-            label="Description"
+            id="outlined-Comment"
+            label="Comment"
             variant="outlined"
             multiline
             minRows={4}
