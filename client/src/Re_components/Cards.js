@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "20px 10px",
     position: "relative",
     overflow: "hidden",
+    boxShadow: "3px 3px 15px #cecece",
   },
   productAddToCart: {
     position: "absolute",
@@ -163,7 +164,7 @@ const Cards = ({
       )}
       {isProduct && (
         <>
-          <Grid container direction="column">
+          <Grid container direction="column" style={{ padding: "10px" }}>
             <Typography className={clsx(classes.font)} gutterBottom>
               {ShouldBeCapital(item?.title)}
             </Typography>
