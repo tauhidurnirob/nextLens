@@ -228,6 +228,7 @@ export const createProduct = asyncHandler(async (req, res) => {
 
 export const createProductReview = asyncHandler(async (req, res) => {
   const { rating, comment } = req.body;
+  console.log(req.body);
   const product = await Product.findById(req.params.id);
   if (product) {
     const alreadyReviewed = product.reviews.find(
@@ -241,8 +242,8 @@ export const createProductReview = asyncHandler(async (req, res) => {
     const review = {
       name: req.user.name,
       email: req.user.email,
-      rating: +rating,
-      comment,
+      rating: 4,
+      comment: "Good Product",
       user: req.user._id,
     };
     product.reviews.push(review);

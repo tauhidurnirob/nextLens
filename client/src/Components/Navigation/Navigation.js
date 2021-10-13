@@ -123,7 +123,7 @@ const Navigation = () => {
                     <SearchIcon style={{ color: "black" }} />
                   </Box>
 
-                  {!userInfo.token ? (
+                  {!userInfo?.token ? (
                     <Link href="/login">
                       <Box mr={2}>
                         <AccountCircleOutlinedIcon style={{ color: "black" }} />

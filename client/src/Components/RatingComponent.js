@@ -9,8 +9,17 @@ import {
 } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import clsx from "clsx";
+import { useSelector } from "react-redux";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 import colors from "../../config/colors";
+import { authSelector } from "../redux/slices/authSlice";
+import { productSelector } from "../redux/slices/productSlice";
+import productApi from "../../pages/api/products";
 
 const labels = {
   0.5: "Useless",
@@ -55,41 +64,82 @@ const useStyles = makeStyles({
 const RatingComponent = () => {
   const [value, setValue] = useState(2);
   const [hover, setHover] = useState(-1);
+  const { userInfo } = useSelector(authSelector);
+  const { products } = useSelector(productSelector);
+  const {
+    query: { id },
+  } = useRouter();
+
+  const addingReviewProduct = products.find(
+    (item) => item.slug.trim() === id.trim()
+  );
+  console.log(addingReviewProduct);
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = async (data) => {
+    const values = {
+      rating: value,
+      comment: data.comment,
+    };
+    const { ok } = await productApi.createProductReview(
+      addingReviewProduct?._id,
+      values,
+      userInfo?.token
+    );
+    if (ok) {
+      toast.success("Review added");
+    } else {
+      toast.error("Review already added");
+    }
+  };
+
   const classes = useStyles();
 
   return (
     <Grid item container md={7}>
-      <Box component="div" className={clsx(classes.root)}>
-        <Rating
-          name="hover-feedback"
-          value={value}
-          precision={0.5}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-          onChangeActive={(event, newHover) => {
-            setHover(newHover);
-          }}
-        />
-        {value !== null && (
-          <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>
-        )}
-      </Box>
-      <Grid container direction="column">
-        <FormControl>
-          <TextField
-            id="outlined-Comment"
-            label="Comment"
-            variant="outlined"
-            multiline
-            minRows={4}
-            maxRows={8}
+      <ToastContainer />
+      <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
+        <Box mb={2} component="div" className={clsx(classes.root)}>
+          <Rating
+            name="hover-feedback"
+            value={value}
+            precision={0.5}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+            onChangeActive={(event, newHover) => {
+              setHover(newHover);
+            }}
+            // disabled={!userInfo?.token}
           />
-        </FormControl>
-        <Button type="submit" className={clsx(classes.btn)}>
-          Submit
-        </Button>
-      </Grid>
+          {value !== null && (
+            <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>
+          )}
+        </Box>
+        <Grid container direction="column">
+          <FormControl>
+            <TextField
+              id="outlined-Comment"
+              label="Comment"
+              variant="outlined"
+              multiline
+              minRows={4}
+              maxRows={8}
+              // disabled={!userInfo?.token}
+              inputProps={{ ...register("comment") }}
+            />
+          </FormControl>
+          {userInfo ? (
+            <Button type="submit" className={clsx(classes.btn)}>
+              Submit
+            </Button>
+          ) : (
+            <Link href="/login">
+              <Button className={clsx(classes.btn)}>Login</Button>
+            </Link>
+          )}
+        </Grid>
+      </form>
     </Grid>
   );
 };

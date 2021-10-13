@@ -25,6 +25,11 @@ const getProductsByColor = (black, white) =>
 const getProductsByGender = (men, women, kid) =>
   client.get(endpoint.allProducts + `?men=${men}&women=${women}&kid=${kid}`);
 
+const createProductReview = (id, formData, token) =>
+  client.post(`${endpoint.allProducts}/${id}/reviews`, formData, {
+    headers: { "Content-Type": "application/json", Authorization: token },
+  });
+
 const getAllQueries = (
   black,
   white,
@@ -67,4 +72,5 @@ export default {
   getProductsByGender,
   getAllQueries,
   getMoreProductByCategory,
+  createProductReview,
 };
