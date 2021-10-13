@@ -17,9 +17,11 @@ import Link from "next/link";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import { useSelector } from "react-redux";
-import { productSelector } from "../../redux/slices/productSlice";
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
+import { useSelector, useDispatch } from "react-redux";
 
+import { productSelector } from "../../redux/slices/productSlice";
+import { authSelector, logoutAction } from "../../redux/slices/authSlice";
 import MobileNavigation from "./MobileNavigation";
 
 import Search from "../Search";
@@ -62,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
 const Navigation = () => {
   const [isSearch, setIsSearch] = useState(false);
   const { cart } = useSelector(productSelector);
+  const { userInfo } = useSelector(authSelector);
+  const dispatch = useDispatch();
+
   const totalQuantity = cart
     .map((item) => item.quantity)
     .reduce((total, qty) => total + qty, 0);
@@ -118,11 +123,17 @@ const Navigation = () => {
                     <SearchIcon style={{ color: "black" }} />
                   </Box>
 
-                  <Link href="/login">
-                    <Box mr={2}>
-                      <AccountCircleOutlinedIcon style={{ color: "black" }} />
+                  {!userInfo?.token ? (
+                    <Link href="/login">
+                      <Box mr={2}>
+                        <AccountCircleOutlinedIcon style={{ color: "black" }} />
+                      </Box>
+                    </Link>
+                  ) : (
+                    <Box mr={2} onClick={() => dispatch(logoutAction({}))}>
+                      <PowerSettingsNewIcon style={{ color: "black" }} />
                     </Box>
-                  </Link>
+                  )}
 
                   <Link href="/cart">
                     <Box mr={2}>
