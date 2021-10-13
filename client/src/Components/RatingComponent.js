@@ -89,7 +89,7 @@ const RatingComponent = () => {
     if (ok) {
       toast.success("Review added");
     } else {
-      toast.error("Review already added");
+      toast.error("Product already reviewed");
     }
   };
 

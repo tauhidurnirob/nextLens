@@ -242,8 +242,8 @@ export const createProductReview = asyncHandler(async (req, res) => {
     const review = {
       name: req.user.name,
       email: req.user.email,
-      rating: 4,
-      comment: "Good Product",
+      rating: +rating,
+      comment,
       user: req.user._id,
     };
     product.reviews.push(review);

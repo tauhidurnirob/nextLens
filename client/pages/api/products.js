@@ -27,7 +27,10 @@ const getProductsByGender = (men, women, kid) =>
 
 const createProductReview = (id, formData, token) =>
   client.post(`${endpoint.allProducts}/${id}/reviews`, formData, {
-    headers: { "Content-Type": "application/json", Authorization: token },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
   });
 
 const getAllQueries = (
