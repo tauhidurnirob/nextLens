@@ -18,6 +18,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { useSelector, useDispatch } from "react-redux";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 import { productSelector } from "../../redux/slices/productSlice";
 import { authSelector, logoutAction } from "../../redux/slices/authSlice";
@@ -115,16 +116,6 @@ const Navigation = () => {
                         </Link>
                       </Box>
                     ))}
-                    {userInfo !== null && (
-                      <Box mr={2}>
-                        <Button
-                          onClick={() => dispatch(logoutAction(null))}
-                          className={clsx(classes.linkButtonHover)}
-                        >
-                          Logout
-                        </Button>
-                      </Box>
-                    )}
                   </ButtonGroup>
                 </Grid>
                 <Grid item className={clsx(classes.icon)}>
@@ -137,6 +128,15 @@ const Navigation = () => {
                       <AccountCircleOutlinedIcon style={{ color: "black" }} />
                     </Box>
                   </Link>
+
+                  <Box
+                    mr={userInfo !== null ? 2 : 0}
+                    onClick={() => dispatch(logoutAction(null))}
+                  >
+                    {userInfo !== null && (
+                      <ExitToAppIcon style={{ color: "black" }} />
+                    )}
+                  </Box>
 
                   <Link href="/cart">
                     <Box mr={2}>
