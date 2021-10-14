@@ -91,7 +91,7 @@ const RatingComponent = () => {
   return (
     <Grid item container md={7}>
       <ToastContainer />
-      {productById?.reviews.length === 0 ? (
+      {productById?.reviews?.length === 0 ? (
         <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
           <Box mb={2} component="div" className={clsx(classes.root)}>
             <Rating
@@ -135,7 +135,7 @@ const RatingComponent = () => {
         </form>
       ) : (
         <Grid container alignItems="center" justifyContent="space-between">
-          {productById?.reviews.map((review) => (
+          {productById?.reviews?.map((review) => (
             <>
               <Typography variant="h6" gutterBottom>
                 <Box fontWeight="fontWeightBold">{review?.name}</Box>
