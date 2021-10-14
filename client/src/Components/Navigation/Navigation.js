@@ -123,15 +123,19 @@ const Navigation = () => {
                     <SearchIcon style={{ color: "black" }} />
                   </Box>
 
-                  {!userInfo ? (
+                  {userInfo === null ? (
                     <Link href="/login">
                       <Box mr={2}>
                         <AccountCircleOutlinedIcon style={{ color: "black" }} />
                       </Box>
                     </Link>
                   ) : (
-                    <Box mr={2} onClick={() => dispatch(logoutAction({}))}>
-                      <PowerSettingsNewIcon style={{ color: "black" }} />
+                    <Box
+                      mr={2}
+                      onClick={() => dispatch(logoutAction(null))}
+                      style={{ color: "black" }}
+                    >
+                      <PowerSettingsNewIcon />
                     </Box>
                   )}
 
