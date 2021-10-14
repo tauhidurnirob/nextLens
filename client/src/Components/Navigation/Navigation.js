@@ -65,6 +65,7 @@ const Navigation = () => {
   const [isSearch, setIsSearch] = useState(false);
   const { cart } = useSelector(productSelector);
   const { userInfo } = useSelector(authSelector);
+  console.log(userInfo.token);
   const dispatch = useDispatch();
 
   const totalQuantity = cart

@@ -6,6 +6,7 @@ import {
   TextField,
   FormControl,
   Button,
+  Typography,
 } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import clsx from "clsx";
@@ -73,7 +74,6 @@ const RatingComponent = () => {
   const addingReviewProduct = products.find(
     (item) => item.slug.trim() === id.trim()
   );
-  console.log(addingReviewProduct);
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
@@ -98,48 +98,65 @@ const RatingComponent = () => {
   return (
     <Grid item container md={7}>
       <ToastContainer />
-      <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
-        <Box mb={2} component="div" className={clsx(classes.root)}>
-          <Rating
-            name="hover-feedback"
-            value={value}
-            precision={0.5}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-            onChangeActive={(event, newHover) => {
-              setHover(newHover);
-            }}
-            // disabled={!userInfo?.token}
-          />
-          {value !== null && (
-            <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>
-          )}
-        </Box>
-        <Grid container direction="column">
-          <FormControl>
-            <TextField
-              id="outlined-Comment"
-              label="Comment"
-              variant="outlined"
-              multiline
-              minRows={4}
-              maxRows={8}
-              // disabled={!userInfo?.token}
-              inputProps={{ ...register("comment") }}
+      {addingReviewProduct.reviews.length === 0 ? (
+        <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
+          <Box mb={2} component="div" className={clsx(classes.root)}>
+            <Rating
+              name="hover-feedback"
+              value={value}
+              precision={0.5}
+              onChange={(event, newValue) => {
+                setValue(newValue);
+              }}
+              onChangeActive={(event, newHover) => {
+                setHover(newHover);
+              }}
             />
-          </FormControl>
-          {userInfo ? (
-            <Button type="submit" className={clsx(classes.btn)}>
-              Submit
-            </Button>
-          ) : (
-            <Link href="/login">
-              <Button className={clsx(classes.btn)}>Login</Button>
-            </Link>
-          )}
+            {value !== null && (
+              <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>
+            )}
+          </Box>
+
+          <Grid container direction="column">
+            <FormControl>
+              <TextField
+                id="outlined-Comment"
+                label="Comment"
+                variant="outlined"
+                multiline
+                minRows={4}
+                maxRows={8}
+                inputProps={{ ...register("comment") }}
+              />
+            </FormControl>
+            {userInfo ? (
+              <Button type="submit" className={clsx(classes.btn)}>
+                Submit
+              </Button>
+            ) : (
+              <Link href="/login">
+                <Button className={clsx(classes.btn)}>Login</Button>
+              </Link>
+            )}
+          </Grid>
+        </form>
+      ) : (
+        <Grid container alignItems="center" justifyContent="space-between">
+          {addingReviewProduct.reviews.map((review) => (
+            <>
+              <Typography variant="h6" gutterBottom>
+                <Box fontWeight="fontWeightBold">{review?.name}</Box>
+              </Typography>
+              <Rating value={review?.rating} />
+              <Typography variant="h6" gutterBottom>
+                <Box fontWeight="fontWeightBold">
+                  {review?.createdAt?.substring(0, 10)}
+                </Box>
+              </Typography>
+            </>
+          ))}
         </Grid>
-      </form>
+      )}
     </Grid>
   );
 };
