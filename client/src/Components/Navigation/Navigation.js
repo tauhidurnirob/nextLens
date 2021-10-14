@@ -65,7 +65,6 @@ const Navigation = () => {
   const [isSearch, setIsSearch] = useState(false);
   const { cart } = useSelector(productSelector);
   const { userInfo } = useSelector(authSelector);
-  console.log(userInfo.token);
   const dispatch = useDispatch();
 
   const totalQuantity = cart
@@ -124,7 +123,7 @@ const Navigation = () => {
                     <SearchIcon style={{ color: "black" }} />
                   </Box>
 
-                  {!userInfo?.token ? (
+                  {!userInfo ? (
                     <Link href="/login">
                       <Box mr={2}>
                         <AccountCircleOutlinedIcon style={{ color: "black" }} />

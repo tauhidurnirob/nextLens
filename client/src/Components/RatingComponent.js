@@ -15,7 +15,6 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/router";
 
 import colors from "../../config/colors";
 import { authSelector } from "../redux/slices/authSlice";
@@ -66,14 +65,8 @@ const RatingComponent = () => {
   const [value, setValue] = useState(2);
   const [hover, setHover] = useState(-1);
   const { userInfo } = useSelector(authSelector);
-  const { products } = useSelector(productSelector);
-  const {
-    query: { id },
-  } = useRouter();
+  const { productById } = useSelector(productSelector);
 
-  const addingReviewProduct = products.find(
-    (item) => item.slug.trim() === id.trim()
-  );
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
@@ -82,7 +75,7 @@ const RatingComponent = () => {
       comment: data.comment,
     };
     const { ok } = await productApi.createProductReview(
-      addingReviewProduct?._id,
+      productById?._id,
       values,
       userInfo?.token
     );
@@ -98,7 +91,7 @@ const RatingComponent = () => {
   return (
     <Grid item container md={7}>
       <ToastContainer />
-      {addingReviewProduct.reviews.length === 0 ? (
+      {productById?.reviews.length === 0 ? (
         <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
           <Box mb={2} component="div" className={clsx(classes.root)}>
             <Rating
@@ -142,7 +135,7 @@ const RatingComponent = () => {
         </form>
       ) : (
         <Grid container alignItems="center" justifyContent="space-between">
-          {addingReviewProduct.reviews.map((review) => (
+          {productById?.reviews.map((review) => (
             <>
               <Typography variant="h6" gutterBottom>
                 <Box fontWeight="fontWeightBold">{review?.name}</Box>
