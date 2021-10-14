@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 
-const userInfoFromStorage =
-  typeof window !== "undefined" && localStorage.getItem("userInfo")
-    ? JSON.parse(localStorage.getItem("userInfo"))
-    : null;
+const userInfoFromStorage = Cookies.get("userInfo")
+  ? JSON.parse(Cookies.get("userInfo"))
+  : null;
 
 const authSlice = createSlice({
   name: "auth",
@@ -13,15 +13,15 @@ const authSlice = createSlice({
   reducers: {
     loginAction(state, { payload }) {
       state.userInfo = payload;
-      localStorage.setItem("userInfo", JSON.stringify(payload));
+      Cookies.set("userInfo", JSON.stringify(payload), { secure: true });
     },
     registerAction(state, { payload }) {
       state.userInfo = payload;
-      localStorage.setItem("userInfo", JSON.stringify(payload));
+      Cookies.set("userInfo", JSON.stringify(payload), { secure: true });
     },
     logoutAction(state, { payload }) {
       state.userInfo = payload;
-      localStorage.removeItem("userInfo");
+      Cookies.remove("userInfo", payload);
     },
   },
 });

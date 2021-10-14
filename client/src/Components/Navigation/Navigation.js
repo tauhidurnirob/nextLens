@@ -17,7 +17,6 @@ import Link from "next/link";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import { useSelector, useDispatch } from "react-redux";
 
 import { productSelector } from "../../redux/slices/productSlice";
@@ -116,6 +115,16 @@ const Navigation = () => {
                         </Link>
                       </Box>
                     ))}
+                    {userInfo !== null && (
+                      <Box mr={2}>
+                        <Button
+                          onClick={() => dispatch(logoutAction(null))}
+                          className={clsx(classes.linkButtonHover)}
+                        >
+                          Logout
+                        </Button>
+                      </Box>
+                    )}
                   </ButtonGroup>
                 </Grid>
                 <Grid item className={clsx(classes.icon)}>
@@ -123,21 +132,11 @@ const Navigation = () => {
                     <SearchIcon style={{ color: "black" }} />
                   </Box>
 
-                  {userInfo === null ? (
-                    <Link href="/login">
-                      <Box mr={2}>
-                        <AccountCircleOutlinedIcon style={{ color: "black" }} />
-                      </Box>
-                    </Link>
-                  ) : (
-                    <Box
-                      mr={2}
-                      onClick={() => dispatch(logoutAction(null))}
-                      style={{ color: "black" }}
-                    >
-                      <PowerSettingsNewIcon />
+                  <Link href="/login">
+                    <Box mr={2}>
+                      <AccountCircleOutlinedIcon style={{ color: "black" }} />
                     </Box>
-                  )}
+                  </Link>
 
                   <Link href="/cart">
                     <Box mr={2}>
