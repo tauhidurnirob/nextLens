@@ -3,7 +3,6 @@ import { Container } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 
 import {
-  CategoryBar,
   Layout,
   CategoryBanner,
   CategoryProducts,
@@ -23,7 +22,6 @@ const EyeGlasses = ({ data, counts }) => {
   return (
     <Layout title="Eye Glasses">
       <Container maxWidth={false}>
-        <CategoryBar categoryTitle="EYE GLASSES" />
         <CategoryBanner categoryTitle="EYE GLASSES" />
         <CategoryProducts category="eyeglasses" />
       </Container>
