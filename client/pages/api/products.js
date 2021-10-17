@@ -8,8 +8,9 @@ const getMoreProducts = (start = 4, limit = 12) =>
 const getQueryProducts = (keyword) =>
   client.get(endpoint.allProducts + `?keyword=${keyword}`);
 const getProductById = (id) => client.get(endpoint.productById + `/${id}`);
-const getProductByCategory = (category, limit = 12) =>
-  client.get(endpoint.allProducts + `?category=${category}&limit=${limit}`);
+const getProductByCategory = (category) =>
+  client.get(endpoint.allProducts + `?category=${category}`);
+// client.get(endpoint.allProducts + `?category=${category}&limit=${limit}`);
 const getMoreProductByCategory = (category, start, limit) =>
   client.get(
     endpoint.allProducts + `?category=${category}&start=${start}&limit=${limit}`

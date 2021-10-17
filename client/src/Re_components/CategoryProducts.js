@@ -128,7 +128,8 @@ const CategoryEyeGlassProducts = ({ category }) => {
         !queries?.shopEconomy &&
         !queries?.shopPremium
       ) {
-        const { data } = await productApi.getProductByCategory(category, 12);
+        // const { data } = await productApi.getProductByCategory(category, 12);
+        const { data } = await productApi.getProductByCategory(category);
         dispatch(setProducts(data?.products));
         setHasMore(true);
       }
@@ -136,17 +137,17 @@ const CategoryEyeGlassProducts = ({ category }) => {
     getAllQueryProduct();
   }, [queries]);
 
-  const getMoreProduct = async () => {
-    const { data } = await productApi.getMoreProductByCategory(
-      category,
-      products.length,
-      12
-    );
-    dispatch(setProducts(data.products));
-    if (data.products?.length === 0) {
-      setHasMore(false);
-    }
-  };
+  // const getMoreProduct = async () => {
+  //   const { data } = await productApi.getMoreProductByCategory(
+  //     category,
+  //     products.length,
+  //     12
+  //   );
+  //   dispatch(setProducts(data.products));
+  //   if (data.products?.length === 0) {
+  //     setHasMore(false);
+  //   }
+  // };
 
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
@@ -161,40 +162,40 @@ const CategoryEyeGlassProducts = ({ category }) => {
           <FilterByShopCollection />
         </Grid>
         {products.length !== 0 ? (
-          // <Grid
-          //   direction="row"
-          //   container
-          //   md={8}
-          //   className={clsx({ [classes.product]: products?.length <= 9 })}
-          // >
-          //   {products?.map((item) => (
-          //     <Grid item key={item.id} container md={4}>
-          //       <Cards item={item} isProduct width={400} height={400} />
-          //     </Grid>
-          //   ))}
-          // </Grid>
           <Grid
             direction="row"
             container
             md={8}
             className={clsx({ [classes.product]: products?.length <= 9 })}
           >
-            <Scroll
-              pLength={products.length}
-              getMoreProduct={getMoreProduct}
-              hasMore={hasMore}
-              scrollView={
-                <Grid container direction="row">
-                  {products?.map((item) => (
-                    <Grid item key={item.id} container md={4}>
-                      <Cards item={item} isProduct width={400} height={400} />
-                    </Grid>
-                  ))}
-                </Grid>
-              }
-            />
+            {products?.map((item) => (
+              <Grid item key={item.id} container md={4}>
+                <Cards item={item} isProduct width={400} height={400} />
+              </Grid>
+            ))}
           </Grid>
         ) : (
+          // <Grid
+          //   direction="row"
+          //   container
+          //   md={8}
+          //   className={clsx({ [classes.product]: products?.length <= 9 })}
+          // >
+          //   <Scroll
+          //     pLength={products.length}
+          //     getMoreProduct={getMoreProduct}
+          //     hasMore={hasMore}
+          //     scrollView={
+          //       <Grid container direction="row">
+          //         {products?.map((item) => (
+          //           <Grid item key={item.id} container md={4}>
+          //             <Cards item={item} isProduct width={400} height={400} />
+          //           </Grid>
+          //         ))}
+          //       </Grid>
+          //     }
+          //   />
+          // </Grid>
           <Grid
             direction="row"
             container

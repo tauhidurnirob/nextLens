@@ -32,7 +32,7 @@ const EyeGlasses = ({ data, counts }) => {
 export default EyeGlasses;
 
 export async function getStaticProps() {
-  const { data } = await productApi.getProductByCategory("eyeglasses", 12);
+  const { data } = await productApi.getProductByCategory("eyeglasses");
   const { data: counts } = await productApi.getProductCount();
 
   return {
