@@ -19,7 +19,6 @@ import {
 // @access public
 
 export const getProducts = asyncHandler(async (req, res) => {
-  console.log(req.query);
   const keyword = Keyword(req);
   const category = Category(req);
   const color = Color(req);

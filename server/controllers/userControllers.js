@@ -2,6 +2,16 @@ import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
 
+// @Description Get user data
+// @routes Post/api/users
+// @access Public
+
+export const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({}).select("-password");
+
+  res.send(users);
+});
+
 // @Description Auth data
 // @routes Post/api/users/login
 // @access Public
