@@ -5,8 +5,8 @@ import CustomerTable from "./CustomerTable";
 import CustomerForm from "./CustomerForm";
 import { useDispatch } from "react-redux";
 
-import { allProductAction } from "../../redux/slices/productSlice";
-import productApi from "../../api/products";
+import userApi from "../../api/users";
+import { userAction } from "../../redux/slices/userSlice";
 
 const Customers = () => {
   document.title = "Customers";
@@ -16,22 +16,11 @@ const Customers = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const getProductBySearch = async () => {
-      if (search) {
-        const { data } = await productApi.getQueryProducts(search, "");
-        dispatch(allProductAction(data));
-      }
+    const getUsersData = async () => {
+      const { data, ok } = await userApi.getUsers();
+      if (ok) dispatch(userAction(data));
     };
-
-    if (!search) {
-      const getProducts = async () => {
-        const { data, ok } = await productApi.getAllProductByLimit(12);
-        if (ok) dispatch(allProductAction(data));
-      };
-      getProducts();
-    }
-
-    getProductBySearch();
+    getUsersData();
   }, [dispatch, search]);
 
   return (
