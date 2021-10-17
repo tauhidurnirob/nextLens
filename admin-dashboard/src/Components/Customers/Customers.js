@@ -25,7 +25,7 @@ const Customers = () => {
 
   return (
     <Container maxWidth="lg">
-      <CustomerForm searchFunc={(value) => setSearch(value)} />
+      {/* <CustomerForm searchFunc={(value) => setSearch(value)} /> */}
       <Box mt={4} mb={4}>
         <CustomerTable />
       </Box>
