@@ -3,15 +3,6 @@ import { Bar } from "react-chartjs-2";
 import { Box, Typography, Grid } from "@material-ui/core";
 
 const options = {
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
-  },
   legend: { display: false },
 };
 
