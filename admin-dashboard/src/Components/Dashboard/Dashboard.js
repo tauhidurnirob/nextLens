@@ -45,7 +45,7 @@ const Dashboard = () => {
   return (
     <Container maxWidth="lg" className={clsx(classes.container)}>
       <DashboardCard orders={orders} revenue={revenue} users={users} />
-      <DashboardBar salesPrice={salesPrice} />
+      <DashboardBar salesPrice={salesPrice} revenue={revenue} />
     </Container>
   );
 };

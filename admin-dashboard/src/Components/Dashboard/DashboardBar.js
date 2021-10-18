@@ -6,7 +6,7 @@ const options = {
   legend: { display: false },
 };
 
-const DashboardBar = ({ salesPrice }) => (
+const DashboardBar = ({ salesPrice, revenue }) => (
   <>
     <Box component="div" className="header">
       <Typography align="center" variant="h5" className="title">
@@ -20,7 +20,7 @@ const DashboardBar = ({ salesPrice }) => (
             labels: salesPrice,
             datasets: [
               {
-                label: "# of sales",
+                label: `Total revenue $${revenue}`,
                 data: salesPrice,
                 backgroundColor: [
                   "rgba(255, 99, 132, 0.2)",
@@ -39,7 +39,6 @@ const DashboardBar = ({ salesPrice }) => (
                   "rgba(255, 159, 64, 1)",
                 ],
                 borderWidth: 1,
-                fill: true,
               },
             ],
           }}
