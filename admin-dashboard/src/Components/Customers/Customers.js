@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Container, Box } from "@material-ui/core";
 
 import CustomerTable from "./CustomerTable";
-import CustomerForm from "./CustomerForm";
+// import CustomerForm from "./CustomerForm";
 import { useDispatch } from "react-redux";
 
 import userApi from "../../api/users";
@@ -13,7 +13,7 @@ const Customers = () => {
 
   const dispatch = useDispatch();
 
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   useEffect(() => {
     const getUsersData = async () => {
@@ -21,7 +21,7 @@ const Customers = () => {
       if (ok) dispatch(userAction(data));
     };
     getUsersData();
-  }, [dispatch, search]);
+  }, [dispatch]);
 
   return (
     <Container maxWidth="lg">

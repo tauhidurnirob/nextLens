@@ -7,8 +7,6 @@ import {
   CardHeader,
   CardContent,
   Typography,
-  CardActions,
-  Button,
   Box,
 } from "@material-ui/core";
 import clsx from "clsx";
@@ -76,13 +74,6 @@ const DashboardCard = () => {
                     {item.description} (previous 30 days)
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Box mt={2}>
-                    <Button size="small" variant="outlined" color="primary">
-                      Full Details
-                    </Button>
-                  </Box>
-                </CardActions>
               </Card>
             </Grid>
           ))}
