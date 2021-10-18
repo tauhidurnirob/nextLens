@@ -44,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
       background: colors.green,
       color: colors.white,
     },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "13px",
+      minWidth: "160px",
+    },
   },
   gridItem: {
     width: "100%",

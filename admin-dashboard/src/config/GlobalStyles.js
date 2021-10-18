@@ -22,10 +22,11 @@ const styles = (theme) => ({
       },
     },
     ".MuiTypography-root": {
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down("md")]: {
         fontSize: "14px",
       },
     },
+
     ".row": {
       display: "flex",
       flexWrap: "wrap",
