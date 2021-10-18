@@ -3,19 +3,10 @@ import { Bar } from "react-chartjs-2";
 import { Box, Typography, Grid } from "@material-ui/core";
 
 const options = {
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
-  },
   legend: { display: false },
 };
 
-const DashboardBar = ({ salesPrice }) => (
+const DashboardBar = ({ salesPrice, revenue }) => (
   <>
     <Box component="div" className="header">
       <Typography align="center" variant="h5" className="title">
@@ -26,10 +17,10 @@ const DashboardBar = ({ salesPrice }) => (
       <Grid item container md={10}>
         <Bar
           data={{
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: salesPrice,
             datasets: [
               {
-                label: "# of sales",
+                label: `Total revenue $${revenue}`,
                 data: salesPrice,
                 backgroundColor: [
                   "rgba(255, 99, 132, 0.2)",
@@ -47,7 +38,7 @@ const DashboardBar = ({ salesPrice }) => (
                   "rgba(153, 102, 255, 1)",
                   "rgba(255, 159, 64, 1)",
                 ],
-                borderWidth: 3,
+                borderWidth: 1,
               },
             ],
           }}
