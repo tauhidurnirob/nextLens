@@ -20,7 +20,6 @@ import moment from "moment";
 import { useSelector } from "react-redux";
 
 import { adminOrderSelector } from "../../redux/slices/orderSlice";
-import { Loading } from "../../Re_components";
 
 const useStyles = makeStyles(() => ({
   table: {
@@ -31,52 +30,48 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const OrderTable = ({ loading }) => {
+const OrderTable = () => {
   const classes = useStyles();
   const { orders } = useSelector(adminOrderSelector);
 
   return (
     <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
-      {loading ? (
-        <Loading visible={loading} />
-      ) : (
-        <Table
-          stickyHeader
-          aria-label="sticky table"
-          className={clsx(classes.table)}
-        >
-          <TableHead>
-            <TableRow>
-              <TableCell />
-              <TableCell>
-                <Typography variant="subtitle2">
-                  <Box fontWeight="fontWeightBold">ID</Box>
-                </Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography variant="subtitle2">
-                  <Box fontWeight="fontWeightBold">Delivery Address</Box>
-                </Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography variant="subtitle2">
-                  <Box fontWeight="fontWeightBold">Payment</Box>
-                </Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography variant="subtitle2">
-                  <Box fontWeight="fontWeightBold">Status</Box>
-                </Typography>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {orders?.map((item) => (
-              <Row key={item._id} item={item} />
-            ))}
-          </TableBody>
-        </Table>
-      )}
+      <Table
+        stickyHeader
+        aria-label="sticky table"
+        className={clsx(classes.table)}
+      >
+        <TableHead>
+          <TableRow>
+            <TableCell />
+            <TableCell>
+              <Typography variant="subtitle2">
+                <Box fontWeight="fontWeightBold">ID</Box>
+              </Typography>
+            </TableCell>
+            <TableCell align="center">
+              <Typography variant="subtitle2">
+                <Box fontWeight="fontWeightBold">Delivery Address</Box>
+              </Typography>
+            </TableCell>
+            <TableCell align="center">
+              <Typography variant="subtitle2">
+                <Box fontWeight="fontWeightBold">Payment</Box>
+              </Typography>
+            </TableCell>
+            <TableCell align="center">
+              <Typography variant="subtitle2">
+                <Box fontWeight="fontWeightBold">Status</Box>
+              </Typography>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {orders?.map((item) => (
+            <Row key={item._id} item={item} />
+          ))}
+        </TableBody>
+      </Table>
     </TableContainer>
   );
 };
