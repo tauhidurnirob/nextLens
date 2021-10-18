@@ -14,18 +14,15 @@ const Orders = () => {
   const [status, setStatus] = useState("");
   const [payment, setPayment] = useState("");
   const [orderLimit, setOrderLimit] = useState("");
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getProductBySearch = async () => {
       if (status || payment || orderLimit) {
-        setLoading(true);
         const { data } = await orderApi.getQueryOrderProducts(
           status,
           payment,
           orderLimit
         );
-        setLoading(false);
 
         dispatch(orderAction(data));
       }
@@ -33,9 +30,7 @@ const Orders = () => {
 
     if (!status && !payment && !orderLimit) {
       const getAdminProducts = async () => {
-        setLoading(true);
         const { data, ok } = await orderApi.getAllAdminProduct();
-        setLoading(false);
 
         if (ok) dispatch(orderAction(data));
       };
@@ -53,7 +48,7 @@ const Orders = () => {
         orderLimitFunc={(value) => setOrderLimit(value)}
       />
       <Box mt={4} mb={4}>
-        <OrderTable loading={loading} />
+        <OrderTable />
       </Box>
     </Container>
   );
