@@ -21,6 +21,12 @@ const styles = (theme) => ({
         maxWidth: 1170,
       },
     },
+    ".MuiTypography-root": {
+      [theme.breakpoints.down("md")]: {
+        fontSize: "14px",
+      },
+    },
+
     ".row": {
       display: "flex",
       flexWrap: "wrap",
