@@ -16,7 +16,6 @@ import {
   Box,
   Grid,
   Avatar,
-  Badge,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -27,7 +26,6 @@ import StoreIcon from "@material-ui/icons/Store";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import { NavLink, useLocation } from "react-router-dom";
 
 import colors from "../config/colors";
@@ -170,13 +168,6 @@ const Layout = ({ title, children }) => {
                     style={{ fontSize: "25px", color: colors.white }}
                   />
                 </IconButton>
-              </Box>
-            </Grid>
-            <Grid item>
-              <Box mr={4}>
-                <Badge variant="dot" color="error">
-                  <NotificationsIcon />
-                </Badge>
               </Box>
             </Grid>
             <Grid item>
