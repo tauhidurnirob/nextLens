@@ -10,12 +10,14 @@ import {
   Box,
 } from "@material-ui/core";
 import clsx from "clsx";
+import { useSelector } from "react-redux";
 
 import SupervisorAccountOutlinedIcon from "@material-ui/icons/SupervisorAccountOutlined";
 import ClassOutlinedIcon from "@material-ui/icons/ClassOutlined";
 import DriveEtaOutlinedIcon from "@material-ui/icons/DriveEtaOutlined";
 import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
 import { isText } from "./../../utils/utils";
+import { adminOrderSelector } from "../../redux/slices/orderSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: { padding: `${theme.spacing(4)}px 0 10px 0` },
@@ -44,6 +46,47 @@ const useStyles = makeStyles((theme) => ({
 
 const DashboardCard = () => {
   const classes = useStyles();
+
+  const { orders } = useSelector(adminOrderSelector);
+
+  const order = orders?.map((item) => item.history[0]);
+  const revenue = order
+    ?.map(({ price }) => price)
+    .reduce((acc, cc) => acc + cc, 0);
+
+  const dashboards = [
+    {
+      id: 1,
+      title: "Total Revenue",
+      details: `$${revenue}`,
+      description: " Revenue up ",
+      icon: <MonetizationOnOutlinedIcon style={{ fontSize: 45 }} />,
+      isIcon: true,
+    },
+    {
+      id: 2,
+      title: "Total Order",
+      details: orders.length,
+      description: " Order down",
+
+      icon: <ClassOutlinedIcon style={{ fontSize: 45 }} />,
+    },
+    {
+      id: 3,
+      title: "New Customer",
+      details: "5,678",
+      description: " Customer up",
+
+      icon: <SupervisorAccountOutlinedIcon style={{ fontSize: 45 }} />,
+    },
+    {
+      id: 4,
+      title: "Total Delivery",
+      details: "78,000",
+      description: " Delivery up ",
+      icon: <DriveEtaOutlinedIcon style={{ fontSize: 45 }} />,
+    },
+  ];
 
   return (
     <Container maxWidth={false} className={clsx(classes.container)}>
@@ -84,37 +127,3 @@ const DashboardCard = () => {
 };
 
 export default DashboardCard;
-
-const dashboards = [
-  {
-    id: 1,
-    title: "Total Revenue",
-    details: "$711.66",
-    description: " Revenue up ",
-    icon: <MonetizationOnOutlinedIcon style={{ fontSize: 45 }} />,
-    isIcon: true,
-  },
-  {
-    id: 2,
-    title: "Total Order",
-    details: "88,568",
-    description: " Order down",
-
-    icon: <ClassOutlinedIcon style={{ fontSize: 45 }} />,
-  },
-  {
-    id: 3,
-    title: "New Customer",
-    details: "5,678",
-    description: " Customer up",
-
-    icon: <SupervisorAccountOutlinedIcon style={{ fontSize: 45 }} />,
-  },
-  {
-    id: 4,
-    title: "Total Delivery",
-    details: "78,000",
-    description: " Delivery up ",
-    icon: <DriveEtaOutlinedIcon style={{ fontSize: 45 }} />,
-  },
-];
