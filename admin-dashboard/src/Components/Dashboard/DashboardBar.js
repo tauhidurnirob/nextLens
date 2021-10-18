@@ -26,7 +26,7 @@ const DashboardBar = ({ salesPrice }) => (
       <Grid item container md={10}>
         <Bar
           data={{
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: salesPrice,
             datasets: [
               {
                 label: "# of sales",
@@ -47,7 +47,8 @@ const DashboardBar = ({ salesPrice }) => (
                   "rgba(153, 102, 255, 1)",
                   "rgba(255, 159, 64, 1)",
                 ],
-                borderWidth: 3,
+                borderWidth: 1,
+                fill: true,
               },
             ],
           }}
