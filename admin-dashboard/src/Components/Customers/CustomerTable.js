@@ -14,7 +14,7 @@ import {
 import clsx from "clsx";
 
 import { useSelector } from "react-redux";
-import { adminProductSelector } from "../../redux/slices/productSlice";
+import { usersSelector } from "../../redux/slices/userSlice";
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 const CustomerTable = () => {
   const classes = useStyles();
 
-  const { allProduct } = useSelector(adminProductSelector);
+  const { users } = useSelector(usersSelector);
 
   return (
     <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
@@ -58,59 +58,37 @@ const CustomerTable = () => {
             </TableCell>
             <TableCell align="center">
               <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Image</Box>
-              </Typography>
-            </TableCell>
-            <TableCell align="center">
-              <Typography variant="subtitle1">
                 <Box fontWeight="fontWeightBold">Name</Box>
               </Typography>
             </TableCell>
             <TableCell align="center">
               <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Category</Box>
+                <Box fontWeight="fontWeightBold">Email</Box>
               </Typography>
             </TableCell>
             <TableCell align="center">
               <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Color</Box>
-              </Typography>
-            </TableCell>
-            <TableCell align="center">
-              <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Price</Box>
+                <Box fontWeight="fontWeightBold">Profile Created</Box>
               </Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {allProduct.map((row) => (
+          {users?.map((row) => (
             <TableRow key={row._id}>
               <TableCell component="th" scope="row">
-                <Box fontWeight="fontWeightBold">{row.sku}</Box>
-              </TableCell>
-              <TableCell align="center">
-                <img
-                  src={row.image}
-                  alt={row.title}
-                  className={clsx(classes.imageList)}
-                />
+                <Box fontWeight="fontWeightBold">{row._id}</Box>
               </TableCell>
               <TableCell align="center" className={clsx(classes.font)}>
-                {row.title}
+                {row.name}
+              </TableCell>
+              <TableCell align="center">
+                <Box fontWeight="fontWeightBold">{row.email}</Box>
               </TableCell>
               <TableCell align="center">
                 <Box fontWeight="fontWeightBold">
-                  {row?.category.toUpperCase()}
+                  {row?.createdAt.slice(0, 10)}
                 </Box>
-              </TableCell>
-              <TableCell align="center">
-                <Box fontWeight="fontWeightBold">
-                  {row?.color ? row?.color.toUpperCase() : "EMPTY"}
-                </Box>
-              </TableCell>
-              <TableCell align="center">
-                <Box fontWeight="fontWeightBold">${row.price}</Box>
               </TableCell>
             </TableRow>
           ))}

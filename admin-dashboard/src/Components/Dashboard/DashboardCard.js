@@ -7,8 +7,6 @@ import {
   CardHeader,
   CardContent,
   Typography,
-  CardActions,
-  Button,
   Box,
 } from "@material-ui/core";
 import clsx from "clsx";
@@ -44,8 +42,42 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DashboardCard = () => {
+const DashboardCard = ({ revenue, orders, users }) => {
   const classes = useStyles();
+
+  const dashboards = [
+    {
+      id: 1,
+      title: "Total Revenue",
+      details: `$${revenue}`,
+      description: " Revenue up ",
+      icon: <MonetizationOnOutlinedIcon style={{ fontSize: 45 }} />,
+      isIcon: true,
+    },
+    {
+      id: 2,
+      title: "Total Order",
+      details: orders.length,
+      description: " Order down",
+
+      icon: <ClassOutlinedIcon style={{ fontSize: 45 }} />,
+    },
+    {
+      id: 3,
+      title: "New Customer",
+      details: users.length,
+      description: " Customer up",
+
+      icon: <SupervisorAccountOutlinedIcon style={{ fontSize: 45 }} />,
+    },
+    {
+      id: 4,
+      title: "Total Delivery",
+      details: "780",
+      description: " Delivery up ",
+      icon: <DriveEtaOutlinedIcon style={{ fontSize: 45 }} />,
+    },
+  ];
 
   return (
     <Container maxWidth={false} className={clsx(classes.container)}>
@@ -76,13 +108,6 @@ const DashboardCard = () => {
                     {item.description} (previous 30 days)
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Box mt={2}>
-                    <Button size="small" variant="outlined" color="primary">
-                      Full Details
-                    </Button>
-                  </Box>
-                </CardActions>
               </Card>
             </Grid>
           ))}
@@ -93,37 +118,3 @@ const DashboardCard = () => {
 };
 
 export default DashboardCard;
-
-const dashboards = [
-  {
-    id: 1,
-    title: "Total Revenue",
-    details: "$711.66",
-    description: " Revenue up ",
-    icon: <MonetizationOnOutlinedIcon style={{ fontSize: 45 }} />,
-    isIcon: true,
-  },
-  {
-    id: 2,
-    title: "Total Order",
-    details: "88,568",
-    description: " Order down",
-
-    icon: <ClassOutlinedIcon style={{ fontSize: 45 }} />,
-  },
-  {
-    id: 3,
-    title: "New Customer",
-    details: "5,678",
-    description: " Customer up",
-
-    icon: <SupervisorAccountOutlinedIcon style={{ fontSize: 45 }} />,
-  },
-  {
-    id: 4,
-    title: "Total Delivery",
-    details: "78,000",
-    description: " Delivery up ",
-    icon: <DriveEtaOutlinedIcon style={{ fontSize: 45 }} />,
-  },
-];

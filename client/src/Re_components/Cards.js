@@ -1,13 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  CardContent,
-  Box,
-  IconButton,
-  Grid,
-  Button,
-  Typography,
-} from "@material-ui/core";
+import { CardContent, Box, Grid, Button, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,9 +10,8 @@ import styles from "../../styles/imageHover.module.scss";
 import colors from "../../config/colors";
 import { ShouldBeCapital } from "../../utils/utils";
 import AddToCartButton from "./AddToCartButton";
-import RatingComponent from "../Components/RatingComponent";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     margin: "20px 10px",
     position: "relative",

@@ -17,8 +17,8 @@ import Link from "next/link";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import { useSelector, useDispatch } from "react-redux";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 import { productSelector } from "../../redux/slices/productSlice";
 import { authSelector, logoutAction } from "../../redux/slices/authSlice";
@@ -123,21 +123,20 @@ const Navigation = () => {
                     <SearchIcon style={{ color: "black" }} />
                   </Box>
 
-                  {userInfo === null ? (
-                    <Link href="/login">
-                      <Box mr={2}>
-                        <AccountCircleOutlinedIcon style={{ color: "black" }} />
-                      </Box>
-                    </Link>
-                  ) : (
-                    <Box
-                      mr={2}
-                      onClick={() => dispatch(logoutAction(null))}
-                      style={{ color: "black" }}
-                    >
-                      <PowerSettingsNewIcon />
+                  <Link href="/login">
+                    <Box mr={2}>
+                      <AccountCircleOutlinedIcon style={{ color: "black" }} />
                     </Box>
-                  )}
+                  </Link>
+
+                  <Box
+                    mr={userInfo !== null ? 2 : 0}
+                    onClick={() => dispatch(logoutAction(null))}
+                  >
+                    {userInfo !== null && (
+                      <ExitToAppIcon style={{ color: "black" }} />
+                    )}
+                  </Box>
 
                   <Link href="/cart">
                     <Box mr={2}>

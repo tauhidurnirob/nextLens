@@ -1,9 +1,7 @@
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Product from "./Components/Products/Product";
 import AddProductForm from "./Components/Products/AddProductForm";
-import Category from "./Components/Category/Category";
 import Layout from "./Components/Layout";
-import AddCategoryForm from "./Components/Category/AddCategoryForm";
 import Order from "./Components/Orders/Orders";
 import Customers from "./Components/Customers/Customers";
 
@@ -29,22 +27,6 @@ const routes = [
     component: (
       <Layout title="Add Product">
         <AddProductForm />
-      </Layout>
-    ),
-  },
-  {
-    path: "/category",
-    component: (
-      <Layout title="Category">
-        <Category />
-      </Layout>
-    ),
-  },
-  {
-    path: "/category/add-category",
-    component: (
-      <Layout title="Add Category">
-        <AddCategoryForm />
       </Layout>
     ),
   },

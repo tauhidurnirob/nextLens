@@ -23,7 +23,6 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import CategoryIcon from "@material-ui/icons/Category";
 import StoreIcon from "@material-ui/icons/Store";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 
@@ -260,11 +259,7 @@ const dashboards = [
     ),
     route: "/product",
   },
-  {
-    name: "Category",
-    icon: <CategoryIcon style={{ fontSize: "30px", color: colors.white }} />,
-    route: "/category",
-  },
+
   {
     name: "Orders",
     icon: <StoreIcon style={{ fontSize: "30px", color: colors.white }} />,
@@ -277,14 +272,4 @@ const dashboards = [
     ),
     route: "/customers",
   },
-  // {
-  //   name: "Coupons",
-  //   icon: <PostAddIcon style={{ fontSize: "30px", color: colors.white }} />,
-  //   route: "/coupons",
-  // },
-  // {
-  //   name: "Settings",
-  //   icon: <SettingsIcon style={{ fontSize: "30px", color: colors.white }} />,
-  //   route: "/settings",
-  // },
 ];
