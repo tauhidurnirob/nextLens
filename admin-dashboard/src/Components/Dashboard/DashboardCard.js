@@ -18,6 +18,7 @@ import DriveEtaOutlinedIcon from "@material-ui/icons/DriveEtaOutlined";
 import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
 import { isText } from "./../../utils/utils";
 import { adminOrderSelector } from "../../redux/slices/orderSlice";
+import { usersSelector } from "../../redux/slices/userSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: { padding: `${theme.spacing(4)}px 0 10px 0` },
@@ -48,6 +49,7 @@ const DashboardCard = () => {
   const classes = useStyles();
 
   const { orders } = useSelector(adminOrderSelector);
+  const { users } = useSelector(usersSelector);
 
   const order = orders?.map((item) => item.history[0]);
   const revenue = order
@@ -74,7 +76,7 @@ const DashboardCard = () => {
     {
       id: 3,
       title: "New Customer",
-      details: "5,678",
+      details: users.length,
       description: " Customer up",
 
       icon: <SupervisorAccountOutlinedIcon style={{ fontSize: 45 }} />,
