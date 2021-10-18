@@ -10,15 +10,12 @@ import {
   Box,
 } from "@material-ui/core";
 import clsx from "clsx";
-import { useSelector } from "react-redux";
 
 import SupervisorAccountOutlinedIcon from "@material-ui/icons/SupervisorAccountOutlined";
 import ClassOutlinedIcon from "@material-ui/icons/ClassOutlined";
 import DriveEtaOutlinedIcon from "@material-ui/icons/DriveEtaOutlined";
 import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
 import { isText } from "./../../utils/utils";
-import { adminOrderSelector } from "../../redux/slices/orderSlice";
-import { usersSelector } from "../../redux/slices/userSlice";
 
 const useStyles = makeStyles((theme) => ({
   container: { padding: `${theme.spacing(4)}px 0 10px 0` },
@@ -45,16 +42,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DashboardCard = () => {
+const DashboardCard = ({ revenue, orders, users }) => {
   const classes = useStyles();
-
-  const { orders } = useSelector(adminOrderSelector);
-  const { users } = useSelector(usersSelector);
-
-  const order = orders?.map((item) => item.history[0]);
-  const revenue = order
-    ?.map(({ price }) => price)
-    .reduce((acc, cc) => acc + cc, 0);
 
   const dashboards = [
     {
@@ -84,7 +73,7 @@ const DashboardCard = () => {
     {
       id: 4,
       title: "Total Delivery",
-      details: "78,000",
+      details: "780",
       description: " Delivery up ",
       icon: <DriveEtaOutlinedIcon style={{ fontSize: 45 }} />,
     },
