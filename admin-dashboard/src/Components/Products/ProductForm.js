@@ -10,6 +10,7 @@ import {
   MenuItem,
   Grid,
   Button,
+  useMediaQuery,
 } from "@material-ui/core";
 import clsx from "clsx";
 import AddIcon from "@material-ui/icons/Add";
@@ -26,9 +27,9 @@ import {
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
-    [theme.breakpoints.down("sm")]: {
-      width: "80%",
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   width: "80%",
+    // },
   },
   formControl: {
     width: "100%",
@@ -64,6 +65,7 @@ const Product = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
+  const isDesktopOrLaptop = useMediaQuery("(max-width: 992px)");
 
   const { allProduct } = useSelector(adminProductSelector);
 
@@ -118,7 +120,10 @@ const Product = () => {
   return (
     <>
       <Box mt={2} mb={2}>
-        <Grid container justifyContent="flex-end">
+        <Grid
+          container
+          justifyContent={`${!isDesktopOrLaptop ? "flex-end" : "center"}`}
+        >
           <Button
             className={clsx(classes.btn)}
             variant="contained"
