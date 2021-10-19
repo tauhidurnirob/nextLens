@@ -21,12 +21,21 @@ const useStyles = makeStyles((theme) => ({
   container: { padding: `${theme.spacing(4)}px 0 10px 0` },
   root: {
     padding: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0),
+    },
   },
   cardHeader: {
     padding: `${theme.spacing(1.4)}px ${theme.spacing(2)}px`,
+    [theme.breakpoints.down("sm")]: {
+      padding: `${theme.spacing(1)}px ${theme.spacing(1)}px`,
+    },
   },
   cardContent: {
     padding: `0px ${theme.spacing(2)}px`,
+    [theme.breakpoints.down("sm")]: {
+      padding: `0px ${theme.spacing(1)}px`,
+    },
   },
   isUp: {
     color: "green",

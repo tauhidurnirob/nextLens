@@ -91,10 +91,16 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0, 0),
+    },
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0.5),
+    },
   },
   listItem: {
     padding: `${theme.spacing(2)}px `,

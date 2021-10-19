@@ -24,7 +24,12 @@ import {
 } from "../../redux/slices/productSlice";
 
 const useStyles = makeStyles((theme) => ({
-  root: { padding: theme.spacing(2) },
+  root: {
+    padding: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      width: "80%",
+    },
+  },
   formControl: {
     width: "100%",
     margin: `${theme.spacing(2)}px opx`,

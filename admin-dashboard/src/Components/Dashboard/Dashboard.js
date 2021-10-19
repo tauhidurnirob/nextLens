@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, makeStyles } from "@material-ui/core";
-import clsx from "clsx";
+import { Container } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
 import DashboardBar from "./DashboardBar";
@@ -13,13 +12,8 @@ import { userAction } from "../../redux/slices/userSlice";
 import { adminOrderSelector } from "../../redux/slices/orderSlice";
 import { usersSelector } from "../../redux/slices/userSlice";
 
-const useStyles = makeStyles((theme) => ({
-  container: {},
-}));
-
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const classes = useStyles();
   document.title = "Dashboard";
 
   const { orders } = useSelector(adminOrderSelector);
@@ -43,7 +37,7 @@ const Dashboard = () => {
   }, [dispatch]);
 
   return (
-    <Container maxWidth="lg" className={clsx(classes.container)}>
+    <Container maxWidth="lg">
       <DashboardCard orders={orders} revenue={revenue} users={users} />
       <DashboardBar salesPrice={salesPrice} revenue={revenue} />
     </Container>
