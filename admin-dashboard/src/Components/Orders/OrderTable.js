@@ -12,6 +12,7 @@ import {
   TableHead,
   TableRow,
   Typography,
+  useMediaQuery,
 } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -33,11 +34,12 @@ const useStyles = makeStyles((theme) => ({
 const OrderTable = () => {
   const classes = useStyles();
   const { orders } = useSelector(adminOrderSelector);
+  const isDesktopOrLaptop = useMediaQuery("(max-width: 992px)");
 
   return (
     <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
       <Table
-        stickyHeader
+        stickyHeader={!isDesktopOrLaptop}
         aria-label="sticky table"
         className={clsx(classes.table)}
       >

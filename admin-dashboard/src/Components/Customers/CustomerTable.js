@@ -10,6 +10,7 @@ import {
   Paper,
   Typography,
   Box,
+  useMediaQuery,
 } from "@material-ui/core";
 import clsx from "clsx";
 
@@ -41,11 +42,12 @@ const CustomerTable = () => {
   const classes = useStyles();
 
   const { users } = useSelector(usersSelector);
+  const isDesktopOrLaptop = useMediaQuery("(max-width: 992px)");
 
   return (
     <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
       <Table
-        stickyHeader
+        stickyHeader={!isDesktopOrLaptop}
         aria-label="sticky table"
         className={clsx(classes.table)}
       >
