@@ -12,6 +12,7 @@ import {
   TableHead,
   TableRow,
   Typography,
+  useMediaQuery,
 } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -21,7 +22,7 @@ import { useSelector } from "react-redux";
 
 import { adminOrderSelector } from "../../redux/slices/orderSlice";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 1024,
   },
@@ -33,11 +34,12 @@ const useStyles = makeStyles(() => ({
 const OrderTable = () => {
   const classes = useStyles();
   const { orders } = useSelector(adminOrderSelector);
+  const isDesktopOrLaptop = useMediaQuery("(max-width: 992px)");
 
   return (
     <TableContainer className={clsx(classes.tableContainer)} component={Paper}>
       <Table
-        stickyHeader
+        stickyHeader={!isDesktopOrLaptop}
         aria-label="sticky table"
         className={clsx(classes.table)}
       >

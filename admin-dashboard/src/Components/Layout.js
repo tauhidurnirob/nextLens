@@ -96,8 +96,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   content: {
-    flexGrow: 1,
+    width: "100%",
     padding: theme.spacing(3),
+    overflowY: "hidden",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(0.5),
     },
