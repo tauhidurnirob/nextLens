@@ -48,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "16px",
       fontWeight: "500",
     },
+    ".MuiGrid-root.MuiGrid-container.MuiGrid-item.MuiGrid-grid-md-3 ": {
+      display: "flex",
+      justifyContent: "center",
+    },
   },
 }));
 
