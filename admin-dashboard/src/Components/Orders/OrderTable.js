@@ -21,7 +21,7 @@ import { useSelector } from "react-redux";
 
 import { adminOrderSelector } from "../../redux/slices/orderSlice";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 1024,
   },

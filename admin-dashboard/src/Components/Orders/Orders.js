@@ -41,7 +41,7 @@ const Orders = () => {
   }, [dispatch, status, payment, orderLimit]);
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" style={{ padding: "20px" }}>
       <OrderForm
         statusFunc={(value) => setStatus(value)}
         paymentFunc={(value) => setPayment(value)}

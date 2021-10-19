@@ -15,11 +15,11 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     width: "100%",
   },
-  // card: {
-  //   [theme.breakpoints.down("sm")]: {
-  //     width: "80%",
-  //   },
-  // },
+  card: {
+    width: "100%",
+    // [theme.breakpoints.down("sm")]: {
+    // },
+  },
 }));
 
 const Cards = ({ items }) => {
