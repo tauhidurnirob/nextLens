@@ -9,19 +9,24 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   media: {
     height: "auto",
     cursor: "pointer",
     width: "100%",
   },
+  // card: {
+  //   [theme.breakpoints.down("sm")]: {
+  //     width: "80%",
+  //   },
+  // },
 }));
 
 const Cards = ({ items }) => {
   const classes = useStyles();
 
   return (
-    <Card>
+    <Card className={clsx(classes.card)}>
       <CardMedia
         component="img"
         className={clsx(classes.media)}
