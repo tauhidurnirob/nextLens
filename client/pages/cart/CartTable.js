@@ -57,7 +57,7 @@ const useStyles = makeStyles({
   },
   "@global": {
     ".MuiTableContainer-root": {
-      width: "none",
+      width: "auto",
     },
   },
 });
