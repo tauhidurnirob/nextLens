@@ -11,7 +11,7 @@ import clsx from "clsx";
 
 import colors from "../../../config/colors";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   textField: { width: "94%" },
   btn: {
     transition: "all 300ms ease-in-out",
@@ -28,6 +28,10 @@ const useStyles = makeStyles(() => ({
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.sky,
       color: colors.white,
+    },
+    [theme.breakpoints.down("sm")]: {
+      minWidth: "50px",
+      fontSize: "12px",
     },
   },
 }));
