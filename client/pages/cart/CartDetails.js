@@ -16,9 +16,14 @@ import { productSelector } from "../../src/redux/slices/productSlice";
 import CartTable from "./CartTable";
 import CartCheckout from "../../src/Components/CartCheckout";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   container: { padding: "84px 0 0 0 " },
-  heading: { margin: "20px 0" },
+  heading: {
+    margin: "20px 0",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "16px",
+    },
+  },
 }));
 
 const CartDetails = () => {
@@ -40,7 +45,11 @@ const CartDetails = () => {
       ) : (
         <>
           <Heading>
-            <Typography className={clsx(classes.heading)} variant="h4">
+            <Typography
+              className={clsx(classes.heading)}
+              variant="h4"
+              align="center"
+            >
               You haven't any cart products
             </Typography>
           </Heading>
