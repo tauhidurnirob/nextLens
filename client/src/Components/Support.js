@@ -38,26 +38,29 @@ const Support = () => {
   const classes = useStyles();
 
   return (
-    <Container maxWidth={false} className={clsx(classes.container)}>
-      <Grid container direction="row" spacing={2}>
-        {supports.map((item) => (
-          <Grid key={item.id} item container md={3}>
-            <Card className={clsx(classes.root)}>
-              <CardHeader
-                avatar={item.icon}
-                title={item.title}
-                className={clsx(classes.cardHeader)}
-              />
-              <CardContent className={clsx(classes.cardContent)}>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {item.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <Grid
+      container
+      direction="row"
+      spacing={2}
+      className={clsx(classes.container)}
+    >
+      {supports.map((item) => (
+        <Grid key={item.id} item container md={3} justifyContent="center">
+          <Card className={clsx(classes.root)}>
+            <CardHeader
+              avatar={item.icon}
+              title={item.title}
+              className={clsx(classes.cardHeader)}
+            />
+            <CardContent className={clsx(classes.cardContent)}>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {item.description}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 

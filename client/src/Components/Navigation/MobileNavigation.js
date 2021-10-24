@@ -99,9 +99,8 @@ export default function MobileNavigation() {
 
 const router = [
   { routeName: "Home", route: "/" },
-  { routeName: "Eyeglasses", route: "/home" },
-  { routeName: "sunglasses", route: "/home" },
-  { routeName: "blue light block glass", route: "/home" },
-  { routeName: "Blog", route: "/home" },
-  { routeName: "Contact", route: "/home" },
+  { routeName: "Eyeglasses", route: "/eyeglasses" },
+  { routeName: "sunglasses", route: "/sunglasses" },
+  { routeName: "blue light block glass", route: "/blue-light-block-glasses" },
+  { routeName: "Contact", route: "/contact" },
 ];
