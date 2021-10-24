@@ -22,7 +22,7 @@ import { productSelector } from "../../src/redux/slices/productSlice";
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 1024,
   },
   tableContainer: { marginTop: "24px" },
   removeBtn: {
