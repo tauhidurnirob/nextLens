@@ -38,9 +38,9 @@ const Products = () => {
     <Grid container direction="row" className={clsx(classes.container)}>
       {products.length !== 0 ? (
         <Scroll
-          pLength = {products.length}
-          getMoreProduct = {getMoreProduct}
-          hasMore = {hasMore}
+          pLength={products.length}
+          getMoreProduct={getMoreProduct}
+          hasMore={hasMore}
           scrollView={
             <Grid container direction="row">
               {products?.map((item) => (
