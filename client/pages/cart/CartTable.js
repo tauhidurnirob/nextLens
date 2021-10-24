@@ -24,7 +24,8 @@ const useStyles = makeStyles({
   table: {
     minWidth: 1024,
   },
-  tableContainer: { margin: "14px 10px" },
+
+  tableContainer: { margin: "14px 10px", height: 500 },
   removeBtn: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
