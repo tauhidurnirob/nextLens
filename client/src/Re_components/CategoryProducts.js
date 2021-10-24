@@ -169,7 +169,7 @@ const CategoryEyeGlassProducts = ({ category }) => {
             className={clsx({ [classes.product]: products?.length <= 9 })}
           >
             {products?.map((item) => (
-              <Grid item key={item.id} container md={4}>
+              <Grid item key={item.id} container md={4} justifyContent="center">
                 <Cards item={item} isProduct width={400} height={400} />
               </Grid>
             ))}
