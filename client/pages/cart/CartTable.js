@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   table: {
     minWidth: 1024,
   },
-  tableContainer: { marginTop: "24px" },
+  tableContainer: { margin: "14px 10px" },
   removeBtn: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
@@ -53,6 +53,11 @@ const useStyles = makeStyles({
     overflow: "hidden",
     "&:hover": {
       color: colors.sky,
+    },
+  },
+  "@global": {
+    ".MuiTableContainer-root": {
+      width: "none",
     },
   },
 });
