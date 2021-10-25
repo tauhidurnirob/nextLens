@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
     position: "relative",
     overflow: "hidden",
     boxShadow: "3px 3px 15px #cecece",
+    borderRadius: "6px",
   },
   productAddToCart: {
     position: "absolute",
@@ -33,12 +34,7 @@ const useStyles = makeStyles(() => ({
     padding: "5px 15px",
     borderRadius: "5px",
   },
-  productView: {
-    position: "absolute",
-    top: 5,
-    left: 5,
-    zIndex: 1,
-  },
+
   btn: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
@@ -102,18 +98,11 @@ const Cards = ({
           <Image
             blurDataURL
             src={item?.image}
-            // loader={() => "/images/imageLoader.svg"}
             alt={item?.title}
             height={height}
             width={width}
           />
 
-          <Box
-            component="div"
-            className={clsx({
-              [classes.productView]: isProduct,
-            })}
-          ></Box>
           <Box
             component="div"
             className={clsx({
@@ -137,7 +126,6 @@ const Cards = ({
           <Image
             blurDataURL
             src={item?.image}
-            // loader={() => "/images/imageLoader.svg"}
             alt={item?.title}
             height={height}
             width={width}
