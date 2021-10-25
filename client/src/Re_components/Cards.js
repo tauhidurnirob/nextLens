@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
     position: "relative",
     overflow: "hidden",
     boxShadow: "3px 3px 15px #cecece",
+    borderRadius: "6px",
   },
   productAddToCart: {
     position: "absolute",
@@ -102,7 +103,6 @@ const Cards = ({
           <Image
             blurDataURL
             src={item?.image}
-            // loader={() => "/images/imageLoader.svg"}
             alt={item?.title}
             height={height}
             width={width}
@@ -137,7 +137,6 @@ const Cards = ({
           <Image
             blurDataURL
             src={item?.image}
-            // loader={() => "/images/imageLoader.svg"}
             alt={item?.title}
             height={height}
             width={width}
