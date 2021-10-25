@@ -1,5 +1,7 @@
 .imgHover {
   cursor: pointer;
+  margin: -5px 0;
+
   img {
     transition: all 600ms ease-in-out;
   }
@@ -44,6 +46,7 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+
   a {
     -webkit-transition: all 0.4s ease-in-out 0s;
     -moz-transition: all 0.4s ease-in-out 0s;

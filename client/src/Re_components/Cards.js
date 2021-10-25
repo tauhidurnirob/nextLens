@@ -34,12 +34,7 @@ const useStyles = makeStyles(() => ({
     padding: "5px 15px",
     borderRadius: "5px",
   },
-  productView: {
-    position: "absolute",
-    top: 5,
-    left: 5,
-    zIndex: 1,
-  },
+
   btn: {
     transition: "all 300ms ease-in-out",
     boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
@@ -108,12 +103,6 @@ const Cards = ({
             width={width}
           />
 
-          <Box
-            component="div"
-            className={clsx({
-              [classes.productView]: isProduct,
-            })}
-          ></Box>
           <Box
             component="div"
             className={clsx({
