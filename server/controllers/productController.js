@@ -19,15 +19,88 @@ import {
 // @access public
 
 export const getProducts = asyncHandler(async (req, res) => {
-  const keyword = Keyword(req);
-  const category = Category(req);
-  const color = Color(req);
-  const gender = Gender(req);
-  const price = Price(req);
-  const lenseType = LenseType(req);
-  const frameStyle = FrameStyle(req);
-  const frameShape = FrameShape(req);
-  const shopCollection = ShopCollection(req);
+  const keyword = req.query.keyword
+    ? {
+        title: { $regex: req.query.keyword, $options: "i" },
+      }
+    : {};
+
+  const category = req.query.keyword
+    ? {
+        title: { $regex: req.query.keyword, $options: "i" },
+      }
+    : {};
+  const color =
+    req.query.black || req.query.white
+      ? {
+          color: [req.query.black, req.query.white],
+        }
+      : {};
+  const gender =
+    req.query.men || req.query.women || req.query.kid
+      ? {
+          category: [req.query.men, req.query.women, req.query.kid],
+        }
+      : {};
+  const price =
+    req.query.lowPrice || req.query.highPrice
+      ? {
+          price: {
+            $gte: +req.query.lowPrice,
+            $lte: +req.query.highPrice,
+          },
+        }
+      : {};
+  const lenseType =
+    req.query.frame ||
+    req.query.basic ||
+    req.query.standard ||
+    req.query.premium ||
+    req.query.blue
+      ? {
+          typeLense: [
+            req.query.frame,
+            req.query.basic,
+            req.query.standard,
+            req.query.premium,
+            req.query.blue,
+          ],
+        }
+      : {};
+  const frameStyle =
+    req.query.halfFrame || req.query.fullFrame || req.query.rimless
+      ? {
+          frameStyle: [
+            req.query.halfFrame,
+            req.query.fullFrame,
+            req.query.rimless,
+          ],
+        }
+      : {};
+  const frameShape =
+    req.query.round ||
+    req.query.retroSquare ||
+    req.query.clubMaster ||
+    req.query.oval ||
+    req.query.rectangle ||
+    req.query.catEye
+      ? {
+          frameShape: [
+            req.query.round,
+            req.query.retroSquare,
+            req.query.clubMaster,
+            req.query.oval,
+            req.query.rectangle,
+            req.query.catEye,
+          ],
+        }
+      : {};
+  const shopCollection =
+    req.query.shopEconomy || req.query.shopPremium
+      ? {
+          shopCollection: [req.query.shopEconomy, req.query.shopPremium],
+        }
+      : {};
 
   const products = await Product.find({
     ...keyword,
