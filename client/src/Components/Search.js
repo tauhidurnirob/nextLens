@@ -20,19 +20,19 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Search = ({ setIsSearch }) => {
-  const [keyword, setKeyword] = useState("");
   const router = useRouter();
 
-  useEffect(() => {
-    if (keyword) {
-      router.push({
-        pathname: "/search/[sid]",
-        query: { sid: keyword.split(" ").join("+") },
-      });
-    } else {
+  const inputOnChange = (e) => {
+    let val = e.target.value;
+    if(val === '') {
       router.push("/");
+      return;
     }
-  }, [keyword]);
+    router.push({
+      pathname: "/search/[sid]",
+      query: { sid: val.split(" ").join("+") },
+    });
+  }
 
   const classes = useStyles();
 
@@ -53,8 +53,7 @@ const Search = ({ setIsSearch }) => {
               </IconButton>
             </InputAdornment>
           }
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
+          onChange={inputOnChange}
         />
       </FormControl>
     </Container>
