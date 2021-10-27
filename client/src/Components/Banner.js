@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Box, Grid, Typography, Button } from "@material-ui/core";
 import clsx from "clsx";
+import { Link } from "react-scroll";
 
 import styles from "../../styles/categoryBanner.module.scss";
 import colors from "../../config/colors";
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     fontWeight: "bold",
     borderRadius: "25px",
-    marginTop: "10px",
+    marginTop: "30px",
     "&:hover": {
       boxShadow: "1px 1px 0 0 rgb(0 0 0 / 10%)",
       background: colors.sky,
@@ -52,9 +53,11 @@ const Banner = () => {
     >
       <Typography align="center" variant="h2" className={clsx(classes.title)}>
         <Box fontWeight="fontWeightBold">A BROAD RANGE OF TRENDY EYEWEAR</Box>
-        <Button variant="outlined" className={clsx(classes.btn)}>
-          Shop Now
-        </Button>
+        <Link to="productSection" smooth={true} duration={1000}>
+          <Button variant="outlined" className={clsx(classes.btn)}>
+            Shop Now
+          </Button>
+        </Link>
       </Typography>
     </Grid>
   );
