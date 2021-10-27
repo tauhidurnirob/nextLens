@@ -25,6 +25,7 @@ import { authSelector, logoutAction } from "../../redux/slices/authSlice";
 import MobileNavigation from "./MobileNavigation";
 
 import Search from "../Search";
+import BreadCumb from "../BreadCumb";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "transparent !important",
     boxShadow: "none",
+    top: 40,
   },
   container: {
     background: "white !important",
@@ -76,85 +78,90 @@ const Navigation = () => {
   const classes = useStyles();
 
   return (
-    <Box component="div">
-      <AppBar position="fixed" className={clsx(classes.appBar)}>
-        <Container maxWidth={false} className={clsx(classes.container)}>
-          {isSearch ? (
-            <Search setIsSearch={setIsSearch} />
-          ) : (
-            <Toolbar className={clsx(classes.toolbar)}>
-              <Grid
-                container
-                justifyContent="space-between"
-                alignItems="center"
-              >
-                {isDesktopOrLaptop && <MobileNavigation />}
-                {!isDesktopOrLaptop && (
-                  <Grid item className={clsx(classes.logo)}>
-                    <Link href="/">
-                      <Typography
-                        variant="h5"
-                        style={{ color: "black", cursor: "pointer" }}
-                      >
-                        NextLens
-                      </Typography>
+    <>
+      <BreadCumb />
+      <Box component="div">
+        <AppBar position="fixed" className={clsx(classes.appBar)}>
+          <Container maxWidth={false} className={clsx(classes.container)}>
+            {isSearch ? (
+              <Search setIsSearch={setIsSearch} />
+            ) : (
+              <Toolbar className={clsx(classes.toolbar)}>
+                <Grid
+                  container
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  {isDesktopOrLaptop && <MobileNavigation />}
+                  {!isDesktopOrLaptop && (
+                    <Grid item className={clsx(classes.logo)}>
+                      <Link href="/">
+                        <Typography
+                          variant="h5"
+                          style={{ color: "black", cursor: "pointer" }}
+                        >
+                          NextLens
+                        </Typography>
+                      </Link>
+                    </Grid>
+                  )}
+
+                  <Grid item>
+                    <ButtonGroup
+                      color="inherit"
+                      className={clsx(classes.linkButton)}
+                    >
+                      {router.map((item, index) => (
+                        <Box mr={2} key={index}>
+                          <Link href={item.route}>
+                            <Button className={clsx(classes.linkButtonHover)}>
+                              {item.routeName.toUpperCase()}
+                            </Button>
+                          </Link>
+                        </Box>
+                      ))}
+                    </ButtonGroup>
+                  </Grid>
+                  <Grid item className={clsx(classes.icon)}>
+                    <Box mr={2} onClick={() => setIsSearch(true)}>
+                      <SearchIcon style={{ color: "black" }} />
+                    </Box>
+
+                    <Link href="/login">
+                      <Box mr={2}>
+                        <AccountCircleOutlinedIcon style={{ color: "black" }} />
+                      </Box>
+                    </Link>
+
+                    <Box
+                      mr={userInfo !== null ? 2 : 0}
+                      onClick={() => dispatch(logoutAction(null))}
+                    >
+                      {userInfo !== null && (
+                        <ExitToAppIcon style={{ color: "black" }} />
+                      )}
+                    </Box>
+
+                    <Link href="/cart">
+                      <Box mr={2}>
+                        <Badge
+                          badgeContent={totalQuantity || "0"}
+                          color="primary"
+                        >
+                          <ShoppingCartOutlinedIcon
+                            style={{ color: "black" }}
+                          />
+                        </Badge>
+                      </Box>
                     </Link>
                   </Grid>
-                )}
-
-                <Grid item>
-                  <ButtonGroup
-                    color="inherit"
-                    className={clsx(classes.linkButton)}
-                  >
-                    {router.map((item, index) => (
-                      <Box mr={2} key={index}>
-                        <Link href={item.route}>
-                          <Button className={clsx(classes.linkButtonHover)}>
-                            {item.routeName.toUpperCase()}
-                          </Button>
-                        </Link>
-                      </Box>
-                    ))}
-                  </ButtonGroup>
                 </Grid>
-                <Grid item className={clsx(classes.icon)}>
-                  <Box mr={2} onClick={() => setIsSearch(true)}>
-                    <SearchIcon style={{ color: "black" }} />
-                  </Box>
-
-                  <Link href="/login">
-                    <Box mr={2}>
-                      <AccountCircleOutlinedIcon style={{ color: "black" }} />
-                    </Box>
-                  </Link>
-
-                  <Box
-                    mr={userInfo !== null ? 2 : 0}
-                    onClick={() => dispatch(logoutAction(null))}
-                  >
-                    {userInfo !== null && (
-                      <ExitToAppIcon style={{ color: "black" }} />
-                    )}
-                  </Box>
-
-                  <Link href="/cart">
-                    <Box mr={2}>
-                      <Badge
-                        badgeContent={totalQuantity || "0"}
-                        color="primary"
-                      >
-                        <ShoppingCartOutlinedIcon style={{ color: "black" }} />
-                      </Badge>
-                    </Box>
-                  </Link>
-                </Grid>
-              </Grid>
-            </Toolbar>
-          )}
-        </Container>
-      </AppBar>
-    </Box>
+              </Toolbar>
+            )}
+          </Container>
+        </AppBar>
+      </Box>
+    </>
   );
 };
 
