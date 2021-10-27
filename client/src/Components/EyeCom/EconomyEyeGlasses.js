@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
+import { Element } from "react-scroll";
 
 import { Heading } from "../../Re_components";
 import Products from "../Products";
@@ -13,14 +14,14 @@ const EconomyEyeGlasses = () => {
   const classes = useStyles();
 
   return (
-    <>
+    <Element name="productSection">
       <Heading isDivider>
         <Typography className={clsx(classes.heading)}>
           ECONOMY EYEGLASSES
         </Typography>
       </Heading>
       <Products />
-    </>
+    </Element>
   );
 };
 
