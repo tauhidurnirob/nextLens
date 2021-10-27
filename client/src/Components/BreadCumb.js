@@ -14,7 +14,7 @@ const BreadCumb = () => {
       }}
     >
       <Typography variant="subtitle2" style={{ color: "#fff" }}>
-        Sunny Services
+        Stay Stylish This Spooky Season
       </Typography>
     </Grid>
   );
