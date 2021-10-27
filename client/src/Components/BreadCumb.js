@@ -6,7 +6,12 @@ const BreadCumb = () => {
     <Grid
       container
       justifyContent="center"
-      style={{ padding: "5px", backgroundColor: "#000" }}
+      style={{
+        padding: "10px",
+        backgroundColor: "#000",
+        position: "fixed",
+        zIndex: 999,
+      }}
     >
       <Typography variant="subtitle2" style={{ color: "#fff" }}>
         Shopping Services

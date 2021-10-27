@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "transparent !important",
     boxShadow: "none",
-    top: 30,
+    top: 40,
   },
   container: {
     background: "white !important",
