@@ -7,3 +7,13 @@
   width: 100%;
   height: 70vh;
 }
+
+.mainBanner__bg {
+  background-image: linear-gradient(rgb(4, 9, 30, 0.5)),
+    url("/images/blue-light-glasses.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 80vh;
+}
